@@ -1,44 +1,38 @@
-\documentclass[a4paper]{article}
+\documentclass{includes/fhwn-masterthesis}
 
-%% Language and font encodings
-\usepackage[english]{babel}
-\usepackage[utf8x]{inputenc}
+\usepackage{includes/masterthesis-vars}
+\usepackage{includes/masterthesis-definitions}
 
-\usepackage{booktabs}
-\usepackage{tabu}
-\usepackage[T1]{fontenc}
 
-%% Sets page size and margins
-%\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
-
-%% Useful packages
-\usepackage{amsmath}
-\usepackage{graphicx}
-%\usepackage{apacite}
-%\usepackage[colorinlistoftodos]{todonotes}
-%\usepackage[colorlinks=true, allcolors=blue]{hyperref}
-\usepackage{hyperref}
-\usepackage{longtable}
-\usepackage[numbers]{natbib}
-
-%\setcounter{secnumdepth}{1}
-\setcounter{tocdepth}{1}
-
-\title{Proposal: An analysis of share movement and sentiment of tweets: detailed analysis of automotive companies.}
-\author{David Kovacs \\ 1610277033}
-\date{}
+\usepackage{fancyhdr}
+\usepackage{titletoc}
+\renewcommand{\contentsname}{Table of Contents}
 
 \begin{document}
-\maketitle
+\include{includes/proposal/part01-page1-titlepage}
 
+\pagestyle{fancy}
+\fancyhf{} %Clear Everything.
+\fancyfoot[C]{Research Proposal} %Page Number
+%     \renewcommand{\headrulewidth}{0pt} %0pt for no rule, 2pt thicker etc...
+%     \renewcommand{\footrulewidth}{0pt}
+\fancyfoot[L]{Stefan Rohrbacher}
+\fancyfoot[R]{MedTech}
+\fancyhead[R]{\thepage}
+
+\include{includes/proposal/part01-page3-abstract}
+
+\renewcommand{\contentsname}{Table of Contents}
+% page 3: TOC
+\tableofcontents
 \clearpage
-
 \include{includes/proposal/Content}
 
-%\nocite{*}
+%\backmatter
 
-\addcontentsline{toc}{section}{References}
-\bibliographystyle{plainnat}
-\bibliography{includes/proposal/references}
+%\include{includes/thesis/part03-page1-bibliography}
+%\include{includes/thesis/part03-page2-listoffigures}
+%\include{includes/thesis/part03-page3-listoftables}
+%\include{includes/thesis/part03-page4-appendix}
 
 \end{document}

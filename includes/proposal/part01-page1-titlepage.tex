@@ -1,0 +1,42 @@
+%!TEX root = ../../proposal.tex
+
+\makeatletter
+
+\begin{titlepage}
+	% \tikz [remember picture, overlay] %
+	% \node [shift={(1cm,-1cm)}] at (current page.north east) %
+	% [anchor=north east] %
+	% {\includegraphics[width=6cm]{images/fhwn-logo.png}};
+	\thispagestyle{empty}
+	\vspace*{\dimexpr-1cm-\topmargin-\headsep-\headheight-\baselineskip}%
+  \hspace*{\dimexpr-4cm-\evensidemargin-\parindent}%
+	\makebox[\paperwidth][r]{\includegraphics[width=8cm, height=3cm]{images/fhwn-logo.png}}
+
+	\begin{center}
+		{\noindent \linespread{1.3} \color{header-blue} \Huge \textbf{\@title} \par }
+		\vspace{5pt}
+		{\noindent\Huge \textbf{MedTech} \par}
+		{\noindent\Huge \textbf{Research Proposal} \par}
+		\vspace{20pt}
+	\end{center}
+	\hspace{-35mm}
+
+	\vspace{15pt}
+
+	\tabto{2cm}STUDENT NAME: \tabto{7cm}\textbf{\@author} \\
+	\tabto{2cm}STUDENT ID: \tabto{7cm}\textbf{\matriculationNumber} \\
+	\tabto{2cm}COURSE NAME: \tabto{7cm}\textbf{\study}\\
+	\tabto{7cm}\textbf{\institutename}
+	\tabto{7cm}\textbf{\studyprogram} \\
+	\vspace{15pt}
+	\tabto{2cm}SUPERVISOR: \tabto{7cm}\textbf{\advisor}
+	\tabto{2cm}DATE OF SUBMISSION: \tabto{7cm}\textbf{\today}
+
+	\vfill
+
+	\place, \thesisdate
+
+\end{titlepage}
+\makeatother
+
+%\renewcommand{\arraystretch}{1}
