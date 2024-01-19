@@ -5,6 +5,9 @@ PRESENTATION_NORMAL_OPTIONS:="\def\presentationoptions{12pt}"
 PRESENTATION_HANDOUT_OPTIONS:="\def\presentationoptions{12pt,handout}"
 PRESENTATION_HANDOUT_WITH_NOTES_OPTIONS:="\def\presentationoptions{12pt,handout,notes}"
 
+watch:
+	while inotifywait -r -e modify . >/dev/null;do notify-send "modified"; done
+
 all: proposal thesis presentation
 
 presentation: presentation-handout presentation-with-notes-handout presentation-standalone

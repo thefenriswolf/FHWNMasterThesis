@@ -18,6 +18,9 @@ analysis/graphs/
 *.cb2
 .*.lb
 
+## build system
+.direnv
+
 ## Intermediate documents:
 *.dvi
 *.xdv
@@ -204,7 +207,7 @@ pythontex-files-*/
 # tcolorbox
 *.listing
 
-# thmtools
+# thmgtools
 *.loe
 
 # TikZ & PGF
