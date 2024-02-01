@@ -1,11 +1,15 @@
-\documentclass{includes/fhwn-masterthesis}
+\documentclass{./includes/proposal/fhwn-masterthesis}
+\usepackage{./includes/proposal/masterthesis-vars}
+\usepackage{./includes/proposal/masterthesis-definitions}
 
-\usepackage{includes/masterthesis-vars}
-\usepackage{includes/masterthesis-definitions}
-
+\counterwithout{section}{chapter}
 \usepackage{fancyhdr}
 \usepackage{titletoc}
 \renewcommand{\contentsname}{Table of Contents}
+
+\addtokomafont{disposition}{\MyFont}
+
+\usepackage{helvet}
 
 \begin{document}
 \include{includes/proposal/part01-page1-titlepage}
@@ -25,6 +29,7 @@
 % page 3: TOC
 \tableofcontents
 \clearpage
+
 \include{includes/proposal/Content}
 
 %\backmatter
