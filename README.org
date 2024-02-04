@@ -1,0 +1,83 @@
+* FWHN MedTech master thesis
+
+* Table of Contents :TOC:
+- [[#fwhn-medtech-master-thesis][FWHN MedTech master thesis]]
+- [[#general][General]]
+- [[#contents][Contents]]
+- [[#roadmap][Roadmap]]
+- [[#how-to-build][How to build]]
+  - [[#requirements][Requirements]]
+  - [[#build-project][Build project]]
+- [[#credits][Credits]]
+- [[#license][License]]
+
+* General
+This branch of the repo will be actively maintained until the thesis is finished. After that it will be archived like the original from [[https://github.com/mrdavidkovacs/FHWNMasterThesis][David Kovacs]] to serve as a template for future FHWN students searching for a ready to go LaTeX template.
+
+* Contents
+This repository contains my master thesis proposal, thesis and the presentation.
+Please see the corresponding files.
+ - [[https://github.com/thefenriswolf/FHWNMasterThesis/blob/main/proposal.tex][proposal.tex]]
+ - [[https://github.com/thefenriswolf/FHWNMasterThesis/blob/main/thesis.tex][thesis.tex]]
+ - [[https://github.com/thefenriswolf/FHWNMasterThesis/blob/main/presentation.tex][presentation.tex]]
+ - [[https://github.com/thefenriswolf/FHWNMasterThesis/blob/main/presentation-handout.tex][presentation-handout.tex]] (to be compiled after presentation.tex)
+
+* Roadmap
+| Step              | planned Date | actual Date |
+|-------------------+--------------+-------------|
+| Research Proposal |   18.02.2024 |             |
+| Experiments       |              |             |
+| Thesis            |              |             |
+| Presentation      |              |             |
+
+* How to build
+** Requirements
+Make sure to have the following software installed to build the project.
+*** LaTeX distribution (only one is required)
+| TeX Live | [[https://tug.org/texlive/]]                      |
+| MiKTeX   | [[https://miktex.org]]                            |
+| Tectonic | [[https://tectonic-typesetting.github.io/en-US/]] |
+
+*** Windows Fonts
+| Windows | built in                   |
+| MacOS   | come with Microsoft Office |
+| Linux   | [[https://corefonts.sourceforge.net][corefonts]], [[https://github.com/fontist/vista-fonts-installer][vistafonts]]      |
+
+*** Optional but recommended
+- make
+  - Windows: via WSL or [[https://gnuwin32.sourceforge.net/packages/make.htm]]
+  - Linux: via package manager [[https://www.gnu.org/software/make/]]
+  - MacOS: via brew [[https://formulae.brew.sh/formula/make]]
+
+- LaTeX Editor (choose one):
+  - [[https://www.texstudio.org][TeXstudio]]
+  - [[https://www.xm1math.net/texmaker/][TeXmaker]]
+  - [[https://www.tug.org/texworks/][TeXworks]]
+  - [[https://apps.kde.org/en-gb/kile/][Kile]]
+  - VSCode with [[https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop][LaTeX Workshop]]
+  - Vim with [[https://vim-latex.sourceforge.net][Vim-LaTex]]
+  - Emacs with [[https://www.gnu.org/software/auctex/index.html][AUCTEX]]
+** Build project
+*** Make
+| Command             | Description                      |
+|---------------------+----------------------------------|
+| =make all=          | build all possible artifacts     |
+| =make proposal=     | build proposal.tex               |
+| =make thesis=       | build thesis.tex                 |
+| =make presentation= | build presentation.tex           |
+|                     |                                  |
+| =make clean=        | remove temporary build artifacts |
+| =make clean-all=    | remove all build artifacts       |
+*** without make
+| Command                                             | Description            |
+|-----------------------------------------------------+------------------------|
+| =xelatex -synctex=1 -shell-escape proposal.tex=     | build proposal.tex     |
+| =xelatex -synctex=1 -shell-escape thesis.tex=       | build thesis.tex       |
+| =xelatex -synctex=1 -shell-escape presentation.tex= | build presentation.tex |
+
+* Credits
+- [[https://github.com/mrdavidkovacs/FHWNMasterThesis][David Kovacs]] as the creator of this project.
+- [[https://github.com/novoid/LaTeX-KOMA-template][Karl Voit]] who created a similiar template for the TU Graz.
+
+* License
+=FHWNMasterThesis= was kindly released under the [[https://github.com/thefenriswolf/FHWNMasterThesis/blob/main/LICENSE][MIT License]] by David Kovacs.

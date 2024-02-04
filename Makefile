@@ -7,7 +7,6 @@ PRESENTATION_HANDOUT_WITH_NOTES_OPTIONS:="\def\presentationoptions{12pt,handout,
 
 watch:
 	$(CC) $(CFLAGS) -pvc proposal.tex
-#	while inotifywait -r -e modify . >/dev/null;do make all; done
 
 all: proposal thesis presentation
 
