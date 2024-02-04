@@ -6,7 +6,6 @@ pkgs.mkShell {
     pkgs.zathura
     pkgs.inotify-tools
     pkgs.gnumake
-    # keep this line if you use bash
     pkgs.bashInteractive
   ];
 }
