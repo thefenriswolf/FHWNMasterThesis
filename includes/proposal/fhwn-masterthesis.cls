@@ -17,7 +17,7 @@
 \RequirePackage[a4paper,top=25mm,bottom=30mm,left=30mm,right=25mm]{geometry}   %allows to change margins and distances within the page's frame. Be careful with this tool. Remember to delete the frame!!!!
 
 %\RequirePackage{showframe}
-%\RequirePackage[english]{babel}    %the package babel is not necessary as long as you write your thesis in English.
+\RequirePackage[english]{babel}    %the package babel is not necessary as long as you write your thesis in English.
 \RequirePackage{csquotes}
 \RequirePackage{graphicx}   %loads the graphics package, necessary for pictures
 \RequirePackage{url}
@@ -136,7 +136,7 @@
 	#1\ignorespaces
 }
 
-\RequirePackage[backend=bibtex,style=authoryear,sorting=anyvt,natbib=true]{biblatex}
+\RequirePackage[backend=bibtex,style=ieee,sorting=anyvt,natbib=true]{biblatex}
 \clubpenalty = 10000
 \widowpenalty = 10000
 \displaywidowpenalty = 10000

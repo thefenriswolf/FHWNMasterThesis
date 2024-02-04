@@ -5,10 +5,10 @@
 
 \makeatletter
 \hypersetup{pdfinfo={
-  Title={\@title},
-  Author={\@author},
-  Subject={\thesissubject},
-  Keywords={\thesiskeywords}}
+			Title={\@title},
+			Author={\@author},
+			Subject={\thesissubject},
+			Keywords={\thesiskeywords}}
 }
 \makeatother
 
@@ -21,21 +21,22 @@
 
 \addbibresource{includes/shared-preamble-mainreferences.bib}  %Imports bibliography file
 \addbibresource{includes/shared-preamble-tweetreferences.bib} %Imports bibliography file
+\addbibresource{includes/medtec.bib} %Imports bibliography file
 
 \newcommand{\tweet}[1]{%
-\begin{quote}
-  #1
-\end{quote}%
+	\begin{quote}
+		#1
+	\end{quote}%
 }
 
 \newcommand{\toptweet}[3]{
-  The most frequent tweet of that day was
-  \tweet{#1}
-  It was published \num{#2} times which is equivalent to \SI{#3}{\percent} of all tweets of that day.
+	The most frequent tweet of that day was
+	\tweet{#1}
+	It was published \num{#2} times which is equivalent to \SI{#3}{\percent} of all tweets of that day.
 }
 
 \newcommand{\citetweet}[1]{
-  \tweet{\citefield{#1}{title} \citep{#1}}%
+	\tweet{\citefield{#1}{title} \citep{#1}}%
 }
 
 \makeatletter
@@ -56,17 +57,17 @@
 \newcommand{\withoutRetweets}{No \ac{RT}}
 
 \NewDocumentEnvironment{grangerTable}{m m}{%
-\begin{table}[hbt]
-    \centering
-    \begin{tabular}{!r *{4}{^l^l}}
-        \hline
-        \multicolumn{1}{r}{Lag} &  \multicolumn{2}{c}{\ftb{}} & \multicolumn{2}{c}{\fnb{}} & \multicolumn{2}{c}{\fme{}} & \multicolumn{2}{c}{\fsvm{}} \\
-        \multicolumn{1}{r}{[days]} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} \\ \hline
-}{%
-    \hline
-    \end{tabular}
+	\begin{table}[hbt]
+		\centering
+		\begin{tabular}{!r *{4}{^l^l}}
+			\hline
+			\multicolumn{1}{r}{Lag}    & \multicolumn{2}{c}{\ftb{}}        & \multicolumn{2}{c}{\fnb{}}           & \multicolumn{2}{c}{\fme{}}        & \multicolumn{2}{c}{\fsvm{}}                                                                                                                                                                \\
+			\multicolumn{1}{r}{[days]} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} \\ \hline
+			}{%
+			\hline
+		\end{tabular}
 
-    \caption[\grangerResultsCaptionShort{#1}]{\grangerResultsCaptionLong{#1}}
-    \label{tab:analysis-granger-#2-results}
-\end{table}
+		\caption[\grangerResultsCaptionShort{#1}]{\grangerResultsCaptionLong{#1}}
+		\label{tab:analysis-granger-#2-results}
+	\end{table}
 }
