@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{fhwn-masterthesis}[2019/04/08 Masterthesis Template for FHWN]
 
-\LoadClass[oneside,12pt,bibliography=totoc]{scrbook}
+\LoadClass[twoside,12pt,bibliography=totoc]{scrbook}
 
 \RequirePackage{gitinfo2}
 
