@@ -53,14 +53,14 @@
 \RequirePackage{tabto}
 
 \RequirePackage{fontspec}
+\RequirePackage{bm}
 % \setmainfont{Tw Cen MT}
 \setmainfont{MyFont.TTF}%Tw Cen MT
 [Ligatures=TeX,
-	Path=includes/fonts/,
-	BoldFont=MyFont_Bold.TTF,
-	ItalicFont=MyFont_Italic.TTF,
-	BoldItalicFont=MyFont_BoldItalic.TTF]
-
+	Path=./includes/fonts/,
+	BoldFont=*_Bold.TTF,
+	ItalicFont=*_Italic.TTF,
+	BoldItalicFont=*_BoldItalic.TTF]
 \RequirePackage{xcolor}
 \definecolor{header-blue}{RGB}{22,48,114}
 
@@ -99,7 +99,7 @@
 %\RequirePackage{footnote}      %Just in case you want to include footnotes
 %\RequirePackage{indentfirst}    %Indent in every first paragraph after \chapter and \section.
 \RequirePackage[onehalfspacing]{setspace}      %Change spacing easily with simple commands
-
+\RequirePackage{amssymb}
 \RequirePackage{amsmath}       %This package introduces several new commands that are more powerful and flexible than the ones provided by LaTeX. Uncomment them if you are using complex mathematical notation.
 \RequirePackage{mathtools}     %The mathtools package fixes some amsmath quirks and adds some useful settings, symbols, and environments to amsmath.
 
@@ -136,7 +136,7 @@
 	#1\ignorespaces
 }
 
-\RequirePackage[backend=bibtex,style=ieee,sorting=anyvt,natbib=true]{biblatex}
+\RequirePackage[backend=biber,style=ieee,sorting=none,natbib=true]{biblatex}
 \clubpenalty = 10000
 \widowpenalty = 10000
 \displaywidowpenalty = 10000

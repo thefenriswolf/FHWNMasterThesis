@@ -53,10 +53,11 @@
 \RequirePackage{tabto}
 
 \RequirePackage{fontspec}
+
 % \setmainfont{Tw Cen MT}
 \setmainfont{MyFont.TTF}%Tw Cen MT
 [Ligatures=TeX,
-	Path=includes/fonts/,
+	Path=./includes/fonts/,
 	BoldFont=MyFont_Bold.TTF,
 	ItalicFont=MyFont_Italic.TTF,
 	BoldItalicFont=MyFont_BoldItalic.TTF]

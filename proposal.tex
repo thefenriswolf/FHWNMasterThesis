@@ -3,16 +3,13 @@
 \usepackage{./includes/proposal/masterthesis-definitions}
 \usepackage{lipsum}
 \usepackage{pifont}
-\usepackage{amssymb}
 \usepackage[clockwise]{rotating}
 \counterwithout{section}{chapter}
 \usepackage{fancyhdr}
 \usepackage{titletoc}
 \renewcommand{\contentsname}{Table of Contents}
 
-%%\addtokomafont{disposition}{\MyFont}
-
-\usepackage{helvet}
+\newenvironment{body}{\fontfamily{Times New Roman}\selectfont}{\par}
 
 \begin{document}
 \include{includes/proposal/part01-page1-titlepage}
@@ -29,7 +26,6 @@
 \include{includes/proposal/part01-page3-abstract}
 
 \renewcommand{\contentsname}{Table of Contents}
-% page 3: TOC
 \tableofcontents
 \clearpage
 
