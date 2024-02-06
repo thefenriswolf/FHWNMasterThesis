@@ -36,4 +36,4 @@ clean:
 	$(CC) -c -rc-report-
 clean-all:
 	$(CC) -C -rc-report-
-	rm -v *.auxlock *.run.xml *.bbl
+	rm -v *.auxlock *.run.xml *.bbl *.aux
