@@ -5,8 +5,14 @@ PRESENTATION_NORMAL_OPTIONS:="\def\presentationoptions{12pt}"
 PRESENTATION_HANDOUT_OPTIONS:="\def\presentationoptions{12pt,handout}"
 PRESENTATION_HANDOUT_WITH_NOTES_OPTIONS:="\def\presentationoptions{12pt,handout,notes}"
 
-watch:
+watch-proposal:
 	$(CC) $(CFLAGS) -pvc proposal.tex
+
+watch-thesis:
+	$(CC) $(CFLAGS) -pvc thesis.tex
+
+watch-presentation:
+	$(CC) $(CFLAGS) -pvc presentation.tex
 
 all: proposal thesis presentation
 

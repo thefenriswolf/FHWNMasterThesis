@@ -59,15 +59,18 @@ Make sure to have the following software installed to build the project.
   - Emacs with [[https://www.gnu.org/software/auctex/index.html][AUCTEX]]
 ** Build project
 *** Make
-| Command             | Description                      |
-|---------------------+----------------------------------|
-| =make all=          | build all possible artifacts     |
-| =make proposal=     | build proposal.tex               |
-| =make thesis=       | build thesis.tex                 |
-| =make presentation= | build presentation.tex           |
-|                     |                                  |
-| =make clean=        | remove temporary build artifacts |
-| =make clean-all=    | remove all build artifacts       |
+| Command                   | Description                      |
+|---------------------------+----------------------------------|
+| =make all=                | build all possible artifacts     |
+| =make proposal=           | build proposal.tex               |
+| =make thesis=             | build thesis.tex                 |
+| =make presentation=       | build presentation.tex           |
+| =make watch-proposal=     | rebuild proposal on change       |
+| =make watch-thesis=       | rebuild thesis on change         |
+| =make watch-presentation= | rebuild presentation on change   |
+|                           |                                  |
+| =make clean=              | remove temporary build artifacts |
+| =make clean-all=          | remove all build artifacts       |
 *** without make
 | Command                                             | Description            |
 |-----------------------------------------------------+------------------------|
