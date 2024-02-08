@@ -3,7 +3,7 @@
 \section{Introduction}
 \begin{body}
 	Micro computed tomography ($\mu$CT) is a widely used modality in industry and research. For the latter, it enables the study of small structures in animals, for example rodents such as mice\cite{percianoInsight3DMicroCT2017}.
-	A common task while performing short-term or long-term studies with mice is the segmentation of the image data, as it is an important step for quantitative image analysis\cite{sheppardTechniquesHelicalScanning2014}. Segmentation can be defined as the process of separating various image components and extracting parts that are of interest for later analysis\cite{percianoInsight3DMicroCT2017}.
+	A common task while performing short-term or long-term studies with mice is the segmentation of the image data, as it is an important step for quantitative image analysis\cite{sheppardTechniquesHelicalScanning2014}. Segmentation can be defined as the process of separating various image components and extracting parts that are of interest for later analysis\cite{percianoInsight3DMicroCT2017}. A common task may be in-vivo bone analysis for the investigation and monitoring of progression of various bone pathologies. Analysis is performed by first segmenting the $\mu$CT volume and then extracting morphological features relevant for the study. Streamlining the segmentation process is therefore crucial for the analysis step\cite{korfiatisIndependentActiveContours2017}.
 	\newline
 	There exist a few free and open-source programs capable of segmenting $\mu$CT datasets.
 	The two actively maintained and well-known\cite{mandoliniComparisonThree3D2022,virziComprehensiveReview3D2020} software packages are:
@@ -15,28 +15,35 @@
 	Accuracy and efficiency of the segmentation however strongly depend on user experience and the segmentation algorithm chosen\cite{mandoliniComparisonThree3D2022,aydinRELIABILITYREPRODUCIBILITYTIMEEFFICIENCY2020}. Despite this fact, there is a distinct lack of general recommendations, instructions or guides on how to efficiently segment $\mu$CT datasets.\\
 	For example, searching for:
 	\begin{displayquote}
-	  micro ct 'segmentation instructions'
-    \end{displayquote}
+		micro ct 'segmentation instructions'
+	\end{displayquote}
 	or
-    \begin{displayquote}
-	  micro ct 'segmentation guide'
-    \end{displayquote}
+	\begin{displayquote}
+		micro ct 'segmentation guide'
+	\end{displayquote}
 	on Google Scholar returns a total of 6 and 27 search results respectively.
 	3D Slicers documentation website\cite{pinterPolymorphSegmentationRepresentation2019} explains the software and many of the available tools in the standard distribution of 3D Slicer. But it does not feature a recommended segmentation workflow.
-  \end{body}
+\end{body}
+\clearpage
 \section{Problem Statement}
 \begin{body}
-	As mentioned above, \texttt{3D Slicer} and \texttt{ITK-SNAP} provide the user with a sizable amount of segmentation tools and the selection of the correct segmentation algorithm and workflow have a non-negligible influence on the segmentation quality as well as the time the user has to spend on it.
+	As mentioned above, \texttt{3D Slicer} and \texttt{ITK-SNAP} provide the user with a sizable amount of segmentation tools and the selection of the correct segmentation algorithm and workflow have a non-negligible influence on the segmentation quality as well as the time the user has to spend on it. Furthermore, segmenting large datasets, such as produced by a high resolution $\mu$CT scan results in large random-access memory (RAM) demands by the segmentation software.
+	The 3D Slicer documentation states that the software will require approximately 10 times more memory than the loaded dataset \cite{slicercommunity3DSlicerImage2022,fedorov3DSlicerImage2012}.
+	The user has therefore optimize the segmentation workflow if the software is to be used on a computer with limited amounts of RAM.
 	Therefore, we hypothesize that users of \texttt{3D Slicer} will benefit from a streamlined segmentation guide, and it will improve segmentation quality as well as workflow efficiency.
 \end{body}
 \clearpage
 \section{Objectives and Aims}
 \begin{body}
-  The master thesis is based on the following hypothesis:
-  \begin{itemize}
-	\item A segmentation guide will improve segmentation accuracy for inexperienced users
-  \end{itemize}
-  Similar to Guindon et al.\cite{diceMeasuresAmountEcologic1945}, we plan to evaluate segmentation accuracy by comparing the results of the test candidates with the author's ground truth segmentation. Evaluation will be done by calculating the Dice coefficient\cite{diceMeasuresAmountEcologic1945} or Hausdorff distance\cite{birsanOneHundredYears2006} of the two segmentation results and correlating the error with literature\cite{kenneyHighthroughputSemiautomatedBone2022}. The resulting ground truth segmentations can then be used in later works. For instance as a training dataset for an deep-learning based approach as Rushmore et al. point out\cite{rushmoreAnatomicallyCuratedSegmentation2022}.
+	The master thesis is based on the following hypothesis:
+	\begin{itemize}
+		\item A segmentation guide will improve segmentation accuracy for inexperienced users
+	\end{itemize}
+	Similar to Guindon et al.\cite{diceMeasuresAmountEcologic1945}, we plan to evaluate segmentation accuracy by comparing the results of the test candidates with the author's ground truth segmentation. Evaluation will be done by calculating the Dice coefficient\cite{diceMeasuresAmountEcologic1945} or Hausdorff distance\cite{birsanOneHundredYears2006} of the two segmentation results and correlating the error with literature\cite{kenneyHighthroughputSemiautomatedBone2022,malimbanDeepLearningbasedSegmentation2022}. The resulting ground truth segmentations can then be used in later works. For instance as a training dataset for an deep-learning based approach as Rosenhain et al. point out:
+	\begin{quotation}
+		\noindent
+		''The gold-standard of preclinical micro-computed tomography ($\mu$CT) data processing is still manual delineation of complete organs or regions by specialists.''\cite{rosenhainPreclinicalMicrocomputedTomography2018}
+	\end{quotation}
 \end{body}
 \clearpage
 \section{Literature to be reviewed}
