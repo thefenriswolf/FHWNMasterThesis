@@ -14,7 +14,10 @@
 
 \newenvironment{body}{\fontfamily{Times New Roman}\selectfont}{\par}
 
+\pagenumbering{Roman}
+
 \begin{document}
+
 \include{includes/proposal/part01-page1-titlepage}
 
 \pagestyle{fancy}
@@ -23,13 +26,14 @@
 \fancyfoot[L]{Stefan Rohrbacher}
 \fancyfoot[R]{MedTech}
 \fancyhead[R]{\thepage}
-
 \include{includes/proposal/part01-page3-abstract}
 
 \renewcommand{\contentsname}{Table of Contents}
+\addtocontents{toc}{\protect\thispagestyle{fancy}}
 \tableofcontents
 \clearpage
 
+\pagenumbering{arabic}
 \include{includes/proposal/Content}
 
 %\backmatter
