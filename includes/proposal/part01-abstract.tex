@@ -1,0 +1,35 @@
+%!TEX root = ../../proposal.tex
+
+\newcommand*{\AbstractHead}[1]{%
+	{\noindent\color{header-blue}\Large\textbf{#1}}
+	\vspace{10pt}\\
+}% These command is used to create the Date and Signature fields.
+
+\newcommand*{\SomeSpace}{%
+	\vspace{\baselineskip}
+}
+
+\AbstractHead{Abstract}
+\noindent
+\normalsize
+\begin{body}
+	Segmentation is a common task for analysis and evaluation of $\mu$CT data. Open-source software like \texttt{3D Slicer} or \texttt{ITK-SNAP} provide users with a plethora of segmentation tools, the selection of the correct algorithm for a given task has a non-negligible influence on outcome and required effort by the user. Furthermore, because 3D Slicer requires approximately 10 times more random-access-memory (RAM) than the size of the loaded dataset, user experience also plays a role in picking a segmentation algorithm compatible with the available amount of RAM.
+	Despite all these issues, there is a noticeable lack of instructions, guides, or novice user approachable tutorials.
+
+\end{body}
+\SomeSpace
+\AbstractHead{Keywords}
+\label{s:Keywords}
+\normalsize
+\noindent
+\begin{body}
+	\noindent
+	$\mu$CT, Segmentation, ITK-SNAP, 3D Slicer
+\end{body}
+\glsresetall
+\SomeSpace
+
+\SomeSpace
+\normalsize
+
+\glsresetall

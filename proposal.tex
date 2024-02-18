@@ -1,24 +1,12 @@
 \documentclass{./includes/proposal/fhwn-masterthesis}
 \usepackage{./includes/proposal/masterthesis-vars}
 \usepackage{./includes/proposal/masterthesis-definitions}
-\usepackage{lipsum}
-\usepackage{pifont}
-\usepackage[clockwise]{rotating}
-\counterwithout{section}{chapter}
-\usepackage{fancyhdr}
-\usepackage{titletoc}
-\renewcommand{\contentsname}{Table of Contents}
-
-\usepackage{enumitem}
-\setlist[itemize,1]{label=$\bullet$}
-
-\newenvironment{body}{\fontfamily{Times New Roman}\selectfont}{\par}
 
 \pagenumbering{Roman}
 
 \begin{document}
 
-\include{includes/proposal/part01-page1-titlepage}
+\include{includes/proposal/part01-titlepage}
 
 \pagestyle{fancy}
 \fancyhf{} %Clear Everything.
@@ -26,21 +14,16 @@
 \fancyfoot[L]{Stefan Rohrbacher}
 \fancyfoot[R]{MedTech}
 \fancyhead[R]{\thepage}
-\include{includes/proposal/part01-page3-abstract}
 
-\renewcommand{\contentsname}{Table of Contents}
+\include{includes/proposal/part01-abstract}
+
 \addtocontents{toc}{\protect\thispagestyle{fancy}}
 \tableofcontents
 \clearpage
 
 \pagenumbering{arabic}
-\include{includes/proposal/Content}
+\include{includes/proposal/part02-content}
 
-%\backmatter
-
-\include{includes/proposal/part03-page1-bibliography}
-%\include{includes/thesis/part03-page2-listoffigures}
-%\include{includes/thesis/part03-page3-listoftables}
-%\include{includes/thesis/part03-page4-appendix}
+\include{includes/proposal/part03-bibliography}
 
 \end{document}

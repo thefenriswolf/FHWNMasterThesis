@@ -25,6 +25,14 @@
 % \RequirePackage{breakurl}
 %\RequirePackage{wallpaper}
 
+\usepackage{pifont}
+\usepackage[clockwise]{rotating}
+\counterwithout{section}{chapter}
+\usepackage{titletoc}
+
+\usepackage{enumitem}
+\setlist[itemize,1]{label=$\bullet$}
+
 \def\UrlBreaks{\do\/\do-}
 
 \RequirePackage[toc,page]{appendix}
