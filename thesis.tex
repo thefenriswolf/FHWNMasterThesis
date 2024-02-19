@@ -1,25 +1,26 @@
-\documentclass{includes/fhwn-masterthesis}
+\documentclass{includes/thesis/fhwn-masterthesis}
 
-\usepackage{includes/masterthesis-vars}
-\usepackage{includes/masterthesis-definitions}
+\usepackage{includes/thesis/masterthesis-vars}
+\usepackage{includes/thesis/masterthesis-definitions}
 
-\makeglossaries
+\makeglossaries{}
 \input{includes/shared-preamble-acronyms}
 
 \begin{document}
 
-\frontmatter
+\frontmatter{}\pagenumbering{Roman}
 
 \include{includes/thesis/part01-page1-titlepage}
 \include{includes/thesis/part01-page2-declaration}
+\include{includes/thesis/part01-page7-dedication}
 \include{includes/thesis/part01-page3-abstract}
 
 \normalsize
 \include{includes/thesis/part01-page4-tableofcontents}
 \include{includes/thesis/part01-page5-listofacronyms}
 
-\mainmatter
-\glsresetall
+\mainmatter{}\pagenumbering{arabic}
+\glsresetall{}
 
 \include{includes/thesis/part02-chapter01-introduction}
 \include{includes/thesis/part02-chapter02-background}
@@ -27,7 +28,7 @@
 \include{includes/thesis/part02-chapter04-analysis}
 \include{includes/thesis/part02-chapter05-conclusion}
 
-\backmatter
+\backmatter{}
 
 \include{includes/thesis/part03-page1-bibliography}
 \include{includes/thesis/part03-page2-listoffigures}

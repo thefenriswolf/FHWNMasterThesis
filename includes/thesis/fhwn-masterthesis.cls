@@ -1,6 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{fhwn-masterthesis}[2019/04/08 Masterthesis Template for FHWN]
 
+%#+TODO: change to twoside for printing
 \LoadClass[oneside,12pt,bibliography=totoc]{scrbook}
 
 \RequirePackage{gitinfo2}
@@ -16,8 +17,10 @@
 %\RequirePackage[utf8]{inputenc}
 \RequirePackage[a4paper,top=25mm,bottom=30mm,left=30mm,right=25mm]{geometry}   %allows to change margins and distances within the page's frame. Be careful with this tool. Remember to delete the frame!!!!
 
+%#+TODO: remove frame
 %\RequirePackage{showframe}
-%\RequirePackage[english]{babel}    %the package babel is not necessary as long as you write your thesis in English.
+
+\usepackage[english]{babel}
 \RequirePackage{csquotes}
 \RequirePackage{graphicx}   %loads the graphics package, necessary for pictures
 \RequirePackage{url}
@@ -35,18 +38,17 @@
 
 \RequirePackage[nomain,acronym,toc,shortcuts]{glossaries}
 
-\RequirePackage[UKenglish]{isodate} %Provides the format for the date on the title page. Read the package documentation for all the possible date formats.
+\RequirePackage[english]{isodate} %Provides the format for the date on the title page. Read the package documentation for all the possible date formats.
 
 \RequirePackage{array}
 \RequirePackage{longtable}
 \RequirePackage{booktabs}
 \RequirePackage{xparse}
-\RequirePackage{euler}
 
+\RequirePackage{lipsum}
 \RequirePackage{pgfplots}
 \RequirePackage{tikz}
 
-%\RequirePackage{lipsum}
 \RequirePackage{caption}
 %\RequirePackage{abstract}   %This package allows to modify the Abstract style, position and font. Defines the abstract automatically.
 \RequirePackage{supertabular}
@@ -54,13 +56,24 @@
 
 \RequirePackage{fontspec}
 
-% \setmainfont{Tw Cen MT}
-\setmainfont{MyFont.TTF}%Tw Cen MT
-[Ligatures=TeX,
-	Path=./includes/fonts/,
-	BoldFont=MyFont_Bold.TTF,
-	ItalicFont=MyFont_Italic.TTF,
-	BoldItalicFont=MyFont_BoldItalic.TTF]
+\newenvironment{body}{\fontfamily{Times New Roman}\selectfont}{\par}
+
+% \setsansfont[
+% Path=./includes/fonts/,
+% Extension=.ttf,
+% 	BoldFont=*_Bold.TTF,
+% 	ItalicFont=*_Italic.TTF,
+% 	BoldItalicFont=*_BoldItalic.TTF]{MyFont}
+
+\setsansfont{MyFont}[
+  BoldFont = {*_Bold},
+  ItalicFont = {*_Italic},
+  BoldItalicFont = {*_BoldItalic},
+  Path = {./includes/fonts/},
+  Extension = {.TTF}
+]
+
+\setmainfont{Times New Roman}
 
 \RequirePackage{xcolor}
 \definecolor{header-blue}{RGB}{22,48,114}
@@ -69,19 +82,25 @@
 
 \RequirePackage{titlesec}
 
-\titleformat{\chapter}[hang]{\bfseries\Large\color{header-blue}}{\makebox[.63cm][l]{\thechapter.}}{0pt}{}[]
+%#+TODO: remove color for printing???
+% Chapter
+\titleformat{\chapter}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[.63cm][l]{\thechapter.}}{0pt}{}[]
 \titlespacing*{\chapter}{0pt}{18pt}{12pt}
 
-\titleformat{\section}[hang]{\bfseries\large\color{header-blue}}{\makebox[1.27cm][l]{\thesection}}{0pt}{}[]
+% Section
+\titleformat{\section}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[1.27cm][l]{\thesection}}{0pt}{}[]
 \titlespacing*{\section}{0pt}{6pt}{12pt}
 
-\titleformat{\subsection}[hang]{\bfseries\normalsize\color{header-blue}}{\makebox[1.5cm][l]{\thesubsection}}{0pt}{}[]
-\titlespacing*{\subsection}{0pt}{6pt}{12pt}
+% Subsection
+\titleformat{\subsection}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[1.50cm][l]{\thesubsection}}{0pt}{}[]
+ \titlespacing*{\subsection}{0pt}{6pt}{12pt}
 
-\titleformat{\subsubsection}[hang]{\bfseries\normalsize\color{header-blue}}{\makebox[1.5cm][l]{\thesubsubsection}}{0pt}{}[]
-\titlespacing*{\subsubsection}{0pt}{6pt}{12pt}
+ % Subsubsection
+ \titleformat{\subsubsection}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[1.50cm][l]{\thesubsubsection}}{0pt}{}[]
+ \titlespacing*{\subsubsection}{0pt}{6pt}{12pt}
 
-\titleformat{\paragraph}[hang]{\bfseries\normalsize\color{header-blue}}{\makebox[2.5cm][l]{\theparagraph}}{0pt}{}[]
+ % Paragraph
+ \titleformat{\paragraph}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[2.50cm][l]{\theparagraph}}{0pt}{}[]
 \titlespacing*{\paragraph}{0pt}{6pt}{12pt}
 
 \RequirePackage{fancyhdr}
@@ -136,8 +155,7 @@
 \newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
 	#1\ignorespaces
 }
-
-\RequirePackage[backend=bibtex,style=authoryear,sorting=anyvt,natbib=true]{biblatex}
+\RequirePackage[backend=biber,style=ieee,sorting=none,natbib=true]{biblatex}
 \clubpenalty = 10000
 \widowpenalty = 10000
 \displaywidowpenalty = 10000

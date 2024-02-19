@@ -54,7 +54,7 @@
 \RequirePackage{pgfplots}
 \RequirePackage{tikz}
 
-%\RequirePackage{lipsum}
+\RequirePackage{lipsum}
 \RequirePackage{caption}
 %\RequirePackage{abstract}   %This package allows to modify the Abstract style, position and font. Defines the abstract automatically.
 \RequirePackage{supertabular}
@@ -62,7 +62,6 @@
 
 \RequirePackage{fontspec}
 \RequirePackage{bm}
-% \setmainfont{Tw Cen MT}
 \setmainfont{MyFont.TTF}%Tw Cen MT
 [Ligatures=TeX,
 	Path=./includes/fonts/,
