@@ -40,6 +40,10 @@
 
 \RequirePackage[english]{isodate} %Provides the format for the date on the title page. Read the package documentation for all the possible date formats.
 
+\RequirePackage{minted} % source code syntax highlighting
+% requires pygments to be installed
+% wrap code in \begin{minted}{LANGUAGE} \end{minted}
+
 \RequirePackage{array}
 \RequirePackage{longtable}
 \RequirePackage{booktabs}
@@ -66,11 +70,11 @@
 % 	BoldItalicFont=*_BoldItalic.TTF]{MyFont}
 
 \setsansfont{MyFont}[
-  BoldFont = {*_Bold},
-  ItalicFont = {*_Italic},
-  BoldItalicFont = {*_BoldItalic},
-  Path = {./includes/fonts/},
-  Extension = {.TTF}
+	BoldFont = {*_Bold},
+	ItalicFont = {*_Italic},
+	BoldItalicFont = {*_BoldItalic},
+	Path = {./includes/fonts/},
+	Extension = {.TTF}
 ]
 
 \setmainfont{Times New Roman}
@@ -93,14 +97,14 @@
 
 % Subsection
 \titleformat{\subsection}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[1.50cm][l]{\thesubsection}}{0pt}{}[]
- \titlespacing*{\subsection}{0pt}{6pt}{12pt}
+\titlespacing*{\subsection}{0pt}{6pt}{12pt}
 
- % Subsubsection
- \titleformat{\subsubsection}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[1.50cm][l]{\thesubsubsection}}{0pt}{}[]
- \titlespacing*{\subsubsection}{0pt}{6pt}{12pt}
+% Subsubsection
+\titleformat{\subsubsection}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[1.50cm][l]{\thesubsubsection}}{0pt}{}[]
+\titlespacing*{\subsubsection}{0pt}{6pt}{12pt}
 
- % Paragraph
- \titleformat{\paragraph}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[2.50cm][l]{\theparagraph}}{0pt}{}[]
+% Paragraph
+\titleformat{\paragraph}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[2.50cm][l]{\theparagraph}}{0pt}{}[]
 \titlespacing*{\paragraph}{0pt}{6pt}{12pt}
 
 \RequirePackage{fancyhdr}
