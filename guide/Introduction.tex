@@ -1,0 +1,151 @@
+\section{Einleitung}
+Ein bisschen Text zur Einleitung.
+Empfehlung: im Editor jeden Satz in einer neuen Zeile beginnen. 
+Dadurch bleibt's übersichtlich, man kann einzelne Sätze leichter auskommentieren oder verschieben und man sieht, wenn man zu lang wird. 
+
+\subsection{Neben reinem Text gibt's aber auch noch \ldots }
+Die meisten der Fälle, die einer besonderen Behandlung bedürfen sind in weiterer Folge aufgelistet.
+
+\subsubsection{Zitate sind für wissenschaftliche Arbeiten unerlässlich}
+Damit einmal etwas zitiert ist \cite[S. 127ff.]{knuth1997}
+Und noch etwas zitiert, diesmal aus einem Paper - d.h. ohne Seiten \cite{mcintosh1995}
+Und wenn's mehrere Zitate sind geht's auch so \cite{mcintosh1995,knuth1997}
+
+Für das Arbeiten mit Quellen, empfehle ich Zotero (oder Mendeley). 
+Natürlich geht's auch die Quellen direkt aus zB Scholar im \textit{bibtex} Format ins Verzeichnis (= *.bib-Datei) zu kopieren. 
+
+\cite{mcintosh1995,knuth1997, granville1992}
+
+\subsubsection{Auf Grafiken kann selten verzichtet werden}
+Grafiken 
+
+\begin{figure}[h] % h - here - genau da, wo sie eingefügt wurde
+    \centering
+    \includegraphics[width=0.8\textwidth]{Grafiken/Slide1.jpg}
+    \caption{Schema für die Kommissionellen Prüfungen im Online-Verfahren}
+    \label{fig:my_label}
+\end{figure}
+
+
+\subsubsection{Formeln sind in der angewandeten Informatik seltener anzutreffen}
+Die folgende Formel ist als eigenständige Formel nummeriert:
+\begin{equation}
+   \frac{\partial^2 }{\partial x^2}  % Online Formeleditor (google!) wirkt Wunder!
+\end{equation}
+
+
+Formeln können aber auch direkt in den Text $\frac{\partial^2 }{\partial x^2}$, was allerdings schwer zu lesen ist. 
+Für die Formeln in \LaTeX gibt's im Web eigene \textit{Cheat Sheets}, schließlich wurde es extra für den Formelsatz entwickelt.
+
+
+\subsubsection{Tabellen gehören ohne Gitternetzlininen (booktabs Stil)}
+Tabellen im Booktabs Stil sind professioneller gestaltet und lenken nicht durch Gitternetzlinien ab. Das ist gut so, denn welche Daten haben es schon verdient, ihr Leben hinter Gittern zu verbringen?
+Zum Glück, gibt's dafür Online Editoren, denn von der Usability her, ist das händische Setzen einer Tabelle eine Katastrophe. 
+
+% \begin{table}[h]
+
+% \centering
+% \begin{tabular}
+%\toprule
+% ID & \multicolumn{1}{l}{Farbe} & \multicolumn{1}{l}{Anteil} \\ \midrule
+% 1  & rot                       & 255                        \\
+% 2  & grün                      & 255                        \\
+% 3  & blau                      & 0                          \\ \bottomrule
+% \end{tabular}
+% \caption{Tabellen werden fallweise auch oben beschriftet. Dann einfach die caption im Quellcode an die richtige Stelle verschieben.}
+% \end{table}
+
+
+\subsubsection{Programmcode darf nur auszugsweise in die Arbeit}
+
+Eigentlich gehören komplette Codelistings in den Anhang. 
+Wenn aber in der Arbeit zB ein Algorithmus erläutert werden soll, dann gehört das natürlich direkt in die Arbeit. 
+
+\begin{verbatim}
+        from decimal import Decimal, Context, localcontext
+        
+        # Displays with default precision of 28 digits
+        v = Decimal('578')
+        print v.sqrt()
+        
+        with localcontext(Context(prec=16)):
+            # All code in this block uses a precision of 16 digits.
+            # The original context is restored on exiting the block.
+            print v.sqrt()   
+\end{verbatim} 
+    
+Verbatim ist dabei die einfachste Variante für Programmcode. 
+Ausgefeilter geht's dann zB mit lstlistings zur Sache, wo auch Syntax Highlighting vorgenommen werden kann. \\
+
+Müssen Klassen-/Methoden-/Variablennamen im Fließtext erwähnt werden, bietet sich ein Inline-Verb-Block an, mit dem kann auf eine \verb|Class1.Method1()| Bezug genommen werden, ohne dass diese als zu lesendes Wort missverstanden wird. %PHR
+
+\subsubsection{Wie man mit Aufzählungen verfährt}
+
+Nummerierte Aufzählungen werden nur dann eingesetzt, wenn wirklich eine Reihenfolge vorliegt.
+Kann auch geschachtelt werden (siehe Beispiel). 
+
+\begin{enumerate}
+    \item Erster Schritt
+    \item Zweiter Schritt
+    \begin{enumerate}
+        \item erster Subschritt zu Schritt zwei
+        \item zweiter Subschritt zu Schritt zwei
+    \end{enumerate}
+    \item Dritter Schritt
+\end{enumerate}
+
+Aufzählungen, die keine zwingende Reihenfolge wiedergeben werden durch \textit{Bullet Points} formatiert.
+In folgenden Beispiel wird auf Schachtelung verzichtet, obwohl sie ohne weiteres möglich wäre. 
+
+\begin{itemize}
+    \item grüner Tee
+    \item schwarzer Tee
+    \item weisser Tee
+    \item aromatisierter Tee
+    \item Kräuterteee
+\end{itemize}
+
+\subsubsection{Ein paar persönliche Tipps zum Arbeiten - bitte ohne Scheu ergänzen!}
+
+Jeden Satz in einer eigenene Zeile - das hab ich zwar schon erwähnt, ist für mich aber eine wirkliche Hilfe, wenn man sich einmal daran gewöhnt hat. 
+
+Hervorhebungen im Text \textit{nie} mit fett oder unterstrichen, sonderm \textit{immer} mit kursivem Text. 
+Das kriegt man entweder durch \textit{textit} hin oder \textit{emph}
+
+(Harte) Zeilenumbrüche macht man mit einem doppelten Backslash, Absatzumbrüche hingegen durch mehr als 2 Absatzschaltungen im Quelltext.
+Die Anzahl der Leerzeilen wird dabei nicht berücksichtigt, was zur schöneren Strukturierung des Quelltexts beiträgt. 
+
+Kommentare helfen, nichts zu vergessen. 
+% nicht vergessen!
+
+Quick \& Dirty -- die Rohversion der Arbeit sollte möglichst zügig verfasst werden. 
+Das hilft, den roten Faden nicht zu verlieren. 
+Überarbeiten, umformulieren, Grafiken usw einfügen und überhaupt verschönern kann man später. 
+
+Warnungen (gelbes Dreieck) in Overleaf betreffen meist \textit{overfull boxes} d.h. der Text ist zu lang. 
+Bis zur finalen Version können diese ignoriert werden. 
+Fallen sie dann tatsächlich ins Gewicht (nur dann!) kann man versuchen, diese durch manuelle Silbentrennung hinzukriegen. 
+
+Querverweise verwenden die \textit{labels} zB bei Grafiken oder Tabellen und werden mit \textit{ref} oder \textit{pageref} eingefügt. 
+
+Fast nicht zu entdecken: die kleinen Dreiecke neben den Zeilennummern in Oveleaf. 
+Damit kann man den Bereich \textit{einfalten}, was zur Übersicht beiträgt.
+
+Wenn man in der Vorschau doppelt in den Text klickt, springt man im Editor auf die Stelle im LaTeX-Quellcode. 
+
+Wenn man länger AFK war, dann kann's sein, dass man aus Overleaf abgemeldet ist. 
+Bei mir hat's noch NIE funktionert, sich über Button neu zu verbinden - es war immer ein Aussteigen - Einsteigen notwendig. 
+
+Wer sich von den überwältigenden Möglichkeiten mit LaTeX beeindrucken lassen will, googelt nach \textit{Tikz}.
+Da gibt's dann fast Nix, was es nicht gibt.
+
+Grundsätzlich ist bei der Arbeit mit \LaTeX Google ein guter Freund. 
+Die Community ist riesig und was man nicht in der sehr guten Hilfe von Overleaf findet, hat in den allermeisten Fällen jemand anderer schon gepostet. 
+
+
+
+
+
+
+
+

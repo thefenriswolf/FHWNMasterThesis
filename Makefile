@@ -4,6 +4,7 @@ PRESENTATION_OPTIONS_FILE:=includes/presentation/00-options.tex
 PRESENTATION_NORMAL_OPTIONS:="\def\presentationoptions{12pt}"
 PRESENTATION_HANDOUT_OPTIONS:="\def\presentationoptions{12pt,handout}"
 PRESENTATION_HANDOUT_WITH_NOTES_OPTIONS:="\def\presentationoptions{12pt,handout,notes}"
+TMPFILES=*.auxlock *.fdb_latexmk *.run.xml *.bbl *.aux *.dvi *.aux *.log *.fls *.toc *.lof *.bcf *.lot
 
 watch-proposal:
 	$(CC) $(CFLAGS) -pvc proposal.tex
@@ -42,4 +43,4 @@ clean:
 	$(CC) -c -rc-report-
 clean-all:
 	$(CC) -C -rc-report-
-	rm -v *.auxlock *.run.xml *.bbl *.aux
+	rm -v $(TMPFILES)

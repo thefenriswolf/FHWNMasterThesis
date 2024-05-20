@@ -1,0 +1,71 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel} % automatisch deutsche Bezeichnungen (zB Literatur statt References)
+\usepackage{csquotes}
+\usepackage{booktabs} % professionelle Tabellen
+\usepackage{pdfpages} % Einbinden von PDFS
+\usepackage{graphicx} % u.a. JPGs als Grafiken
+\usepackage{appendix} % "Nummerierung" der Anhänge mit A B C ...
+\usepackage[backend=biber,style=ieee]{biblatex}
+\usepackage{tabto}
+\definecolor{header-blue}{RGB}{22,48,114}
+
+% hier noch beliebige weitere packages einbinden
+
+
+\title{Minimale Masterthesis}
+\author{Stefan Rohrbacher}
+\date{\today}
+
+
+\addbibresource{MeineLiteratur.bib}
+\addbibresource{../includes/medtec.bib}
+
+%-------------------------------------------------------------------
+\begin{document}
+
+\input{Titlepage}
+%\maketitle 
+
+%-------------------------------------------------------------------
+\pagenumbering{Roman}
+\addtocounter{page}{-1} % Kompensiert die Nummerierung des PDF
+
+% Verzeichnisse
+%-------------------------------------------------------------------
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+\pagenumbering{arabic}
+
+%-------------------------------------------------------------------
+% Eigentlicher Text übersichtlich halten durch einzelne Files, die hier nur zusammengeführt werden - beliebig zu erweitern
+
+
+\include{Introduction}
+\include{Methods}
+\include{Results}
+\include{Discussion}
+
+
+%-------------------------------------------------------------------
+% Verzeichnisse
+% Literaturverzeichnis am besten mit Biblatex
+\printbibliography
+\newpage
+
+%-------------------------------------------------------------------
+% Anhänge - können natürlich auch wieder \includes sein. 
+\begin{appendix}
+	\section{Anhang: Mein toller Code}
+	\ldots
+	\newpage
+	\section{Anhang: Meine tollen Transkripte}
+\end{appendix}
+
+\end{document}
