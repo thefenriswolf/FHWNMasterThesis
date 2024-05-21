@@ -3,9 +3,10 @@
 pkgs.mkShell {
   buildInputs = [
     pkgs.texliveFull
-    pkgs.zathura
-    pkgs.inotify-tools
+    pkgs.inkscape
     pkgs.gnumake
     pkgs.bashInteractive
+    pkgs.python311Packages.pygments
+    pkgs.python311Full
   ];
 }

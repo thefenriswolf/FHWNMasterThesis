@@ -2,12 +2,17 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel} % automatisch deutsche Bezeichnungen (zB Literatur statt References)
 \usepackage{csquotes}
+\usepackage{minted}
+% \usemintedstyle{borland}
+% \usemintedstyle{bw} % black and white for printing
 \usepackage{booktabs} % professionelle Tabellen
 \usepackage{pdfpages} % Einbinden von PDFS
 \usepackage{graphicx} % u.a. JPGs als Grafiken
 \usepackage{appendix} % "Nummerierung" der Anhänge mit A B C ...
 \usepackage[backend=biber,style=ieee]{biblatex}
 \usepackage{tabto}
+\usepackage{svg}
+\svgpath{{./images/}}
 \definecolor{header-blue}{RGB}{22,48,114}
 
 % hier noch beliebige weitere packages einbinden
@@ -20,6 +25,9 @@
 
 \addbibresource{MeineLiteratur.bib}
 \addbibresource{../includes/medtec.bib}
+
+
+\graphicspath{{./images/}}
 
 %-------------------------------------------------------------------
 \begin{document}
@@ -46,12 +54,10 @@
 %-------------------------------------------------------------------
 % Eigentlicher Text übersichtlich halten durch einzelne Files, die hier nur zusammengeführt werden - beliebig zu erweitern
 
-
 \include{Introduction}
 \include{Methods}
 \include{Results}
 \include{Discussion}
-
 
 %-------------------------------------------------------------------
 % Verzeichnisse
