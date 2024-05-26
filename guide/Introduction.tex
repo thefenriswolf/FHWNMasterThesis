@@ -1,10 +1,75 @@
-\section{Einleitung}
+\section{Preface}
 Ein bisschen Text zur Einleitung.
 Empfehlung: im Editor jeden Satz in einer neuen Zeile beginnen.
 Dadurch bleibt's übersichtlich, man kann einzelne Sätze leichter auskommentieren oder verschieben und man sieht, wenn man zu lang wird.
 
-\subsection{Neben reinem Text gibt's aber auch noch \ldots }
-Die meisten der Fälle, die einer besonderen Behandlung bedürfen sind in weiterer Folge aufgelistet.
+\subsection{Conventions used in this Guide}
+\begin{figure}[h!] % h - here
+	\centering
+	\includesvg[
+		inkscapelatex=false,
+		width = 32pt
+	]{2d.svg}
+	\caption{2D symbol}
+	\label{fig:2d_icon}
+\end{figure}
+The element in Figure \ref{fig:2d_icon} signifies that a tool can be used in 2D views.\newline
+
+\begin{figure}[h!] % h - here
+	\centering
+	\includesvg[
+		inkscapelatex=false,
+		width = 32pt
+	]{3d.svg}
+	\caption{3D symbol}
+	\label{fig:3d_icon}
+\end{figure}
+The element in Figure \ref{fig:3d_icon} signifies that a tool can be used in 3D views.\newline
+
+\begin{figure}[h!] % h - here
+	\centering
+	\includesvg[
+		inkscapelatex=false,
+		width = 55pt
+	]{hint.svg}
+	\caption{Hint symbol}
+	\label{fig:hint_icon}
+\end{figure}
+The element in Figure \ref{fig:hint_icon} signifies a tip or hint.\newline
+
+\begin{figure}[h!] % h - here
+	\centering
+	\includesvg[
+		inkscapelatex=false,
+		width = 55pt
+	]{irreversible.svg}
+	\caption{Irreversible symbol}
+	\label{fig:noundo_icon}
+\end{figure}
+The element in Figure \ref{fig:noundo_icon} signifies to be cautious because a operation may not be undone.\pagebreak
+
+\begin{figure}[h!] % h - here
+	\centering
+	\includesvg[
+		inkscapelatex=false,
+		width = 55pt
+	]{performance.svg}
+	\caption{Performance symbol}
+	\label{fig:performance_icon}
+\end{figure}
+The element in Figure \ref{fig:performance_icon} signifies that a operation may use a lot of resources.\newline
+
+\begin{figure}[h!] % h - here
+	\centering
+	\includesvg[
+		inkscapelatex=false,
+		width = 55pt
+	]{plugin.svg}
+	\caption{Plugin symbol}
+	\label{fig:plugin_icon}
+\end{figure}
+The element in Figure \ref{fig:plugin_icon} signifies that a tool may only be available after installing a third party plugin.\newline
+
 
 \subsubsection{Zitate sind für wissenschaftliche Arbeiten unerlässlich}
 Damit einmal etwas zitiert ist \cite[S. 127ff.]{knuth1997}
@@ -19,46 +84,6 @@ Natürlich geht's auch die Quellen direkt aus zB Scholar im \textit{bibtex} Form
 \subsubsection{Auf Grafiken kann selten verzichtet werden}
 Grafiken
 
-\begin{figure}[h] % h - here - genau da, wo sie eingefügt wurde
-	\centering
-	\includesvg[
-		inkscapelatex=false,
-		width = 64pt
-	]{performance.svg}
-	%	\includegraphics[scale=1.0]{performance128.png}
-	\caption{Schema für die Kommissionellen Prüfungen im Online-Verfahren}
-	\label{fig:my_label}
-\end{figure}
-\begin{figure}[h] % h - here - genau da, wo sie eingefügt wurde
-	\centering
-	\includesvg[
-		inkscapelatex=false,
-		width = 64pt
-	]{hint.svg}
-	%	\includegraphics[scale=1.0]{performance128.png}
-	\caption{Schema für die Kommissionellen Prüfungen im Online-Verfahren}
-	\label{fig:my_label}
-\end{figure}
-\begin{figure}[h] % h - here - genau da, wo sie eingefügt wurde
-	\centering
-	\includesvg[
-		inkscapelatex=false,
-		width = 64pt
-	]{irreversible.svg}
-	%	\includegraphics[scale=1.0]{performance128.png}
-	\caption{Schema für die Kommissionellen Prüfungen im Online-Verfahren}
-	\label{fig:my_label}
-\end{figure}
-\begin{figure}[h] % h - here - genau da, wo sie eingefügt wurde
-	\centering
-	\includesvg[
-		inkscapelatex=false,
-		width = 64pt
-	]{plugin.svg}
-	%	\includegraphics[scale=1.0]{performance128.png}
-	\caption{Schema für die Kommissionellen Prüfungen im Online-Verfahren}
-	\label{fig:my_label}
-\end{figure}
 
 
 \subsubsection{Formeln sind in der angewandeten Informatik seltener anzutreffen}
