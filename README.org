@@ -7,6 +7,7 @@
 - [[#roadmap][Roadmap]]
 - [[#how-to-build][How to build]]
   - [[#requirements][Requirements]]
+  - [[#install-dependencies][Install dependencies]]
   - [[#build-project][Build project]]
 - [[#credits][Credits]]
 - [[#license][License]]
@@ -43,6 +44,12 @@ Make sure to have the following software installed to build the project.
 | MacOS   | come with Microsoft Office |
 | Linux   | [[https://corefonts.sourceforge.net][corefonts]], [[https://github.com/fontist/vista-fonts-installer][vistafonts]]      |
 
+*** Inkscape
+For converting the SVG images to PDF and PNG
+
+*** Pygments
+For source code highlighting: [[https://pygments.org/][https://pygments.org/]]
+
 *** Optional but recommended
 - make
   - Windows: via WSL or [[https://gnuwin32.sourceforge.net/packages/make.htm]]
@@ -57,6 +64,13 @@ Make sure to have the following software installed to build the project.
   - VSCode with [[https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop][LaTeX Workshop]]
   - Vim with [[https://vim-latex.sourceforge.net][Vim-LaTex]]
   - Emacs with [[https://www.gnu.org/software/auctex/index.html][AUCTEX]]
+
+** Install dependencies
+*** using [[https://nixos.org/download/][Nix]]
+#+begin_src bash
+nix-shell ./shell.nix
+#+end_src
+
 ** Build project
 *** Make
 | Command                   | Description                      |
@@ -80,7 +94,8 @@ Make sure to have the following software installed to build the project.
 
 * Credits
 - [[https://github.com/mrdavidkovacs/FHWNMasterThesis][David Kovacs]] as the creator of this project.
-- [[https://github.com/novoid/LaTeX-KOMA-template][Karl Voit]] who created a similiar template for the TU Graz.
+- [[https://github.com/novoid/LaTeX-KOMA-template][Karl Voit]] who created a similar template for the TU Graz.
 
 * License
-=FHWNMasterThesis= was kindly released under the [[https://github.com/thefenriswolf/FHWNMasterThesis/blob/main/LICENSE][MIT License]] by David Kovacs.
+- =FHWNMasterThesis= was kindly released under the [[https://github.com/thefenriswolf/FHWNMasterThesis/blob/main/LICENSE][MIT License]] by David Kovacs.
+- Artwork and images for =FHWNMasterThesis= © 2024 by Stefan Rohrbacher are licensed under Creative Commons Attribution-ShareAlike 4.0 International. To view a copy of this license, visit [[https://creativecommons.org/licenses/by-sa/4.0/][https://creativecommons.org/licenses/by-sa/4.0/]]
