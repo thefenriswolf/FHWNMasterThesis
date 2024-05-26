@@ -6,7 +6,7 @@ pkgs.mkShell {
     pkgs.inkscape
     pkgs.gnumake
     pkgs.bashInteractive
-    pkgs.python311Packages.pygments
-    pkgs.python311Full
+    pkgs.python312Packages.pygments
+    pkgs.python312
   ];
 }

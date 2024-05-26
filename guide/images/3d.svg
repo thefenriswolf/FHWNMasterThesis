@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
+   sodipodi:docname="3d.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="px"
+     inkscape:zoom="1.4673007"
+     inkscape:cx="257.27515"
+     inkscape:cy="257.95668"
+     inkscape:window-width="1666"
+     inkscape:window-height="999"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showgrid="false"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <rect
+       x="84.934874"
+       y="63.666547"
+       width="266.59285"
+       height="226.74502"
+       id="rect2" />
+    <filter
+       inkscape:label="Combined Lighting"
+       inkscape:menu="Bevels"
+       inkscape:menu-tooltip="Basic specular bevel to use for building textures"
+       style="color-interpolation-filters:sRGB;"
+       id="filter4"
+       x="-0.12573339"
+       y="-0.20718232"
+       width="1.2514668"
+       height="1.4143646">
+      <feGaussianBlur
+         stdDeviation="6"
+         in="SourceGraphic"
+         result="result0"
+         id="feGaussianBlur2" />
+      <feDiffuseLighting
+         lighting-color="rgb(255,255,255)"
+         diffuseConstant="1"
+         surfaceScale="4"
+         result="result5"
+         id="feDiffuseLighting2">
+        <feDistantLight
+           elevation="45"
+           azimuth="235"
+           id="feDistantLight2" />
+      </feDiffuseLighting>
+      <feComposite
+         k1="1.4"
+         in2="SourceGraphic"
+         in="result5"
+         result="fbSourceGraphic"
+         operator="arithmetic"
+         id="feComposite2" />
+      <feGaussianBlur
+         result="result0"
+         in="fbSourceGraphic"
+         stdDeviation="6"
+         id="feGaussianBlur3" />
+      <feSpecularLighting
+         specularExponent="25"
+         specularConstant="1"
+         surfaceScale="4"
+         lighting-color="rgb(255,255,255)"
+         result="result1"
+         in="result0"
+         id="feSpecularLighting3">
+        <feDistantLight
+           azimuth="235"
+           elevation="45"
+           id="feDistantLight3" />
+      </feSpecularLighting>
+      <feComposite
+         k3="1"
+         k2="1"
+         operator="arithmetic"
+         in="fbSourceGraphic"
+         in2="result1"
+         result="result4"
+         id="feComposite3" />
+      <feComposite
+         operator="in"
+         result="result2"
+         in2="SourceGraphic"
+         in="result4"
+         id="feComposite4" />
+    </filter>
+    <filter
+       inkscape:label="Combined Lighting"
+       inkscape:menu="Bevels"
+       inkscape:menu-tooltip="Basic specular bevel to use for building textures"
+       style="color-interpolation-filters:sRGB;"
+       id="filter7"
+       x="-0.12573339"
+       y="-0.20718232"
+       width="1.2514668"
+       height="1.4143646">
+      <feGaussianBlur
+         stdDeviation="6"
+         in="SourceGraphic"
+         result="result0"
+         id="feGaussianBlur4" />
+      <feDiffuseLighting
+         lighting-color="rgb(255,255,255)"
+         diffuseConstant="1"
+         surfaceScale="4"
+         result="result5"
+         id="feDiffuseLighting4">
+        <feDistantLight
+           elevation="45"
+           azimuth="235"
+           id="feDistantLight4" />
+      </feDiffuseLighting>
+      <feComposite
+         k1="1.4"
+         in2="SourceGraphic"
+         in="result5"
+         result="fbSourceGraphic"
+         operator="arithmetic"
+         id="feComposite5" />
+      <feGaussianBlur
+         result="result0"
+         in="fbSourceGraphic"
+         stdDeviation="6"
+         id="feGaussianBlur5" />
+      <feSpecularLighting
+         specularExponent="25"
+         specularConstant="1"
+         surfaceScale="4"
+         lighting-color="rgb(255,255,255)"
+         result="result1"
+         in="result0"
+         id="feSpecularLighting5">
+        <feDistantLight
+           azimuth="235"
+           elevation="45"
+           id="feDistantLight5" />
+      </feSpecularLighting>
+      <feComposite
+         k3="1"
+         k2="1"
+         operator="arithmetic"
+         in="fbSourceGraphic"
+         in2="result1"
+         result="result4"
+         id="feComposite6" />
+      <feComposite
+         operator="in"
+         result="result2"
+         in2="SourceGraphic"
+         in="result4"
+         id="feComposite7" />
+    </filter>
+    <filter
+       inkscape:label="Combined Lighting"
+       inkscape:menu="Bevels"
+       inkscape:menu-tooltip="Basic specular bevel to use for building textures"
+       style="color-interpolation-filters:sRGB;"
+       id="filter10"
+       x="-0.12573339"
+       y="-0.20718232"
+       width="1.2514668"
+       height="1.4143646">
+      <feGaussianBlur
+         stdDeviation="6"
+         in="SourceGraphic"
+         result="result0"
+         id="feGaussianBlur7" />
+      <feDiffuseLighting
+         lighting-color="rgb(255,255,255)"
+         diffuseConstant="1"
+         surfaceScale="4"
+         result="result5"
+         id="feDiffuseLighting7">
+        <feDistantLight
+           elevation="45"
+           azimuth="235"
+           id="feDistantLight7" />
+      </feDiffuseLighting>
+      <feComposite
+         k1="1.4"
+         in2="SourceGraphic"
+         in="result5"
+         result="fbSourceGraphic"
+         operator="arithmetic"
+         id="feComposite8" />
+      <feGaussianBlur
+         result="result0"
+         in="fbSourceGraphic"
+         stdDeviation="6"
+         id="feGaussianBlur8" />
+      <feSpecularLighting
+         specularExponent="25"
+         specularConstant="1"
+         surfaceScale="4"
+         lighting-color="rgb(255,255,255)"
+         result="result1"
+         in="result0"
+         id="feSpecularLighting8">
+        <feDistantLight
+           azimuth="235"
+           elevation="45"
+           id="feDistantLight8" />
+      </feSpecularLighting>
+      <feComposite
+         k3="1"
+         k2="1"
+         operator="arithmetic"
+         in="fbSourceGraphic"
+         in2="result1"
+         result="result4"
+         id="feComposite9" />
+      <feComposite
+         operator="in"
+         result="result2"
+         in2="SourceGraphic"
+         in="result4"
+         id="feComposite10" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#ffffff;fill-opacity:1"
+       id="rect1"
+       width="513.18726"
+       height="513.18726"
+       x="0.50464809"
+       y="1.0677291"
+       sodipodi:insensitive="true"
+       inkscape:label="bg" />
+    <path
+       id="path1219"
+       style="font-size:192px;font-family:'0xProto Nerd Font Mono';-inkscape-font-specification:'0xProto Nerd Font Mono';white-space:pre;fill:#000000;fill-opacity:0.2;stroke-width:19.3733;stroke-linecap:round;stroke-linejoin:round"
+       d="m 182.94306,346.71416 q 0,25.62442 -11.15902,45.46267 -11.15902,19.42497 -31.82387,30.58399 -20.25156,11.15902 -48.35576,11.15902 -32.237167,0 -54.141913,-7.85265 Q 15.557752,418.21455 -6.347,402.92256 l 20.664861,-30.58398 q 14.052101,10.33242 30.997281,17.77177 16.945181,7.43934 38.436617,7.43934 29.344101,0 43.809491,-15.29199 14.8787,-15.29198 14.8787,-35.54354 0,-21.90474 -17.35848,-36.37013 -17.35848,-14.8787 -47.94246,-14.8787 H 54.820976 V 259.92178 H 77.9656 q 29.75739,0 43.80949,-14.46539 14.4654,-14.4654 14.4654,-37.19674 0,-21.90475 -14.87869,-32.65047 -14.8787,-11.15902 -35.543551,-11.15902 -15.291979,0 -31.823869,7.43933 -16.118586,7.43935 -29.344093,20.66486 L -2.214023,166.92993 Q 35.809309,128.08 90.77781,128.08 q 24.79783,0 44.22279,9.50583 19.42496,9.50585 30.58399,26.86432 11.15902,17.35847 11.15902,40.91641 0,21.90474 -10.33243,40.91641 -9.91913,18.59836 -29.34409,30.17069 19.42496,8.67924 32.65047,27.69089 13.2255,18.59837 13.2255,42.56961 z m 61.58161,-212.848 h 83.89931 q 25.21113,0 47.94247,7.43935 23.14463,7.02605 41.3297,23.14464 18.18508,16.11858 28.5175,42.5696 10.74573,26.03771 10.74573,64.47433 0,48.76907 -15.70529,83.89932 -15.29199,34.71696 -44.63609,53.31533 -29.34409,18.59836 -70.6738,18.59836 h -81.41953 z m 83.89931,36.37013 h -43.39619 v 220.70065 h 40.91641 q 26.86431,0 44.22279,-10.33242 17.77177,-10.74573 27.6909,-28.1042 10.33243,-17.77177 14.4654,-38.84992 4.13297,-21.07817 4.13297,-42.15632 0,-49.18234 -23.97123,-75.22007 -23.97123,-26.03772 -64.06105,-26.03772 z"
+       inkscape:label="-1" />
+    <path
+       id="path1054"
+       style="font-size:192px;font-family:'0xProto Nerd Font Mono';-inkscape-font-specification:'0xProto Nerd Font Mono';white-space:pre;fill:#000000;fill-opacity:0.30000001;stroke-width:19.3733;stroke-linecap:round;stroke-linejoin:round"
+       d="m 193.63706,341.71416 q 0,25.62442 -11.15902,45.46267 -11.15902,19.42497 -31.82387,30.58399 -20.25156,11.15902 -48.35576,11.15902 -32.237167,0 -54.141913,-7.85265 Q 26.251752,413.21455 4.347,397.92256 l 20.664861,-30.58398 q 14.052101,10.33242 30.997281,17.77177 16.945181,7.43934 38.436617,7.43934 29.344101,0 43.809491,-15.29199 14.8787,-15.29198 14.8787,-35.54354 0,-21.90474 -17.35848,-36.37013 -17.35848,-14.8787 -47.94246,-14.8787 H 65.514976 V 254.92178 H 88.6596 q 29.75739,0 43.80949,-14.46539 14.4654,-14.4654 14.4654,-37.19674 0,-21.90475 -14.87869,-32.65047 -14.8787,-11.15902 -35.543551,-11.15902 -15.291979,0 -31.823869,7.43933 -16.118586,7.43935 -29.344093,20.66486 L 8.479977,161.92993 Q 46.503309,123.08 101.47181,123.08 q 24.79783,0 44.22279,9.50583 19.42496,9.50585 30.58399,26.86432 11.15902,17.35847 11.15902,40.91641 0,21.90474 -10.33243,40.91641 -9.91913,18.59836 -29.34409,30.17069 19.42496,8.67924 32.65047,27.69089 13.2255,18.59837 13.2255,42.56961 z m 61.58161,-212.848 h 83.89931 q 25.21113,0 47.94247,7.43935 23.14463,7.02605 41.3297,23.14464 18.18508,16.11858 28.5175,42.5696 10.74573,26.03771 10.74573,64.47433 0,48.76907 -15.70529,83.89932 -15.29199,34.71696 -44.63609,53.31533 -29.34409,18.59836 -70.6738,18.59836 h -81.41953 z m 83.89931,36.37013 h -43.39619 v 220.70065 h 40.91641 q 26.86431,0 44.22279,-10.33242 17.77177,-10.74573 27.6909,-28.1042 10.33243,-17.77177 14.4654,-38.84992 4.13297,-21.07817 4.13297,-42.15632 0,-49.18234 -23.97123,-75.22007 -23.97123,-26.03772 -64.06105,-26.03772 z"
+       inkscape:label="0" />
+    <path
+       id="path12"
+       style="font-size:192px;font-family:'0xProto Nerd Font Mono';-inkscape-font-specification:'0xProto Nerd Font Mono';white-space:pre;fill:#000000;fill-opacity:0.40000001;stroke-width:19.3733;stroke-linecap:round;stroke-linejoin:round"
+       d="m 203.63706,336.71416 q 0,25.62442 -11.15902,45.46267 -11.15902,19.42497 -31.82387,30.58399 -20.25156,11.15902 -48.35576,11.15902 -32.237167,0 -54.141913,-7.85265 Q 36.251752,408.21455 14.347,392.92256 l 20.664861,-30.58398 q 14.052101,10.33242 30.997281,17.77177 16.945181,7.43934 38.436618,7.43934 29.3441,0 43.80949,-15.29199 14.8787,-15.29198 14.8787,-35.54354 0,-21.90474 -17.35848,-36.37013 -17.35848,-14.8787 -47.94246,-14.8787 H 75.514976 V 249.92178 H 98.6596 q 29.75739,0 43.80949,-14.46539 14.4654,-14.4654 14.4654,-37.19674 0,-21.90475 -14.87869,-32.65047 -14.8787,-11.15902 -35.54355,-11.15902 -15.29198,0 -31.82387,7.43933 -16.118586,7.43935 -29.344093,20.66486 L 18.479977,156.92993 Q 56.503309,118.08 111.47181,118.08 q 24.79783,0 44.22279,9.50583 19.42496,9.50585 30.58399,26.86432 11.15902,17.35847 11.15902,40.91641 0,21.90474 -10.33243,40.91641 -9.91913,18.59836 -29.34409,30.17069 19.42496,8.67924 32.65047,27.69089 13.2255,18.59837 13.2255,42.56961 z m 61.58161,-212.848 h 83.89931 q 25.21113,0 47.94247,7.43935 23.14463,7.02605 41.3297,23.14464 18.18508,16.11858 28.5175,42.5696 10.74573,26.03771 10.74573,64.47433 0,48.76907 -15.70529,83.89932 -15.29199,34.71696 -44.63609,53.31533 -29.34409,18.59836 -70.6738,18.59836 h -81.41953 z m 83.89931,36.37013 h -43.39619 v 220.70065 h 40.91641 q 26.86431,0 44.22279,-10.33242 17.77177,-10.74573 27.6909,-28.1042 10.33243,-17.77177 14.4654,-38.84992 4.13297,-21.07817 4.13297,-42.15632 0,-49.18234 -23.97123,-75.22007 -23.97123,-26.03772 -64.06105,-26.03772 z"
+       inkscape:label="1" />
+    <path
+       id="path11"
+       style="font-size:192px;font-family:'0xProto Nerd Font Mono';-inkscape-font-specification:'0xProto Nerd Font Mono';white-space:pre;display:inline;fill:#000000;fill-opacity:0.5;stroke-width:19.3733;stroke-linecap:round;stroke-linejoin:round"
+       d="m 213.63685,331.71417 q 0,25.62442 -11.15902,45.46267 -11.15902,19.42497 -31.82387,30.58399 -20.25156,11.15903 -48.35576,11.15903 -32.237174,0 -54.141924,-7.85266 -21.90474,-7.85263 -43.80949,-23.14463 l 20.66486,-30.58398 q 14.0521,10.33243 30.99728,17.77178 16.94518,7.43934 38.436624,7.43934 29.3441,0 43.80949,-15.292 14.8787,-15.29198 14.8787,-35.54354 0,-21.90474 -17.35848,-36.37014 -17.35848,-14.8787 -47.94246,-14.8787 H 85.514757 v -35.54355 h 23.144633 q 29.75739,0 43.80949,-14.46539 14.4654,-14.4654 14.4654,-37.19674 0,-21.90475 -14.87869,-32.65047 -14.8787,-11.15902 -35.54355,-11.15902 -15.29199,0 -31.823874,7.43934 -16.11859,7.43935 -29.3441,20.66486 L 28.479757,151.92993 Q 66.503096,113.08 121.4716,113.08 q 24.79783,0 44.22279,9.50583 19.42496,9.50585 30.58399,26.86432 11.15902,17.35847 11.15902,40.91641 0,21.90474 -10.33243,40.91641 -9.91913,18.59837 -29.34409,30.17069 19.42496,8.67924 32.65047,27.6909 13.2255,18.59838 13.2255,42.56961 z m 61.58161,-212.84801 h 83.89931 q 25.21113,0 47.94247,7.43935 23.14467,7.02605 41.32967,23.14464 18.1851,16.11858 28.5175,42.5696 10.7458,26.03771 10.7458,64.47434 0,48.76907 -15.7053,83.89931 -15.292,34.71696 -44.6361,53.31533 -29.34411,18.59837 -70.67382,18.59837 h -81.41953 z m 83.89931,36.37014 h -43.39619 v 220.70065 h 40.91641 q 26.86431,0 44.22279,-10.33242 17.77173,-10.74573 27.69093,-28.1042 10.3324,-17.77178 14.4654,-38.84992 4.1329,-21.07817 4.1329,-42.15632 0,-49.18235 -23.9712,-75.22006 -23.97122,-26.03773 -64.06104,-26.03773 z"
+       inkscape:label="2" />
+    <path
+       id="path1171"
+       style="font-size:192px;font-family:'0xProto Nerd Font Mono';-inkscape-font-specification:'0xProto Nerd Font Mono';white-space:pre;display:inline;fill:#000000;fill-opacity:0.60000002;stroke-width:19.3733;stroke-linecap:round;stroke-linejoin:round"
+       d="m 223.63706,326.71417 q 0,25.62442 -11.15902,45.46267 -11.15902,19.42497 -31.82387,30.58399 -20.25156,11.15903 -48.35576,11.15903 -32.23717,0 -54.14192,-7.85266 Q 56.25175,398.21457 34.347,382.92257 l 20.66486,-30.58398 q 14.0521,10.33243 30.99728,17.77178 16.94518,7.43934 38.43662,7.43934 29.3441,0 43.80949,-15.292 14.8787,-15.29198 14.8787,-35.54354 0,-21.90474 -17.35848,-36.37014 -17.35848,-14.8787 -47.94246,-14.8787 H 95.514971 V 239.92178 H 118.6596 q 29.75739,0 43.80949,-14.46539 14.4654,-14.4654 14.4654,-37.19674 0,-21.90475 -14.87869,-32.65047 -14.8787,-11.15902 -35.54355,-11.15902 -15.29199,0 -31.82387,7.43934 -16.11859,7.43935 -29.3441,20.66486 L 38.479971,146.92993 Q 76.50331,108.08 131.47181,108.08 q 24.79783,0 44.22279,9.50583 19.42496,9.50585 30.58399,26.86432 11.15902,17.35847 11.15902,40.91641 0,21.90474 -10.33243,40.91641 -9.91913,18.59837 -29.34409,30.17069 19.42496,8.67924 32.65047,27.6909 13.2255,18.59838 13.2255,42.56961 z m 61.58161,-212.84801 h 83.89931 q 25.21113,0 47.94247,7.43935 23.14467,7.02605 41.32967,23.14464 18.1851,16.11858 28.5175,42.5696 10.7458,26.03771 10.7458,64.47434 0,48.76907 -15.7053,83.89931 -15.292,34.71696 -44.6361,53.31533 -29.34411,18.59837 -70.67382,18.59837 h -81.41953 z m 83.89931,36.37014 h -43.39619 v 220.70065 h 40.91641 q 26.86431,0 44.22279,-10.33242 17.77173,-10.74573 27.69093,-28.1042 10.3324,-17.77178 14.4654,-38.84992 4.1329,-21.07817 4.1329,-42.15632 0,-49.18235 -23.9712,-75.22006 Q 409.2078,150.2363 369.11798,150.2363 Z"
+       inkscape:label="3" />
+    <path
+       id="path1172"
+       style="font-size:192px;font-family:'0xProto Nerd Font Mono';-inkscape-font-specification:'0xProto Nerd Font Mono';white-space:pre;display:inline;fill:#000000;fill-opacity:1;stroke-width:19.3733;stroke-linecap:round;stroke-linejoin:round"
+       d="m 233.63706,321.71424 q 0,25.62442 -11.15902,45.46267 -11.15902,19.42497 -31.82387,30.58399 -20.25156,11.15903 -48.35576,11.15903 -32.23717,0 -54.14192,-7.85266 Q 66.25175,393.21464 44.347,377.92264 l 20.66486,-30.58398 q 14.0521,10.33243 30.99728,17.77178 16.94518,7.43934 38.43662,7.43934 29.3441,0 43.80949,-15.292 14.8787,-15.29198 14.8787,-35.54354 0,-21.90474 -17.35848,-36.37014 -17.35848,-14.8787 -47.94246,-14.8787 h -22.31804 v -35.54355 h 23.14463 q 29.75739,0 43.80949,-14.46539 14.4654,-14.4654 14.4654,-37.19674 0,-21.90475 -14.87869,-32.65047 -14.8787,-11.15902 -35.54355,-11.15902 -15.29199,0 -31.82387,7.43934 -16.11859,7.43935 -29.3441,20.66486 L 48.479971,141.93 q 38.023339,-38.84993 92.991839,-38.84993 24.79783,0 44.22279,9.50583 19.42496,9.50585 30.58399,26.86432 11.15902,17.35847 11.15902,40.91641 0,21.90474 -10.33243,40.91641 -9.91913,18.59837 -29.34409,30.17069 19.42496,8.67924 32.65047,27.6909 13.2255,18.59838 13.2255,42.56961 z m 61.58161,-212.84801 h 83.89931 q 25.21113,0 47.94247,7.43935 23.14467,7.02605 41.32967,23.14464 18.1851,16.11858 28.5175,42.5696 10.7458,26.03771 10.7458,64.47434 0,48.76907 -15.7053,83.89931 -15.292,34.71696 -44.6361,53.31533 -29.34411,18.59837 -70.67382,18.59837 h -81.41953 z m 83.89931,36.37014 h -43.39619 v 220.70065 h 40.91641 q 26.86431,0 44.22279,-10.33242 17.77173,-10.74573 27.69093,-28.1042 10.3324,-17.77178 14.4654,-38.84992 4.1329,-21.07817 4.1329,-42.15632 0,-49.18235 -23.9712,-75.22006 -23.97122,-26.03773 -64.06104,-26.03773 z"
+       inkscape:label="4" />
+  </g>
+</svg>
