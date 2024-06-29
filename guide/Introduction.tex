@@ -1,4 +1,4 @@
-\section{Preface}
+\section{Introduction}
 Ein bisschen Text zur Einleitung.
 Empfehlung: im Editor jeden Satz in einer neuen Zeile beginnen.
 Dadurch bleibt's übersichtlich, man kann einzelne Sätze leichter auskommentieren oder verschieben und man sieht, wenn man zu lang wird.
@@ -13,6 +13,7 @@ Dadurch bleibt's übersichtlich, man kann einzelne Sätze leichter auskommentier
 	\caption{2D symbol}
 	\label{fig:2d_icon}
 \end{figure}
+\noindent
 The element in Figure \ref{fig:2d_icon} signifies that a tool can be used in 2D views.\newline
 
 \begin{figure}[h!] % h - here
@@ -24,6 +25,7 @@ The element in Figure \ref{fig:2d_icon} signifies that a tool can be used in 2D 
 	\caption{3D symbol}
 	\label{fig:3d_icon}
 \end{figure}
+\noindent
 The element in Figure \ref{fig:3d_icon} signifies that a tool can be used in 3D views.\newline
 
 \begin{figure}[h!] % h - here
@@ -35,6 +37,7 @@ The element in Figure \ref{fig:3d_icon} signifies that a tool can be used in 3D 
 	\caption{Hint symbol}
 	\label{fig:hint_icon}
 \end{figure}
+\noindent
 The element in Figure \ref{fig:hint_icon} signifies a tip or hint.\newline
 
 \begin{figure}[h!] % h - here
@@ -46,6 +49,7 @@ The element in Figure \ref{fig:hint_icon} signifies a tip or hint.\newline
 	\caption{Irreversible symbol}
 	\label{fig:noundo_icon}
 \end{figure}
+\noindent
 The element in Figure \ref{fig:noundo_icon} signifies to be cautious because a operation may not be undone.\pagebreak
 
 \begin{figure}[h!] % h - here
@@ -57,6 +61,7 @@ The element in Figure \ref{fig:noundo_icon} signifies to be cautious because a o
 	\caption{Performance symbol}
 	\label{fig:performance_icon}
 \end{figure}
+\noindent
 The element in Figure \ref{fig:performance_icon} signifies that a operation may use a lot of resources.\newline
 
 \begin{figure}[h!] % h - here
@@ -68,8 +73,40 @@ The element in Figure \ref{fig:performance_icon} signifies that a operation may 
 	\caption{Plugin symbol}
 	\label{fig:plugin_icon}
 \end{figure}
+\noindent
 The element in Figure \ref{fig:plugin_icon} signifies that a tool may only be available after installing a third party plugin.\newline
 
+\subsection{Installation}
+Basic installation instructions for 3D Slicer:
+\begin{enumerate}
+	\item Browse to: \url{http://www.overleaf.com}
+	\item Download the installer of the latest stable release\footnote{Version 5.6.2 at the time of writing this document} for your Operating System
+	\item Run the installer and follow its instructions
+\end{enumerate}
+
+\subsubsection{Installation on MacOS}
+On MacOS, 3D Slicer can either be installed in two diferrent ways:\newline\newline
+Either via the provided package on the downloads page, or via Homebrew: \url{https://formulae.brew.sh/cask/slicer}\newline
+For the conventional installation refer to the 3DSlicer wiki: \url{https://slicer.readthedocs.io/en/latest/user_guide/getting_started.html#mac}
+
+\subsubsection{Installation on Linux}
+3D Slicer ships with all its dependencies on Windows and MacOS.
+On Linux it is required to install some dependencies via your distributions package manager.
+The 3D Slicer wiki gives information about required packages and their respective names on different distributions: \url{https://slicer.readthedocs.io/en/latest/user_guide/getting_started.html#linux}.
+To make this process easier this guide provides a distrobox manifest file, which allows the user to create a Linux container containing all necessary dependencies without polluting the host system.
+To run 3D Slicer via the container run:
+\inputminted[
+	%fontsize=\footnotesize, % set text size
+	stripnl, % strip leading newlines
+	numbers=left, % display line numbers on the left
+	breaklines % break lines after spaces if necessary
+]{sh}{./code/runSlicer.sh}
+
+
+
+\subsubsection{System Requirements}
+
+\subsection{Interface and Usage}
 
 \subsubsection{Zitate sind für wissenschaftliche Arbeiten unerlässlich}
 Damit einmal etwas zitiert ist \cite[S. 127ff.]{knuth1997}

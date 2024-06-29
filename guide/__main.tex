@@ -13,13 +13,13 @@
 \usepackage[backend=biber,style=ieee]{biblatex}
 \usepackage{tabto}
 \usepackage{svg}
-\svgpath{{./images/}}
+\svgpath{{images/}}
 \definecolor{header-blue}{RGB}{22,48,114}
 
 % hier noch beliebige weitere packages einbinden
 
 
-\title{MicroCT Segmentation Guide for Mice1}
+\title{MicroCT Segmentation Guide for Mice}
 \author{Stefan Rohrbacher}
 \date{\today}
 
@@ -34,14 +34,14 @@
 \begin{document}
 
 \input{Titlepage}
-%\maketitle 
+% \maketitle
 
 %-------------------------------------------------------------------
 \pagenumbering{Roman}
 \addtocounter{page}{-1} % Kompensiert die Nummerierung des PDF
 
 % Verzeichnisse
-%-------------------------------------------------------------------
+
 \newpage
 \tableofcontents
 \newpage
@@ -69,7 +69,15 @@
 %-------------------------------------------------------------------
 % Anhänge - können natürlich auch wieder \includes sein. 
 \begin{appendix}
-	\section{Anhang: Mein toller Code}
+	\section{Appendix: Code}
+	\inputminted[
+		fontsize=\footnotesize, % set text size
+		stripnl, % strip leading newlines
+		numbers=left, % display line numbers on the left
+		breaklines % break lines after spaces if necessary
+	]{ini}{./code/slicerbox.ini}
+
+
 	\ldots
 	\newpage
 	\section{Anhang: Meine tollen Transkripte}
