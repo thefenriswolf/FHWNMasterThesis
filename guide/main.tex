@@ -1,34 +1,30 @@
 \documentclass[a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel} % automatisch deutsche Bezeichnungen (zB Literatur statt References)
+\usepackage{hyperref} % links for references
+\usepackage[toc=false, xindy]{glossaries} % acronyms, symbols
 \usepackage{csquotes}
-\usepackage{minted}
-\usepackage{hyperref}
+\usepackage{minted} % quellcode syntax highlighting
 % \usemintedstyle{borland}
 % \usemintedstyle{bw} % black and white for printing
 \usepackage{booktabs} % professionelle Tabellen
 \usepackage{pdfpages} % Einbinden von PDFS
-\usepackage{graphicx} % u.a. JPGs als Grafiken
 \usepackage{appendix} % "Nummerierung" der Anhänge mit A B C ...
 \usepackage[backend=biber,style=ieee]{biblatex}
 \usepackage{tabto}
-\usepackage{svg}
-\svgpath{{images/}}
+\usepackage{graphicx} % u.a. JPGs als Grafiken
+\usepackage{svg} % include svg pictures
+\svgpath{ {./images/} }
+\graphicspath{ {./images/} }
+% custom variables
 \definecolor{header-blue}{RGB}{22,48,114}
-
-% hier noch beliebige weitere packages einbinden
-
+\include{glossary}
 
 \title{MicroCT Segmentation Guide for Mice}
 \author{Stefan Rohrbacher}
 \date{\today}
 
-
-\addbibresource{MeineLiteratur.bib}
 \addbibresource{../includes/medtec.bib}
-
-
-\graphicspath{{./images/}}
 
 %-------------------------------------------------------------------
 \begin{document}
@@ -49,9 +45,11 @@
 \newpage
 \listoftables
 \newpage
+%\setglossarystyle{listhypergroup}
+\printglossaries
+\newpage
 
 \pagenumbering{arabic}
-
 %-------------------------------------------------------------------
 % Eigentlicher Text übersichtlich halten durch einzelne Files, die hier nur zusammengeführt werden - beliebig zu erweitern
 
@@ -59,28 +57,13 @@
 \include{Methods}
 \include{Results}
 \include{Discussion}
-
 %-------------------------------------------------------------------
 % Verzeichnisse
 % Literaturverzeichnis am besten mit Biblatex
 \printbibliography
 \newpage
 
-%-------------------------------------------------------------------
-% Anhänge - können natürlich auch wieder \includes sein. 
-\begin{appendix}
-	\section{Appendix: Code}
-	\inputminted[
-		fontsize=\footnotesize, % set text size
-		stripnl, % strip leading newlines
-		numbers=left, % display line numbers on the left
-		breaklines % break lines after spaces if necessary
-	]{ini}{./code/slicerbox.ini}
-
-
-	\ldots
-	\newpage
-	\section{Anhang: Meine tollen Transkripte}
-\end{appendix}
+% Anhänge - können natürlich auch wieder \includes sein.
+\include{Appendix}
 
 \end{document}

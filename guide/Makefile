@@ -1,15 +1,19 @@
+
 CC=latexmk
 CFLAGS=-xelatex -bibtex -time -rc-report- -synctex=1 -interaction=nonstopmode -shell-escape
-TMPFILES=*.auxlock *.fdb_latexmk *.run.xml *.bbl *.aux *.dvi *.aux *.log *.fls *.toc *.lof *.bcf *.lot
+TMPFILES=*.gls *.glg *.glo *.glsdefs *.ist *.xdy *.auxlock *.fdb_latexmk *.run.xml *.bbl *.aux *.dvi *.aux *.log *.fls *.toc *.lof *.bcf *.lot
 
-
-watch-guide:
-	$(CC) $(CFLAGS) -pvc __main.tex
+watch:
+	$(CC) $(CFLAGS) -pvc main.tex
 
 all: guide
 
+cleanbuild: clean all
+
 guide:
-	$(CC) $(CFLAGS) __main.tex
+	$(CC) $(CFLAGS) main.tex
+	makeglossaries main
+	$(CC) $(CFLAGS) main.tex
 
 clean:
 	$(CC) -c -rc-report-
