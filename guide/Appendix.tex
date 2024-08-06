@@ -11,6 +11,14 @@
 		breaklines % break lines after spaces if necessary
 	]{ini}{./code/slicerbox.ini} \label{code:distrobox-manifest}
 
+	\subsection{Resource usage comparison}
+	\inputminted[
+		fontsize=\footnotesize, % set text size
+		stripnl, % strip leading newlines
+		%numbers=left, % display line numbers on the left
+		breaklines % break lines after spaces if necessary
+	]{bash}{./code/mem.txt} \label{measuements:memComp}
+
 	\newpage
 
 	\section{Appendix: Shortcuts used in this Guide}
@@ -18,31 +26,55 @@
 		\begin{center}
 			\caption{3D Slicer shortcuts}
 			\label{table:shortcuts}
-			\begin{tabular}{ |c|c| }
+			\begin{tabular}{|c|c|}
 				\hline
-				right click + mouse drag (up/down) & zoom in and out                                                 \\
+				\texttt{right click + mouse drag} (up/down) & zoom in and out                                          \\
 				\hline
-				Ctrl + mouse wheel                 & zoom in and out                                                 \\
+				\texttt{Ctrl + mouse wheel}                 & zoom in and out                                          \\
 				\hline
-				middle click and mouse drag        & pan/translate view                                              \\
+				\texttt{middle click + mouse drag}          & pan/translate view                                       \\
 				\hline
-				left arrow/right arrow             & show previous/next slice                                        \\
+				\texttt{left arrow/right arrow}             & show previous/next slice                                 \\
 				\hline
-				up arrow/down arrow                & show previous/next slice                                        \\
+				\texttt{up arrow/down arrow}                & show previous/next slice                                 \\
 				\hline
-				b/f                                & show previous/next slice                                        \\
+				\texttt{b/f}                                & show previous/next slice                                 \\
 				\hline
-				Shift + mouse move                 & move crosshair in all views/ show ROI under cursor in all views \\
+				\texttt{Shift + mouse move}                 & move crosshair in all views/ show \gls{roi} in all views \\
 				\hline
-				left click + v                     & pan/translate view                                              \\
+				\texttt{left click + v}                     & toggle slice visibility in 3D view                       \\
 				\hline
-				b                                  & reset zoom and pan                                              \\
+				\texttt{b}                                  & reset zoom and pan                                       \\
 				\hline
-				g                                  & toggle segmentation visibility                                  \\
-				% \hline
-				% middle click and mouse drag        & pan/translate view                                              \\
-				% \hline
-				% middle click and mouse drag        & pan/translate view                                              \\
+				\texttt{g}                                  & toggle segmentation visibility                           \\
+				\hline
+				\texttt{Ctrl + o}                           & add/load data                                            \\
+				\hline
+				\texttt{Ctrl + s}                           & save data to file                                        \\
+				\hline
+				\texttt{Ctrl + w}                           & close scene                                              \\
+				\hline
+				middle click and mouse drag                 & pan/translate view                                       \\
+				\hline
+				middle click and mouse drag                 & pan/translate view                                       \\
+				\hline
+				middle click and mouse drag                 & pan/translate view                                       \\
+				\hline
+				middle click and mouse drag                 & pan/translate view                                       \\
+				\hline
+				middle click and mouse drag                 & pan/translate view                                       \\
+				\hline
+				middle click and mouse drag                 & pan/translate view                                       \\
+				\hline
+				middle click and mouse drag                 & pan/translate view                                       \\
+				\hline
+				middle click and mouse drag                 & pan/translate view                                       \\
+				\hline
+				middle click and mouse drag                 & pan/translate view                                       \\
+				\hline
+				middle click and mouse drag                 & pan/translate view                                       \\
+
+
 				\hline
 			\end{tabular}
 		\end{center}
