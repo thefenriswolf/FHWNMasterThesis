@@ -47,13 +47,39 @@ After confirming the import, depending on size of the dataset, some patience may
 	\caption{3D Slicer file save menu}
 	\label{fig:save}
 \end{figure}
+Save your work in 3D Slicer by clicking on the \texttt{Save Data} button in the \cref{fig:toolbar}:3.
+This will open a popup window which holds information about what data will be saved and the format it will be saved to.
+3D Slicer defaults to bundling up your data into a single file. Change this by clicking on the bundle icon (\cref{fig:save}:1) and set a checkmark at \texttt{Show options} (\cref{fig:save}:2).
+The window should now look like \Cref{fig:save}.
+The first collumn shows the file names, which are derived from their names in the \texttt{Data} module and their file format.
 
-% TODO: mouse 3 t folder
+Lets take a look at what 3D Slicer is going to save:
+
+\begin{description}
+\item [post-Scene.mrml] \textquote{MRML file is a xml-formatted text file with scene metadata and pointers to externally stored data files}\cite{kikinis3DSlicerPlatform2014} (Metadata file)
+\item [my\_Volume\_BG\_removed.nrrd] volume data in a non-DICOM general purpose multi-dimensional format
+\item [VolumeProperty.vp] volume property file storing information on volume rendering (Metatdata file)
+\item [Segmentation.seg.nrrd] \textquote{Segmentation labelmap representation}\cite{kikinis3DSlicerPlatform2014} storing the segmentation as a multi dimensional volume
+\end{description}
+
+3D Slicer defaults to compressing all data before saving and there should be no reason to turn this behavior off.
+
+
+The second column is dedicated to the file format of mentioned files.
+3D Slicer supports a number of different file formats (see: \url{https://slicer.readthedocs.io/en/latest/user_guide/data_loading_and_saving.html#supported-data-formats}).
+However, exporting for example a volume or segmentation in a different format, say STL for 3D printing, I recommend choosing the \texttt{Data} module over changing file formats in the save dialogue.
+Compression can be turned off or on per file in the options column.
+And somewhat importantly, the last column, the status column, shows if a file has been modified since the last save.
+
+Clicking on the ``Bundle'' icon (\Cref{fig:save}:1) collapses the file view, as this instructs 3D Slicer to not save individual files, but bundle them in a \Gls{mrb} file.
+
 \pagebreak
+
 \subsection{Addressing Performance issues}
 If loading the data took a long time or scrolling in the 2D views is sluggish, %TODO: insert subsection about memory usage and performance
 it might be worth considering reducing the size of your dataset.
 Make sure to save after every operation to reduce the loss of progress in case of a crash.
+
 \subsubsection{Cropping} \label{crop}
 Locate the \texttt{Crop Volume} module either via the dropdown menu
 % TODO: insert reference to image
@@ -217,11 +243,32 @@ Here we see all the items we have created so far.
 The segmentation item (\cref{fig:clr}:4) holds all segmentations created in the \texttt{Segment Editor} module. So far it only holds the ``Background'' segment created in \Cref{mask}. And the final item (\cref{fig:clr}:5) is the most recent volume resulting from the \texttt{Mask volume} operation.
 Items \cref{fig:clr}:1-4 can be deleted to save Harddrive space and RAM while working in 3D Slicer.
 \noindent
-In this example the data volume on disk could be decreased from 309 megabytes to (souce dicom data) to 15 megabytes.
+In this example the data volume on disk could be decreased from 309 megabytes to (source dicom data) to 15 megabytes.
 Which equates to approximately a 95\% reduction in file size.
 As a result of this, 3D Slicers RAM consumption has dropped from 1.3 gigabytes to 585 megabytes, which equates to approximately 55\% reduction.
 See \Cref{measuements:memComp} for more information.
-
+\begin{figure}
+\begin{tikzpicture}
+  \begin{axis}[
+		title = RAM usage with different size datasets loaded,
+		ybar,
+		tickwidth = 0pt,
+		xtick = data,
+		enlarge y limits = 0.02,
+		enlarge x limits = 0.2,
+		ylabel={Megabytes (MB)},
+		xlabel={Dataset},
+		symbolic x coords = {none, full, small},
+		nodes near coords
+		]
+    \addplot+ coordinates {
+			(none, 418.2)
+			(full, 1331.2)
+			(small, 585.4)};
+  \end{axis}
+\end{tikzpicture}
+\caption{RAM usage comparison}\label{fig:ramUC}
+\end{figure}
 \pagebreak
 
 
