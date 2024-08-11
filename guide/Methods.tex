@@ -3,8 +3,8 @@
 From this point onwards, this guide makes the following assumptions:
 \begin{enumerate}
 	\item 3D Slicer has been successfully installed
-    \item The data you wish to work on has already been acquired
-    \item The computer running 3D Slicer has access to the data
+	\item The data you wish to work on has already been acquired
+	\item The computer running 3D Slicer has access to the data
 \end{enumerate}
 
 \subsection{Loading Data}
@@ -19,17 +19,16 @@ Clicking on the \texttt{Add Data} Button (\ref{fig:toolbar}:2) or using the keyb
 			% scale=0.2
 			width=0.90\paperwidth
 		]{filepicker.png}}
-	\caption{3D Slicer file picker}
-	\label{fig:filepicker}
-  \end{figure}
-  \begin{figure}[h!]
+	\caption{3D Slicer file picker}\label{fig:filepicker}
+\end{figure}
+
+\begin{figure}[h!]
 	\centerline{
 		\includegraphics[
 			% scale=0.2
 			width=0.90\paperwidth
 		]{filepicker2.png}}
-	\caption{3D Slicer file picker options}
-	\label{fig:filepicker2}
+	\caption{3D Slicer file picker options}\label{fig:filepicker2}
 \end{figure}
 \noindent
 Depending on whether the data is contained in a single or multiple files, click either \texttt{Choose Directory to Add} or \texttt{Choose File(s) to Add}. Browse to your data, select it and confirm your selection by clicking \texttt{Choose}.
@@ -38,14 +37,13 @@ Here it is possible to load the dataset as a Label map, force 3D Slicer to ignor
 After confirming the import, depending on size of the dataset, some patience may be required. If the import was successful and the dataset has not been set to be hidden after import, 3D Slicer will automatically populate the view area.
 
 \subsection{Saving Data}
-  \begin{figure}[h!]
+\begin{figure}[h!]
 	\centerline{
 		\includegraphics[
 			% scale=0.2
 			width=0.90\paperwidth
 		]{saveMenu.png}}
-	\caption{3D Slicer file save menu}
-	\label{fig:save}
+	\caption{3D Slicer file save menu}\label{fig:save}
 \end{figure}
 Save your work in 3D Slicer by clicking on the \texttt{Save Data} button in the \cref{fig:toolbar}:3.
 This will open a popup window which holds information about what data will be saved and the format it will be saved to.
@@ -56,10 +54,10 @@ The first collumn shows the file names, which are derived from their names in th
 Lets take a look at what 3D Slicer is going to save:
 
 \begin{description}
-\item [post-Scene.mrml] \textquote{MRML file is a xml-formatted text file with scene metadata and pointers to externally stored data files}\cite{kikinis3DSlicerPlatform2014} (Metadata file)
-\item [my\_Volume\_BG\_removed.nrrd] volume data in a non-DICOM general purpose multi-dimensional format
-\item [VolumeProperty.vp] volume property file storing information on volume rendering (Metatdata file)
-\item [Segmentation.seg.nrrd] \textquote{Segmentation labelmap representation}\cite{kikinis3DSlicerPlatform2014} storing the segmentation as a multi dimensional volume
+	\item [post-Scene.mrml] \textquote{MRML file is a xml-formatted text file with scene metadata and pointers to externally stored data files}\cite{kikinis3DSlicerPlatform2014} (Metadata file)
+	\item [my\_Volume\_BG\_removed.nrrd] volume data in a non-DICOM general purpose multi-dimensional format
+	\item [VolumeProperty.vp] volume property file storing information on volume rendering (Metatdata file)
+	\item [Segmentation.seg.nrrd] \textquote{Segmentation labelmap representation}\cite{kikinis3DSlicerPlatform2014} storing the segmentation as a multi dimensional volume
 \end{description}
 
 3D Slicer defaults to compressing all data before saving and there should be no reason to turn this behavior off.
@@ -73,6 +71,9 @@ And somewhat importantly, the last column, the status column, shows if a file ha
 
 Clicking on the ``Bundle'' icon (\Cref{fig:save}:1) collapses the file view, as this instructs 3D Slicer to not save individual files, but bundle them in a \Gls{mrb} file.
 
+Pick a directory by clicking on \texttt{Change directory for selected files} and confirm via the save icon.
+Depending on the file size this operation may require some patience.
+
 \pagebreak
 
 \subsection{Addressing Performance issues}
@@ -80,7 +81,7 @@ If loading the data took a long time or scrolling in the 2D views is sluggish, %
 it might be worth considering reducing the size of your dataset.
 Make sure to save after every operation to reduce the loss of progress in case of a crash.
 
-\subsubsection{Cropping} \label{crop}
+\subsubsection{Cropping}\label{crop}
 Locate the \texttt{Crop Volume} module either via the dropdown menu
 % TODO: insert reference to image
 \texttt{Converters -> Crop Volume} and switch to it.
@@ -90,8 +91,7 @@ Locate the \texttt{Crop Volume} module either via the dropdown menu
 			% scale=0.2
 			width=0.90\paperwidth
 		]{moduleSwitcher.png}}
-	  \caption{3D Slicer module switcher}
-	  \label{fig:mS}
+	\caption{3D Slicer module switcher}\label{fig:mS}
 \end{figure}
 Or click the lens icon to use the text search (see: \cref{fig:mS})
 Before any cropping can happen it is required to do some setup in the newly opened module panel.
@@ -101,13 +101,12 @@ Before any cropping can happen it is required to do some setup in the newly open
 			scale=0.8
 			%width=0.90\paperwidth
 		]{croppingModulePanel.png}}
-	  \caption{3D Slicer cropping module panel}
-	  \label{fig:cMP}
+	\caption{3D Slicer cropping module panel}\label{fig:cMP}
 \end{figure}
 See \cref{fig:cMP} for reference.
 Under \texttt{IO -> Input Volume} make sure the dataset you loaded is selected.
-Create a new ROI under \texttt{IO -> Input ROI} choose \texttt{Create new ROI as...} and give it a distinctive name. Also make sure it is not hidden by looking for an open eye next to \texttt{Display ROI}.
-Next choose a name for your output volume under \texttt{IO -> Output volume -> Create new volume as...} and give it a distinctive name.
+Create a new ROI under \texttt{IO -> Input ROI} choose \texttt{Create new ROI as\ldots} and give it a distinctive name. Also make sure it is not hidden by looking for an open eye next to \texttt{Display ROI}.
+Next choose a name for your output volume under \texttt{IO -> Output volume -> Create new volume as\ldots} and give it a distinctive name.
 Under \texttt{Advanced -> Fill value} choose a HU value for everything outside your ROI. It should be easily distinguishable from the structure or tissue you are segmenting. For bone segmentation I recommend choosing -1000 HU\footnote{The HU value of air}. Checking the tickbox \texttt{Advanced -> Interpolated cropping} will ensure that the output volume has the same dimensions as the input volume.
 %%TODO: detour about compression???
 Also check the box: \texttt{Advanced -> Isotropic spacing} with a \texttt{Spacing scale} of 1x to ensure the voxels stay isotropic.
@@ -124,16 +123,15 @@ If 3D Slicer is unresponsive, the operation is not done yet.
 			scale=0.9
 			%width=0.90\paperwidth
 		]{cropConfirm.png}}
-	  \caption{3D Slicer data module}
-	  \label{fig:cC}
-	\end{figure}
-	\pagebreak
-	\newline
+	\caption{3D Slicer data module}\label{fig:cC}
+\end{figure}
+\pagebreak
+\newline
 Under \texttt{Subject hierarchy -> Node -> Scene} (see: \cref{fig:cC}) you should see:
 \begin{enumerate}
-  \item the loaded dataset
-  \item the newly created ROI
-  \item the newly created volume
+	\item the loaded dataset
+	\item the newly created ROI
+	\item the newly created volume
 \end{enumerate}
 Show your cropped volume by clicking on the closed eye on the same line as its name. Hide the ROI by clicking on the open eye next to its name.
 3D slicer will then automatically hide the original dataset and populate the view area with the cropped volume dataset.
@@ -147,8 +145,7 @@ This step is dedicate to homogenizing the volume which was not cropped out in th
 			%scale=0.5
 			width=1.3\textwidth
 		]{thesholdMasking.png}}
-	  \caption{Threshold background}
-	  \label{fig:tM}
+	\caption{Threshold background}\label{fig:tM}
 \end{figure}
 Switch to the \texttt{Segment Editor} module (see: \cref{fig:tM}:1).
 Make sure your cropped volume is selected as the \texttt{Source volume} (see: \cref{fig:tM}:2).
@@ -165,9 +162,8 @@ Before applying (\cref{fig:tM}:7) the threshold segmentation make sure that 3D S
 			scale=0.8
 			%width=0.80\paperwidth
 		]{scissorsMasking.png}}
-	  \caption{Scissors background}
-	  \label{fig:sM}
-	\end{figure}
+	\caption{Scissors background}\label{fig:sM}
+\end{figure}
 \noindent
 Next, activate the \texttt{Scissors} tool (see: \cref{fig:sM}:1) with your ``Background'' segment selected.
 This tool provides a simple way of selecting materials and tissue that are not easily distinguished by HU value, like the MicroCT couch and positioning tools.
@@ -176,16 +172,16 @@ In the 2D views you can now click and drag to create a shape, upon releasing the
 \newline % sample hint
 \newline
 \begin{minipage}{0.4\textwidth}
-  \begin{center}
-	\includesvg[
-		inkscapelatex=false,
-		width = 0.6\textwidth
-	]{hint.svg}
-\end{center}
+	\begin{center}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.6\textwidth
+		]{hint.svg}
+	\end{center}
 \end{minipage}%
 %
 \begin{minipage}{0.5\textwidth}
-    The scissors tool ``punches'' through the volume, this makes it very easy to accidentally select something intentionally. Always make sure there is no ROI in the area on the previous or next slices and check your positioning on the other planes. In most cases it will be easier to work on small sections of your volume, rather than selecting a large volume in one single step.
+	The scissors tool ``punches'' through the volume, this makes it very easy to accidentally select something intentionally. Always make sure there is no ROI in the area on the previous or next slices and check your positioning on the other planes. In most cases it will be easier to work on small sections of your volume, rather than selecting a large volume in one single step.
 \end{minipage}
 \newline
 \newline % sample hint
@@ -197,29 +193,28 @@ In the 2D views you can now click and drag to create a shape, upon releasing the
 			%scale=0.8
 			width=1.2\textwidth
 		]{maskBG.png}}
-	  \caption{Mask background}
-	  \label{fig:mBG}
-	\end{figure}
+	\caption{Mask background}\label{fig:mBG}
+\end{figure}
 \noindent
 Activate the \texttt{Mask volume} tool (see: \cref{fig:mBG}:2) and make sure your ``Background'' segment is selected (\cref{fig:mBG}:1).
 As for the operation mode, choose \texttt{Fill inside} (\cref{fig:mBG}:3).
 The fill value (\cref{fig:mBG}:4) should be the same as in the cropping step (\cref{crop}).
 Select your cropped source volume as the \texttt{Input Volume} (\cref{fig:mBG}:5).
-For the result, create a new volume by clicking on \texttt{Output Volume -> Create new Volume as...} (\cref{fig:mBG}:6) and give it a distinctive name.
+For the result, create a new volume by clicking on \texttt{Output Volume -> Create new Volume as\ldots} (\cref{fig:mBG}:6) and give it a distinctive name.
 \newline % sample hint
 \newline
 \begin{minipage}{0.4\textwidth}
-  \begin{center}
-	\includesvg[
-		inkscapelatex=false,
-		width = 0.6\textwidth
-	]{irreversible.svg}
-\end{center}
+	\begin{center}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.6\textwidth
+		]{irreversible.svg}
+	\end{center}
 \end{minipage}%
 %
 \begin{minipage}{0.5\textwidth}
-  Always create a new volume when working with the \texttt{Mask volume} tool.
-  It overrides the individual voxel intensity values, this \emph{can not be undone} as 3D Slicer does not store the original intensity values in its undo history.
+	Always create a new volume when working with the \texttt{Mask volume} tool.
+	It overrides the individual voxel intensity values, this \emph{can not be undone} as 3D Slicer does not store the original intensity values in its undo history.
 \end{minipage}
 \newline
 \newline % sample hint
@@ -233,9 +228,8 @@ Switch to the \texttt{Data} module.
 			%scale=0.8
 			width=1.2\textwidth
 		]{cleanup.png}}
-	  \caption{Data cleanup}
-	  \label{fig:clr}
-	\end{figure}
+	\caption{Data cleanup}\label{fig:clr}
+\end{figure}
 \noindent
 Here we see all the items we have created so far.
 \Cref{fig:clr}:1 is the dicom dataset from the MicroCT scanner.
@@ -248,31 +242,322 @@ Which equates to approximately a 95\% reduction in file size.
 As a result of this, 3D Slicers RAM consumption has dropped from 1.3 gigabytes to 585 megabytes, which equates to approximately 55\% reduction.
 See \Cref{measuements:memComp} for more information.
 \begin{figure}
-\begin{tikzpicture}
-  \begin{axis}[
-		title = RAM usage with different size datasets loaded,
-		ybar,
-		tickwidth = 0pt,
-		xtick = data,
-		enlarge y limits = 0.02,
-		enlarge x limits = 0.2,
-		ylabel={Megabytes (MB)},
-		xlabel={Dataset},
-		symbolic x coords = {none, full, small},
-		nodes near coords
-		]
-    \addplot+ coordinates {
-			(none, 418.2)
-			(full, 1331.2)
-			(small, 585.4)};
-  \end{axis}
-\end{tikzpicture}
-\caption{RAM usage comparison}\label{fig:ramUC}
+	\begin{tikzpicture}
+		\begin{axis}[
+				title = RAM usage with different size datasets loaded,
+				ybar,
+				tickwidth = 0pt,
+				xtick = data,
+				enlarge y limits = 0.02,
+				enlarge x limits = 0.2,
+				ylabel={Megabytes (MB)},
+				xlabel={Dataset},
+				symbolic x coords = {none, full, small},
+				nodes near coords
+			]
+			\addplot+ coordinates {
+					(none, 418.2)
+					(full, 1331.2)
+					(small, 585.4)};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{RAM usage comparison}\label{fig:ramUC}
 \end{figure}
 \pagebreak
 
 
-\section{Methode}
+\section{Segmentation tools}
+With your dataset loaded and prepared switch to the \texttt{Segmentation Editor} module.
+Before you start to segment \emph{ALLWAYS} make sure the masking options are set correctly.
+\begin{description}
+	\item [Editable area] which areas are affected by your tool
+	      \begin{description}
+		      \item [Everywhere] no restrictions, tool is usable anywhere in the view areas
+		      \item [Inside all segments] tool can overwrite any existing segment, does not work outside of segments
+		      \item [Inside all visible segments] tool can overwrite any existing segment that is not hidden, does not work outside of segments
+		      \item [Outside all segments] inverse of \texttt{Inside all segments}, tool works only outside of existing segments
+		      \item [Outside all visible segments] inverse of \texttt{Inside all visible segments}, tool works only outside existing non-hidden segments
+		      \item [Inside \texttt{user created segments}] tool can override only selected existing segment, does not work outside of segment
+	      \end{description}
+	\item [Editable intensity range] restrict tool to affect only specific HU value range
+	\item [Modify other segments] define interaction with other existing segments
+	      \begin{description}
+		      \item [Overwrite all] tool can overwrite all existing segments
+		      \item [Overwrite visible] tool can overwrite all existing non-hidden segments
+		      \item [Allow overlap] tool does not overwrite existing segments, instead segmented areas are shared between the affected segments
+	      \end{description}
+\end{description}
+\pagebreak
+
+\subsection{Built in segmentation tools}
+\begin{figure}[h!]
+	\centerline{
+		\includegraphics[
+			scale=1.2
+		]{segmentationTools.png}}
+	\caption{Segmentation tool}\label{fig:sT}
+\end{figure}
+\pagebreak
+\begin{enumerate}
+	\item \texttt{No editing}
+	\item \texttt{Paint}
+	\item \texttt{Erase}
+	\item \texttt{Grow from seeds}
+	\item \texttt{Margin}
+	\item \texttt{Smoothing}
+	\item \texttt{Islands}
+	\item \texttt{Mask volume}
+	\item \texttt{Threshold}
+	\item \texttt{Draw}
+	\item \texttt{Level tracing}
+	\item \texttt{Fill between slices}
+	\item \texttt{Hollow}
+	\item \texttt{Scissors}
+	\item \texttt{Logical operators}
+	\item \texttt{Undo and Redo}
+\end{enumerate}
+
+\subsubsection{No editing}
+Selected by default. Enables inspection of 2D and 3D views without accidentally modifying a segmentation.
+\pagebreak
+\subsubsection{Paint}\label{section:paint}
+\begin{figure}[h!]
+	\centerline{
+		\includegraphics[
+			% scale=0.2
+			width=0.90\paperwidth
+		]{paint1.png}}
+	\caption{Paint tool}\label{fig:paint}
+\end{figure}
+\noindent
+The \texttt{Paint} tool is the most widely applicable manual segmentation tool. It is also the basis for most semi-automatic segmentation tools.
+To get started, first make sure the correct volume dataset and segmentation dataset are loaded (\cref{fig:paint}:1).
+Create a new segment to segment a new object or organ.
+Or select an existing segment to continue working on it.
+Navigate to the region you wish to work on in the 2D view areas and activate the \texttt{Paint} tool.
+Check your masking options before making any modifications (\cref{fig:paint}:10).
+3D Slicer displays the most important keyboard options in the help area (\cref{fig:paint}:4).
+Left-click and drag to draw, Shift+Mouse wheel to change the brush size, Ctrl+mouse wheel to zoom, middle mouse drag and move to pan.
+\Cref{fig:paint}:4 displays the brush size modification options, click and drag the slider to increase the brush size, alternatively click one of the size presets.
+In most cases setting the brush size via this menu will be not necessary, instead use the keyboard shortcuts.
+Keeping the mouse in the view area during segmentation enforces a non-disruptive workflow.
+\pagebreak
+\subsubsection{Erase}
+Erase segmetation with brush. Inverse of Paint tool, for usage see \cref{section:paint}.
+
+\subsubsection{Grow from seeds}
+\begin{figure}[h!]
+	\centerline{
+		\includegraphics[
+			% scale=0.2
+			width=0.90\paperwidth
+		]{growFromSeeds.png}}
+	\caption{Grow from seeds tool}\label{fig:gfs}
+\end{figure}
+
+% TODO: insert performance warning, insert performance tip (crop)
+\noindent
+Semi-automatic segmentation tool based on seeds and distinctive HU changes.
+To get started create at least two segments (\cref{fig:gfs}:1), one for the ``Background'' and one for the actual segmentation.
+Use the paint tool to create seeds in those segments.
+Try to evenly distribute seeds throughout your segmentation area in all three planes.
+Additionally, try to define the border between your segments manually.
+Click \texttt{Initialize} and wait for the 2D views to display the segmentation preview.
+Change the opacity of the preview via the slider (\cref{fig:gfs}:4) or display it in the 3D view.
+The first iteration will most likely be not satisfactory.
+Turn of \texttt{Auto-update} (\cref{fig:gfs}:3), switch back to the \texttt{Paint} tool and add more seeds in all areas \texttt{Grow from seeds} segmented incorrectly or not at all.
+Switch back to \texttt{Grow from seeds} and click \texttt{update}.
+If the segmentation does not grow enough or grows overproportionally, change the seed location modifier (\cref{fig:gfs}:5).
+Increasing the modifier forces the segmentation to be more localized and vice versa.
+Repeat this cycle of adding seeds and letting the segmentation update until the segmentation is satisfactory.
+Click apply to confirm the segmentation, delete the ``Background'' segment if its no longer useful.
+\pagebreak
+
+\subsubsection{Margin}
+\begin{figure}[h!]
+	\centerline{
+		\includegraphics[
+			% scale=0.2
+			width=0.90\paperwidth
+		]{margin.png}}
+	\caption{Margin tool}\label{fig:margin}
+\end{figure}
+\noindent
+Grow or shrink a segmentation by specific amount.
+Select the segment you wish to modify (\cref{fig:margin}:1).
+Pick \texttt{Grow} or \texttt{Shrink} depending on your needs.
+Set the size to grow or shrink by (\cref{fig:margin}:3) and click \texttt{Apply} to confirm the operation.
+This tool can be used to fill small holes by first growing a segment and then immediately shrinking it by the same amount.
+Or it can be used to separate two segments which have some overlap by shrinking both.
+\pagebreak
+
+\subsubsection{Smoothing}
+\begin{figure}[h!]
+	\centerline{
+		\includegraphics[
+			% scale=0.2
+			width=0.90\paperwidth
+		]{smoothing.png}}
+	\caption{Smoothing tool}\label{fig:smoothing}
+\end{figure}
+\noindent
+Smooth segmentation or fill small holes.
+Select the segment you wish to modify (\cref{fig:smoothing}:1).
+Select a smoothing method (\cref{fig:smoothing}:2) and kernel size (\cref{fig:smoothing}:3). If you are not sure which kernel size is best for your dataset, set the kernel size as small as possible in order to avoid large modifications.
+Undo if the result is not satisfactory, increase the kernel by a small amount and try again.
+\begin{description}
+	\item [Median] removes small extrusion while leaving smooth areas mostly unchanged
+	\item [Opening] removes extrusions smaller than the kernel size
+	\item [Closing] fills holes and sharp corners smaller than the kernel size
+	\item [Gaussian] smooths all contours and shrinks the segment
+	\item [Joint smoothing] affects all visible segments, smooths multiple segments at once
+\end{description}
+
+\pagebreak
+\subsubsection{Islands}
+\begin{figure}[h!]
+	\centerline{
+		\includegraphics[
+			% scale=0.2
+			width=0.90\paperwidth
+		]{islands.png}}
+	\caption{Islands tool}\label{fig:islands}
+\end{figure}
+\noindent
+Multitool operating on disconnected segmentation areas or connected segmentation areas with different labels.
+\begin{description}
+	\item [Keep largest island] deletes all islands but the largest one
+	\item [Remove small islands] deletes all islands smaller than the specified minimum size
+	\item [Split islands to segments] deletes all islands smaller than the specified minimum size, the remaining islands will be automatically assigned a new segment each
+	\item [Keep selected island] click on a island you wish to keep, all other islands will be deleted
+	\item [Remove selected island] click on a island you wish to delete, all other islands will be unaffected
+	\item [Add selected island] click on a island you wish to join with the selected segment, it will inherit the label of the segment
+\end{description}
+\pagebreak
+\subsubsection{Mask volume}
+\begin{figure}[h!]
+	\centerline{
+		\includegraphics[
+			% scale=0.2
+			width=0.90\paperwidth
+		]{maskVolume.png}}
+	\caption{Mask volume tool}\label{fig:mv}
+\end{figure}
+
+
+\subsubsection{Threshold}
+\begin{figure}[h!]
+	\centerline{
+		\includegraphics[
+			% scale=0.2
+			width=0.90\paperwidth
+		]{threshold.png}}
+	\caption{Threshold tool}\label{fig:threshold}
+\end{figure}
+
+
+
+\subsubsection{Draw}
+\begin{figure}[h!]
+	\centerline{
+		\includegraphics[
+			% scale=0.2
+			width=0.90\paperwidth
+		]{draw.png}}
+	\caption{Draw tool}\label{fig:draw}
+\end{figure}
+
+
+
+\subsubsection{Level tracing}
+\begin{figure}[h!]
+	\centerline{
+		\includegraphics[
+			% scale=0.2
+			width=0.90\paperwidth
+		]{levelTracing.png}}
+	\caption{Level tracing tool}\label{fig:lT}
+\end{figure}
+
+
+
+\subsubsection{Fill between slices}
+\begin{figure}[h!]
+	\centerline{
+		\includegraphics[
+			% scale=0.2
+			width=0.90\paperwidth
+		]{fillSlices.png}}
+	\caption{Fill between slices tool}\label{fig:fS}
+\end{figure}
+
+
+
+\subsubsection{Hollow}
+\begin{figure}[h!]
+	\centerline{
+		\includegraphics[
+			% scale=0.2
+			width=0.90\paperwidth
+		]{hollow.png}}
+	\caption{Hollow tool}\label{fig:hollow}
+\end{figure}
+
+
+
+\subsubsection{Scissors}
+\begin{figure}[h!]
+	\centerline{
+		\includegraphics[
+			% scale=0.2
+			width=0.90\paperwidth
+		]{scissors.png}}
+	\caption{Scissors tool}\label{fig:scissors}
+\end{figure}
+
+
+
+\subsubsection{Logical operators}
+\begin{figure}[h!]
+	\centerline{
+		\includegraphics[
+			% scale=0.2
+			width=0.90\paperwidth
+		]{bool.png}}
+	\caption{Logical operators tool}\label{fig:bool}
+\end{figure}
+
+
+
+\subsubsection{Undo and Redo}
+
+
+\subsection{Additional segmentation tools}
+
+\subsection{Performing segmentations}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{figure}[h!] % h - here
 	\centerline{
 		\includegraphics[
@@ -280,5 +565,4 @@ See \Cref{measuements:memComp} for more information.
 			width=0.95\paperwidth
 		]{../images/dragon.jpg}}
 	\caption{Here be dragons}
-	\label{fig:slicerWelcome}
 \end{figure}
