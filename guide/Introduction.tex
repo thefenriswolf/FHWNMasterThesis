@@ -44,7 +44,7 @@ The element in Figure \ref{fig:hint_icon} signifies a tip or hint.\newline
 	\caption{Irreversible symbol}\label{fig:noundo_icon}
 \end{figure}
 \noindent
-The element in Figure \ref{fig:noundo_icon} signifies to be cautious because a operation may not be undone.\pagebreak
+The element in Figure \ref{fig:noundo_icon} signifies to be cautious because an operation may not be undone.\pagebreak
 
 \begin{figure}[h!] % h - here
 	\centering
@@ -55,7 +55,7 @@ The element in Figure \ref{fig:noundo_icon} signifies to be cautious because a o
 	\caption{Performance symbol}\label{fig:performance_icon}
 \end{figure}
 \noindent
-The element in Figure \ref{fig:performance_icon} signifies that a operation may use a lot of resources.\newline
+The element in Figure \ref{fig:performance_icon} signifies that an operation may use a lot of resources.\newline
 
 \begin{figure}[h!] % h - here
 	\centering
@@ -117,17 +117,17 @@ Note: as of \today
 \subsubsection{Hardware requirements}
 \begin{itemize}
 	\item Memory: At least 4 Gigabytes, more is strongly recommended.\\The 3D Slicer wiki mentions needing about 10 times more memory than the amount of data you plan to load.\\ 3D Slicer on its own uses about 456 Megabytes of RAM. After loading a 26.17MiB Dataset it consumes about 614 MB.
-	\item \gls{cpu}: 3D Slicer uses multi-threading for some calculation and will thus benefit from a multi-core CPU.
+	\item \gls{cpu}: 3D Slicer uses multi-threading for some calculation and will thus benefit from a multicore CPU.
 	\item \gls{gpu}: A dedicated GPU is recommended but not required as 3D Slicer only uses it for interactive volume rendering. If you restrict your usage to the 2D views, you will hardly ever use your graphics card.
 \end{itemize}
 
 \subsubsection{Hardware recommendations}
-The following points are not strictly needed in order to use 3D Slicer but they make working with the software a lot easier.
+The following points are not strictly needed in order to use 3D Slicer, but they make working with the software a lot easier.
 \begin{itemize}
 	\item Input devices: 3D Slicer supports Mice, touchpads, pens, graphic tablets and \gls{openvr} headsets. The easiest input method though is a 3 button Mouse with a mouse wheel.
 	\item Internet connection: for downloading extensions, online documentation and sample data sets.
 	\item \gls{vram}: for interactive volume rendering it is recommended to have more GPU texture memory than the data set you plan to load.
-	\item A large display or monitor with a decent screen resolution. A 14 inch screen or larger is strongly advised. Screen resolution does not need to exceed 1920x1080, but going below 720p is also not advisable.
+	\item A large display or monitor with a decent screen resolution. A 14-inch screen or larger is strongly advised. Screen resolution does not need to exceed 1920x1080, but going below 720p is also not advisable.
 \end{itemize}
 
 
@@ -210,7 +210,8 @@ The pin icon (see Figure \ref{fig:pinMenu}:1) brings up a submenu.\\
 Here (Figure \ref{fig:pinMenu}:2) it is possible to quickly change the displayed dataset if more than one has been loaded.\\
 Change the displayed slice plane by clicking on Figure \ref{fig:pinMenu}:3.\\
 Toggle slice visibility in 3D views: Figure \ref{fig:pinMenu}:4.\\
-Clicking on the \texttt{double arrow} button (see Figure \ref{fig:pinMenu}:5) will reveal more configuration options, which this guide will not cover, as they are not usually needed for segmentation tasks. However the 3D Slicer documentation provides more information about this submenu: \url{https://slicer.readthedocs.io/en/latest/user_guide/user_interface.html#slice-view}
+Clicking on the \texttt{double arrow} button (see Figure \ref{fig:pinMenu}:5) will reveal more configuration options, which this guide will not cover, as they are not usually needed for segmentation tasks.
+However, the 3D Slicer documentation provides more information about this submenu: \url{https://slicer.readthedocs.io/en/latest/user_guide/user_interface.html#slice-view}
 \begin{figure}[h!] % h - here
 	\centerline{ % center a single element on page, from: https://tex.stackexchange.com/a/4438
 		\includegraphics[
@@ -247,7 +248,7 @@ Loadable modules can also be found via the dropdown list right next to the lens 
 Either via the \texttt{Modules history} dropdown list or the forward and back buttons (Figure \ref{fig:toolbar}:4).
 The toolbar has a designated part for \texttt{Favorite Modules} (Figure \ref{fig:toolbar}:5), which can be fully customized via the settings menu.\\
 Figure \ref{fig:toolbar}:6 can be used to change the view layout, like mentioned in \cref{sec:view_area}.\\
-3D Slicer has different mouse modes, where depending on the selected mode, the mouse has different functionalities. By default \texttt{translate/rotate view} is selected (see: Figure \ref{fig:toolbar}:7).\\
+3D Slicer has different mouse modes, where depending on the selected mode, the mouse has different functionalities. By default, \texttt{translate/rotate view} is selected (see: Figure \ref{fig:toolbar}:7).\\
 Keyboard shortcuts:\\
 \texttt{right click + mouse drag} to zoom in and out.\\
 \texttt{Ctrl + mouse wheel} to zoom in and out.\\

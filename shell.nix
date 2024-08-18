@@ -8,5 +8,6 @@ pkgs.mkShell {
     pkgs.python312Packages.pygments
     pkgs.python312
     pkgs.inkscape
+    pkgs.poppler_utils
   ];
 }
