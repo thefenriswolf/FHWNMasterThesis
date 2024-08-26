@@ -1,72 +1,86 @@
+
 \section{Introduction}
-What this guide is about, how to use this guide.
+This guide is intended to help newcomers get started with segmentation tasks in a software called ``3D Slicer''.
+3D Slicer is a comprehensive and fully featured program for visualization, processing, segmentation, registration and analysis of 3D datasets.
+Unfortunately, this also means that it can be overwhelming for someone who lacks experience working with such tools.
+This guide aims to alleviate this issue at least for segmentation workflows.
+It tries to explain tools and possible workflows in an easy-to-follow manner and enable the reader to complete their segmentation without needing to watch multiple tutorials or read bits of documentation scattered around the internet.
+
+\subsection{Using the guide}
+\begin{description}
+	\item [1. Jump around using links:] The guide makes extensive use of hyperlinks, which enable the reader to easily jump to important information. Make use of this feature to save yourself some time. Note that most but not all PDF readers will support this feature.
+	\item [2. Jump to information you require:] This guide covers many tools and functionalities of 3D Slicer. You will most certainly not use every tool. Use the table of contents to jump to tools that are important for the task at hand.
+	\item [3. Make a backup before experimenting:] Sometimes 3D Slicer makes it difficult to undo an operation. If you wish to experiment with a tool you have never used before it is advisable to duplicate your dataset and save it to a separate file. So that in case something does not turn out the way you intended, and you do not know how to undo the unwanted change, you can always load a known good copy of your dataset.
+\end{description}
 
 \subsection{Conventions used in this Guide}
-\begin{figure}[h!] % h - here
-	\centering
-	\includesvg[
-		inkscapelatex=false,
-		width = 32pt
-	]{2d.svg}
-	\caption{2D symbol}\label{fig:2d_icon}
-\end{figure}
-\noindent
-The element in Figure \ref{fig:2d_icon} signifies that a tool can be used in 2D views.\newline
 
-\begin{figure}[h!] % h - here
-	\centering
-	\includesvg[
-		inkscapelatex=false,
-		width = 32pt
-	]{3d.svg}
-	\caption{3D symbol}\label{fig:3d_icon}
+\begin{figure}[h]
+	\begin{centering}
+		\begin{subfigure}{0.5\textwidth}
+			\includesvg[
+				inkscapelatex=false,
+				width = 0.6\linewidth
+			]{2d.svg}
+			\caption{2D symbol}
+			\label{fig:2d_icon}
+		\end{subfigure}
+		\begin{subfigure}{0.5\textwidth}
+			\includesvg[
+				inkscapelatex=false,
+				width = 0.6\linewidth
+			]{3d.svg}
+			\caption{3D symbol}
+			\label{fig:3d_icon}
+		\end{subfigure}
+	\end{centering}
+	\caption{2D (\cref{fig:2d_icon}) and 3D (\cref{fig:3d_icon}) symbols signifying if a tool can be used in 2D or 3D}
 \end{figure}
-\noindent
-The element in Figure \ref{fig:3d_icon} signifies that a tool can be used in 3D views.\newline
 
-\begin{figure}[h!] % h - here
-	\centering
-	\includesvg[
-		inkscapelatex=false,
-		width = 55pt
-	]{hint.svg}
-	\caption{Hint symbol}\label{fig:hint_icon}
+\begin{figure}[h]
+	\begin{centering}
+		\begin{subfigure}{0.5\textwidth}
+			\includesvg[
+				inkscapelatex=false,
+				width = 0.6\linewidth
+			]{hint.svg}
+			\caption{Hint symbol}
+			\label{fig:hint_icon}
+		\end{subfigure}
+		\begin{subfigure}{0.5\textwidth}
+			\includesvg[
+				inkscapelatex=false,
+				width = 0.6\linewidth
+			]{irreversible.svg}
+			\caption{Irreversible symbol}
+			\label{fig:noundo_icon}
+		\end{subfigure}
+	\end{centering}
+	\caption{Hint (\cref{fig:hint_icon}) symbol signifying tip or hint and Irreversible(\cref{fig:noundo_icon}) symbol signifying irreversible operation}
 \end{figure}
-\noindent
-The element in Figure \ref{fig:hint_icon} signifies a tip or hint.\newline
 
-\begin{figure}[h!] % h - here
-	\centering
-	\includesvg[
-		inkscapelatex=false,
-		width = 55pt
-	]{irreversible.svg}
-	\caption{Irreversible symbol}\label{fig:noundo_icon}
+\begin{figure}[h]
+	\begin{centering}
+		\begin{subfigure}{0.5\textwidth}
+			\includesvg[
+				inkscapelatex=false,
+				width = 0.6\linewidth
+			]{performance.svg}
+			\caption{Performance symbol}
+			\label{fig:performance_icon}
+		\end{subfigure}
+		\begin{subfigure}{0.5\textwidth}
+			\includesvg[
+				inkscapelatex=false,
+				width = 0.6\linewidth
+			]{plugin.svg}
+			\caption{Plugin symbol}
+			\label{fig:plugin_icon}
+		\end{subfigure}
+	\end{centering}
+	\caption{Performance(\cref{fig:performance_icon}) symbol signifying resource intensive operation and Plugin (\cref{fig:plugin_icon}) symbol signifying 3rd party plugin tool}
 \end{figure}
-\noindent
-The element in Figure \ref{fig:noundo_icon} signifies to be cautious because an operation may not be undone.\pagebreak
 
-\begin{figure}[h!] % h - here
-	\centering
-	\includesvg[
-		inkscapelatex=false,
-		width = 55pt
-	]{performance.svg}
-	\caption{Performance symbol}\label{fig:performance_icon}
-\end{figure}
-\noindent
-The element in Figure \ref{fig:performance_icon} signifies that an operation may use a lot of resources.\newline
-
-\begin{figure}[h!] % h - here
-	\centering
-	\includesvg[
-		inkscapelatex=false,
-		width = 55pt
-	]{plugin.svg}
-	\caption{Plugin symbol}\label{fig:plugin_icon}
-\end{figure}
-\noindent
-The element in Figure \ref{fig:plugin_icon} signifies that a tool may only be available after installing a third party plugin.\newline
 
 \noindent
 If you are already familiar with 3D Slicer and want to start with the segmentation right away, skip to page \pageref{qsg} for the Quick Start Guide.
@@ -75,7 +89,7 @@ If you are already familiar with 3D Slicer and want to start with the segmentati
 Basic installation instructions for 3D Slicer:
 \begin{enumerate}
 	\item Browse to: \url{https://download.slicer.org}
-	\item Download the installer of the latest stable release\footnote{Version 5.6.2 at the time of writing this document} for your Operating System
+	\item Download the installer of the latest stable release\footnote{Version 5.6.2 at the time of writing this document} for your operating system
 	\item Run the installer and follow its instructions
 \end{enumerate}
 
@@ -89,8 +103,7 @@ For the conventional installation refer to the 3D Slicer wiki: \url{https://slic
 On Linux it is required to install some dependencies via your distributions package manager.\\
 The 3D Slicer wiki gives information about required packages and their respective names on different distributions:
 \url{https://slicer.readthedocs.io/en/latest/user_guide/getting_started.html#linux}.\\
-To make this process easier, this guide provides a distrobox manifest file (see page: \pageref{code:distrobox-manifest}).
-Which allows the user to create a Linux container containing all necessary dependencies without polluting the host system.\newline\newline
+To make this process easier, this guide provides a distrobox manifest file (see page: \pageref{code:distrobox-manifest}), which allows the user to create a Linux container holding all necessary dependencies without polluting the host system.\newline\newline
 To run 3D Slicer via the container run:
 \inputminted[
 	%fontsize=\footnotesize, % set text size
@@ -116,7 +129,7 @@ Note: as of \today
 
 \subsubsection{Hardware requirements}
 \begin{itemize}
-	\item Memory: At least 4 Gigabytes, more is strongly recommended.\\The 3D Slicer wiki mentions needing about 10 times more memory than the amount of data you plan to load.\\ 3D Slicer on its own uses about 456 Megabytes of RAM. After loading a 26.17MiB Dataset it consumes about 614 MB.
+	\item Memory: At least 4 Gigabytes, more is strongly recommended.\\The 3D Slicer Wiki mentions needing about 10 times more memory than the amount of data you plan to load.\\ 3D Slicer on its own uses about 456 Megabytes of RAM. After loading a 26.17MiB Dataset it consumes about 614 MB.
 	\item \gls{cpu}: 3D Slicer uses multi-threading for some calculation and will thus benefit from a multicore CPU.
 	\item \gls{gpu}: A dedicated GPU is recommended but not required as 3D Slicer only uses it for interactive volume rendering. If you restrict your usage to the 2D views, you will hardly ever use your graphics card.
 \end{itemize}
@@ -124,7 +137,7 @@ Note: as of \today
 \subsubsection{Hardware recommendations}
 The following points are not strictly needed in order to use 3D Slicer, but they make working with the software a lot easier.
 \begin{itemize}
-	\item Input devices: 3D Slicer supports Mice, touchpads, pens, graphic tablets and \gls{openvr} headsets. The easiest input method though is a 3 button Mouse with a mouse wheel.
+	\item Input devices: 3D Slicer supports mice, touchpads, pens, graphic tablets and \gls{openvr} headsets. The easiest input method though is a 3 button Mouse with a mouse wheel.
 	\item Internet connection: for downloading extensions, online documentation and sample data sets.
 	\item \gls{vram}: for interactive volume rendering it is recommended to have more GPU texture memory than the data set you plan to load.
 	\item A large display or monitor with a decent screen resolution. A 14-inch screen or larger is strongly advised. Screen resolution does not need to exceed 1920x1080, but going below 720p is also not advisable.
@@ -132,30 +145,30 @@ The following points are not strictly needed in order to use 3D Slicer, but they
 
 
 \subsection{Interface and Usage}
-Upon first launch you will be greeted by the 3D Slicers welcome screen (see: Figure \ref{fig:slicerWelcome})
+Upon first launch you will be greeted by the 3D Slicers welcome screen (\cref{fig:slicerWelcome})
 \begin{figure}[h!] % h - here
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.95\paperwidth
+			width=1.1\textwidth
 		]{slicerWelcome.png}}
 	\caption{3D Slicer welcome screen}\label{fig:slicerWelcome}
 \end{figure}
-
-The welcome screen has some quick links to useful modules like load data and download datasets. (TODO)
+\noindent
+The welcome screen has some quick links to useful modules like load data and download datasets.
 \pagebreak
 \begin{figure}[h!] % h - here
 	\centerline{ % center a single element on page, from: https://tex.stackexchange.com/a/4438
 		\includegraphics[
 			% scale=0.2
-			width=0.95\paperwidth
+			width=1.1\textwidth
 		]{slicerWelcomeMarked1.png}}
 	\caption{3D Slicer window}\label{fig:slicerView}
 \end{figure}
 
 \noindent
 The 3D Slicer window consists of several areas, which provide different tools to interact with the program.
-A quick overview of these areas is provided by Figure \ref{fig:slicerView}:
+A quick overview of these areas is provided by \cref{fig:slicerView}:
 \begin{enumerate}
 	\item View area
 	\item Module panel
@@ -168,13 +181,13 @@ A quick overview of these areas is provided by Figure \ref{fig:slicerView}:
 \pagebreak
 
 \subsubsection{The view area}\label{sec:view_area}
-By default 3D Slicer shows the view area (see Figure \ref{fig:4upview}) with three 2D slice views and the interactive 3D view at the top right.\\
+By default 3D Slicer shows the view area (\cref{fig:4upview}) with three 2D slice views and the interactive 3D view at the top right.\\
 \noindent
 \begin{figure}[h!] % h - here
 	\centerline{ % center a single element on page, from: https://tex.stackexchange.com/a/4438
 		\includegraphics[
 			% scale=0.2
-			width=0.95\paperwidth
+			width=1.1\textwidth
 		]{view.png}}
 	\caption{3D Slicer view area}\label{fig:4upview}
 \end{figure}
@@ -183,10 +196,10 @@ By default 3D Slicer shows the view area (see Figure \ref{fig:4upview}) with thr
 3D Slicer calls this the \texttt{Four-up} view.\\
 
 \noindent
-There is a numerous amount of view presets to choose from by clicking on the \texttt{change view} option in the toolbar: Figure \ref{fig:4upview}:5.\\
+There is a numerous amount of view presets to choose from by clicking on the \texttt{change view} option in the toolbar: \cref{fig:4upview}:5.\\
 
 \noindent
-Each slice view has its own scroll bar (Figure \ref{fig:4upview}:4).
+Each slice view has its own scroll bar (\cref{fig:4upview}:4).
 The number on the right end of the scroll bar shows by how much a single tick scrolls through the dataset.
 In other words: it shows the slice thickness of the view.\\
 \noindent
@@ -199,56 +212,56 @@ Scrollbar controls:
 \end{itemize}
 
 \noindent
-To maximize a single slice view, click on the \texttt{Maximize view} button (Figure \ref{fig:4upview}:3). Click it again to return to the previous layout. Double left-clicking on the slice has the same effect.\\
+To maximize a single slice view, click on the \texttt{Maximize view} button (\cref{fig:4upview}:3). Click it again to return to the previous layout. Double left-clicking on the slice has the same effect.\\
 
 \noindent
-'Reset \gls{fov}' can be used to reset the zoom level and shift the slice into its isocenter (Figure \ref{fig:4upview}:2). The \texttt{R} key has the same effect.\\
+'Reset \gls{fov}' can be used to reset the zoom level and shift the slice into its isocenter (\cref{fig:4upview}:2). The \texttt{R} key has the same effect.\\
 
 \noindent
-The pin icon (see Figure \ref{fig:pinMenu}:1) brings up a submenu.\\
+The pin icon (\cref{fig:pinMenu}:1) brings up a submenu.\\
 \noindent
-Here (Figure \ref{fig:pinMenu}:2) it is possible to quickly change the displayed dataset if more than one has been loaded.\\
-Change the displayed slice plane by clicking on Figure \ref{fig:pinMenu}:3.\\
-Toggle slice visibility in 3D views: Figure \ref{fig:pinMenu}:4.\\
-Clicking on the \texttt{double arrow} button (see Figure \ref{fig:pinMenu}:5) will reveal more configuration options, which this guide will not cover, as they are not usually needed for segmentation tasks.
+Here (\cref{fig:pinMenu}:2) it is possible to quickly change the displayed dataset if more than one has been loaded.\\
+Change the displayed slice plane by clicking on \cref{fig:pinMenu}:3.\\
+Toggle slice visibility in 3D views: \cref{fig:pinMenu}:4.\\
+Clicking on the \texttt{double arrow} button (\cref{fig:pinMenu}:5) will reveal more configuration options, which this guide will not cover, as they are not usually needed for segmentation tasks.
 However, the 3D Slicer documentation provides more information about this submenu: \url{https://slicer.readthedocs.io/en/latest/user_guide/user_interface.html#slice-view}
 \begin{figure}[h!] % h - here
 	\centerline{ % center a single element on page, from: https://tex.stackexchange.com/a/4438
 		\includegraphics[
 			% scale=0.2
-			width=0.95\paperwidth
+			width=1.1\textwidth
 		]{pinMenu.png}}
 	\caption{3D Slicer pin menu}\label{fig:pinMenu}
 \end{figure}
 \pagebreak
 
 \subsubsection{The module panel}
-Figure \ref{fig:slicerView}:2 the module panel displays options, tools and information of the currently loaded module.
+\Cref{fig:slicerView}:2 the module panel displays options, tools and information of the currently loaded module.
 
 \subsubsection{The Toolbar}
 \begin{figure}[h!] % h - here
 	\centerline{ % center a single element on page, from: https://tex.stackexchange.com/a/4438
 		\includegraphics[
 			% scale=0.2
-			width=0.95\paperwidth
+			width=1.2\textwidth
 		]{toolbar.png}}
 	\caption{3D Slicer toolbar}\label{fig:toolbar}
 \end{figure}
 
 \noindent
 The far left end of 3D Slicers toolbar holds buttons for loading and saving data.
-Loading data  from a file or directory can be done via the \texttt{Add Data} button' Figure \ref{fig:toolbar}:1.\\
+Loading data from a file or directory can be done via the \texttt{Add Data} button' \cref{fig:toolbar}:1.\\
 Keyboard shortcut: \texttt{Ctrl + o}\\
-The next button (Figure \ref{fig:toolbar}:2) loads the \texttt{Add DICOM Data} module, which can also load data from files or directories and save it to 3D Slicers on disk DICOM database.\\
-Saving data can be done via clicking on the \texttt{Save Data} button (Figure \ref{fig:toolbar}:3).\\Keyboard shortcut: \texttt{Ctrl + s}\\
-Figure \ref{fig:toolbar}:4 marks the module toolbar. Clicking on the lens button opens a full text search for all installed modules.\\
+The next button (\cref{fig:toolbar}:2) loads the \texttt{Add DICOM Data} module, which can also load data from files or directories and save it to 3D Slicers on disk DICOM database.\\
+Saving data can be done via clicking on the \texttt{Save Data} button (\cref{fig:toolbar}:3).\\Keyboard shortcut: \texttt{Ctrl + s}\\
+\Cref{fig:toolbar}:4 marks the module toolbar. Clicking on the lens button opens a full text search for all installed modules.\\
 Keyboard shortcut: \texttt{Ctrl + f}\\
 Loadable modules can also be found via the dropdown list right next to the lens icon.
 3D Slicer keeps track of the recently used modules and allows to quickly return to the most recent eight\footnote{the amount can be configured in the settings menu} modules.
-Either via the \texttt{Modules history} dropdown list or the forward and back buttons (Figure \ref{fig:toolbar}:4).
-The toolbar has a designated part for \texttt{Favorite Modules} (Figure \ref{fig:toolbar}:5), which can be fully customized via the settings menu.\\
-Figure \ref{fig:toolbar}:6 can be used to change the view layout, like mentioned in \cref{sec:view_area}.\\
-3D Slicer has different mouse modes, where depending on the selected mode, the mouse has different functionalities. By default, \texttt{translate/rotate view} is selected (see: Figure \ref{fig:toolbar}:7).\\
+Either via the \texttt{Modules history} dropdown list or the forward and back buttons (\cref{fig:toolbar}:4).
+The toolbar has a designated part for \texttt{Favorite Modules} (\cref{fig:toolbar}:5), which can be fully customized via the settings menu.\\
+\Cref{fig:toolbar}:6 can be used to change the view layout, like mentioned in \cref{sec:view_area}.\\
+3D Slicer has different mouse modes, where depending on the selected mode, the mouse has different functionalities. By default, \texttt{translate/rotate view} is selected (\cref{fig:toolbar}:7).\\
 Keyboard shortcuts:\\
 \texttt{right click + mouse drag} to zoom in and out.\\
 \texttt{Ctrl + mouse wheel} to zoom in and out.\\
@@ -259,12 +272,12 @@ The icon to the right is called \texttt{adjust window/level}.\\
 \texttt{Left click} and drag to create a ROI, 3D Slicer then tries to find the optimal window and center for that ROI.\\
 Alternatively hold \texttt{Ctrl} and \texttt{left mouse}, then drag the mouse to adjust the window manually.\\
 The final button of this part of the toolbar toggles an additional markups toolbar on and off, this guide will not go into further detail as this is not needed for segmentation.\\
-3D Slicer has a build in screenshot and screen recording module as can be seen in Figure \ref{fig:toolbar}:8.\\
-To toggle visibility of the crosshair, that has been mentioned above the left button in Figure \ref{fig:toolbar}:9 can be used. The button to the right of that toggles slice intersection lines on and off.\\
-Finally, on the right end (see: Figure \ref{fig:toolbar}:10) of the toolbar 3D Slicer has buttons to open a Python console window and opening the \texttt{Extension Manager}.
+3D Slicer has a build in screenshot and screen recording module as can be seen in \cref{fig:toolbar}:8.\\
+To toggle visibility of the crosshair, that has been mentioned above the left button in \cref{fig:toolbar}:9 can be used. The button to the right of that toggles slice intersection lines on and off.\\
+Finally, on the right end (\cref{fig:toolbar}:10) of the toolbar 3D Slicer has buttons to open a Python console window and opening the \texttt{Extension Manager}.
 
 \subsubsection{The Application Menu}
-See Figure \ref{fig:slicerView}:4. %TODO
+See \cref{fig:slicerView}:4.
 \begin{itemize}
 	\item \texttt{File}: Loading and saving data, download sample data, unloading data and close 3D Slicer
 	\item \texttt{Edit}: Cut, Copy, Paste and the \texttt{Settings Menu}
@@ -277,7 +290,7 @@ See Figure \ref{fig:slicerView}:4. %TODO
 	\centerline{ % center a single element on page, from: https://tex.stackexchange.com/a/4438
 		\includegraphics[
 			% scale=0.2
-			width=0.95\paperwidth
+			width=1.1\textwidth
 		]{dataprobe.png}}
 	\caption{3D Slicer Dataprobe}\label{fig:dataprobe}
 \end{figure}
@@ -286,9 +299,9 @@ See Figure \ref{fig:slicerView}:4. %TODO
 The \texttt{Data Probe} shows useful information about the data currently being displayed. More specifically it informs the user about the ROI under the cursor position.\\
 To start using it, just hover the mouse cursor over a ROI, if the cursor is moved, the data probe will update in real time.\\
 Most notable information shown:\\
-The numbers in brackets in figure \ref{fig:dataprobe}:1 display the x-, y- and z-Position of the ROI. After that, outside the brackets, it displays the \gls{hu} value of that ROI (Figure \ref{fig:dataprobe}:2).\\
-In Figure \ref{fig:dataprobe}:3 the data probe shows which segmentation ROI belongs to if any.\\
-Figure \ref{fig:dataprobe}:4 displays the currently loaded dataset.
+The numbers in brackets in \cref{fig:dataprobe}:1 display the x-, y- and z-Position of the ROI. After that, outside the brackets, it displays the \gls{hu} value of that ROI (\cref{fig:dataprobe}:2).\\
+In \cref{fig:dataprobe}:3 the data probe shows which segmentation ROI belongs to if any.\\
+\Cref{fig:dataprobe}:4 displays the currently loaded dataset.
 
 \subsubsection{The Status Bar}
 The status bar located on the bottom of the 3D Slicer window, is of no great importance during normal operation. Notably the \texttt{X} icon on the far right opens the error log, which may be useful for debugging.

@@ -17,7 +17,7 @@ Clicking on the \texttt{Add Data} Button (\ref{fig:toolbar}:2) or using the keyb
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.90\paperwidth
+			width=1.1\textwidth
 		]{filepicker.png}}
 	\caption{3D Slicer file picker}\label{fig:filepicker}
 \end{figure}
@@ -26,7 +26,7 @@ Clicking on the \texttt{Add Data} Button (\ref{fig:toolbar}:2) or using the keyb
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.90\paperwidth
+			width=1.1\textwidth
 		]{filepicker2.png}}
 	\caption{3D Slicer file picker options}\label{fig:filepicker2}
 \end{figure}
@@ -41,10 +41,11 @@ After confirming the import, depending on size of the dataset, some patience may
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.90\paperwidth
+			width=1.1\textwidth
 		]{saveMenu.png}}
 	\caption{3D Slicer file save menu}\label{fig:save}
 \end{figure}
+\noindent
 Save your work in 3D Slicer by clicking on the \texttt{Save Data} button in the \cref{fig:toolbar}:3.
 This will open a popup window which holds information about what data will be saved and the format it will be saved to.
 3D Slicer defaults to bundling up your data into a single file. Change this by clicking on the bundle icon (\cref{fig:save}:1) and set a checkmark at \texttt{Show options} (\cref{fig:save}:2).
@@ -61,12 +62,11 @@ Let us take a look at what 3D Slicer is going to save:
 \end{description}
 
 3D Slicer defaults to compressing all data before saving and there should be no reason to turn this behavior off.
-
-
-The second column is dedicated to the file format of mentioned files.
+\noindent
+The second column is dedicated to the file format of the mentioned files.
 3D Slicer supports a number of different file formats (see: \url{https://slicer.readthedocs.io/en/latest/user_guide/data_loading_and_saving.html#supported-data-formats}).
 However, exporting for example a volume or segmentation in a different format, say STL for 3D printing, I recommend choosing the \texttt{Data} module over changing file formats in the save dialogue.
-Compression can be turned off or on per file in the options column.
+Compression can be turned off or on per file in the option's column.
 And somewhat importantly, the last column, the status column, shows if a file has been modified since the last save.
 
 Clicking on the ``Bundle'' icon (\Cref{fig:save}:1) collapses the file view, as this instructs 3D Slicer to not save individual files, but bundle them in a \Gls{mrb} file.
@@ -76,25 +76,23 @@ Depending on the file size this operation may require some patience.
 
 \pagebreak
 
-\subsection{Addressing Performance issues}
-If loading the data took a long time or scrolling in the 2D views is sluggish, %TODO: insert subsection about memory usage and performance
-it might be worth considering reducing the size of your dataset.
+\subsection{Addressing Performance issues}\label{section:perf}
+If loading the data took a long time or scrolling in the 2D views is sluggish, it might be worth considering reducing the size of your dataset.
 Make sure to save after every operation to reduce the loss of progress in case of a crash.
 
-\subsubsection{Cropping}\label{crop}
-Locate the \texttt{Crop Volume} module either via the dropdown menu
-% TODO: insert reference to image
-\texttt{Converters -> Crop Volume} and switch to it.
+\subsubsection{Cropping}\label{section:crop}
+Locate the \texttt{Crop Volume} module either via the dropdown menu (\cref{fig:toolbar}) \texttt{Converters -> Crop Volume} switch to it.
 \begin{figure}[h!]
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.90\paperwidth
+			width=1.1\textwidth
 		]{moduleSwitcher.png}}
 	\caption{3D Slicer module switcher}\label{fig:mS}
 \end{figure}
-Or click the lens icon to use the text search (see: \cref{fig:mS})
+Or click the lens icon to use the text search (\cref{fig:mS})
 Before any cropping can happen it is required to do some setup in the newly opened module panel.
+\newline
 \begin{figure}[h!]
 	\centerline{
 		\includegraphics[
@@ -103,12 +101,29 @@ Before any cropping can happen it is required to do some setup in the newly open
 		]{croppingModulePanel.png}}
 	\caption{3D Slicer cropping module panel}\label{fig:cMP}
 \end{figure}
+\newline
+\noindent
 See \cref{fig:cMP} for reference.
 Under \texttt{IO -> Input Volume} make sure the dataset you loaded is selected.
 Create a new ROI under \texttt{IO -> Input ROI} choose \texttt{Create new ROI as\ldots} and give it a distinctive name. Also make sure it is not hidden by looking for an open eye next to \texttt{Display ROI}.
+\newline % sample hint
+\newline % 2d, 3d, hint, irr, perf, plugin
+\begin{minipage}{0.4\textwidth}
+	\begin{center}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.5\textwidth
+		]{hint.svg}
+	\end{center}
+\end{minipage}%
+%
+\begin{minipage}{0.5\textwidth}
+	To get a better visualization of the volume that is going to remain define the ROI in the \texttt{Volume rendering} module.
+\end{minipage}
+\newline
+\noindent
 Next choose a name for your output volume under \texttt{IO -> Output volume -> Create new volume as\ldots} and give it a distinctive name.
 Under \texttt{Advanced -> Fill value} choose a HU value for everything outside your ROI. It should be easily distinguishable from the structure or tissue you are segmenting. For bone segmentation I recommend choosing -1000 HU\footnote{The HU value of air}. Checking the tick box \texttt{Advanced -> Interpolated cropping} will ensure that the output volume has the same dimensions as the input volume.
-%%TODO: detour about compression???
 Also check the box: \texttt{Advanced -> Isotropic spacing} with a \texttt{Spacing scale} of 1x to ensure the voxels stay isotropic.
 Now adjust your ROI in the 2D view areas by clicking and dragging the colored dots at the edges and corners of the ROI.
 Crop out as much excess volume as possible without affecting the anatomy you wish to segment.
@@ -117,6 +132,7 @@ This operation might require some patience depending on the size of the dataset.
 Note that there will be no visual confirmation the cropping operation is finished.
 However, you can check by switching to the \texttt{Data} module.
 If 3D Slicer is unresponsive, the operation is not done yet.
+\newline
 \begin{figure}[h!]
 	\centerline{
 		\includegraphics[
@@ -125,9 +141,9 @@ If 3D Slicer is unresponsive, the operation is not done yet.
 		]{cropConfirm.png}}
 	\caption{3D Slicer data module}\label{fig:cC}
 \end{figure}
-\pagebreak
 \newline
-Under \texttt{Subject hierarchy -> Node -> Scene} (see: \cref{fig:cC}) you should see:
+\noindent
+Under \texttt{Subject hierarchy -> Node -> Scene} (\cref{fig:cC}) you should see:
 \begin{enumerate}
 	\item the loaded dataset
 	\item the newly created ROI
@@ -143,17 +159,17 @@ This step is dedicated to homogenizing the volume which was not cropped out in t
 	\centerline{
 		\includegraphics[
 			%scale=0.5
-			width=1.3\textwidth
+			width=1.1\textwidth
 		]{thesholdMasking.png}}
 	\caption{Threshold background}\label{fig:tM}
 \end{figure}
-Switch to the \texttt{Segment Editor} module (see: \cref{fig:tM}:1).
-Make sure your cropped volume is selected as the \texttt{Source volume} (see: \cref{fig:tM}:2).
+Switch to the \texttt{Segment Editor} module (\cref{fig:tM}:1).
+Make sure your cropped volume is selected as the \texttt{Source volume} (\cref{fig:tM}:2).
 Click on the \texttt{+ Add} button (\cref{fig:tM}:3). You should see a new segment appear in the segments list below.
 Double click to rename it to ``Background'' or leave its default name.
 Make sure your ``Background''segment is select and then activate the \texttt{Threshold} tool (\cref{fig:tM}:4).
 Shift the lower threshold limit until the background is covered by the segment color in the 2D views. Afterward shift the upper threshold limit until your tissue of interest is definitely no longer covered by the segment color.
-Before applying (\cref{fig:tM}:7) the threshold segmentation make sure that 3D Slicer is allowed to edit \texttt{Everywhere} and overwrite all other segments (see: \cref{fig:tM}:6).
+Before applying (\cref{fig:tM}:7) the threshold segmentation make sure that 3D Slicer is allowed to edit \texttt{Everywhere} and overwrite all other segments (\cref{fig:tM}:6).
 
 \pagebreak
 \begin{figure}[h!]
@@ -165,10 +181,10 @@ Before applying (\cref{fig:tM}:7) the threshold segmentation make sure that 3D S
 	\caption{Scissors background}\label{fig:sM}
 \end{figure}
 \noindent
-Next, activate the \texttt{Scissors} tool (see: \cref{fig:sM}:1) with your ``Background'' segment selected.
+Next, activate the \texttt{Scissors} tool (\cref{fig:sM}:1) with your ``Background'' segment selected.
 This tool provides a simple way of selecting materials and tissue that are not easily distinguished by HU value, like the MicroCT couch and positioning tools.
 Change its operation mode to \texttt{Fill inside} (\cref{fig:sM}:2) and its shape to \texttt{Rectangle} or \texttt{Free-form} (\cref{fig:sM}:3).
-In the 2D views you can now click and drag to create a shape, upon releasing the left mouse button the tool will add the volume inside the shape to your ``Background'' segment.
+In the 2D views you can now click and drag to create a shape, upon releasing the left mouse button, the tool will add the volume inside the shape to your ``Background'' segment.
 \newline % sample hint
 \newline % 2d, 3d, hint, irr, perf, plugin
 \begin{minipage}{0.4\textwidth}
@@ -196,9 +212,9 @@ In the 2D views you can now click and drag to create a shape, upon releasing the
 	\caption{Mask background}\label{fig:mBG}
 \end{figure}
 \noindent
-Activate the \texttt{Mask volume} tool (see: \cref{fig:mBG}:2) and make sure your ``Background'' segment is selected (\cref{fig:mBG}:1).
+Activate the \texttt{Mask volume} tool (\cref{fig:mBG}:2) and make sure your ``Background'' segment is selected (\cref{fig:mBG}:1).
 As for the operation mode, choose \texttt{Fill inside} (\cref{fig:mBG}:3).
-The fill value (\cref{fig:mBG}:4) should be the same as in the cropping step (\cref{crop}).
+The fill value (\cref{fig:mBG}:4) should be the same as in the cropping step (\cref{section:crop}).
 Select your cropped source volume as the \texttt{Input Volume} (\cref{fig:mBG}:5).
 For the result, create a new volume by clicking on \texttt{Output Volume -> Create new Volume as\ldots} (\cref{fig:mBG}:6) and give it a distinctive name.
 \newline % sample hint
@@ -231,14 +247,15 @@ Switch to the \texttt{Data} module.
 \noindent
 Here we see all the items we have created so far.
 \Cref{fig:clr}:1 is the DICOM dataset from the MicroCT scanner.
-\Cref{fig:clr}:2 is the cropping ROI created in \cref{crop} and \cref{fig:clr}:3 is the volume that resulted from the cropping operation.
+\Cref{fig:clr}:2 is the cropping ROI created in \cref{section:crop} and \cref{fig:clr}:3 is the volume that resulted from the cropping operation.
 The segmentation item (\cref{fig:clr}:4) holds all segmentations created in the \texttt{Segment Editor} module. So far it only holds the ``Background'' segment created in \Cref{mask}. And the final item (\cref{fig:clr}:5) is the most recent volume resulting from the \texttt{Mask volume} operation.
 Items \cref{fig:clr}:1-4 can be deleted to save harddrive space and RAM while working in 3D Slicer.
 \noindent
 In this example the data volume on disk could be decreased from 309 megabytes to (source DICOM data) to 15 megabytes.
 Which equates to approximately a 95\% reduction in file size.
 As a result of this, 3D Slicers RAM consumption has dropped from 1.3 gigabytes to 585 megabytes, which equates to approximately 55\% reduction.
-See \Cref{measurements:memComp} for more information.
+See \Cref{measuements:memComp} for more information.
+\newline
 \begin{figure}
 	\begin{tikzpicture}
 		\begin{axis}[
@@ -337,7 +354,7 @@ Selected by default. Enables inspection of 2D and 3D views without accidentally 
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.90\paperwidth
+			width=1.1\textwidth
 		]{paint.png}}
 	\caption{Paint tool}\label{fig:paint}
 \end{figure}
@@ -382,7 +399,7 @@ Erase segmentation with brush. Inverse of Paint tool, for usage see \cref{sectio
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.90\paperwidth
+			width=1.1\textwidth
 		]{growFromSeeds.png}}
 	\caption{Grow from seeds tool}\label{fig:gfs}
 \end{figure}
@@ -395,16 +412,17 @@ Additionally, try to define the border between your segments manually.
 Click \texttt{Initialize} and wait for the 2D views to display the segmentation preview.
 Change the opacity of the preview via the slider (\cref{fig:gfs}:4) or display it in the 3D view.
 The first iteration will most likely be not satisfactory.
-Turn of \texttt{Auto-update} (\cref{fig:gfs}:3), switch back to the \texttt{Paint} tool and add more seeds in all areas \texttt{Grow from seeds} segmented incorrectly or not at all.
+Turn of \texttt{Auto-update} (\cref{fig:gfs}:3) and switch back to the \texttt{Paint} tool.
+Add seeds in all areas \texttt{Grow from seeds} segmented incorrectly.
 Switch back to \texttt{Grow from seeds} and click \texttt{update}.
 If the segmentation does not grow enough or grows disproportionate, change the seed location modifier (\cref{fig:gfs}:5).
 Increasing the modifier forces the segmentation to be more localized and vice versa.
 Repeat this cycle of adding seeds and letting the segmentation update until the segmentation is satisfactory.
 Click apply to confirm the segmentation, delete the ``Background'' segment if its no longer useful.
 
-\pagebreak
+%\pagebreak
 
-\subsubsection{Margin}
+\subsubsection{Margin}\label{section:margin}
 \begin{figure}[h]
 	\begin{subfigure}{0.2\textwidth}
 		\includesvg[
@@ -419,7 +437,7 @@ Click apply to confirm the segmentation, delete the ``Background'' segment if it
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.90\paperwidth
+			width=1.1\textwidth
 		]{margin.png}}
 	\caption{Margin tool}\label{fig:margin}
 \end{figure}
@@ -428,8 +446,21 @@ Grow or shrink a segmentation by specific amount.
 Select the segment you wish to modify (\cref{fig:margin}:1).
 Pick \texttt{Grow} or \texttt{Shrink} depending on your needs.
 Set the size to grow or shrink by (\cref{fig:margin}:3) and click \texttt{Apply} to confirm the operation.
-This tool can be used to fill small holes by first growing a segment and then immediately shrinking it by the same amount.
-Or it can be used to separate two segments which have some overlap by shrinking both.
+\newline % sample hint
+\newline % 2d, 3d, hint, irr, perf, plugin
+\begin{minipage}{0.4\textwidth}
+	\begin{center}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.5\textwidth
+		]{hint.svg}
+	\end{center}
+\end{minipage}%
+%
+\begin{minipage}{0.5\textwidth}
+	This tool can be used to fill small holes by first growing a segment slightly and then immediately shrinking it by the same amount.
+	Or it can be used to separate two segments which have some overlap by shrinking both.
+\end{minipage}
 \pagebreak
 
 \subsubsection{Smoothing}
@@ -447,7 +478,7 @@ Or it can be used to separate two segments which have some overlap by shrinking 
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.90\paperwidth
+			width=1.1\textwidth
 		]{smoothing.png}}
 	\caption{Smoothing tool}\label{fig:smoothing}
 \end{figure}
@@ -486,7 +517,7 @@ Undo if the result is not satisfactory, increase the kernel by a small amount an
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.90\paperwidth
+			width=1.1\textwidth
 		]{islands.png}}
 	\caption{Islands tool}\label{fig:islands}
 \end{figure}
@@ -523,13 +554,30 @@ Multitool operating on disconnected segmentation areas or connected segmentation
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.90\paperwidth
+			width=1.1\textwidth
 		]{maskVolume.png}}
 	\caption{Mask volume tool}\label{fig:mv}
 \end{figure}
 
-\noindent %TODO: insert warning
+\noindent
 Tool to overwrite parts of a volume.
+\newline % sample hint
+\newline % 2d, 3d, hint, irr, perf, plugin
+\begin{minipage}{0.4\textwidth}
+	\begin{center}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.5\textwidth
+		]{irreversible.svg}
+	\end{center}
+\end{minipage}%
+%
+\begin{minipage}{0.5\textwidth}
+	\texttt{Mask volume} overwrites HU values in your dataset and 3D Slicer does not save the previous values in its undo history.
+	Thus, if you accidentally overwrite something unintentionally you will not be able to undo your action.
+	When using this tool \emph{always} save your progress and make a backup copy of your save file.
+\end{minipage}
+
 To get started, create and select a segment you wish to modify (\cref{fig:mv}:1).
 The segment can for example be the background you wish to blank out.
 Or it can be an object or organ you wish to blank out or preserve.
@@ -537,16 +585,17 @@ In the example \Cref{fig:mv} \texttt{Mask volume} was used to blank out the back
 This was achieved by using the \texttt{Threshold} tool (\cref{section:threshold}) to segment the air.
 Then the \texttt{Scissors} tool (\cref{section:scissors}) was used to segment the positioning and support structures.
 Next, select an operation mode (\cref{fig:mv}:2) and fill value (\cref{fig:mv}:3).
+\newline
 \begin{description}
 	\item [Fill inside] fill volume inside selected segment with \texttt{Fill value}
 	\item [Fill outside] fill volume outside selected segment with \texttt{Fill value}
-	\item [Fill inside and outside] takes two fill values (inside and outside), fill volume inside selected segment with \texttt{Fill value inside} and volume outside selected segment with \texttt{Fill value outside}
+	\item [Fill inside and outside] takes two fill values (inside and outside), fill volume inside and outside with these values respectively
 \end{description}
 The tool can also smooth the edge between segments with a blur. Increase the \texttt{Soft edge} (\cref{fig:mv}:4) value above zero.
-Before applying the operation, make sure the correct \texttt{Input Volume} is selected and create a \texttt{Output Volume}.
+Before applying the operation, make sure the correct \texttt{Input Volume} is selected and create an \texttt{Output Volume}.
 
+%\pagebreak
 
-\pagebreak
 \subsubsection{Threshold}\label{section:threshold}
 \begin{figure}[h]
 	\begin{subfigure}{0.2\textwidth}
@@ -562,17 +611,17 @@ Before applying the operation, make sure the correct \texttt{Input Volume} is se
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.90\paperwidth
+			width=1.1\textwidth
 		]{threshold.png}}
 	\caption{Threshold tool}\label{fig:threshold}
 \end{figure}
 \noindent
-Segment by HU value range.
+Segment by HU value range.\\
 First, select the segment to threshold (\cref{fig:threshold}:1).
 Next, pick a lower (\cref{fig:threshold}:2) and upper (\cref{fig:threshold}:3) limit either by clicking and dragging the sliders or by typing in the HU values manually.
 A dynamically updated preview will be available in the 2D views.
-\Cref{Automatic threshold} algorithms (\cref{fig:threshold}:4) can be used to determine the limits but in most cases clicking and dragging the slider will be faster.
-Your may want to see a histogram of a ROI and pick your lower and upper limit from the histogram (\cref{fig:threshold}:5).
+Automatic threshold algorithms (\cref{fig:threshold}:4) can be used to determine the limits but in most cases clicking and dragging the slider will be faster.
+You may want to see a histogram of a ROI and pick your lower and upper limit from the histogram (\cref{fig:threshold}:5).
 In order to do that, pick a ROI shape and click and drag it in a 2D view area.
 Click on the histogram to choose your limits.
 If you do not want to save your threshold to a segment but intend to use it for masking with the \texttt{Paint} tool, click on \texttt{Use for masking} (\cref{fig:threshold}:6).
@@ -594,7 +643,7 @@ This will activate the \texttt{Paint} tool with your threshold limits set as the
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.90\paperwidth
+			width=1.1\textwidth
 		]{draw.png}}
 	\caption{Draw tool}\label{fig:draw}
 \end{figure}
@@ -619,7 +668,7 @@ The encompassed area will be filled in (\cref{fig:draw}:3).
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.90\paperwidth
+			width=1.1\textwidth
 		]{levelTracing.png}}
 	\caption{Level tracing tool}\label{fig:lT}
 \end{figure}
@@ -649,7 +698,7 @@ Hover your mouse over a 2D view to see the outline of an area, click to confirm 
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.80\paperwidth
+			width=1.1\textwidth
 		]{fillSlices.png}}
 	\caption{Fill between slices tool}\label{fig:fS}
 \end{figure}
@@ -679,7 +728,7 @@ Repeat until the segmentation is satisfactory.
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.90\paperwidth
+			width=1.1\textwidth
 		]{hollow.png}}
 	\caption{Hollow tool}\label{fig:hollow}
 \end{figure}
@@ -697,7 +746,15 @@ Finally set the border thickness (\cref{fig:hollow}:3) and click apply.
 			width = 0.3\textwidth
 		]{2d.svg}
 	\end{subfigure}
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{3d.svg}
+	\end{subfigure}
 \end{figure}
+
+
 
 \begin{figure}[h!]
 	\centerline{
@@ -709,8 +766,7 @@ Finally set the border thickness (\cref{fig:hollow}:3) and click apply.
 \end{figure}
 \noindent
 \texttt{Scissors} can be used to cut or fill through a segment.
-Select a segment to cut (\cref{fig:scissors}:1).
-Pick a mode of operation (\cref{fig:scissors}:2).
+Select a segment to cut (\cref{fig:scissors}:1) and pick a mode of operation (\cref{fig:scissors}:2).
 \begin{description}
 	\item [Erase inside] erases already segmented area inside ROI
 	\item [Erase outside] erases already segmented area outside ROI
@@ -726,7 +782,7 @@ Finally, choose which slices should be affected by the \texttt{Scissors} tool (\
 	\item [Symmetric] affect both higher and lower slices numbers but only a specific distance
 \end{description}
 
-\pagebreak
+%\pagebreak
 
 \subsubsection{Logical operators}
 \begin{figure}[h!]
@@ -740,7 +796,7 @@ Finally, choose which slices should be affected by the \texttt{Scissors} tool (\
 \noindent
 Boolean operators processing up to two segments at a time.
 First, make sure the correct segment is selected (\cref{fig:bool}:1).
-Pick an operation (\cref{fig:bool}:2).
+Second, pick an operation (\cref{fig:bool}:2).
 \begin{description}
 	\item [Copy] copy the segmentation of the modifier segment to the active segment, effectively replacing its segmentation
 	\item [Add] combine active and modifier segment
@@ -754,16 +810,16 @@ Finally, if applicable, pick the modifier segment (\cref{fig:bool}:3) and click 
 
 \subsubsection{Undo and Redo}
 Undo and Redo work the same as just about in any other software.
-The only caveats are that 3D slicer allows only 9 undo operations and that some operations can not be undone (see: \cref{section:mask})
+The only caveats are that 3D slicer allows only 9 undo operations and that some operations cannot be undone (\cref{section:mask})
 \pagebreak
 
 \subsection{Additional segmentation tools}
 Some tools are not included with the download of 3D Slicer.
 There can be several reasons for this.
 Some may not be considered stable enough yet.
-Some may have considerable overlap in their usecase with a built-in tool.
-And some may just not fit 3D Slicers development direction.
-Fortunately, 3D Slicer provides a API which enables the development of extensions.
+Some may have considerable overlap in their use case with a built-in tool.
+And some may just not fit 3D Slicer's development direction.
+Fortunately, 3D Slicer provides an API which enables the development of extensions.
 One such extension is \textquote{SlicerSegmentEditorExtraEffects}\cite{lassoSlicerSegmentEditorExtraEffects2024} by Andras Lasso.
 This extension expands the tool section in the \texttt{Segmentation Editor} module with the following tools:
 \begin{figure}[h]
@@ -789,14 +845,35 @@ This extension expands the tool section in the \texttt{Segmentation Editor} modu
 \mbox{}
 
 \noindent
-Install the extension by clicking on the \texttt{Extensions Manger} in the toolbar (see: \cref{fig:toolbar}:10).
+Install the extension by clicking on the \texttt{Extensions Manger} in the toolbar (\cref{fig:toolbar}:10).
 In the newly opened window, click on \texttt{Install Extensions}, then use the search bar to find ``SegmentEditorExtraEffects''.
 Click install and wait for 3D Slicer to ask you for a restart.
 The extra tools will be available after restarting 3D Slicer.
 
 \pagebreak
 \subsubsection{Draw tube}\label{section:dt}
-% TODO: 2d, 3d
+\begin{figure}[h]
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{2d.svg}
+	\end{subfigure}
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{3d.svg}
+	\end{subfigure}
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{plugin.svg}
+	\end{subfigure}
+
+\end{figure}
+
 \begin{figure}[h!]
 	\centerline{
 		\includegraphics[
@@ -810,16 +887,36 @@ Draws a tube of fixed radius along a path of points.
 First, make sure the desired segment is selected.
 Click on \texttt{Place a control point} (\cref{fig:tube}:1) to start drawing.
 Create as many control points as you need by clicking on your volume in the 2D or 3D views.
-Exit the point creation mode by double left-clicking on the last point or right clicking anywhere in the view area.
+Exit the point creation mode by double left-clicking on the last point or right-clicking anywhere in the view area.
 The points can now still be moved freely by clicking and dragging them around.
-If you wish to delete the last added point, click on the thrashcan icon (\cref{fig:tube}:2).
-Pick a tube radius in millimeters and a interpolation algorithm (\cref{fig:tube}:5) by experimenting with the available options and reviewing changes in the preview (\cref{fig:tube}:4).
+If you wish to delete the last added point, click on the trashcan icon (\cref{fig:tube}:2).
+Pick a tube radius in millimeters and an interpolation algorithm (\cref{fig:tube}:5) by experimenting with the available options and reviewing changes in the preview (\cref{fig:tube}:4).
 Click \texttt{Apply} to confirm your changes (\cref{fig:tube}:6).
 The result however can still be changed by clicking \texttt{Edit} (\cref{fig:tube}:3).
 
 \pagebreak
 \subsubsection{Engrave}
-% TODO: 2d, 3d
+\begin{figure}[h]
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{2d.svg}
+	\end{subfigure}
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{3d.svg}
+	\end{subfigure}
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{plugin.svg}
+	\end{subfigure}
+\end{figure}
+
 \begin{figure}[h!]
 	\centerline{
 		\includegraphics[
@@ -832,7 +929,7 @@ The result however can still be changed by clicking \texttt{Edit} (\cref{fig:tub
 Draws or carves out text on a segments surface.
 First insert your desired text string (\cref{fig:eng}:1).
 Next, click on \texttt{Place a control point} (\cref{fig:eng}:2) and place your text by clicking on the desired position in either the 2D or 3D view area.
-Change size and location by selecting either (see: \cref{fig:eng}:3) and manipulating the text in the view area.
+Change size and location by selecting either (\cref{fig:eng}:3) and manipulating the text in the view area.
 Change the depth of penetration in millimeters by entering a value or dragging the slider (\cref{fig:eng}:4).
 Finally choose an operation mode (\cref{fig:eng}:5):
 \begin{description}
@@ -842,18 +939,49 @@ Finally choose an operation mode (\cref{fig:eng}:5):
 
 \pagebreak
 \subsubsection{Fast Marching}
+\begin{figure}[h]
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{2d.svg}
+	\end{subfigure}
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{plugin.svg}
+	\end{subfigure}
+\end{figure}
+\noindent
 Works similar to \texttt{Grow from seeds} (\Cref{section:gfs}) with the big difference that it does not need a ``Background'' segment and can be used on a single segment at a time.
 \texttt{Fast Marching} is also considerably faster than \texttt{Grow from seeds}
 \texttt{Maximum volume} refers to relative amount of your dataset \texttt{Fast Marching} will try to segment.
 Control segmentation leakage via the \texttt{Segment volume} slider.
 
-\pagebreak
 \subsubsection{Flood Filling}
+\begin{figure}[h]
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{plugin.svg}
+	\end{subfigure}
+\end{figure}
+\noindent
 \textquote{Add to the current segment all similar intensity voxels near the clicked position. Generally "Local threshold" effect is recommended instead of this effect because this effect often either cannot prevent leaking into other structures or provides incomplete segmentation.}\cite{lassoSlicerSegmentEditorExtraEffects2024}
 This tool has been found to be unreliable and tends to crash often.
 
 \pagebreak
 \subsubsection{Split Volume}
+\begin{figure}[h]
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{plugin.svg}
+	\end{subfigure}
+\end{figure}
 \begin{figure}[h!]
 	\centerline{
 		\includegraphics[
@@ -871,6 +999,27 @@ After clicking \texttt{Apply} the \texttt{Data} module will show some new volume
 
 \pagebreak
 \subsubsection{Surface Cut}
+\begin{figure}[h]
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{2d.svg}
+	\end{subfigure}
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{3d.svg}
+	\end{subfigure}
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{plugin.svg}
+	\end{subfigure}
+\end{figure}
+
 \begin{figure}[h!]
 	\centerline{
 		\includegraphics[
@@ -880,9 +1029,9 @@ After clicking \texttt{Apply} the \texttt{Data} module will show some new volume
 	\caption{Surface cut tool}\label{fig:sc}
 \end{figure}
 \noindent
-Works similar to \texttt{Draw tube} (see: \Cref{section:dt}) and \texttt{Scissors} (see: \Cref{section:scissors}).
+Works similar to \texttt{Draw tube} (\cref{section:dt}) and \texttt{Scissors} (\cref{section:scissors}).
 Start by creating fiducial markers (\cref{fig:sc}:1) in the 2D or 3D views (\cref{fig:sc}:2).
-Exit fiducial creation mode by either double clicking on the last fiducial or right clicking anywhere in the view area.
+Exit fiducial creation mode by either double-clicking on the last fiducial or right-clicking anywhere in the view area.
 Modify fidicual placement by clicking and dragging them to the desired position.
 Choose an operation mode:
 \begin{description}
@@ -895,11 +1044,41 @@ Choose an operation mode:
 
 \pagebreak
 \subsubsection{Watershed}
+\begin{figure}[h]
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{2d.svg}
+	\end{subfigure}
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{plugin.svg}
+	\end{subfigure}
+\end{figure}
+
 Works almost identical to \texttt{Grow from seeds}, with the exception that segmentation smoothing factor can be customized via the \texttt{Object scale} setting.
 For usage see: \Cref{section:gfs}.
 
-\pagebreak
+%\pagebreak
 \subsubsection{Local Threshold}
+\begin{figure}[h]
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{2d.svg}
+	\end{subfigure}
+	\begin{subfigure}{0.2\textwidth}
+		\includesvg[
+			inkscapelatex=false,
+			width = 0.3\textwidth
+		]{plugin.svg}
+	\end{subfigure}
+\end{figure}
+
 \begin{figure}[h!]
 	\centerline{
 		\includegraphics[
@@ -909,25 +1088,50 @@ For usage see: \Cref{section:gfs}.
 	\caption{Local threshold tool}\label{fig:lt}
 \end{figure}
 \noindent
-ROI based thresholding tool.
+ROI based threshold tool.
 Start by drawing a ROI in the 2D view area (\cref{fig:lt}:4).
 The segmentation algorithm (\cref{fig:lt}:2) will automatically set the lower and upper threshold limit.
 If the segmentation is leaky, reduce the \texttt{Minimum diameter}.
 This will prevent the segmentation algorithm from considering bridged areas with bridges smaller than the specified amount.
-If the watershead algorithm is selected (\cref{fig:lt}:2), \texttt{Feature size} can be used to control the amount of smoothing the algorithm performs.
+If the watershed algorithm is selected (\cref{fig:lt}:2), \texttt{Feature size} can be used to control the amount of smoothing the algorithm performs.
 If you wish to locally restrict the threshold, create and draw a ROI (\cref{fig:lt}:3) before using the tool.
 
-\section{Performing segmentations}
-
-
-
-
 \pagebreak
-\begin{figure}[h!] % h - here
+\section{Performing segmentations}
+Segmenting is now a matter of applying a selection of the tools mentioned above in a meaningful order.
+This guide will focus on bone segmentation as this was the authors use case, but the general workflow should apply to most anatomical structures.
+\noindent
+The next two sections will show you possible workflows.
+If you already face performance issues when loading the dataset, start by following the instructions in \cref{section:perf}.
+
+\subsection{Manual}
+\begin{description}
+	\item [1. Identify the target structure] Navigate to your target structure using the 2D views or visualize it in the \texttt{Volume Rendering} module.
+	\item [2. Isolate the target structure] Crop out as much unneeded volume as possible using the method described in \cref{section:crop}. This will not only improve performance, it will also make navigation easier.
+	\item [3. Generate a mask for the structure] Using the threshold tool (\cref{section:threshold}) generate a mask for your target structure, in case of this guide bone structures. This will make it almost impossible to accidentally segment unwanted tissue.
+	\item [4. (Optional) close holes and smooth edges] If the threshold tool left some holes throughout your target structure it is possible to fix this using a \texttt{Closing} operation (\cref{section:margin}).
+	\item [5. Cut away unwanted parts] Use the \texttt{Scissors} tool (\cref{section:scissors}) in 2D or 3D view to cut away unwanted structures from the mask segment.
+	\item [6. Create segments] Create a segment for each structure that is going to be segmented and name them accordingly (\cref{fig:manualSeg}:1).
+	\item [7. Manually separate structures] Use manual tools like \texttt{Draw, Paint, Draw tube} to separate elements. Overwriting the mask segment created in the third step. This can be achieved by selecting the mask segment as the \texttt{Editable area} in the \texttt{Masking} options (\cref{fig:tM}:6, \cref{fig:manualSeg}:3). Make sure to separate your target structure carefully in all planar views (\cref{fig:manualSeg}:4).
+	\item [8. Connect remaining islands] Use the \texttt{Islands} tool (\cref{fig:manualSeg}:2) to connect the middle segment of the last step, effectively finishing the segmentation.\end{description}
+\begin{figure}[h!]
 	\centerline{
 		\includegraphics[
 			% scale=0.2
-			width=0.95\paperwidth
-		]{../images/dragon.jpg}}
-	\caption{Here be dragons}
+			width=1.1\textwidth
+		]{manualSeg.png}}
+	\caption{Manual segmentation via islands}\label{fig:manualSeg}
 \end{figure}
+
+\pagebreak
+\subsection{Semi-Automatic}
+\begin{description}
+	\item [1. Identify the target structure] Navigate to your target structure using the 2D views or visualize it in the \texttt{Volume Rendering} module.
+	\item [2. Isolate your target structure] Crop out as much unneeded volume as possible using the method described in \cref{section:crop}. This will not only improve performance, it will also make navigation easier.
+	\item [3. Determine threshold for masking] Using the threshold tool (\cref{section:threshold}) generate a mask for your target structure, in case of this guide bone structures. Alternatively just use the threshold tool to determine the upper and lower limits and use them in the masking tab of the chosen semi-automatic segmentation tool.
+	\item [4. Create segments] Create a segment for each structure that is going to be segmented and name them accordingly. If you plan to use \texttt{Grow from seeds} (\cref{section:gfs}) also create a background label.
+	\item [5. Paint seeds] Manually paint seeds inside the structures you wish to segment. Make the seeds evenly spread throughout the structure and add extra seeds where structures border. When using \texttt{Grow from seeds} also do this for the background segment.
+	\item [6. Perform semi-automatic segmentation] Let the tool calculate a segmentation based on your seeds. Improve the segmentation by going back to step 5 and adding more seeds. Repeat until the result is sufficiently accurate.
+\end{description}
+
+\pagebreak
