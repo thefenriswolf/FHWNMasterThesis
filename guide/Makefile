@@ -8,6 +8,9 @@ default: all
 watch:
 	$(CC) $(CFLAGS) -pvc main.tex
 
+publish: guide
+	mv main.pdf seg_guide_Rohrbacher_Stefan.pdf
+
 all: guide
 
 cleanbuild: clean all

@@ -153,7 +153,7 @@ Show your cropped volume by clicking on the closed eye on the same line as its n
 3D slicer will then automatically hide the original dataset and populate the view area with the cropped volume dataset.
 
 \subsubsection{Masking}\label{mask}
-In the last step we cropped out the part of the source volume which does not contain any material/tissue of interest.
+In the last step we cropped out the part of the source volume which does not contain any material or tissue of interest.
 This step is dedicated to homogenizing the volume which was not cropped out in the last step.
 \begin{figure}[h!]
 	\centerline{
@@ -278,6 +278,12 @@ See \Cref{measuements:memComp} for more information.
 	\end{tikzpicture}
 	\caption{RAM usage comparison}\label{fig:ramUC}
 \end{figure}
+\newline
+\noindent
+\Cref{fig:ramUC} is a RAM usage comparison of 3D Slicer under different workloads, with the intention of showing the user what amount of resource consumption to expect.\\
+\texttt{none} refers to 3D Slicers base RAM usage without any dataset loaded.\\
+\texttt{full} refers to the RAM usage with a raw dataset of 309 megabytes file size.\\
+\texttt{small} refers to the RAM usage with the same dataset as above but reduced down to 15 megabytes file size using the method explained in \cref{section:perf}.
 \pagebreak
 
 
@@ -306,31 +312,36 @@ Before you start to segment \emph{ALWAYS} make sure the masking options are set 
 
 \subsection{Built in segmentation tools}
 \begin{figure}[h!]
-	\centerline{
-		\includegraphics[
-			scale=1.2
-		]{segmentationTools.png}}
-	\caption{Segmentation tool}\label{fig:sT}
+	\begin{minipage}{0.6\textwidth}
+		\begin{center}
+			\includegraphics[
+				scale=1.2
+			]{segmentationTools.png}
+			\caption{Segmentation tool}\label{fig:sT}
+		\end{center}
+	\end{minipage}%
+	%
+	\begin{minipage}{0.6\textwidth}
+		\begin{enumerate}
+			\item \texttt{No editing}
+			\item \texttt{Paint}
+			\item \texttt{Erase}
+			\item \texttt{Grow from seeds}
+			\item \texttt{Margin}
+			\item \texttt{Smoothing}
+			\item \texttt{Islands}
+			\item \texttt{Mask volume}
+			\item \texttt{Threshold}
+			\item \texttt{Draw}
+			\item \texttt{Level tracing}
+			\item \texttt{Fill between slices}
+			\item \texttt{Hollow}
+			\item \texttt{Scissors}
+			\item \texttt{Logical operators}
+			\item \texttt{Undo and Redo}
+		\end{enumerate}
+	\end{minipage}
 \end{figure}
-\pagebreak
-\begin{enumerate}
-	\item \texttt{No editing}
-	\item \texttt{Paint}
-	\item \texttt{Erase}
-	\item \texttt{Grow from seeds}
-	\item \texttt{Margin}
-	\item \texttt{Smoothing}
-	\item \texttt{Islands}
-	\item \texttt{Mask volume}
-	\item \texttt{Threshold}
-	\item \texttt{Draw}
-	\item \texttt{Level tracing}
-	\item \texttt{Fill between slices}
-	\item \texttt{Hollow}
-	\item \texttt{Scissors}
-	\item \texttt{Logical operators}
-	\item \texttt{Undo and Redo}
-\end{enumerate}
 
 \subsubsection{No editing}
 Selected by default. Enables inspection of 2D and 3D views without accidentally modifying a segmentation.
@@ -1097,7 +1108,7 @@ If the watershed algorithm is selected (\cref{fig:lt}:2), \texttt{Feature size} 
 If you wish to locally restrict the threshold, create and draw a ROI (\cref{fig:lt}:3) before using the tool.
 
 \pagebreak
-\section{Performing segmentations}
+\section{Performing segmentations}\label{section:quickstart}
 Segmenting is now a matter of applying a selection of the tools mentioned above in a meaningful order.
 This guide will focus on bone segmentation as this was the authors use case, but the general workflow should apply to most anatomical structures.
 \noindent
