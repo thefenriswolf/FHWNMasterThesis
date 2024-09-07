@@ -13,20 +13,20 @@
 
 % \setbeamercovered{transparent} % don't hide strip-teased bullet points
 
-\logo{\includegraphics[width=2cm]{images/fhwn-logo.png}}
+\logo{\includegraphics[width=2cm]{images/fhwn-logo-neu-ohneSchutzraum.png}}
 
-\newcommand{\nologo}{\setbeamertemplate{logo}{}} 
+\newcommand{\nologo}{\setbeamertemplate{logo}{}}
 
 % the ``Thank you'' page
 \def\makethanks{%
-  \begin{frame}
-  \frametitle{\@thankstitle}
-  \@thanksmessage
-  \end{frame}
+	\begin{frame}
+		\frametitle{\@thankstitle}
+		\@thanksmessage
+	\end{frame}
 }
 % in ``article'' mode there's no ``Thank you'' page
 \mode<article>
-  {\providecommand\makethanks{}}
+{\providecommand\makethanks{}}
 
 % commands for the title and message of the "Thank you" page
 \def\thankstitle#1{\def\@thankstitle{#1}}
