@@ -1,10 +1,15 @@
+
 CC=latexmk
-CFLAGS=-xelatex -bibtex -time -rc-report- -synctex=1 -interaction=nonstopmode -shell-escape
+CFLAGS=-xelatex -bibtex -time -rc-report- -synctex=1 -interaction=nonstopmode -shell-escape -quiet
 PRESENTATION_OPTIONS_FILE:=includes/presentation/00-options.tex
 PRESENTATION_NORMAL_OPTIONS:="\def\presentationoptions{12pt}"
 PRESENTATION_HANDOUT_OPTIONS:="\def\presentationoptions{12pt,handout}"
 PRESENTATION_HANDOUT_WITH_NOTES_OPTIONS:="\def\presentationoptions{12pt,handout,notes}"
-TMPFILES=*.auxlock *.fdb_latexmk *.run.xml *.bbl *.aux *.dvi *.aux *.log *.fls *.toc *.lof *.bcf *.lot
+TMPFILES=*.snm *.nav *.synctex.gz *.xdv *.auxlock *.fdb_latexmk *.run.xml *.bbl *.aux *.dvi *.log *.fls *.toc *.lof *.bcf *.lot
+
+default: thesis
+
+all: proposal thesis presentation
 
 watch-proposal:
 	$(CC) $(CFLAGS) -pvc proposal.tex
@@ -14,8 +19,6 @@ watch-thesis:
 
 watch-presentation:
 	$(CC) $(CFLAGS) -pvc presentation.tex
-
-all: proposal thesis presentation
 
 presentation: presentation-handout presentation-with-notes-handout presentation-standalone
 

@@ -5,6 +5,8 @@
 \LoadClass[oneside,12pt,bibliography=totoc]{scrbook}
 
 \RequirePackage{gitinfo2}
+\usepackage{svg} % include svg pictures
+\usepackage{subcaption} % enable subfigures
 
 %'oneside' specifies that the pages will be printed on one sides of a every page. If you want to print on both sides of your pages use the parameter 'twoside'. Remember to order the printing job on one side of every page!!!
 
