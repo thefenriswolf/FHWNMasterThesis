@@ -16,82 +16,39 @@ Finally, \cref{s:introduction-structureofthisthesis} gives an outlook of the str
 
 \section{Motivation}
 \label{s:introduction-motivation}
-Micro computed tomography (MicroCT) is a commonly used modality in industry and research.
-For research, it enables the study of small animal morphology\cite{percianoInsight3DMicroCT2017}.
-A common task when conducting short-term or long-term studies with mice, is the segmentation of the image datasets, as it plays an important role for quantitative image analysis\cite{sheppardTechniquesHelicalScanning2014}.
+\acrfull{mct} is a commonly used modality in industry and research.
+For research, it enables the study of small animal morphology \cite{percianoInsight3DMicroCT2017}.
+A common task when conducting short-term or long-term studies with mice, is the segmentation of the image datasets, as it plays an important role for quantitative image analysis \cite{sheppardTechniquesHelicalScanning2014}.
 Segmentation may be defined as the process of separating various image components.
-Furthermore, extracting parts relevant for subsequent analysis and comparison\cite{percianoInsight3DMicroCT2017}.
+Furthermore, extracting parts relevant for subsequent analysis and comparison \cite{percianoInsight3DMicroCT2017}.
 A common task may be in-vivo bone analysis for the investigation and monitoring of progression of various bone pathologies.
-Analysis is performed by first segmenting the MicroCT volume.
+Analysis is performed by first segmenting the \acrshort{mct} volume.
 Secondly, morphological features relevant for the study can be extracted to be then finally analyzed.
-Streamlining the segmentation process is therefore crucial for the analysis step\cite{percianoInsight3DMicroCT2017,korfiatisIndependentActiveContours2017}.
+Streamlining the segmentation process is therefore crucial for the analysis step \cite{percianoInsight3DMicroCT2017,korfiatisIndependentActiveContours2017}.
 \newline
-For performing MicroCT dataset segmentation tasks, there exist a few capable free and open-source programs.
-Two actively maintained and well-known\cite{virziComprehensiveReview3D2020,mandoliniComparisonThree3D2022,virziComprehensiveReview3D2020} software packages are:
+For performing \mct\space dataset segmentation tasks, there exist a few capable free and open-source programs.
+Two actively maintained and well-known \cite{virziComprehensiveReview3D2020,mandoliniComparisonThree3D2022,virziComprehensiveReview3D2020} software packages are:
 \begin{itemize}
-	\item \textsc{ITK-SNAP}\cite{yushkevichUserguided3DActive2006} available under the \texttt{GNU General Public License}\cite{licenseGnuGeneralPublic1989}
-	\item \textsc{3D Slicer}\cite{kikinis3DSlicerPlatform2014} available under a \texttt{BSD style license}\cite{gaudeulPublicProvisionPrivate2005}
+	\item \textsc{ITK-SNAP} \cite{yushkevichUserguided3DActive2006} available under the \texttt{GNU General Public License} \cite{licenseGnuGeneralPublic1989}
+	\item \textsc{3D Slicer} \cite{kikinis3DSlicerPlatform2014} available under a \texttt{BSD style license} \cite{gaudeulPublicProvisionPrivate2005}
 \end{itemize}
-Both programs equip the user with a sizeable number of segmentation tools, which can be grouped into manual, semi-automatic and fully automatic\cite{percianoInsight3DMicroCT2017}.
-The accuracy and efficiency of the segmentation however strongly correlate with user experience and the segmentation algorithm chosen\cite{mandoliniComparisonThree3D2022,aydinRELIABILITYREPRODUCIBILITYTIMEEFFICIENCY2020,arguelloComparisonSegmentationTools2019}.
-3D Slicers documentation website\cite{pinterPolymorphSegmentationRepresentation2019} explains the software and many of the available tools in the standard distribution of 3D Slicer.
+Both programs equip the user with a sizeable number of segmentation tools, which can be grouped into manual, semi-automatic and fully automatic \cite{percianoInsight3DMicroCT2017}.
+The accuracy and efficiency of the segmentation however strongly correlate with user experience and the segmentation algorithm chosen \cite{mandoliniComparisonThree3D2022,aydinRELIABILITYREPRODUCIBILITYTIMEEFFICIENCY2020,arguelloComparisonSegmentationTools2019}.
+3D Slicers documentation website \cite{pinterPolymorphSegmentationRepresentation2019} explains the software and many of the available tools in the standard distribution of 3D Slicer.
 But it does not feature a recommended segmentation workflow.
-Despite this fact, there is a lack of general recommendations, instructions or guides on how to efficiently segment MicroCT datasets.
-
-% Many studies have been published which try to predict the stock market movement \citep[see][]{Mittal2012a,Nguyen2015a,Pagolu2016a,Zhang2011a}.
-% The \ac{EMH} states that financial market movements depend on news, current events and product releases and all these factors will have significant impact on a company's stock value
-% \citep{fama1965behavior}.
-% Due to the fact that news and current events are unpredictable, stock market prices follow a random walk pattern and cannot be predicted with more than \SI{50}{\percent} accuracy
-% \citep{Pagolu2016a}.
-
-% \citet{Malkiel2003} noted that with the beginning of the new millennium, financial economists believed that stock prices are at least partly predictable.
-% They emphasized the behavioral and psychological elements of stock price determination.
-
-% Nowadays many internet users are microblogging.
-% Millions of messages are published daily on popular websites which provide microblogging services, such as Twitter, Tumblr and Facebook.
-% These published messages describe the personal life, opinions or current issues.
-% The more users post about products and services they use, the more microblogging websites become a valuable source of peoples' opinions and sentiments.
-% Therefore, this data can be used for marketing, social studies and as a measure of public opinion
-% \citep{Patodkar2016a, Pagolu2016a}.
-% Most Twitter messages have a maximum length of 140 characters and represents the public opinion on a precise topic
-% \citep{Pagolu2016a}.
-
+Despite this fact, there is a lack of general recommendations, instructions or guides on how to efficiently segment \acrlong{mct} datasets.
 
 \section{Research Goals}
 \label{s:introduction-researchgoals}
-Furthermore, segmenting large datasets, such as produced by a high resolution MicroCT scan, results in large random-access memory (RAM) demands by the segmentation software.
+Furthermore, segmenting large datasets, such as produced by a high resolution \mct\space scan, results in large \acrfull{ram} demands by the segmentation software.
 The 3D Slicer documentation states that the software will require approximately 10 times more memory than the loaded dataset.
-The user therefore has to optimize the segmentation workflow if the software is to be used on a computer with limited amounts of RAM.
+The user therefore has to optimize the segmentation workflow if the software is to be used on a computer with limited amounts of \acrshort{ram}.
 Therefore, the author hypothesizes that users of 3D Slicer will benefit from a streamlined segmentation guide, and it will improve segmentation quality as well as workflow efficiency.
-As mentioned above, \texttt{3D Slicer} and \texttt{ITK-SNAP} provide the user with a sizable amount of segmentation tools. The selection of the correct segmentation algorithm and workflow have a non-negligible influence on the segmentation quality as well as the time the user has to spend on it\cite{liuSAMMSegmentAny2023}. Furthermore, segmenting large datasets, such as produced by a high resolution $\mu$CT scan results in large random-access memory (RAM) demands by the segmentation software\cite{smistadMedicalImageSegmentation2015}.
+As mentioned above, \texttt{3D Slicer} and \texttt{ITK-SNAP} provide the user with a sizable amount of segmentation tools. The selection of the correct segmentation algorithm and workflow have a non-negligible influence on the segmentation quality as well as the time the user has to spend on it \cite{liuSAMMSegmentAny2023}.
+Furthermore, segmenting large datasets, such as produced by a high resolution \mct\space scan results in large \acrshort{ram} demands by the segmentation software\cite{smistadMedicalImageSegmentation2015}.
 The 3D Slicer documentation states that the software will require approximately 10 times more memory than the loaded dataset \cite{slicercommunity3DSlicerImage2022,fedorov3DSlicerImage2012}.
-The user therefore has to optimize the segmentation workflow if the software is to be used on a computer with limited amounts of RAM.
+The user therefore has to optimize the segmentation workflow if the software is to be used on a computer with limited amounts of \acrshort{ram}.
 Therefore, the author hypothesizes that users of \texttt{3D Slicer} will benefit from a streamlined segmentation guide, and it will improve segmentation quality as well as workflow efficiency.
-
-% According to the factors presented in \cref{s:introduction-motivation} the central research question can be formulated:
-% \emph{To what extent can stock market movements be explained by the public opinion extracted from Twitter?}
-
-% The goal of this research is to analyze the correlation between the sentiment of tweets and the share movement of automotive companies.
-% This goal will be met by achieving the following objectives:
-
-% \begin{itemize}
-% 	\item \textbf{G1} - Determine companies, keywords and stock symbols to analyze
-% 	\item \textbf{G2} - Gather tweets and their sentiments and stock prices
-% 	\item \textbf{G3} - Comparing sentiment time series with share prices
-% \end{itemize}
-
-% Based on the definitions of goals and having the central question in mind, the following sub tasks are defined in the form of questions in order to fulfill the goals:
-
-% \begin{itemize}
-% 	\item \textbf{G1-Q1} - Which companies should be analyzed?
-% 	\item \textbf{G1-Q2} - Which keywords should be used to find corresponding tweets?
-% 	\item \textbf{G1-Q3} - Which company uses which stock symbol in order to retrieve share prices?
-% 	\item \textbf{G2-Q4} - Why Twitter and not any other social media platform?
-% 	\item \textbf{G2-Q5} - In which way can tweets be collected?
-% 	\item \textbf{G2-Q6} - In which way can sentiments be determined?
-% 	\item \textbf{G2-Q7} - Which sentiments are present for various companies?
-% 	\item \textbf{G3-Q8} - Can the time series of sentiments explain the share prices?
-% \end{itemize}
 
 \section{Research Methodology}
 \label{s:introduction-researchmethodology}
@@ -101,64 +58,26 @@ The practical work for this project will be completed by the author on his priva
 	\caption{Segmentation computer specifications}
 	\begin{center}
 		\begin{tabular}{l l}
-			\textbf{OS}        & NixOS 24.05.4798.f4c846aee8e1 (Uakari) x86\_64    \\
-			\textbf{Kernel}    & Linux 6.6.50                                      \\
-			\textbf{Display}   & 1920x1080 @ 60Hz                                  \\
-			\textbf{CPU}       & AMD Ryzen 7 2700U with Radeon Vega Mobile Gfx ??? \\
-			\textbf{GPU}       & AMD Radeon Vega 3 / 10 Graphics @ 0.40 GHz ???    \\
-			\textbf{Memory}    & 64 GiB                                            \\
-			\textbf{Swap}      & ? GiB                                             \\
-			\textbf{Harddrive} & samsung evo??? ``sudo smartctl -a /dev/sda''
+			\textbf{\acrshort{os}}  & NixOS 24.05 (Uakari) x86\_64                   \\
+			\textbf{Kernel}         & Linux 6.6.50                                   \\
+			\textbf{Display}        & 24 inch, 1920x1080 @ 60\acrshort{hz}           \\
+			\textbf{\acrshort{cpu}} & AMD Ryzen 7 3700X 16 cores @ 3.6\acrshort{ghz} \\
+			\textbf{\acrshort{gpu}} & AMD Radeon RX 580                              \\
+			\textbf{Memory}         & 64 \acrshort{gb}                               \\
+			\textbf{Harddrive}      & Samsung SSD 860 EVO 500\acrshort{gb}
 		\end{tabular}
 	\end{center}
 \end{table}
-
-10 datasets from (TODO???) were acquired by the author.
-TODO: insert info about datasets.
-\newline
 \noindent
-The first step will be the segmentation of the MicroCT scans, which will serve as a ground truth and finding possible efficient workflows with the tools included in \texttt{3D Slicer}.
-Then a guide will be created outlining two different possible workflows for bone segmentation.
-This guide will be handed out to test candidates in conjunction with the task of using the guide to segment a specific part of a scan volume.
-The candidates are asked to perform two segmentations and return their results to the author.
-The first segmentation they are asked to perform prior to reading the guide.
-The second segmentation they are asked to perform after reading the guide.
-After receiving the results, the author will then calculate their accuracy by comparing the result of each test candidate with his own segmentation.
-While also measuring the potential improvement in segementation quality between the guided segmentation by the testers versus the unguided one.
-A qualitative score of the segmentation will be created by computing a score like the Dice coefficient\cite{diceMeasuresAmountEcologic1945}.
-This will be done using the \texttt{SlicerRT}\cite{pinterSlicerRTRadiationTherapy2012} extension for the 3D Slicer software package.
-
-% The research follows a structure deducted from ``evaluation techniques for systems analysis and design modelling methods'' by \citet{Siau2011} in which the authors try to show the benefits and the shortcomings of different methods.
-% In the following the three main categories and their mapping to this thesis are shown:
-
-% \begin{description}
-% 	\item[The \emph{theoretical and conceptual inquiry}]
-% 	      establishes the theoretical background of this thesis.
-% 	      Through literature research definitions and types of stock market prediction, option mining and social networks are found.
-
-% 	\item[The \emph{case study}]
-% 	      is needed to capture tweets on the internet.
-% 	      This is done by using a \ac{DMITCAT} installation
-% 	      \citep{Borra2014}.
-
-% 	\item[The \emph{metrics analysis}]
-% 	      is used to compare the results of the case study with share prices of the automotive companies.
-% \end{description}
-
-% As this thesis covers sentiments of people in a global context which are then compared to share prices in an economic context it can be classified as social science \citep{Recker2013}.
-% In the following the research actions which will be undertaken to answer the questions and fulfill the goals are explained.
-
-% \begin{itemize}
-% 	\item To find answers to the questions \textbf{Q1} to \textbf{Q5} literature research will be conducted.
-% 	      A keyword search will be performed on the literature search engine \emph{Google Scholar}.
-% 	      Furthermore, the library will be searched as well.
-% 	      The retrieved literature is reviewed and, based on the references, new literature is obtained.
-
-% 	\item With the theoretical background which has been obtained in answering the questions \textbf{Q1} to \textbf{Q6} a tweet collection system has been set up in order to answer the question \textbf{Q7}.
-% 	      This is done by setting up an open source tweet capturing system (\ac{DMITCAT}) and evaluating the sentiment of the captured tweets.
-
-% 	\item Question \textbf{Q8} is answered through both literature research, which has been collected for the questions \textbf{Q1} to \textbf{Q6}, and evaluated sentiments of the collected tweets for question \textbf{Q7}.
-% \end{itemize}
+The first step was the segmentation of the \mct\space scans, which served as a ground truth for finding possible efficient workflows with the tools included in \texttt{3D Slicer}.
+Then a guide has been created outlining two different possible workflows for bone segmentation.
+This guide has been handed out to test candidates in conjunction with the task of using the guide to segment a specific part of a scan volume.
+The candidates were asked to perform two segmentations and return their results to the author.
+The first segmentation they were asked to perform prior to reading the guide.
+The second segmentation they were asked to perform after reading the guide.
+After receiving the results, the author calculated their accuracy by comparing the result of each test candidate with his own segmentation.
+The \acrfull{dc} \cite{diceMeasuresAmountEcologic1945} was chosen as a similarity score for comparison of segmentation quality between the guided segmentation versus the unguided one.
+This has been done using the \texttt{SlicerRT} \cite{pinterSlicerRTRadiationTherapy2012} extension for the 3D Slicer software package.
 
 \section{Structure of this Thesis}
 \label{s:introduction-structureofthisthesis}

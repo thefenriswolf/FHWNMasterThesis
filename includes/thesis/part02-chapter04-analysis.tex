@@ -1,6 +1,6 @@
 %!TEX root = ../../thesis.tex
 
-\chapter{Analysis}
+\chapter{Results}
 \label{c:analysis}
 
 % This chapter describes the performed analysis steps and discusses its results.
@@ -9,19 +9,17 @@
 % Thirdly, the sentiments time series per company are discussed in \cref{s:analysis-sentiments}.
 % Fourthly, the various time series are compared to the corresponding share price time series in \cref{s:analysis-granger}.
 % Last but not least, the sentiment classifier performance are compared in \cref{s:analysis-classifercomparison}.
-\lipsum[1]
 
-\section{Datasets}
-\label{s:analysis-datasets}
+%\section{Datasets}
+%\label{s:analysis-datasets}
 
 % All data has been captured between \printdate{2018-02-28} and \printdate{2018-09-07}.
 % This time frame has been chosen in order to be long enough to perform analysis and to finish the study within time.
 % The captured datasets are split by the owning company.
 % In the following subsections each dataset is described in detail including both captured share prices and tweets.
-\lipsum[1]
 
-\subsection{\ford}
-\label{ss:analysis-datasets-ford}
+%\subsection{ford}
+%\label{ss:analysis-datasets-ford}
 
 % For the \ford{} \num{3745447} English tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-05}.
 % But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
@@ -51,10 +49,9 @@
 % 	\caption{\indicesCaption{\ford}{\printdate{2018-02-28}}{\printdate{2018-09-05}}}
 % 	\label{fig:analysis-indices-ford}
 % \end{figure}
-\lipsum[1]
 
-\subsection{\gm}
-\label{ss:analysis-datasets-gm}
+%\subsection{gm}
+%\label{ss:analysis-datasets-gm}
 
 % For the \gm{} \num{413817} English tweets have been captured in total between \printdate{2018-06-26} and \printdate{2018-09-06}.
 % But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
@@ -83,10 +80,9 @@
 % 	\caption{\indicesCaption{\gm}{\printdate{2018-06-26}}{\printdate{2018-09-06}}}
 % 	\label{fig:analysis-indices-gm}
 % \end{figure}
-\lipsum[1]
 
-\subsection{\hyundai}
-\label{ss:analysis-datasets-hyundai}
+%\subsection{hyundai}
+%\label{ss:analysis-datasets-hyundai}
 
 % For the \hyundai{} \num{697221} English tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-07}.
 % But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
@@ -140,10 +136,9 @@
 % 	\caption{\indicesCaption{\toyota}{\printdate{2018-02-28}}{\printdate{2018-09-07}}}
 % 	\label{fig:analysis-indices-toyota}
 % \end{figure}
-\lipsum[1]
 
-\subsection{\vw}
-\label{ss:analysis-datasets-vw}
+%\subsection{vw}
+%\label{ss:analysis-datasets-vw}
 
 % For the \vw{} \num{6219350} English tweets have been captured in total between \printdate{2018-02-28} and \printdate{2018-09-05}.
 % But as stated earlier in \cref{ss:casestudy-gatherdata-tweets} this was not a continuous time frame.
@@ -174,17 +169,15 @@
 % 	\caption{\indicesCaption{\vw}{\printdate{2018-02-28}}{\printdate{2018-09-05}}}
 % 	\label{fig:analysis-indices-vw}
 % \end{figure}
-\lipsum[1]
 
-\section{Hyper-parameters}
-\label{s:analysis-pipelines}
+%\section{Hyper-parameters}
+%\label{s:analysis-pipelines}
 
 % This section presents the results of the model selector GridSearchCV as described in \cref{s:casestudy-sentiment}.
 % GridSearchCV has been trained and tested using the Twitter corpus of \ac{NLTK} (\emph{nltk.corpus.twitter\_samples}) which contains each \num{5000} positive and \num{5000} negative tweets.
-\lipsum[1]
 
-\subsection{TextBlob Classifier}
-\label{ss:analysis-pipeline-textblob}
+%\subsection{TextBlob Classifier}
+%\label{ss:analysis-pipeline-textblob}
 
 % As previously stated \emph{\tb{}} is a pre-trained classifier which works out-of-the-box.
 % It can be seen as kind of a base-line.
@@ -219,10 +212,9 @@
 % 	\caption{\confusionCaption{\tb{}}}
 % 	\label{tab:anaylsis-pipeline-textblob-confusion}
 % \end{table}
-\lipsum[1]
 
-\subsection{Naive Bayes Classifier}
-\label{ss:analysis-pipeline-naivebayes}
+%\subsection{Naive Bayes Classifier}
+%\label{ss:analysis-pipeline-naivebayes}
 
 % The GridSearchCV model selector discovered \num{96} different possibilities for the \nb{} classifier using the defined hyper-parameters in \cref{s:casestudy-sentiment}.
 % As the classifier had to be trained the sample tweets have been split into training (\SI{80}{\percent}) and test (\SI{20}{\percent}) tweets.
@@ -288,10 +280,9 @@
 % 	\caption{\confusionCaption{Naive Bayes}}
 % 	\label{tab:anaylsis-pipeline-naivebayes-confusion}
 % \end{table}
-\lipsum[1]
 
-\subsection{Maximum Entropy Classifier}
-\label{ss:analysis-pipeline-maximumentropy}
+%\subsection{Maximum Entropy Classifier}
+%\label{ss:analysis-pipeline-maximumentropy}
 
 % A similar result has been achieved using the \me{} classifier pipeline:
 % GridSearchCV discovered \num{192} different possibilities for the hyper-parameters.
@@ -361,8 +352,8 @@
 %  [255 733]]
 
 
-\subsection{Support Vector Machine Classifier}
-\label{ss:analysis-pipeline-supportvectormachine}
+%\subsection{Support Vector Machine Classifier}
+%\label{ss:analysis-pipeline-supportvectormachine}
 
 % Last but not least the same model selection process has been performed for the \svm{} pipeline.
 % GridSearchCV discovered \num{480} different parameter possibilities in total, taking the five different folds into account.
@@ -433,14 +424,14 @@
 %  [220 768]]
 
 
-\section{Sentiment Time Series}
-\label{s:analysis-sentiments}
+%\section{Sentiment Time Series}
+%\label{s:analysis-sentiments}
 
 % This section describes the sentiment time series which has been extracted from the collected tweets.
 % As each tweet dataset has been analyzed using various sentiment detection classifiers the results are shown and described in detail in the corresponding subsections.
 
-\subsection{General}
-\label{ss:analysis-sentiments-general}
+%\subsection{General}
+%\label{ss:analysis-sentiments-general}
 
 % First, an analysis of positive versus negative tweets has been performed.
 % The results are depicted in \cref{tab:analysis-sentiments-general}.
@@ -479,10 +470,9 @@
 % 	z_y = \frac{y - \mu_y}{\sigma_y}
 % 	\label{eq:analysis-sentiments-normalization}
 % \end{equation}
-\lipsum[1]
 
-\subsection{\ford}
-\label{ss:analysis-sentiments-ford}
+%\subsection{ford}
+%\label{ss:analysis-sentiments-ford}
 
 % The various sentiment time series for \ford{} are depicted in \cref{fig:analysis-sentiments-ford} which are split upon three different groups as there were several days in between where no tweets have been captured.
 % But there were several days where the various sentiment classifiers led to opposite sentiments for the specific day.
@@ -581,10 +571,9 @@
 
 % 	      The most frequent tweet was the same tweet again like the day before.
 % \end{enumerate}
-\lipsum[1]
 
-\subsection{\gm}
-\label{ss:analysis-sentiments-gm}
+%\subsection{gm}
+%\label{ss:analysis-sentiments-gm}
 
 % The various sentiment time series for \gm{} are depicted in \cref{fig:analysis-sentiments-gm} which are split upon two different groups.
 
@@ -639,8 +628,8 @@
 % \end{enumerate}
 
 
-\subsection{\hyundai}
-\label{ss:analysis-sentiments-hyundai}
+%\subsection{hyundai}
+%\label{ss:analysis-sentiments-hyundai}
 
 % The various sentiment time series for \hyundai{} are depicted in \cref{fig:analysis-sentiments-hyundai} which are split upon three different groups.
 % There were three days with a normalized sentiment value above \texttt{3}:
@@ -711,8 +700,8 @@
 % 	\label{tab:analysis-sentiments-hyundai-opposite}
 % \end{table}
 
-\subsection{\toyota}
-\label{ss:analysis-sentiments-toyota}
+%\subsection{toyota}
+%\label{ss:analysis-sentiments-toyota}
 
 % The various sentiment time series for \toyota{} are depicted in \cref{fig:analysis-sentiments-toyota} which are split upon two different groups.
 % There were three days with a normalized sentiment value above \num{2.5} which are noticeable.
@@ -783,8 +772,8 @@
 % 	\label{tab:analysis-sentiments-toyota-opposite}
 % \end{table}
 
-\subsection{\vw}
-\label{ss:analysis-sentiments-vw}
+%\subsection{vw}
+%\label{ss:analysis-sentiments-vw}
 
 % The various sentiment time series for \vw{} are depicted in \cref{fig:analysis-sentiments-vw} which are split upon three different groups.
 % There were four days with a normalized sentiment value above \num{2.5} which are noticeable.
@@ -888,8 +877,8 @@
 % 	\label{tab:analysis-sentiments-vw-opposite}
 % \end{longtable}
 
-\subsection{Retweets Issue}
-\label{ss:analysis-sentiments-retweets}
+%\subsection{Retweets Issue}
+%\label{ss:analysis-sentiments-retweets}
 
 % The analysis so far suggested that days with a high percentage of \acp{RT} are more likely to perform badly as other days.
 % Performing bad in that case means that the difference between the smallest sentiment classifier value and the largest sentiment classifier value is extremely large.
@@ -945,8 +934,8 @@
 % 	\label{fig:analysis-sentiments-retweets}
 % \end{figure}
 
-\section{Comparison of Time Series}
-\label{s:analysis-granger}
+%\section{Comparison of Time Series}
+%\label{s:analysis-granger}
 % granger causality
 
 % This section compares the various sentiment classifier results with share prices time series which is done by performing Granger causality tests.
@@ -954,8 +943,8 @@
 % They test whether the sentiment time series can explain the share price time series with the defined lag in days.
 % In the following section the results of the analysis for each company are shown.
 
-\subsection{\ford}
-\label{ss:analysis-granger-ford}
+%\subsection{ford}
+%\label{ss:analysis-granger-ford}
 
 % The first company analyzed is \ford{}.
 % \Cref{fig:analysis-results-ford} shows the sentiment classifier values and the corresponding share price ($P_{Share}$) for each day.
@@ -996,8 +985,8 @@
 % 	10   & .9863   & .9061   & .3473   & .4379   & .8594   & .5650   & .8931   & .5406 \\
 % \end{grangerTable}
 
-\subsection{\gm}
-\label{ss:analysis-granger-gm}
+%\subsection{gm}
+%\label{ss:analysis-granger-gm}
 
 % \gm{} is the second company analyzed.
 % Both the various sentiment time series and the share price time series are shown in \cref{fig:analysis-results-gm}.
@@ -1032,8 +1021,8 @@
 % 	10   & .0650   & .3129   & .0121*   & .0802   & .1208   & .2210   & .0918   & .1593 \\
 % \end{grangerTable}
 
-\subsection{\hyundai}
-\label{ss:analysis-granger-hyundai}
+%\subsection{hyundai}
+%\label{ss:analysis-granger-hyundai}
 
 % The various sentiment and share price values are depicted in \cref{fig:analysis-results-hyundai}.
 % The extreme outliers in group 1 have already been described in \cref{ss:analysis-sentiments-hyundai} are caused by several thousand \acp{RT}.
@@ -1064,8 +1053,8 @@
 % 	10   & .0000*   & .0074*   & .0000*   & .3024   & .0000*   & .1615   & .0000*   & .2298 \\
 % \end{grangerTable}
 
-\subsection{\toyota}
-\label{ss:analysis-granger-toyota}
+%\subsection{toyota}
+%\label{ss:analysis-granger-toyota}
 
 % Sentiments values and share prices for company \toyota{} are visualized in \cref{fig:analysis-results-toyota}.
 % Again the y-axis has been clipped at the values \texttt{-2.5} and \texttt{2}.
@@ -1097,8 +1086,8 @@
 % 	10   & .9551   & .4556   & .9908   & .1734   & .7944   & .2681   & .7784   & .2843 \\
 % \end{grangerTable}
 
-\subsection{\vw}
-\label{ss:analysis-granger-vw}
+%\subsection{vw}
+%\label{ss:analysis-granger-vw}
 
 % Last but not least, both the sentiment values and the share prices of \vw{} are depicted in \cref{fig:analysis-results-vw}.
 % The y-axis has not been clipped in this specific case as there were no extreme outliers.
@@ -1131,8 +1120,8 @@
 % 	10   & .0862   & .0022*   & .1354   & .0000*   & .1206   & .0001*   & .0194*   & .0003* \\
 % \end{grangerTable}
 
-\subsection{Lag in days}
-\label{ss:analysis-granger-lag}
+%\subsection{Lag in days}
+%\label{ss:analysis-granger-lag}
 
 % Another interesting analysis is to look which amount of lag yielded the more significant results.
 % A graphical illustration is shown in \cref{fig:analysis-results-lag}.
@@ -1177,8 +1166,8 @@
 % 	\label{tab:analysis-granger-lags-linearmodel}
 % \end{table}
 
-\section{Sentiment Classifier Performance}
-\label{s:analysis-classifercomparison}
+%\section{Sentiment Classifier Performance}
+%\label{s:analysis-classifercomparison}
 
 % In \cref{s:analysis-granger} the time series are compared to each other using the Granger analysis.
 % It is evaluated if there is a relation between both time series (share price and overall sentiment) using a lag in days.

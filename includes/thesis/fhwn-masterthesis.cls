@@ -7,6 +7,7 @@
 \RequirePackage{gitinfo2}
 \usepackage{svg} % include svg pictures
 \usepackage{subcaption} % enable subfigures
+\usepackage{wrapfig} % enable text and figures side by side
 
 %'oneside' specifies that the pages will be printed on one sides of a every page. If you want to print on both sides of your pages use the parameter 'twoside'. Remember to order the printing job on one side of every page!!!
 
@@ -38,7 +39,14 @@
 %\RequirePackage[intoc]{nomencl}   %helps to format a nomenclature.
 %\makenomenclature
 
-\RequirePackage[nomain,acronym,toc,shortcuts]{glossaries}
+\RequirePackage[
+nomain,
+nonumberlist, % don't display page numbers
+acronym,
+nopostdot, % don't display dot after text
+toc, % display in table of contents
+shortcuts
+]{glossaries-extra}
 
 \RequirePackage[english]{isodate} %Provides the format for the date on the title page. Read the package documentation for all the possible date formats.
 

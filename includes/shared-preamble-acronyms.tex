@@ -1,17 +1,70 @@
-\newacronym{EMH}{EMH}{Efficient Market Hypothesis}
-\newacronym{ME}{ME}{Maximum Entropy}
-\newacronym{NB}{NB}{Naive Bayes}
-\newacronym{NLP}{NLP}{Natural Language Processing}
-\newacronym{SVM}{SVM}{Support Vector Machines}
-\newacronym{TP}{TP}{True Positive}
-\newacronym{TN}{TN}{True Negative}
-\newacronym{FP}{FP}{False Positive}
-\newacronym{FN}{FN}{False Negative}
-\newacronym{bow}{bow}{bag of words}
-\newacronym{API}{API}{Application Programming Interface}
-\newacronym{GB}{GB}{Giga Bytes}
-\newacronym{RegEx}{RegEx}{Regular Expression}
-\newacronym{TF-IDF}{TF-IDF}{Term Frequency Inverse Document Frequency}
-\newacronym{NLTK}{NLTK}{Natural Language Toolkit}
-\newacronym{RT}{RT}{retweet}
-\newacronym{DMITCAT}{DMI-TCAT}{Digital Methods Initiative Twitter Capture and Analysis Toolset}
+% acronyms
+% usage:
+% \acrlong{} -> display phrase
+% \acrshort{} -> display acronym
+% \acrfull{} -> display phrase and acronym
+
+\newacronym{tp}{TP}{True Positive}
+\newacronym{tn}{TN}{True Negative}
+\newacronym{fp}{FP}{False Positive}
+\newacronym{fn}{FN}{False Negative}
+\newacronym{api}{API}{Application Programming Interface}
+\newacronym{dc}{DSC}{Dice similarity coefficient}
+\newacronym{ram}{RAM}{Random Access Memory}
+\newacronym{mct}{\mct}{Microscopic computed tomography}
+\newacronym{gb}{GB}{Gigabyte}
+\newacronym{hz}{Hz}{Hertz}
+\newacronym{ghz}{GHz}{Gigahertz}
+\newacronym{kv}{kVp}{Kilovoltage peak}
+\newacronym{mas}{mAs}{Milliampere-seconds}
+\newacronym{dof}{DOF}{depth of field}
+\newacronym{cpu}{CPU}{central processing unit}
+\newacronym{gpu}{GPU}{graphics processing unit}
+\newacronym{os}{OS}{operating system}
+\newacronym{bpf}{BPF}{Berkeley Packet Filter}
+\newacronym{ccd}{CCD}{charge-coupled device}
+\newacronym{cmos}{CMOS}{complementary metal–oxide–semiconductor}
+\newacronym{fbp}{FBP}{filtered back-projection}
+\newacronym{fdk}{FDK}{Feldkamp-Davis-Kress algorithm}
+\newacronym{tv}{TV}{total variation regularization}
+\newacronym{hu}{HU}{Houndsfield units}
+\newacronym{ac}{AC}{attenuation coefficient}
+
+
+% glossaries
+% usage:
+% \gls{} -> print term lowercase
+% \glspl{} -> print term lowercase & plural
+% \Gls{} -> print term fist letter uppercase
+% \Glspl{} -> print term first letter uppercase & plural
+
+\newglossaryentry{isra}
+{
+	name=ISRA,
+	description={image space reconstruction algorithm}
+}
+\newglossaryentry{isratv}
+{
+	name=ISRA-TV,
+	description={\acrlong{tv} \gls{isra}}
+}
+\newglossaryentry{px}
+{
+	name=pixel,
+	description={the smallest addressable element in a raster image}
+}
+\newglossaryentry{vx}
+{
+	name=voxel,
+	description={three-dimensional counterpart to a pixel}
+}
+\newglossaryentry{bit}
+{
+	name=bit,
+	description={binary digit with only two possible values 0 and 1}
+}
+\newglossaryentry{iso}
+{
+	name=isotropic,
+	description={uniform in all directions}
+}
