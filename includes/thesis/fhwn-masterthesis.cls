@@ -5,9 +5,9 @@
 \LoadClass[oneside,12pt,bibliography=totoc]{scrbook}
 
 \RequirePackage{gitinfo2}
-\usepackage{svg} % include svg pictures
-\usepackage{subcaption} % enable subfigures
-\usepackage{wrapfig} % enable text and figures side by side
+\RequirePackage{svg} % include svg pictures
+\RequirePackage{subcaption} % enable subfigures
+\RequirePackage{wrapfig} % enable text and figures side by side
 
 %'oneside' specifies that the pages will be printed on one sides of a every page. If you want to print on both sides of your pages use the parameter 'twoside'. Remember to order the printing job on one side of every page!!!
 
@@ -21,9 +21,9 @@
 \RequirePackage[a4paper,top=25mm,bottom=30mm,left=30mm,right=25mm]{geometry}   %allows to change margins and distances within the page's frame. Be careful with this tool. Remember to delete the frame!!!!
 
 %#+TODO: remove frame
-%\RequirePackage{showframe}
+\RequirePackage{showframe}
 
-\usepackage[english]{babel}
+\RequirePackage[english]{babel}
 \RequirePackage{csquotes}
 \RequirePackage{graphicx}   %loads the graphics package, necessary for pictures
 \RequirePackage{url}
@@ -50,7 +50,7 @@ shortcuts
 
 \RequirePackage[english]{isodate} %Provides the format for the date on the title page. Read the package documentation for all the possible date formats.
 
-\RequirePackage{minted} % source code syntax highlighting
+%\RequirePackage{minted} % source code syntax highlighting
 % requires pygments to be installed
 % wrap code in \begin{minted}{LANGUAGE} \end{minted}
 
@@ -61,6 +61,8 @@ shortcuts
 
 \RequirePackage{lipsum}
 \RequirePackage{pgfplots}
+\pgfplotsset{compat=newest} % Allows to place the legend below plot
+\usepgfplotslibrary{units} % Allows to enter the units nicely
 \RequirePackage{tikz}
 
 \RequirePackage{caption}
@@ -96,32 +98,52 @@ shortcuts
 
 \RequirePackage{titlesec}
 
-%#+TODO: remove color for printing???
-% Chapter
-\titleformat{\chapter}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[.63cm][l]{\thechapter.}}{0pt}{}[]
+%% blue headlines
+%% Chapter
+%\titleformat{\chapter}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[.63cm][l]{\thechapter.}}{0pt}{}[]
+%\titlespacing*{\chapter}{0pt}{18pt}{12pt}
+
+%% Section
+%\titleformat{\section}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[1.27cm][l]{\thesection}}{0pt}{}[]
+%\titlespacing*{\section}{0pt}{6pt}{12pt}
+
+%% Subsection
+%\titleformat{\subsection}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[1.50cm][l]{\thesubsection}}{0pt}{}[]
+%\titlespacing*{\subsection}{0pt}{6pt}{12pt}
+
+%% Subsubsection
+%\titleformat{\subsubsection}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[1.50cm][l]{\thesubsubsection}}{0pt}{}[]
+%\titlespacing*{\subsubsection}{0pt}{6pt}{12pt}
+
+%% Paragraph
+%\titleformat{\paragraph}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[2.50cm][l]{\theparagraph}}{0pt}{}[]
+%\titlespacing*{\paragraph}{0pt}{6pt}{12pt}
+
+%% black headlines
+%% Chapter
+\titleformat{\chapter}[hang]{\bfseries\Large\sffamily}{\makebox[.63cm][l]{\thechapter.}}{0pt}{}[]
 \titlespacing*{\chapter}{0pt}{18pt}{12pt}
 
-% Section
-\titleformat{\section}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[1.27cm][l]{\thesection}}{0pt}{}[]
+%% Section
+\titleformat{\section}[hang]{\bfseries\Large\sffamily}{\makebox[1.27cm][l]{\thesection}}{0pt}{}[]
 \titlespacing*{\section}{0pt}{6pt}{12pt}
 
-% Subsection
-\titleformat{\subsection}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[1.50cm][l]{\thesubsection}}{0pt}{}[]
+%% Subsection
+\titleformat{\subsection}[hang]{\bfseries\Large\sffamily}{\makebox[1.50cm][l]{\thesubsection}}{0pt}{}[]
 \titlespacing*{\subsection}{0pt}{6pt}{12pt}
 
-% Subsubsection
-\titleformat{\subsubsection}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[1.50cm][l]{\thesubsubsection}}{0pt}{}[]
+%% Subsubsection
+\titleformat{\subsubsection}[hang]{\bfseries\Large\sffamily}{\makebox[1.50cm][l]{\thesubsubsection}}{0pt}{}[]
 \titlespacing*{\subsubsection}{0pt}{6pt}{12pt}
 
-% Paragraph
-\titleformat{\paragraph}[hang]{\bfseries\Large\color{header-blue}\sffamily}{\makebox[2.50cm][l]{\theparagraph}}{0pt}{}[]
+%% Paragraph
+\titleformat{\paragraph}[hang]{\bfseries\Large\sffamily}{\makebox[2.50cm][l]{\theparagraph}}{0pt}{}[]
 \titlespacing*{\paragraph}{0pt}{6pt}{12pt}
+
 
 \RequirePackage{fancyhdr}
 
 % \fancypagestyle{mystyle}{
-%     \fancyhf{} %Clear Everything.
-%     \fancyfoot[C]{\thepage} %Page Number
 %     \renewcommand{\headrulewidth}{0pt} %0pt for no rule, 2pt thicker etc...
 %     \renewcommand{\footrulewidth}{0pt}
 %     % \fancyfoot[L]{BOTTOM LEFT}
@@ -131,7 +153,6 @@ shortcuts
 % }
 
 %\RequirePackage{footnote}      %Just in case you want to include footnotes
-%\RequirePackage{indentfirst}    %Indent in every first paragraph after \chapter and \section.
 \RequirePackage[onehalfspacing]{setspace}      %Change spacing easily with simple commands
 
 \RequirePackage{amsmath}       %This package introduces several new commands that are more powerful and flexible than the ones provided by LaTeX. Uncomment them if you are using complex mathematical notation.

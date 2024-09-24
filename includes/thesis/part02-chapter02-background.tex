@@ -55,6 +55,8 @@ They can only achieve between 20 and 100\acrshort{kv} of tube voltage and betwee
 \begin{equation}\label{eqn:intensity-proportionality}
 	I \propto (kV)^{2}*(mA)
 \end{equation}
+
+\noindent
 The number of X-ray photons depends on the tube current, and the energy of the photons depends on the tube voltage squared.
 Furthermore, the intensity of the beam can be described as being proportional to the product of those two factors, see: \cref{eqn:intensity-proportionality}.
 The flat panel detector usually contains a scintillator screen, which when excited by X-rays gives off visible light \cite{babaComparisonFlatpanelDetector2002,ritmanCurrentStatusDevelopments2011,clarkMicroCTRodentsStateart2014}.
@@ -68,6 +70,7 @@ This attenuation is described by the following \cref{eqn:attenuation}:
 \begin{equation} \label{eqn:attenuation}
 	I_{x} = I_{0}e^{- \mu x}
 \end{equation}
+
 \noindent
 Where $I_{0}$ is the initial intensity of the beam, $x$ is the distance the beam traveled and $\mu$ is the linear \acrlong{ac}.
 The linear \acrfull{ac} is different for every tissue and material and describes its X-ray density.
@@ -113,6 +116,7 @@ calculating the \acrshort{tv} on the previous back-projected image and modifying
 	\caption{\gls{isra} and \gls{isratv} iterative algorithm principle \cite{vandeghinsteLowDoseMicroCTImaging2013}}
 	\label{fig:isra}
 \end{figure}
+
 \noindent
 \cref{fig:alg-comp} shows a comparison of reconstruction results between \gls{fdk}, \gls{isra} and \gls{isratv}
 in relation to the number of projection views.
@@ -123,7 +127,7 @@ Finally, \gls{isratv} is able to correct for streak artifacts and image noise \c
 \begin{figure}[h]
 	\centerline{
 		\includegraphics[scale=0.5]{images/alg-comp.png}}
-	\caption{\gls{fdk}, \gls{isra} and \gls{isratv} comparison \cite{vandeghinsteLowDoseMicroCTImaging2013}}
+	\caption{\gls{fdk}, \gls{isra} and \gls{isratv} reconstruction quality comparison \cite{vandeghinsteLowDoseMicroCTImaging2013}}
 	\label{fig:alg-comp}
 \end{figure}
 
@@ -134,6 +138,7 @@ and can also be called the CT number.
 \begin{equation} \label{eqn:hu}
 	\acrshort{hu} = \frac{\mu - \mu_{water}}{\mu_{water}}*1000
 \end{equation}
+
 \noindent
 \cref{eqn:hu} shows how \acrshort{hu} are computed.
 Where, $\mu$ is the \acrlong{ac} of a specific tissue or material and $\mu_{water}$
@@ -149,11 +154,67 @@ While most soft tissues have a \acrshort{hu} value between $-100$ and $+100$ \ci
 
 \section{Composition of a guide}
 \label{s:guide-creation}
+%TODO: write something
+
+\subsection{\good}
+\label{s:b-gooddocs}
+\begin{displayquote}
+	The Good Docs Project educates and empowers people to create high-quality documentation by providing them with templates, resources, best practices, and tools to enhance their documentation in open source and beyond \cite{shorterGoodDocsProject2024}.
+\end{displayquote}
+It is used for documentation design by companies like GitLab (GitLab Inc., San Francisco, U.S.A) and JetBrains (JetBrains s.r.o, Prague, Czech Republic).
+\good\space actively discourages producing any sort of documentation before its content and structure have been planned extensively \cite{shorterGoodDocsProject2024}.
+Instead, it instructs documentation authors to first and foremost, think about the topic at hand.
+Especially, authors should evaluate the complexity of the topic and try to predict what kind of questions readers might have while reading the documentation.
+Furthermore, documentation authors are supposed to consider the ability of their target audience and what reasonable assumptions one can make about the prior knowledge of 
+readers.
+Next, \good\space instructs documentation authors to create three fictional readers: a beginner, an intermediate and an expert.
+The beginner might represent an ordinary customer or user of some software or technology product.
+The intermediate might represent a system administrator of said product 
+and the expert might represent a support person.
+The documentation author should now, come up with several problems each fictional reader would try to solve with the help of documentation \cite{shorterGoodDocsProject2024}.
+\begin{figure}[h]
+	\centerline{
+		\includegraphics[scale=0.5]{images/gd_dt.png}}
+	\caption{\good\space critical paths decision table \cite{shorterGoodDocsProject2024}}
+	\label{fig:dg-dt}
+\end{figure}
+
+\noindent
+Furthermore, the author is supposed to compose a table similar to \cref{fig:dg-dt} and score the likeliness each reader is 
+going to use the documentation to complete the task.
+The score ranges from 1, which is the lowest likelihood to 3 for the highest likelihood.
+Next, the author needs to sum up each row.
+The resulting ``Critical Path Score'' is then intended to give the author insight about the importance of different documentation 
+content \cite{shorterGoodDocsProject2024}.
+``Critical Path Score'' ranges from 3\footnote{3 readers, each with a likelihood of 1. $3*1=3$}, 
+which is the lowest importance to the highest importance of 9\footnote{3 readers, each with a likelihood of 3. $3*3=9$}.
+Finally, based on all information gathered in the process explained above, the author is instructed to choose the appropriate template provided by \good\space \cite{shorterGoodDocsProject2024}.\\
+The following compressed list provides an overview over the available templates in the current edition of \good\space version 1.2.0:
+\begin{description}
+	\item[Concept] An explanation of a concept, context, or background information about a product or its features.
+    \item[How-to] A concise set of numbered steps to do one task with the product.
+    \item[README] Information users need to know about your project, including how users can engage with the project and get started with the tool.
+    \item[Reference] Specific, in-depth details about a particular topic.
+    \item[Release notes] Communicate new features, improvements, bug fixes, and known issues about a product to users and stakeholders.	
+    \item[Tutorial] Instructions for setting up an example project using the product, intended for the purpose of hands-on learning.
+    \item[Troubleshooting] A list of common problems (referred to as "symptoms") experienced by users, an explanation of the causes, and steps to resolve the issue.
+    \item[Bug report] The bug report is an issue template that your users can fill out to provide you with higher-quality, actionable bug issues for your product.
+    \item[Code of Conduct] A Code of Conduct helps you govern your open source or developer community to ensure it remains healthy and open.
+    \item[Contributing guide] A CONTRIBUTING document tells users how they can contribute to your open source project and join the community.
+    \item[Our team] Helps you clearly communicate who belongs to your open source project or organization and how contributors can contact or work with them.
+    \item[API quickstart] API quickstarts describe the easiest way for readers to achieve a result that shows off the capabilities of the service.
+    \item[API reference] API references are technical manuals that provide API specifications and integration instructions to help your audience understand the service.
+    \item[Contact support] A contact support page typically includes a list of the communication channels, discussion forums, and links to other resources to assist users with issues that they are having with your product.
+    \item[Glossary] A reference document that lists and organizes terms and their definitions that are unique to your organization or which you use in a specific way.
+    \item[Installation guide] Explain all the necessary steps to install the product and set it up for further use.
+    \item[Quickstart] A quickstart introduces your users to your application for the first time. It focuses on the primary feature of the application and helps your users to start using the application as quickly as possible.
+\end{description}
+
 
 \subsection{\diatx}
 \label{s:diataxis}
-The structure of the guide was modeled after the ``\diatx\space documentation framework'' by Daniele Procida \cite{procidaDiataxisDocumentationFramework2023,aghajaniSoftwareDocumentationPractitioners2020}.
-This framework is extensively used for technical documentation by software projects like NumPy \cite{harrisArrayProgrammingNumPy2020}, Django \cite{Django2013} and large companies like Canonical (Canonical Limited, Douglas, Isle of Man) and Cloudflare (Cloudflare, Inc., San Francisco, California, U.S.A.).
+The ``\diatx\space documentation framework'' by Daniele Procida \cite{procidaDiataxisDocumentationFramework2023,aghajaniSoftwareDocumentationPractitioners2020} 
+is extensively used for technical documentation by software projects like NumPy \cite{harrisArrayProgrammingNumPy2020}, Django \cite{Django2013} and large companies like Canonical (Canonical Limited, Douglas, Isle of Man) and Cloudflare (Cloudflare, Inc., San Francisco, California, U.S.A.).
 \diatx\space bases itself upon four basic concepts to divide documentation into four different types with different structures according to their goals.\\
 \begin{figure}
 	\begin{center}
@@ -175,6 +236,7 @@ This framework is extensively used for technical documentation by software proje
 	\label{fig:diataxis-foundation}
 	\caption{\diatx\space Foundations \cite{procidaDiataxisDocumentationFramework2023}}
 \end{figure}
+
 \noindent
 As can be seen in \cref{fig:diataxis-foundation}, the documentation author first ought to decide which scale their documentation applies to.
 As the target audience may be interested in practical or theoretical knowledge, the documentation author traces the y-axis of \cref{fig:diataxis-foundation} in positive or negative direction.
@@ -203,21 +265,45 @@ While also offering the user choices and reasons to do something a particular wa
 
 \subsection{Pictograms}
 \label{s:b-pictograms}
-The guide, which can be seen on page: \pageref{a:guide}, makes extensive use of pictograms to inform the reader about common errors, pitfalls to avoid, warn about resource intensive operations and weather a tool is only available via an add-on.
-Inspiration for this kind of visual communication was taken from books published by O'Reilly Media, Inc., specifically ``Linux observability with \acrshort{bpf}: advanced programming for performance analysis and networking'' by David Calavera and Lorenzo Fontana \cite{calaveraLinuxObservabilityBPF2019}.
+The guide, which can be seen on page: \pageref{a:gSebastopol, Californiauide}, makes extensive use of pictograms to inform the reader about common errors, pitfalls to avoid, warn about resource intensive operations and weather a tool is only available via an add-on.
+Inspiration for this kind of visual communication was taken from books published by O'Reilly (O'Reilly Media, Inc., Sebastopol, California, U.S.A.), specifically ``Linux observability with \acrshort{bpf}: advanced programming for performance analysis and networking'' by David Calavera and Lorenzo Fontana \cite{calaveraLinuxObservabilityBPF2019}.
 Pictograms are stylized drawings that are supposed to represent familiar objects, ideas or abstract concepts to the reader \cite{dowsePharmacistsAreWords2021}.
 In health information documents, they have been proven to enhance readability, attractiveness and visual attention of the target audience \cite{houtsRolePicturesImproving2006,mansoorEffectPictogramsReadability2003}.\\
 
 \section{Segmentation of images and volumes}
 \label{s:b-segmentation-basics}
-% (TODO: explain how segmentations are represented)
+Segmentation of images is a process of delineating structures of interest.
+It can also be called contouring or annotation and is typically used to delineate anatomical structures, tumors, 
+malignancies and various other parts of images.
+As it is a requirement for visualization of target structures like a tumor, or quantification tasks like volume and surface measurement,
+segmentation is a well established procedure in medical image computing \cite{pinterPolymorphSegmentationRepresentation2019,slicercommunity3DSlicerImage2022}.
 
 % https://slicer.readthedocs.io/en/latest/user_guide/image_segmentation.html
+% https://sci-hub.ru/https://doi.org/10.1016/j.cmpb.2019.02.011
+
+
 
 % https://pdf.sciencedirectassets.com/276826/1-s2.0-S1002007108X00061/1-s2.0-S1002007108000658/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEIH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIC0651E8f8wYnatuSWoH5B6QUXpJl5MbGRvWCkKGH3eIAiBvnyYEsTNrvIQIGrGVLvmFluaWtP7WINLlnbDCpX46xSq8BQi5%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAUaDDA1OTAwMzU0Njg2NSIM1STppGJCBYoUEBeVKpAFWAcGFyUcG0btJR%2FneE3O%2BBlTxy7E5ofkZHmqUQwnBVCsLpchDXvIfS1JRiLoVLZiyut6RbzSQ1yXcHQVTGvXSkrIXaFJLUgzlOV2P5cA0z9otXoyMxNKJe9b3M5%2Bri6HwsjS2tecJoVGp9I%2Fxt5Vto%2B%2BW9l6a%2B6mikvKuxRzl1A5ymZbAXBeweI3NOXYN%2F0mGMzxLCe5LZKPlleOf6PhI%2B%2Fn38ROevhlXMzKa7lBUNQrmxUY5PItKNCVCqpGOx8iaHxVwbA%2BvqDdjIgE1gWp57P4Ws0QQQWzjEFPkr%2FQtc%2F5QW5zYun9A59QfK0rzVYYifEXXwILRVPdIJnObDY0t8zkqON%2F%2FbETulttNw7QtMG%2FyXxPkP2cbZXFPg28T%2BdBEAXQpPR7aRqyhZwCS5%2FiO%2BFvdO0U59U9bJFKWxbf%2BrRbCzSCCjIQhbu85L8Iaw7mW9KqFlDbxjFsjn1gofo7YAaG7FkBZrto%2BtdicJU3VQu01UrUMXuYDHr6iuFiwpBVIspyaTnq0xkBMz8uD4mniBMfTszP%2FGpobudWY2PT9Aiq2peJN%2FKSr%2FqfpA3iQoJIuTxvlAlEXTDmQSUW7JLuQWakWZagmARMJM8BMPMJZyGRd1yvW%2Ba97uUq8C874DWzhJtC3bnHl1bs0sCt5kXy9wgR%2Fc7juoY6ww76MjVPj9PRXXSsNPIgm64srDQIpk791E8PX%2B2osKa3HTxi82IrSaBjFdd3%2F0t%2FqbUol5MlvZCDiQDuJZuMIIE12ZNf9zViJOAc2twSKTH6esVAD8tquVviw9Y16yfmo6E56J%2BBvPuDqD9xLSkVsKbMIngZtGjvxZr9NYWUuDzs3yZqLnzWD7N9Zx2xQvgkgrqLqRLSTo0w18TEtwY6sgFg2sYrBVEID6iQHkMLCCHBShdm0l0WNHPr%2FVBXRSU2aHYR8wp7pP9IjKVw3IPSSCCz4i2Mbc%2BYSpTvjEch5dhv5%2FyVMG%2Fp0hIpijQTajDlXOCIb4hiEzk5L2ar77cZfxUSNJfCM7srS7gCzG0K5ZYZAEf29r16H85UcDMyejTA1FvEQGJ%2B3KnYr1gy0DzAy7gB5C%2F%2Fjf7gh%2BvbMFv0Xtv%2FKvrCWMnV2Jzyyu6ndkg%2BHlZU&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240923T084001Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYV3XLASKH%2F20240923%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=e8cf422cc462ca2f9cc477cbdea04e2e7c981543eec928e444da7d58b9d58564&hash=297d50f9d1f50c00ae81b7c033038ede324643f9d36bd7eb5099a63fd99c4816&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S1002007108000658&tid=spdf-f0276a20-ff46-4f00-a9af-e2bccba738f8&sid=b1fc4ae88be0f942df7a2d8859741e612e47gxrqb&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=1b125f02555f530f530257&rr=8c793a3f998ac2aa&cc=at
-
 % https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0068449&type=printable
-
 % https://sci-hub.st/10.1007/978-3-030-16641-0
+
+\subsection{Binary labelmap}
+\label{s:b-binary-labelmap}
+
+\subsection{Closed surface}
+\label{s:b-closed-surface}
+
+\subsection{Fractional labelmap}
+\label{s:b-fractional-labelmap}
+
+\subsection{Ribbons}
+\label{s:b-ribbons}
+
+%\subsection{Binary labelmap}
+%\label{s:b-binary-labelmap}
+
 \section{Mouse bone anatomy}
 \label{s:b-mouse-anatomy}
+book \cite{ruberteMorphologicalMousePhenotyping2017}\\
+open anatomy \cite{halleOpenAnatomyBrowser2017}\\
+spine paper \cite{harrisonVertebralLandmarksIdentification2013a}

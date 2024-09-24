@@ -17,60 +17,56 @@
 \usepgfplotslibrary{external}
 \tikzexternalize[prefix=images/tikz/]
 
-\graphicspath{{images/}}    %Direction where LaTeX will look for the images.
+\graphicspath{{images/}}    % Directory where LaTeX will look for the images.
 
-
-%#+TODO: Remove
-%\addbibresource{includes/shared-preamble-mainreferences.bib}  %Imports bibliography file
-%\addbibresource{includes/shared-preamble-tweetreferences.bib} %Imports bibliography file
 \addbibresource{includes/medtec.bib}
 
 
-\newcommand{\tweet}[1]{%
-\begin{quote}
-  #1
-\end{quote}%
-}
+%\newcommand{\tweet}[1]{%
+%\begin{quote}
+%  #1
+%\end{quote}%
+%}
 
-\newcommand{\toptweet}[3]{
-  The most frequent tweet of that day was
-  \tweet{#1}
-  It was published \num{#2} times which is equivalent to \SI{#3}{\percent} of all tweets of that day.
-}
+%  \newcommand{\toptweet}[3]{
+%  The most frequent tweet of that day was
+%  \tweet{#1}
+%  It was published \num{#2} times which is equivalent to \SI{#3}{\percent} of all tweets of that day.
+%}
 
-\newcommand{\citetweet}[1]{
-  \tweet{\citefield{#1}{title} \citep{#1}}%
-}
+%\newcommand{\citetweet}[1]{
+%  \tweet{\citefield{#1}{title} \citep{#1}}%
+%}
 
 \makeatletter
 \def\convertto#1#2{\strip@pt\dimexpr #2*65536/\number\dimexpr 1#1}
 \makeatother
 
-\newcommand{\significantMarks}{(* marks significant value)}
-\newcommand{\indicesCaption}[3]{Share prices of #1 between #2 and #3}
-\newcommand{\resultsCaption}[1]{Normalized sentiment and share values of #1 within the evaluation time frame}
-\newcommand{\sentimentsCaption}[1]{Summarized and normalized sentiment values of #1 within the evaluation time frame}
-\newcommand{\tweetsCaption}[1]{Collection time frames of tweets for #1}
-\newcommand{\confusionCaption}[1]{Confusion matrix of classifier #1}
-\newcommand{\hyperCaption}[1]{Determined hyper-parameters for pipeline of classifier #1}
-\newcommand{\oppositeCaption}[1]{Days with opposite sentiment values for the company #1}
-\newcommand{\grangerResultsCaptionShort}[1]{Resulting p-values of Granger analysis for company #1}
-\newcommand{\grangerResultsCaptionLong}[1]{\grangerResultsCaptionShort{#1}. Showing results from one day lag to ten days lag. \significantMarks}
-\newcommand{\withRetweets}{All}
-\newcommand{\withoutRetweets}{No \ac{RT}}
+% \newcommand{\significantMarks}{(* marks significant value)}
+% \newcommand{\indicesCaption}[3]{Share prices of #1 between #2 and #3}
+% \newcommand{\resultsCaption}[1]{Normalized sentiment and share values of #1 within the evaluation time frame}
+% \newcommand{\sentimentsCaption}[1]{Summarized and normalized sentiment values of #1 within the evaluation time frame}
+% \newcommand{\tweetsCaption}[1]{Collection time frames of tweets for #1}
+% \newcommand{\confusionCaption}[1]{Confusion matrix of classifier #1}
+% \newcommand{\hyperCaption}[1]{Determined hyper-parameters for pipeline of classifier #1}
+% \newcommand{\oppositeCaption}[1]{Days with opposite sentiment values for the company #1}
+% \newcommand{\grangerResultsCaptionShort}[1]{Resulting p-values of Granger analysis for company #1}
+% \newcommand{\grangerResultsCaptionLong}[1]{\grangerResultsCaptionShort{#1}. Showing results from one day lag to ten days lag. \significantMarks}
+% \newcommand{\withRetweets}{All}
+% \newcommand{\withoutRetweets}{No \ac{RT}}
 
-\NewDocumentEnvironment{grangerTable}{m m}{%
-\begin{table}[hbt]
-    \centering
-    \begin{tabular}{!r *{4}{^l^l}}
-        \hline
-        \multicolumn{1}{r}{Lag} &  \multicolumn{2}{c}{\ftb{}} & \multicolumn{2}{c}{\fnb{}} & \multicolumn{2}{c}{\fme{}} & \multicolumn{2}{c}{\fsvm{}} \\
-        \multicolumn{1}{r}{[days]} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} \\ \hline
-}{%
-    \hline
-    \end{tabular}
+% \NewDocumentEnvironment{grangerTable}{m m}{%
+% \begin{table}[hbt]
+%     \centering
+%     \begin{tabular}{!r *{4}{^l^l}}
+%         \hline
+%         \multicolumn{1}{r}{Lag} &  \multicolumn{2}{c}{\ftb{}} & \multicolumn{2}{c}{\fnb{}} & \multicolumn{2}{c}{\fme{}} & \multicolumn{2}{c}{\fsvm{}} \\
+%         \multicolumn{1}{r}{[days]} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} & \multicolumn{1}{c}{\withRetweets} & \multicolumn{1}{c}{\withoutRetweets} \\ \hline
+% }{%
+%     \hline
+%     \end{tabular}
 
-    \caption[\grangerResultsCaptionShort{#1}]{\grangerResultsCaptionLong{#1}}
-    \label{tab:analysis-granger-#2-results}
-\end{table}
-}
+%     \caption[\grangerResultsCaptionShort{#1}]{\grangerResultsCaptionLong{#1}}
+%     \label{tab:analysis-granger-#2-results}
+% \end{table}
+% }

@@ -4,6 +4,15 @@ analysis/data/
 analysis/results/
 analysis/graphs/
 
+# vscode
+.vscode/
+
+# direnv
+.direnv/
+
+# emacs
+.auctex-auto/
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
