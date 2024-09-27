@@ -6,7 +6,9 @@
 
 \RequirePackage{gitinfo2}
 \RequirePackage{svg} % include svg pictures
+
 \RequirePackage{subcaption} % enable subfigures
+
 \RequirePackage{wrapfig} % enable text and figures side by side
 
 %'oneside' specifies that the pages will be printed on one sides of a every page. If you want to print on both sides of your pages use the parameter 'twoside'. Remember to order the printing job on one side of every page!!!
@@ -19,9 +21,6 @@
 
 %\RequirePackage[utf8]{inputenc}
 \RequirePackage[a4paper,top=25mm,bottom=30mm,left=30mm,right=25mm]{geometry}   %allows to change margins and distances within the page's frame. Be careful with this tool. Remember to delete the frame!!!!
-
-%#+TODO: remove frame
-\RequirePackage{showframe}
 
 \RequirePackage[english]{babel}
 \RequirePackage{csquotes}
@@ -40,24 +39,28 @@
 %\makenomenclature
 
 \RequirePackage[
-nomain,
-nonumberlist, % don't display page numbers
-acronym,
-nopostdot, % don't display dot after text
-toc, % display in table of contents
-shortcuts
+	nomain,
+	nonumberlist, % don't display page numbers
+	acronym,
+	nopostdot, % don't display dot after text
+	toc, % display in table of contents
+	shortcuts
 ]{glossaries-extra}
 
 \RequirePackage[english]{isodate} %Provides the format for the date on the title page. Read the package documentation for all the possible date formats.
 
-%\RequirePackage{minted} % source code syntax highlighting
+\RequirePackage{minted} % source code syntax highlighting
 % requires pygments to be installed
 % wrap code in \begin{minted}{LANGUAGE} \end{minted}
+\RequirePackage{fancyvrb} % verbatim that respects indendation: use with \begin{Verbatim} \end{Verbatim}
+
 
 \RequirePackage{array}
 \RequirePackage{longtable}
 \RequirePackage{booktabs}
 \RequirePackage{xparse}
+
+\RequirePackage{titlesec}
 
 \RequirePackage{lipsum}
 \RequirePackage{pgfplots}
@@ -94,9 +97,8 @@ shortcuts
 \RequirePackage{xcolor}
 \definecolor{header-blue}{RGB}{22,48,114}
 
-\setcounter{secnumdepth}{4}
+%\setcounter{secnumdepth}{4} % no idea what this does
 
-\RequirePackage{titlesec}
 
 %% blue headlines
 %% Chapter
@@ -142,12 +144,11 @@ shortcuts
 
 
 \RequirePackage{fancyhdr}
-
 % \fancypagestyle{mystyle}{
-%     \renewcommand{\headrulewidth}{0pt} %0pt for no rule, 2pt thicker etc...
+% 	  \renewcommand{\headrulewidth}{0pt} %0pt for no rule, 2pt thicker etc...
 %     \renewcommand{\footrulewidth}{0pt}
-%     % \fancyfoot[L]{BOTTOM LEFT}
-%     % \fancyfoot[R]{BOTTOM RIGHT}
+%	  \fancyfoot[L]{BOTTOM LEFT}
+%     \fancyfoot[R]{BOTTOM RIGHT}
 %     \fancyhead[L]{\leftmark}
 %     \fancyhead[R]{\rightmark}
 % }
@@ -156,6 +157,8 @@ shortcuts
 \RequirePackage[onehalfspacing]{setspace}      %Change spacing easily with simple commands
 
 \RequirePackage{amsmath}       %This package introduces several new commands that are more powerful and flexible than the ones provided by LaTeX. Uncomment them if you are using complex mathematical notation.
+\RequirePackage{amsthm}
+\RequirePackage{amsfonts}
 \RequirePackage{mathtools}     %The mathtools package fixes some amsmath quirks and adds some useful settings, symbols, and environments to amsmath.
 
 \RequirePackage{listings}
@@ -181,6 +184,7 @@ shortcuts
 \usetikzlibrary{calc,trees,positioning,arrows,chains,shapes.geometric,%
 	decorations.pathreplacing,decorations.pathmorphing,shapes,%
 	matrix,shapes.symbols}
+
 
 \renewcommand{\labelitemii}{-}
 \renewcommand{\labelitemi}{--}

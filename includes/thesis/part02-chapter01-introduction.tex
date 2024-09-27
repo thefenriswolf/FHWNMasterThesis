@@ -1,7 +1,6 @@
 %!TEX root = ../../thesis.tex
 
-\chapter{Introduction}
-\label{c:introduction}
+\chapter{Introduction}\label{c:introduction}
 % \section{Section Title}
 % \subsection{Subsection}
 % \subsubsection{Subsubsection}
@@ -14,8 +13,7 @@ The section is followed by outlining the research goals in \cref{s:introduction-
 \Cref{s:introduction-researchmethodology} gives an insight into research methods used in order to answer the raised research questions.
 Finally, \cref{s:introduction-structureofthisthesis} gives an outlook of the structure of the remaining thesis.
 
-\section{Motivation}
-\label{s:introduction-motivation}
+\section{Motivation}\label{s:introduction-motivation}
 \acrfull{mct} is a commonly used modality in industry and research.
 For research, it enables the study of small animal morphology \cite{percianoInsight3DMicroCT2017}.
 A common task when conducting short-term or long-term studies with mice, is the segmentation of the image datasets, as it plays an important role for quantitative image analysis \cite{sheppardTechniquesHelicalScanning2014}.
@@ -38,8 +36,7 @@ The accuracy and efficiency of the segmentation however strongly correlate with 
 But it does not feature a recommended segmentation workflow.
 Despite this fact, there is a lack of general recommendations, instructions or guides on how to efficiently segment \acrlong{mct} datasets.
 
-\section{Research Goals}
-\label{s:introduction-researchgoals}
+\section{Research Goals}\label{s:introduction-researchgoals}
 Furthermore, segmenting large datasets, such as produced by a high resolution \mct\space scan, results in large \acrfull{ram} demands by the segmentation software.
 The 3D Slicer documentation states that the software will require approximately 10 times more memory than the loaded dataset.
 The user therefore has to optimize the segmentation workflow if the software is to be used on a computer with limited amounts of \acrshort{ram}.
@@ -50,24 +47,22 @@ The 3D Slicer documentation states that the software will require approximately 
 The user therefore has to optimize the segmentation workflow if the software is to be used on a computer with limited amounts of \acrshort{ram}.
 Therefore, the author hypothesizes that users of \texttt{3D Slicer} will benefit from a streamlined segmentation guide, and it will improve segmentation quality as well as workflow efficiency.
 
-\section{Research Methodology}
-\label{s:introduction-researchmethodology}
+\section{Research Methodology}\label{s:introduction-researchmethodology}
 The practical work for this project will be completed by the author on his private computer, for technical information see \cref{t:computer-specs}.
 \begin{table}[ht]
-	\label{t:computer-specs}
-	\caption{Segmentation computer specifications}
-	\begin{center}
+	\centering
 		\begin{tabular}{l l}
-			\textbf{\acrshort{os}}  & NixOS 24.05 (Uakari) x86\_64                   \\
+			\textbf{\acrshort{os}}  & NixOS 24.05                   \\
 			\textbf{Kernel}         & Linux 6.6.50                                   \\
-			\textbf{Display}        & 24 inch, 1920x1080 @ 60\acrshort{hz}           \\
-			\textbf{\acrshort{cpu}} & AMD Ryzen 7 3700X 16 cores @ 3.6\acrshort{ghz} \\
+			\textbf{Display}        & 24 inch, 1920$\times$1080 @ 60 \acrshort{hz}           \\
+			\textbf{\acrshort{cpu}} & AMD Ryzen 7 3700X 16 cores @ 3.6 \acrshort{ghz} \\
 			\textbf{\acrshort{gpu}} & AMD Radeon RX 580                              \\
 			\textbf{Memory}         & 64 \acrshort{gb}                               \\
-			\textbf{Harddrive}      & Samsung SSD 860 EVO 500\acrshort{gb}
+			\textbf{Harddrive}      & Samsung SSD 860 EVO 500 \acrshort{gb}
 		\end{tabular}
-	\end{center}
+	\caption{Segmentation computer specifications}\label{t:computer-specs}
 \end{table}
+
 \noindent
 The first step was the segmentation of the \mct\space scans, which served as a ground truth for finding possible efficient workflows with the tools included in \texttt{3D Slicer}.
 Then a guide has been created outlining two different possible workflows for bone segmentation.
@@ -79,8 +74,7 @@ After receiving the results, the author calculated their accuracy by comparing t
 The \acrfull{dc} \cite{diceMeasuresAmountEcologic1945} was chosen as a similarity score for comparison of segmentation quality between the guided segmentation versus the unguided one.
 This has been done using the \texttt{SlicerRT} \cite{pinterSlicerRTRadiationTherapy2012} extension for the 3D Slicer software package.
 
-\section{Structure of this Thesis}
-\label{s:introduction-structureofthisthesis}
+\section{Structure of this Thesis}\label{s:introduction-structureofthisthesis}
 
 % This section is followed by the background \cref{c:background}, where the necessary theoretical background will be explained.
 % In \cref{c:casestudy}, the setup of tweet collection will be explained and the execution documented.

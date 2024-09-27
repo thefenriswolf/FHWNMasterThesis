@@ -1,0 +1,213 @@
+%!TEX root = ../../thesis.tex
+
+\chapter{Materials and Methods}\label{c:materialsNmethods}
+
+% This chapter describes the setup of the case study.
+% The \cref{fig:casestudy-workflow} depicts the overall workflow of this thesis.
+% \begin{figure}[ht]
+%   \centering
+%   \smartdiagramset{back arrow disabled=true,
+%     text width=.6\textwidth,
+%     uniform color list=black!40 for 5 items}
+%   \smartdiagram[flow diagram:vertical]{
+%     {Determine companies, keywords and stock symbols to analyze},
+%     {Gather data},
+%     {Normalization of tweets},
+%     {Determine sentiment of tweets},
+%     {Comparing sentiment time series with share prices}
+%   }
+%   \caption{Workflow of this thesis}\label{fig:casestudy-workflow}
+% \end{figure}
+
+\section{Similarity score}\label{s:similarity-score}
+For comparison of the segmentations done by testers with the ground truth segmentation, a well established metric was selected.
+The \acrfull{dc} is a similarity score applicable to a multitude of datasets and has been used as such by numerous studies \cite{setiawanImageSegmentationMetrics2020,atasPerformanceEvaluationJaccardDice2023}.
+Coincidentally, it is readily available in 3D Slicer by a 3rd party extension called SlicerRT \cite{pinterSlicerRTRadiationTherapy2012}.
+%\subsection{Dice-Sørensen coefficient}
+%\label{s:dice-coefficient}
+The S\o{}rensen–Dice coefficient, also known as \acrfull{dc}, is described by the equation \cite{diceMeasuresAmountEcologic1945}:\\
+\begin{equation}\label{eqn:dice-coefficient}
+	DSC=\frac{2|X\cap Y|}{|X|+|Y|}
+\end{equation}
+\newline
+\noindent
+It can be used to describe the similarities of two segmented images or volumes.
+It is two times the intersecting \glspl{vx} of segmentation x and y divided by the sum of \glspl{vx} of x and y.\\
+When dealing with boolean data the formula can be transformed to the following equation:\\
+\begin{equation}\label{eqn:binary-dice-coefficient}
+	DSC=\frac{2*TP}{2*TP+FP+FN}
+\end{equation}
+\newline
+\noindent
+It is two times the \acrfull{tp} intersection divided by two times the \acrlong{tp} plus the \acrfull{fp} plus the \acrfull{fn}.
+In the context of volume comparison this can be interpreted as two times the number of overlapping \glspl{vx} between two segmentations divided by the total number of \glspl{vx} in both segmentations \cite{schelbComparisonProstateMRI2021}.
+
+\section{Datasets}\label{s:datasets}
+All nine datasets used in this study, were acquired at the competence center for preclinical imaging and biomedical engineering at the university of applied sciences wiener neustadt.
+The total body scans were performed on a Molecubes X-Cube \mct\space machine (Molecubes NV X-Cube, MOLECUBES NV, Gent, Belgium).
+The specimens were non contrast enhanced mice however, remnants of contrast agent could be seen in the vesica urinaria of all scanned animals.
+All scans were aquired with a tube voltage of 50\acrshort{kv} and a tube current exposure time product of 70\acrshort{mas}.
+Pixel spacing, the distance between the centers of neighboring pixels in the x/y-plane, was consistent across all scans with a distance of 0.1mm and the slice thickness was set to 0.1mm resulting in isotropic \glspl{vx}.\\
+A summary of all scan parameters can be seen in \cref{tab:scan-parameters}.\\
+\begin{table}
+	\begin{center}
+		\begin{tabular}{l l}
+			%\hline
+			% 			\textbf{Element} & \textbf{Description} \\ \hline
+			Manufacturer                  & Molecubes  \\
+			Model                         & X-Cube     \\
+			Tube voltage (\acrshort{kv})  & 50         \\
+			Tube current (\acrshort{mas}) & 70         \\
+			Exposure time (sec.)          & 42         \\
+			Reconstruction diameter (mm)  & 70         \\
+			Reconstruction algorithm      & \gls{isra} \\
+			Matrix size (\glspl{px})      & 700$\times$700    \\
+			Bit depth (\gls{bit})         & 16         \\
+			Slice thickness (mm)          & 0.1        \\
+			Pixel spacing (mm)            & 0.1        \\
+			%\hline
+		\end{tabular}
+		\caption{Dataset scan parameters}\label{tab:scan-parameters}
+	\end{center}
+\end{table}
+
+\subsection{Dataset preparation}\label{s:mm-dataset-preparation}
+\begin{figure}[h!]
+	\begin{center}
+		\begin{tikzpicture}[node distance=3cm]
+			% nodes
+			\node[draw=black,
+				text centered,
+				rounded corners,
+				diamond]
+			(01) {rough cropping};
+			\node[draw=black,
+				text centered,
+				rounded corners,
+				trapezium, trapezium left angle=70, trapezium right angle=110,
+				below of=01] (02) {background masking};
+			\node[draw=black,
+				text centered,
+				rounded corners,
+				diamond,
+				below of=02] (03) {fine cropping};
+			\node[draw,
+				text centered,
+				rounded corners,
+				rectangle,
+				below of=03] (04) {side indicator};
+			% arrows
+			\draw[-latex, draw, thick] (01) edge (02);
+			\draw[-latex, draw, thick] (02) edge (03);
+			\draw[-latex, draw, thick] (03) edge (04);
+		\end{tikzpicture}
+	\end{center}
+	\caption{Dataset preparation}\label{fig:dataset-preparation}
+\end{figure}
+\noindent
+As can be seen in \cref{fig:dataset-preparation} several steps of preparation were performed before the dataset was handed out to testers in conjunction with the guide.
+All modifications were done using built in 3D Slicer tools.
+Firstly, a rough cropping of the dataset was performed.
+The goal was to reduce the size of the dataset to only include anatomical structures relevant for the segmentation assignment.
+This first rough cropping operation already reduced the dataset geometric size to approximately one fifth of it's original dimensions.
+Next, a background masking operation has been applied with the goal of reducing file size.
+In order to achieve this, first a threshold operation was performed to segment background noise in the scan as well as anatomical structures composed of soft tissue.
+The resulting segment then, was the base for a masking operation where the segmented volume was uniformly overwritten with the HU value of -1000.
+Thirdly, the remaining volume was cropped again, making only minor adjustments to the ROI.
+The goal was to get rid of small artifacts created by the first cropping operation.
+Finally, to aid the testers in determining if they are currently working on the left or right side anatomy of the dataset, side indicators were added to the volume.
+This was done, using 3D Slicers Engrave tool available via the ``SlicerSegmentEditorExtraEffects'' \cite{lassoSlicerSegmentEditorExtraEffects2024} plugin.
+Effectively adding an artificial segment displaying left (L) and right (R) when viewed in 3D view.
+
+
+\section{Composition of the guide}\label{s:guide_comp}
+TODO
+
+\subsection{Pictograms}\label{s:mm-pictograms}
+The following black and white pictograms were drawn by the author themselves and were explained to readers of the guide in its introductory section:
+\newline
+\begin{figure}[h!]
+	\begin{centering}
+		\begin{subfigure}{0.5\textwidth}
+			\includesvg[
+				inkscapelatex=false,
+				width = 0.6\linewidth
+			]{guide/images/2d.svg}
+			\caption{2D symbol}\label{fig:2d_icon}
+		\end{subfigure}
+		\begin{subfigure}{0.5\textwidth}
+			\includesvg[
+				inkscapelatex=false,
+				width = 0.6\linewidth
+			]{guide/images/3d.svg}
+			\caption{3D symbol}\label{fig:3d_icon}
+		\end{subfigure}
+	\end{centering}
+	\caption{\Cref{fig:2d_icon} and \cref{fig:3d_icon} indicate weather a tool may be used in 2D or 3D mode or view.}
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{centering}
+		\begin{subfigure}{0.5\textwidth}
+			\includesvg[
+				inkscapelatex=false,
+				width = 0.6\linewidth
+			]{guide/images/hint.svg}
+			\caption{Hint symbol}\label{fig:hint_icon}
+		\end{subfigure}
+		\begin{subfigure}{0.5\textwidth}
+			\includesvg[
+				inkscapelatex=false,
+				width = 0.6\linewidth
+			]{guide/images/irreversible.svg}
+			\caption{Irreversible symbol}\label{fig:noundo_icon}
+		\end{subfigure}
+	\end{centering}
+	\caption{\Cref{fig:hint_icon} indicates a hint or tip while \cref{fig:noundo_icon} informs the reader that an action may not be undone easily.}
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{centering}
+		\begin{subfigure}{0.5\textwidth}
+			\includesvg[
+				inkscapelatex=false,
+				width = 0.6\linewidth
+			]{guide/images/performance.svg}
+			\caption{Performance symbol}\label{fig:performance_icon}
+		\end{subfigure}
+		\begin{subfigure}{0.5\textwidth}
+			\includesvg[
+				inkscapelatex=false,
+				width = 0.6\linewidth
+			]{guide/images/plugin.svg}
+			\caption{Plugin symbol}\label{fig:plugin_icon}
+		\end{subfigure}
+	\end{centering}
+	\caption{\Cref{fig:performance_icon} informs the reader about a potentially resource intensive operation and \cref{fig:plugin_icon} indicates that some tool may only be available after installing a 3rd party add-on.}
+\end{figure}
+\par\medskip
+
+\noindent
+3D Slicer displays the loaded dataset in 2D slice views by default.
+The user has the option to visualize the dataset in 3D via 3D Slicers' volume rendering capabilities.
+Considerably more useful however, is the option to display already segmented parts of the dataset in 3D view.
+Most segmentation tools in 3D Slicer are only usable in 2D views and were therefore marked in the guide as such with \cref{fig:2d_icon}.
+A smaller part of 3D Slicers segmentation tools can be used in 3D view and were therefore marked in the guide as such with \cref{fig:3d_icon}.
+The 3D symbol, which when compared to the 2D symbol is displayed with a \acrfull{dof} effect, giving it a 3-dimensional appearance.
+This is intended to draw the readers attention to 3D Slicers 3D rendering view.\\
+In order to draw the readers' attention to a specific recommendation on how to use a tool \cref{fig:hint_icon} was utilized.
+The hint symbol can be described as a simple glowing lightbulb, intended to suggest to readers that it symbolizes an idea to consider.
+It was always inserted into the guide with a small section of text explaining to the user how to ideally utilize the current tool.\\
+3D Slicer allows for many operations to be undone, some operations however cannot be undone.
+In most cases, this is because the original data has been overwritten by the users last operation.
+Unfortunately, 3D Slicer does not explicitly inform the user which operations potentially overwrite source data and are therefor impossible to undo.
+In the guide \cref{fig:noundo_icon} was used to inform the reader about such issues.
+This irreversible symbol displays a counterclockwise circular arrow that is disrupted by a thunderbolt which extends from the top right to the bottom left of the symbol.
+The counterclockwise circular arrow is intended to convey to the reader the idea of undoing something by ``turning back time'' and the thunderbold interrupts or blocks this action and thus give the reader the idea that something cannot be undone.\\
+A similar problem occurs, when using segmentation tools that are computationally expensive.
+These are tools which may work fine for most users on small datasets and lead the user to believe they will work to the same extent on larger datasets.
+However, loading and segmenting large datasets with some tools, especially semi-automatic segmentation tools, will lead to crashes due to 3D Slicer running out of \acrfull{ram}.
+Thus, segmentation tools which may be computationally expensive were marked with \cref{fig:performance_icon} paired with a short explanation in the guide.
+The performance symbol displays a \acrfull{cpu} which is intended to remind the reader that they are using a computer that has limited computational capabilities.\\
+Some segmentation tools used in the guide are only available to users after installing a third party plugin for 3D Slicer, wherever this is the case, readers were informed by an instance of \cref{fig:plugin_icon}.
+The plugin symbol displays a puzzle piece and is meant to convey the idea that some functionality must be intentionally added to 3D Slicer.

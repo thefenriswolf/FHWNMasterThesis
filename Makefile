@@ -42,6 +42,9 @@ presentation-with-notes-handout:
 	$(CC) $(CFLAGS) presentation.tex
 	$(CC) $(CFLAGS) presentation-handout.tex -jobname=presentation-with-notes-handout
 
+wordcount-thesis:
+	texcount thesis.tex -inc -incbib -sum -1
+
 clean:
 	$(CC) -c -rc-report-
 clean-all:

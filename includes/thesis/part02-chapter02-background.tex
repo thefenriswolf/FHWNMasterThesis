@@ -5,9 +5,7 @@
 % https://sci-hub.ru/10.1109/TMI.2009.2013851
 % https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0068449
 
-\chapter{Background}
-\label{c:background}
-
+\chapter{Background}\label{c:background}
 This section is dedicated to providing the theoretical background which was needed for the study.\\
 This section is structured as follows:
 Fist, an introduction to the used similarity score will be given in %\cref{s:similarity-score}.
@@ -20,21 +18,20 @@ Finally,
 %\cref{s:segmentation-theory}
 will explain how parameters for correct segmentation were determined. %(TODO).
 
-\section{\mct}
-\label{s:b-microct}
+
+\section{\mct}\label{s:b-microct}
 Microscopic computed tomography (\mct) as a technology has been around since the 1980s and has since then emerged as the preclinical analogue of the clinical CT \cite{clarkAdvancesMicroCTImaging2021,ritmanCurrentStatusDevelopments2011}.
 In comparison with clinical CT the \mct\space features high spacial resolution, which makes it irreplaceable for non-destructive small animal studies \cite{clarkAdvancesMicroCTImaging2021,ritmanCurrentStatusDevelopments2011,keklikoglouMicroCTBiologicalBiomedical2021}.
 
-\subsection{Operating principle}
-\label{s:b-mct-operation}
+
+\subsection{Operating principle}\label{s:b-mct-operation}
 \mct\space technology is based upon the third-generation or so called ``rotate-rotate'' geometry of CT scanners \cite{flohrCTSystems2013}.
 The basic principle in clinical CT being that both the X-ray source and the detector rotate around the patient table as part of a gantry assembly at the same time \cite{flohrCTSystems2013}.
 A visual representation of this concept can be seen in \cref{fig:3ct}.
 \begin{figure}[h]
 	\centerline{
 		\includegraphics[scale=0.5]{images/ct.png}}
-	\caption{Third generation CT basic setup \cite{fdaDrawingCTFan2019}}
-	\label{fig:3ct}
+	\caption{Third generation CT basic setup \cite{fdaDrawingCTFan2019}}\label{fig:3ct}
 \end{figure}
 
 \noindent
@@ -45,8 +42,7 @@ For reference see \cref{fig:mct}.
 \begin{figure}[h]
 	\centerline{
 		\includegraphics[scale=0.5]{images/mct.png}}
-	\caption{\mct\space basic setup\cite{orhanMicrocomputedTomographyMicroCT2020}}
-	\label{fig:mct}
+	\caption{\mct\space basic setup\cite{orhanMicrocomputedTomographyMicroCT2020}}\label{fig:mct}
 \end{figure}
 
 \noindent
@@ -67,7 +63,7 @@ To produce a scan the \mct\space captures several hundred, two dimension cone be
 The rotation angles can be in 180$^{\circ}$ or 360$^{\circ}$ \cite{orhanMicrocomputedTomographyMicroCT2020}.
 Image information can be described as the amount of attenuation of the X-ray beam at a specific path through the volume \cite{,orhanMicrocomputedTomographyMicroCT2020}.
 This attenuation is described by the following \cref{eqn:attenuation}:
-\begin{equation} \label{eqn:attenuation}
+\begin{equation}\label{eqn:attenuation}
 	I_{x} = I_{0}e^{- \mu x}
 \end{equation}
 
@@ -81,14 +77,13 @@ Generally speaking, increasing the amount of projections leads to a more accurat
 \begin{figure}[h]
 	\centerline{
 		\includegraphics[scale=0.5]{images/ct-projections.png}}
-	\caption{\mct\space projections and reconstruction\cite{orhanMicrocomputedTomographyMicroCT2020}}
-	\label{fig:ct-projections}
+	\caption{\mct\space projections and reconstruction \cite{orhanMicrocomputedTomographyMicroCT2020}}\label{fig:ct-projections}
 \end{figure}
 
-\subsection{Data processing}
-\label{s:b-mct-processing}
+
+\subsection{Data processing}\label{s:b-mct-processing}
 Once all needed projections, as shown in \cref{fig:ct-projections}, are performed and stored on a computer, they can be reconstructed into the final image, or in the case of a volume dataset multiple images \cite{liMicrocomputedTomographySmall2008,orhanMicrocomputedTomographyMicroCT2020}.
-A single projection can be described as a radiograph (image), which represents the intensity of the object at a particular angle \cite{liMicrocomputedTomographySmall2008,orhanMicrocomputedTomographyMicroCT2020}.
+A single projection can be described as a radiograph, which represents the intensity of the object at a particular angle \cite{liMicrocomputedTomographySmall2008,orhanMicrocomputedTomographyMicroCT2020}.
 The radiographs differentiate either 65,536 (16-\gls{bit}) grey values or 256 (8-\gls{bit}) grey values, which are directly related to the X-ray absorption \cite{liMicrocomputedTomographySmall2008,orhanMicrocomputedTomographyMicroCT2020}.
 To convert these two-dimensional radiographs into a three-dimensional dataset, the application of a reconstruction algorithm is required.
 Multiple reconstruction methods exist, such as fourier or fast fourier, filtered back projection and iterative methods \cite{liMicrocomputedTomographySmall2008,orhanMicrocomputedTomographyMicroCT2020}.
@@ -105,7 +100,7 @@ As can be seen in \cref{fig:isra}, this algorithm starts of by performing a \acr
 Next, the current image is forward and back-projected  to get an estimation image,
 which then serves to calculate the error ratio between the estimation and the measured data.
 The error is then considered in the next iteration of forward and back-projection to update the estimate image.
-In case of the \gls{isratv}, which is used to improve reconstruction results for datasets with only a small number of projections,
+In case of the \gls{isratv}, which is used to improve reconstruction results for datasets with a small number of projections,
 \acrfull{tv} enforces a sparse image gradient.
 Effectively, this modification of the \gls{isra} algorithm, enforces uniformity between edges \cite{vandeghinsteLowDoseMicroCTImaging2013}.
 \cref{fig:isra} shows \acrshort{tv} being used to enhance the \gls{isra} method by
@@ -113,8 +108,7 @@ calculating the \acrshort{tv} on the previous back-projected image and modifying
 \begin{figure}[h]
 	\centerline{
 		\includegraphics[scale=0.5]{images/isra.png}}
-	\caption{\gls{isra} and \gls{isratv} iterative algorithm principle \cite{vandeghinsteLowDoseMicroCTImaging2013}}
-	\label{fig:isra}
+	\caption{\gls{isra} and \gls{isratv} iterative algorithm principle \cite{vandeghinsteLowDoseMicroCTImaging2013}}\label{fig:isra}
 \end{figure}
 
 \noindent
@@ -127,17 +121,16 @@ Finally, \gls{isratv} is able to correct for streak artifacts and image noise \c
 \begin{figure}[h]
 	\centerline{
 		\includegraphics[scale=0.5]{images/alg-comp.png}}
-	\caption{\gls{fdk}, \gls{isra} and \gls{isratv} reconstruction quality comparison \cite{vandeghinsteLowDoseMicroCTImaging2013}}
-	\label{fig:alg-comp}
+	\caption{\gls{fdk}, \gls{isra} and \gls{isratv} reconstruction quality comparison \cite{vandeghinsteLowDoseMicroCTImaging2013}}\label{fig:alg-comp}
 \end{figure}
 
-\subsection{\acrfull{hu}}
-\label{s:b-hu}
+
+\subsection{\acrfull{hu}}\label{s:b-hu}
 \acrfull{hu} are directly related to the \acrfull{ac} $\mu$
 and can also be called the CT number.
-\begin{equation} \label{eqn:hu}
+\begin{equation}
 	\acrshort{hu} = \frac{\mu - \mu_{water}}{\mu_{water}}*1000
-\end{equation}
+\end{equation}\label{eqn:hu}
 
 \noindent
 \cref{eqn:hu} shows how \acrshort{hu} are computed.
@@ -151,69 +144,74 @@ The most notable one being water, which is zero by definition of \cref{eqn:hu}.
 Air, which has an \acrlong{ac} close to zero, has the \acrshort{hu} value of $-1000$.
 Bone tissue, which has about twice the \acrlong{ac} of water, has a CT number of $+1000$.
 While most soft tissues have a \acrshort{hu} value between $-100$ and $+100$ \cite{liMicrocomputedTomographySmall2008}.
+\Cref{fig:hu-scale} gives an overview over the most common clinical \acrshort{hu} values.
+\begin{figure}[h]
+	\centerline{
+		\includegraphics[scale=0.5]{images/huScale.png}}
+	\caption{\acrshort{hu} for tissues in clinical setting \cite{jungBasicPhysicalPrinciples2021}}\label{fig:hu-scale}
+\end{figure}
 
-\section{Composition of a guide}
-\label{s:guide-creation}
+
+\pagebreak
+\section{Composition of a guide}\label{s:guide-creation}
 %TODO: write something
 
-\subsection{\good}
-\label{s:b-gooddocs}
+
+\subsection{\good}\label{s:b-gooddocs}
 \begin{displayquote}
-	The Good Docs Project educates and empowers people to create high-quality documentation by providing them with templates, resources, best practices, and tools to enhance their documentation in open source and beyond \cite{shorterGoodDocsProject2024}.
+	``The Good Docs Project educates and empowers people to create high-quality documentation by providing them with templates, resources, best practices, and tools to enhance their documentation in open source and beyond.'' \cite{shorterGoodDocsProject2024}
 \end{displayquote}
 It is used for documentation design by companies like GitLab (GitLab Inc., San Francisco, U.S.A) and JetBrains (JetBrains s.r.o, Prague, Czech Republic).
 \good\space actively discourages producing any sort of documentation before its content and structure have been planned extensively \cite{shorterGoodDocsProject2024}.
 Instead, it instructs documentation authors to first and foremost, think about the topic at hand.
 Especially, authors should evaluate the complexity of the topic and try to predict what kind of questions readers might have while reading the documentation.
-Furthermore, documentation authors are supposed to consider the ability of their target audience and what reasonable assumptions one can make about the prior knowledge of 
+Furthermore, documentation authors are supposed to consider the ability of their target audience and what reasonable assumptions one can make about the prior knowledge of
 readers.
 Next, \good\space instructs documentation authors to create three fictional readers: a beginner, an intermediate and an expert.
 The beginner might represent an ordinary customer or user of some software or technology product.
-The intermediate might represent a system administrator of said product 
+The intermediate might represent a system administrator of said product
 and the expert might represent a support person.
 The documentation author should now, come up with several problems each fictional reader would try to solve with the help of documentation \cite{shorterGoodDocsProject2024}.
 \begin{figure}[h]
 	\centerline{
 		\includegraphics[scale=0.5]{images/gd_dt.png}}
-	\caption{\good\space critical paths decision table \cite{shorterGoodDocsProject2024}}
-	\label{fig:dg-dt}
+	\caption{\good\space critical paths decision table \cite{shorterGoodDocsProject2024}}\label{fig:dg-dt}
 \end{figure}
 
 \noindent
-Furthermore, the author is supposed to compose a table similar to \cref{fig:dg-dt} and score the likeliness each reader is 
+Furthermore, the author is supposed to compose a table similar to \cref{fig:dg-dt} and score the likeliness each reader is
 going to use the documentation to complete the task.
 The score ranges from 1, which is the lowest likelihood to 3 for the highest likelihood.
 Next, the author needs to sum up each row.
-The resulting ``Critical Path Score'' is then intended to give the author insight about the importance of different documentation 
+The resulting ``Critical Path Score'' is then intended to give the author insight about the importance of different documentation
 content \cite{shorterGoodDocsProject2024}.
-``Critical Path Score'' ranges from 3\footnote{3 readers, each with a likelihood of 1. $3*1=3$}, 
+``Critical Path Score'' ranges from 3\footnote{3 readers, each with a likelihood of 1. $3*1=3$},
 which is the lowest importance to the highest importance of 9\footnote{3 readers, each with a likelihood of 3. $3*3=9$}.
 Finally, based on all information gathered in the process explained above, the author is instructed to choose the appropriate template provided by \good\space \cite{shorterGoodDocsProject2024}.\\
 The following compressed list provides an overview over the available templates in the current edition of \good\space version 1.2.0:
 \begin{description}
 	\item[Concept] An explanation of a concept, context, or background information about a product or its features.
-    \item[How-to] A concise set of numbered steps to do one task with the product.
-    \item[README] Information users need to know about your project, including how users can engage with the project and get started with the tool.
-    \item[Reference] Specific, in-depth details about a particular topic.
-    \item[Release notes] Communicate new features, improvements, bug fixes, and known issues about a product to users and stakeholders.	
-    \item[Tutorial] Instructions for setting up an example project using the product, intended for the purpose of hands-on learning.
-    \item[Troubleshooting] A list of common problems (referred to as "symptoms") experienced by users, an explanation of the causes, and steps to resolve the issue.
-    \item[Bug report] The bug report is an issue template that your users can fill out to provide you with higher-quality, actionable bug issues for your product.
-    \item[Code of Conduct] A Code of Conduct helps you govern your open source or developer community to ensure it remains healthy and open.
-    \item[Contributing guide] A CONTRIBUTING document tells users how they can contribute to your open source project and join the community.
-    \item[Our team] Helps you clearly communicate who belongs to your open source project or organization and how contributors can contact or work with them.
-    \item[API quickstart] API quickstarts describe the easiest way for readers to achieve a result that shows off the capabilities of the service.
-    \item[API reference] API references are technical manuals that provide API specifications and integration instructions to help your audience understand the service.
-    \item[Contact support] A contact support page typically includes a list of the communication channels, discussion forums, and links to other resources to assist users with issues that they are having with your product.
-    \item[Glossary] A reference document that lists and organizes terms and their definitions that are unique to your organization or which you use in a specific way.
-    \item[Installation guide] Explain all the necessary steps to install the product and set it up for further use.
-    \item[Quickstart] A quickstart introduces your users to your application for the first time. It focuses on the primary feature of the application and helps your users to start using the application as quickly as possible.
+	\item[How-to] A concise set of numbered steps to do one task with the product.
+	\item[README] Information users need to know about your project, including how users can engage with the project and get started with the tool.
+	\item[Reference] Specific, in-depth details about a particular topic.
+	\item[Release notes] Communicate new features, improvements, bug fixes, and known issues about a product to users and stakeholders.
+	\item[Tutorial] Instructions for setting up an example project using the product, intended for the purpose of hands-on learning.
+	\item[Troubleshooting] A list of common problems (referred to as ``symptoms'') experienced by users, an explanation of the causes, and steps to resolve the issue.
+	\item[Bug report] The bug report is an issue template that your users can fill out to provide you with higher-quality, actionable bug issues for your product.
+	\item[Code of Conduct] A Code of Conduct helps you govern your open source or developer community to ensure it remains healthy and open.
+	\item[Contributing guide] A CONTRIBUTING document tells users how they can contribute to your open source project and join the community.
+	\item[Our team] Helps you clearly communicate who belongs to your open source project or organization and how contributors can contact or work with them.
+	\item[API quickstart] API quickstarts describe the easiest way for readers to achieve a result that shows off the capabilities of the service.
+	\item[API reference] API references are technical manuals that provide API specifications and integration instructions to help your audience understand the service.
+	\item[Contact support] A contact support page typically includes a list of the communication channels, discussion forums, and links to other resources to assist users with issues that they are having with your product.
+	\item[Glossary] A reference document that lists and organizes terms and their definitions that are unique to your organization or which you use in a specific way.
+	\item[Installation guide] Explain all the necessary steps to install the product and set it up for further use.
+	\item[Quickstart] A quickstart introduces your users to your application for the first time. It focuses on the primary feature of the application and helps your users to start using the application as quickly as possible.
 \end{description}
 
 
-\subsection{\diatx}
-\label{s:diataxis}
-The ``\diatx\space documentation framework'' by Daniele Procida \cite{procidaDiataxisDocumentationFramework2023,aghajaniSoftwareDocumentationPractitioners2020} 
+\subsection{\diatx}\label{s:diataxis}
+The ``\diatx\space documentation framework'' by Daniele Procida \cite{procidaDiataxisDocumentationFramework2023,aghajaniSoftwareDocumentationPractitioners2020}
 is extensively used for technical documentation by software projects like NumPy \cite{harrisArrayProgrammingNumPy2020}, Django \cite{Django2013} and large companies like Canonical (Canonical Limited, Douglas, Isle of Man) and Cloudflare (Cloudflare, Inc., San Francisco, California, U.S.A.).
 \diatx\space bases itself upon four basic concepts to divide documentation into four different types with different structures according to their goals.\\
 \begin{figure}
@@ -233,8 +231,7 @@ is extensively used for technical documentation by software projects like NumPy 
 			\node[orange, below = 0.1cm of tut] {Learning-oriented};
 		\end{tikzpicture}
 	\end{center}
-	\label{fig:diataxis-foundation}
-	\caption{\diatx\space Foundations \cite{procidaDiataxisDocumentationFramework2023}}
+	\caption{\diatx\space Foundations \cite{procidaDiataxisDocumentationFramework2023}}\label{fig:diataxis-foundation}
 \end{figure}
 
 \noindent
@@ -263,47 +260,282 @@ Explanation documentation according to \citeauthor{procidaDiataxisDocumentationF
 It is supposed to establish connections between concepts and deepen the users theoretical understanding of the skill
 While also offering the user choices and reasons to do something a particular way, or even explain why something is not recommended \cite{procidaPythonDocsCommunity2022,procidaDiataxisDocumentationFramework2023}.
 
-\subsection{Pictograms}
-\label{s:b-pictograms}
-The guide, which can be seen on page: \pageref{a:gSebastopol, Californiauide}, makes extensive use of pictograms to inform the reader about common errors, pitfalls to avoid, warn about resource intensive operations and weather a tool is only available via an add-on.
+
+\subsection{Pictograms}\label{s:b-pictograms}
+The guide, which can be seen on page: \pageref{a:guide}, makes extensive use of pictograms to inform the reader about common errors, pitfalls to avoid, warn about resource intensive operations and weather a tool is only available via an add-on.
 Inspiration for this kind of visual communication was taken from books published by O'Reilly (O'Reilly Media, Inc., Sebastopol, California, U.S.A.), specifically ``Linux observability with \acrshort{bpf}: advanced programming for performance analysis and networking'' by David Calavera and Lorenzo Fontana \cite{calaveraLinuxObservabilityBPF2019}.
 Pictograms are stylized drawings that are supposed to represent familiar objects, ideas or abstract concepts to the reader \cite{dowsePharmacistsAreWords2021}.
 In health information documents, they have been proven to enhance readability, attractiveness and visual attention of the target audience \cite{houtsRolePicturesImproving2006,mansoorEffectPictogramsReadability2003}.\\
 
-\section{Segmentation of images and volumes}
-\label{s:b-segmentation-basics}
+
+\pagebreak
+\section{Segmentation of images and volumes}%\label{s:b-segmentation-basics}
 Segmentation of images is a process of delineating structures of interest.
-It can also be called contouring or annotation and is typically used to delineate anatomical structures, tumors, 
+It can also be called contouring or annotation and is typically used to delineate anatomical structures, tumors,
 malignancies and various other parts of images.
-As it is a requirement for visualization of target structures like a tumor, or quantification tasks like volume and surface measurement,
+As it is a requirement for visualization of target structures, like a tumor, or quantification tasks like volume and surface measurement,
 segmentation is a well established procedure in medical image computing \cite{pinterPolymorphSegmentationRepresentation2019,slicercommunity3DSlicerImage2022}.
+\begin{figure}[h]
+	\centerline{
+		\includegraphics[scale=0.5]{images/segRep.png}}
+	\caption{Brain stem in different representations: A: Binary labelmap, B: Closed surface, C: Fractional labelmap, D: Planar contours, E: Ribbon mode \cite{pinterPolymorphSegmentationRepresentation2019}}\label{fig:segRep}
+\end{figure}
 
-% https://slicer.readthedocs.io/en/latest/user_guide/image_segmentation.html
-% https://sci-hub.ru/https://doi.org/10.1016/j.cmpb.2019.02.011
-
-
+\noindent
+However, segmentations can be represented in a number of data structures.
+\Cref{fig:segRep} gives an overview of the most common representations, of those shown, the binary labelmap is the most commonly used storage format.
+For most workflows, a single representation of data is not sufficient.
+An example for the requirement of several data structures within a single workflow is the calculation of \acrfull{dvh}s in radiation therapy.
+The \acrfull{ptv} and \acrfull{oar} are typically segmented by defining their cross-section per
+image slice on a planning CT or MRI for the extent of the whole structure \cite{burnetDefiningTumourTarget2004}.
+This results in a list of planar contours similar to \cref{fig:segRep}/D.
+These planar contours must then be voxelized into binary labelmaps, like in \cref{fig:segRep}/A.
+As for the next step, these binary labelmaps are used to compute dose distribution volumes and \acrlong{dvh}.
+If a workflow requires 3D visualization, closed surfaces must be constructed, this can be done by converting,
+using either planar contours or binary labelmaps as the source dataset \cite{pinterPolymorphSegmentationRepresentation2019}.\\
+The following sections should give a short overview over the mentioned data structures and their use cases.
 
 % https://pdf.sciencedirectassets.com/276826/1-s2.0-S1002007108X00061/1-s2.0-S1002007108000658/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjEIH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIC0651E8f8wYnatuSWoH5B6QUXpJl5MbGRvWCkKGH3eIAiBvnyYEsTNrvIQIGrGVLvmFluaWtP7WINLlnbDCpX46xSq8BQi5%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAUaDDA1OTAwMzU0Njg2NSIM1STppGJCBYoUEBeVKpAFWAcGFyUcG0btJR%2FneE3O%2BBlTxy7E5ofkZHmqUQwnBVCsLpchDXvIfS1JRiLoVLZiyut6RbzSQ1yXcHQVTGvXSkrIXaFJLUgzlOV2P5cA0z9otXoyMxNKJe9b3M5%2Bri6HwsjS2tecJoVGp9I%2Fxt5Vto%2B%2BW9l6a%2B6mikvKuxRzl1A5ymZbAXBeweI3NOXYN%2F0mGMzxLCe5LZKPlleOf6PhI%2B%2Fn38ROevhlXMzKa7lBUNQrmxUY5PItKNCVCqpGOx8iaHxVwbA%2BvqDdjIgE1gWp57P4Ws0QQQWzjEFPkr%2FQtc%2F5QW5zYun9A59QfK0rzVYYifEXXwILRVPdIJnObDY0t8zkqON%2F%2FbETulttNw7QtMG%2FyXxPkP2cbZXFPg28T%2BdBEAXQpPR7aRqyhZwCS5%2FiO%2BFvdO0U59U9bJFKWxbf%2BrRbCzSCCjIQhbu85L8Iaw7mW9KqFlDbxjFsjn1gofo7YAaG7FkBZrto%2BtdicJU3VQu01UrUMXuYDHr6iuFiwpBVIspyaTnq0xkBMz8uD4mniBMfTszP%2FGpobudWY2PT9Aiq2peJN%2FKSr%2FqfpA3iQoJIuTxvlAlEXTDmQSUW7JLuQWakWZagmARMJM8BMPMJZyGRd1yvW%2Ba97uUq8C874DWzhJtC3bnHl1bs0sCt5kXy9wgR%2Fc7juoY6ww76MjVPj9PRXXSsNPIgm64srDQIpk791E8PX%2B2osKa3HTxi82IrSaBjFdd3%2F0t%2FqbUol5MlvZCDiQDuJZuMIIE12ZNf9zViJOAc2twSKTH6esVAD8tquVviw9Y16yfmo6E56J%2BBvPuDqD9xLSkVsKbMIngZtGjvxZr9NYWUuDzs3yZqLnzWD7N9Zx2xQvgkgrqLqRLSTo0w18TEtwY6sgFg2sYrBVEID6iQHkMLCCHBShdm0l0WNHPr%2FVBXRSU2aHYR8wp7pP9IjKVw3IPSSCCz4i2Mbc%2BYSpTvjEch5dhv5%2FyVMG%2Fp0hIpijQTajDlXOCIb4hiEzk5L2ar77cZfxUSNJfCM7srS7gCzG0K5ZYZAEf29r16H85UcDMyejTA1FvEQGJ%2B3KnYr1gy0DzAy7gB5C%2F%2Fjf7gh%2BvbMFv0Xtv%2FKvrCWMnV2Jzyyu6ndkg%2BHlZU&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20240923T084001Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYV3XLASKH%2F20240923%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=e8cf422cc462ca2f9cc477cbdea04e2e7c981543eec928e444da7d58b9d58564&hash=297d50f9d1f50c00ae81b7c033038ede324643f9d36bd7eb5099a63fd99c4816&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S1002007108000658&tid=spdf-f0276a20-ff46-4f00-a9af-e2bccba738f8&sid=b1fc4ae88be0f942df7a2d8859741e612e47gxrqb&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=1b125f02555f530f530257&rr=8c793a3f998ac2aa&cc=at
 % https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0068449&type=printable
 % https://sci-hub.st/10.1007/978-3-030-16641-0
 
-\subsection{Binary labelmap}
-\label{s:b-binary-labelmap}
 
-\subsection{Closed surface}
-\label{s:b-closed-surface}
+\subsection{Binary labelmap}\label{s:b-binary-labelmap}
+Binary labelmaps (see: \cref{fig:segRep}/A) are the most common representation as they have several benefits for segmentation software developers.
+They are comparatively simple to edit, as changes to the labelmap translate to addition or subtraction of voxels to the segment label.
+Storage is simplified as well, because each voxel can only belong to a single segment, this enables storage of the whole dataset in a single 3D array.
+If label overlap is desired, the base 3D volume needs to be duplicated,
+in order to store the overlapping segment in a separate 3D array.
+This in turn inflates storage requirements for the segmentation,
+thus binary labelmaps tend to be memory inefficient for overlapping structures \cite{slicercommunity3DSlicerImage2022}.
+\begin{figure}[h]
+	\begin{minted}{text}
+label, X, Y, Z
+[...]
+1, 0.23563218390804597, 0.13218390804597702, 0.27586206896551724
+0, 0.09051724137931035, 0.28304597701149425, 0.1810344827586207
+5, 0.03879310344827586, 0.27873563218390807, 0.07758620689655173
+5, 0.1896551724137931, 0.40804597701149425, 0.16666666666666666
+2, 0.1997126436781609, 0.5014367816091954, 0.1781609195402299
+[...]
+\end{minted}
+	\caption{sample binary labelmap 3D array}\label{fig:binary-array}
+\end{figure}
 
-\subsection{Fractional labelmap}
-\label{s:b-fractional-labelmap}
+\noindent
+\Cref{fig:binary-array} displays a sample of such a 3D array.
+The first column refers to segment labels as decimal numbers,
+which in turn means that the alphanumeric label must be stored in a separate \acrfull{lut}.
+The remaining three columns are used to store the voxel location in 3D space.
+Meaning, each entry in the binary labelmap 3D array corrensponds to a specific voxel in the source dataset.
+As a result, binary labelmap segmentation resolution is tied to the source dataset resolution \cite{pinterPolymorphSegmentationRepresentation2019,sunderlandFractionalLabelmapsComputing2017,weber3DSlicerPlatform2022}.
 
-\subsection{Ribbons}
-\label{s:b-ribbons}
 
-%\subsection{Binary labelmap}
-%\label{s:b-binary-labelmap}
+\subsection{Fractional labelmap}\label{s:b-fractional-labelmap}
+Fractional labelmaps (see: \cref{fig:segRep}/C) are a segmentation representation with the goal of improving on the concept of binary labelmaps mentioned above.
+Instead of a single voxel value representing a discrete label, in fractional labelmaps,
+each voxel value represents the probability that a structure is contained inside or outside that voxel.
+As a result, fractional labelmaps can store higher segmentation resolutions than the source dataset
+\cite{warfieldFractionalSegmentationWhite1999,noePartialVolumeSegmentation2001,pinterPolymorphSegmentationRepresentation2019,sunderlandFractionalLabelmapsComputing2017,weber3DSlicerPlatform2022}.
 
-\section{Mouse bone anatomy}
-\label{s:b-mouse-anatomy}
-book \cite{ruberteMorphologicalMousePhenotyping2017}\\
-open anatomy \cite{halleOpenAnatomyBrowser2017}\\
-spine paper \cite{harrisonVertebralLandmarksIdentification2013a}
+
+\subsection{Closed surface}\label{s:b-closed-surface}
+Closed surface representations like in \cref{fig:segRep}/B are composed of a triangulated mesh,
+which in turn is composed of a series of vertices or triangles.
+In terms of segmentation, the mesh surface boundary defines the segmentation volume,
+so that every voxel encompassed by the mesh belongs to the segment \cite{delameMedialSurfaceMesh2012,weber3DSlicerPlatform2022,pinterPolymorphSegmentationRepresentation2019}.
+In order to store a vertex representation, each triangle (vertex) needs to be stored separately.
+A schema of the representation can be seen in \cref{fig:surfacemesh-schema}.
+The representation of a single voxel starts with the definition of its facet normal or unit normal vector in 3D cartesian space.
+This vector points outwards from the vertex, effectively defining the basic orientation of the vertex.
+Then, the triangle corners are defined in 3D cartesian space ($x,y,z$).
+\Cref{fig:surfacemesh} gives an overview of a possible triangle orientation.
+Here it can be seen that, the first corner intersects with the third corner on the position
+$x=-1$ and $z=1$.
+The second corner intersects with the first one only on position $z=1$ but with the third corner on positions
+$y=1$ and $z=1$.
+Finally, the third corner intersects with the first corner on position $x=-1$ and
+with the second corner on positions $y=1$ and $z=1$.
+
+\begin{figure}[h] % taken from cube stl file
+	\begin{subfigure}{0.49\textwidth}
+		\begin{verbatim}
+			facet normal n(i) n(j) n(k)
+			[...]
+			  vertex v1(x) v1(y) v1(z)
+			  vertex v2(x) v2(y) v2(z)
+			  vertex v3(x) v3(y) v3(z)
+			[...]
+		\end{verbatim}
+		\caption{Closed surface mesh schema}\label{fig:surfacemesh-schema}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\begin{verbatim}
+			facet normal 0.000000 0.000000 1.000000
+			[...]
+			  vertex -1.000000 -1.000000 1.000000
+			  vertex 1.000000 1.000000 1.000000
+			  vertex -1.000000 1.000000 1.000000
+			[...]
+		\end{verbatim}
+		\caption{Closed surface mesh sample}\label{fig:surfacemesh}
+	\end{subfigure}
+	\caption{surface mesh representation}\label{fig:mesh-repesentation}
+\end{figure}
+
+\noindent
+To finally form a segmentation form these vertices, a series of them must be composed that encompasses the whole segmentation volume.
+This in turn results in a representation like in \cref{fig:spineMesh}.
+% https://sci-hub.ru/https://doi.org/10.1007/s11548-015-1320-0
+% https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4447523/
+% https://link-springer-com.wn.idm.oclc.org/article/10.1007/s10439-017-1799-3#citeas
+% https://elib.dlr.de/187800/1/Weber_Jonas_BSc_Thesis.pdf
+% https://sci-hub.ru/https://doi.org/10.1007/978-3-540-88693-8_43
+\begin{figure}[h]
+	\centerline{
+		\includegraphics[scale=0.4]{images/spineMesh.png}}
+	\caption{Closed surface mesh of a mouse vertebrae segmentation}\label{fig:spineMesh}
+\end{figure}
+
+\noindent
+The closed surface representation is ideal for 3D visualization of segmentations but has some downsides as well.
+First and foremost, they can be self intersecting and thus be invalid representations of reality.
+Furthermore, to edit a closed surface, point coordinates of individual vertices must be modified
+and the unit normal vector recalculated \cite{pinterPolymorphSegmentationRepresentation2019}.
+
+
+\subsection{Planar contours and ribbons}\label{s:b-planar-contours}
+Planar contours (see: \cref{fig:segRep}/D) as well as ribbon models (see: \cref{fig:segRep}/E) define a segmentation,
+by encompassing it in rings or ribbons for each slice separately.
+They are created by tracing contours around a \acrfull{roi} in parallel planar slices \cite{pinterPolymorphSegmentationRepresentation2019,weinsteinScanlineSurfacingBuilding2000}.
+In 2D planar contours are represented by polylines.
+In 3D representations however, these polylines need to be stacked, gaps require interpolation and the final volume is then smoothed.
+
+\begin{figure}[h]
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[scale=0.5]{images/planarContours.png}
+		\caption{Planar contours outlining structures of interest \cite{weinsteinScanlineSurfacingBuilding2000}}\label{fig:planarContoursLines}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[scale=0.5]{images/planarContoursRecon.png}
+		\caption{Reconstructed surfaces from planar contours \cite{weinsteinScanlineSurfacingBuilding2000}}\label{fig:planarRec}
+	\end{subfigure}
+	\caption{Planar contour representation}\label{fig:planarContours}
+\end{figure}
+
+\noindent
+As can be seen in \cref{fig:planarContoursLines} planar contours or ribbons can be highly accurate in 2D.
+Experts can also draw polylines regardless of noise, low-resolution data, and overlapping pathologies.
+Furthermore, for radiation therapy, the \gls{dicom} standard requires segmentations to be stored as ``structured sets'', 
+essentially a series of planar contours.
+However, when it comes to 3D visualization, planar contours as well as ribbons offer comparatively poor quality visuals \cite{pinterPolymorphSegmentationRepresentation2019,weinsteinScanlineSurfacingBuilding2000}.
+
+
+\section{Mouse bone anatomy}\label{s:b-mouse-anatomy}
+This section is dedicated to bone anatomy of laboratory mice (Mus musculus) (see: \cref{fig:mouseFull}).
+Apart from the obvious size difference, mice are biologically very comparable to humans (Homo sapiens), 
+notable differences between human and mouse bone anatomy will be pointed out \cite{ruberteBridgingMouseHuman2023}.
+\begin{figure}[h]
+	\centerline{
+		\includegraphics[scale=0.5]{images/mouseFull.png}}
+	\caption{Mouse bone model \cite{ruberteBridgingMouseHuman2023}}\label{fig:mouseFull}
+\end{figure}
+
+%book \cite{ruberteMorphologicalMousePhenotyping2017}\\
+%open anatomy \cite{halleOpenAnatomyBrowser2017}\\
+%spine paper \cite{harrisonVertebralLandmarksIdentification2013}
+%comparison \cite{ruberteBridgingMouseHuman2023}
+%comp2 \cite{jeromeSkeletalSystem2018}
+
+\subsection{Skull}
+\label{s:b-mouse-skull}
+\begin{figure}[h]
+	\centerline{
+		\includegraphics[scale=0.7]{images/mouseSkull.png}}
+	\caption{Mouse skull \cite{ruberteBridgingMouseHuman2023}}\label{fig:mouseSkull}
+\end{figure}
+
+\noindent
+Most notably, the mouse skull reflects the importance of its sense of smell (olfaction), 
+by its elongated facial features and large tooth size (see: \cref{fig:mouseSkull}).
+For a visual representation see: \cref{fig:mouseSkull}.
+Meanwhile, the human head is shaped for a larger brain size.
+In mice the interparietal bone is well-developed when compared to humans.
+Furthermore, in mice the two mandibles are not fused together like in humans, 
+they are rather joined by cartilaginous tissue \cite{jeromeSkeletalSystem2018,halleOpenAnatomyBrowser2017}.
+
+\subsection{Spine}
+\label{s:b-mouse-spine}
+Mouse spines (see: \cref{fig:mouseSpine}) are made of 7 cervical vertebrae, 13 thoracic vertebrae, 6 lumbar vertebrae, 4 sacral vertebrae and 20-30 caudal vertebrae.
+Mice can possess up to 60 vertebrae, whereas humans only possess 33\footnote{34 with anatomical normal variant L6}.
+The largest part of this difference is made up by the fact that mice possess a tail composed of 27-31 coccygeal vertebrae, 
+while humans only possess 4 non-articulated coccygeal vertebrae.
+The remainder is due to minor differences in thoracic, lumbar and sacral vertebrae counts \cite{ruberteMorphologicalMousePhenotyping2017,jeromeSkeletalSystem2018,harrisonVertebralLandmarksIdentification2013}.
+Rodent and human vertebrae additionally differ in vertebral body size.
+\begin{figure}[h]
+	\centerline{
+		\includegraphics[scale=0.7]{images/mouseSpine.png}}
+	\caption{Mouse spine X-ray and \acrshort{mri} \cite{harrisonVertebralLandmarksIdentification2013}}\label{fig:mouseSpine}
+\end{figure}
+
+\noindent
+Rodent vertebrae have relative a comparatively small body as due to their quadrupedal nature, 
+mice spines do not undergo as much axial stress as human spines \cite{ruberteMorphologicalMousePhenotyping2017,jeromeSkeletalSystem2018}.
+
+\subsection{Thorax and Pelvis}
+\label{s:b-mouse-th-pel}
+\begin{figure}[h]
+	\centerline{
+		\includegraphics[scale=0.6]{images/mouseThorax.png}}
+	\caption{Mouse thorax X-ray \cite{harrisonVertebralLandmarksIdentification2013}}\label{fig:mouseThorax}
+\end{figure}
+
+\noindent
+In many quadrupedal mammals the clavicle has dramatically reduced or even disappeared.
+Despite their quadrupedal nature mice have a well-developed clavicle, 
+that joins the sternum and acromion of the scapula like in humans \cite{ruberteBridgingMouseHuman2023}.
+Mice possess 13 pairs of ribs (costae) as can be seen in \cref{fig:mouseThorax}, including 7 pairs that are articulated to the sternum, also called true ribs 
+and 3 pairs of asternal or false ribs.
+This is very similar to human anatomy, with the most notable difference being that humans only have 12 pairs of ribs.
+The mouse pelvis, like in humans is composed of the ilium, ischium and pubis \cite{ruberteMorphologicalMousePhenotyping2017,halleOpenAnatomyBrowser2017}.
+
+
+\subsection{Extremities}
+\label{s:b-mouse-ext}
+\begin{figure}[h]
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[scale=0.5]{images/mouseFrontPaw.png}
+		\caption{Mouse front paw \cite{ruberteMorphologicalMousePhenotyping2017}}\label{fig:frontPaw}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[scale=0.5]{images/mouseHindPaw.png}
+		\caption{Mouse hind paw \cite{ruberteMorphologicalMousePhenotyping2017}}\label{fig:hindPaw}
+	\end{subfigure}
+	\caption{Mouse paw anatomy}\label{fig:mousePaws}
+\end{figure}
+
+\noindent
+As can be seen in \cref{fig:frontPaw} after the mouse radius and ulna, the wrist joint is made up of 9 bones:\\
+The carpal bones I-IV, the intermedioradial carpal bone, the ulnar carpal bone, the accessory carpal bone, 
+the central carpal bone, and the proximal sesamoid bones.
+Which then are articulated with 5 metacarpal bones and phalanges like in humans. 
+Humans however posses 8 carpal bones, which include the scaphoid, lunate, triquetrum, pisiform, 
+trapezium, trapezoid, capitate and hamate.
+
+% todo add source for human anatomy
+
+\noindent
+As can be seen in \cref{fig:hindPaw}, the mouse ankle is made up of 8 bones:
+The talus, calcaneus, tibial tarsal bone, central tarsal bone and tarsal bones I-IV.
+Whereas the human ankle joint is made up of 7 bones:
+Calcaneus, cuboid, talus, navicular, lateral cuneiform, middle cuneiform, medial cuneiform.
+
+\noindent
+Supratrochlear foramen in humerus in mice but not in humans \cite{ruberteMorphologicalMousePhenotyping2017}
+radius and ulna are independent and not fused as it occurs in other mammals
+
+\noindent
+The rodent fibula is half the length of those of humans and fuses with the tibia, 
+whereas the human fibula articulates with the ankle \cite{jeromeSkeletalSystem2018}.
+
+% https://sci-hub.ru/https://doi.org/10.1016/B978-0-12-802900-8.00005-1

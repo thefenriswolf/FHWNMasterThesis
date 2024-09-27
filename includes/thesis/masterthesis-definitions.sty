@@ -21,6 +21,23 @@
 
 \addbibresource{includes/medtec.bib}
 
+\counterwithout{figure}{chapter} % prohibit reset of figure numbers per chapter
+\counterwithout{table}{chapter} % prohibit reset of table numbers per chapter
+\counterwithout{equation}{chapter} % prohibit reset of equation numbers per chapter
+
+%%%%
+%%% force table and figure captions
+%% method 1:
+\usepackage[
+  figurename=Fig.,
+  tablename=Tab.,
+  ]{caption}
+%% method 2:
+%\addto\captionsenglish{\renewcommand{\figurename}{Fig.}} % converts figure caption to Fig. n:
+%\addto\captionsenglish{\renewcommand{\tablename}{Tab.}} % converts table caption to Tab. n:
+%%%%
+
+
 
 %\newcommand{\tweet}[1]{%
 %\begin{quote}

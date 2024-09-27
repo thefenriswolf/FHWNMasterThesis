@@ -5,12 +5,20 @@
 
 \makeglossaries{}
 
+% show if something extends past margins
+%\RequirePackage{showframe}
+
 \input{includes/shared-preamble-acronyms}
+
+% this does not work for some reason
+% \fancyfoot{} % clear footer
+% \renewcommand{\headrulewidth}{0pt}
+% \fancyfoot[RE,RO]{\thepage} % page number always right
+% \pagestyle{fancy} % activate fancyhdr
 
 \begin{document}
 
 \frontmatter{}\pagenumbering{Roman}
-
 \include{includes/thesis/part01-page1-titlepage}
 \include{includes/thesis/part01-page2-declaration}
 \include{includes/thesis/part01-page3-dedication}
