@@ -74,8 +74,9 @@
 \RequirePackage{tabto}
 
 \RequirePackage{fontspec}
+\setmainfont{Times New Roman}
 
-\newenvironment{body}{\fontfamily{Times New Roman}\selectfont}{\par}
+%\newenvironment{body}{\fontfamily{Times New Roman}\selectfont}{\par}
 
 % \setsansfont[
 % Path=./includes/fonts/,
@@ -92,12 +93,11 @@
 	Extension = {.TTF}
 ]
 
-\setmainfont{Times New Roman}
-
 \RequirePackage{xcolor}
 \definecolor{header-blue}{RGB}{22,48,114}
 
-%\setcounter{secnumdepth}{4} % no idea what this does
+\setcounter{secnumdepth}{2} % set levels of subheadings
+\setcounter{tocdepth}{2} % set levels of headings in TOC
 
 
 %% blue headlines
@@ -143,7 +143,7 @@
 \titlespacing*{\paragraph}{0pt}{6pt}{12pt}
 
 
-\RequirePackage{fancyhdr}
+%\RequirePackage{fancyhdr}
 % \fancypagestyle{mystyle}{
 % 	  \renewcommand{\headrulewidth}{0pt} %0pt for no rule, 2pt thicker etc...
 %     \renewcommand{\footrulewidth}{0pt}

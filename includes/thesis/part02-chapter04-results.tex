@@ -3,35 +3,202 @@
 \chapter{Results}
 \label{c:resuls}
 % https://www.baeldung.com/cs/latex-draw-charts
+
 \begin{figure}[h!]
-    \begin{center}
-        \begin{tikzpicture}
-            \begin{axis}[
-                    width = 0.8\textwidth,
-                    xlabel = {Anatomy},
-                    ylabel = {DSC},
-                    bar width = 0.5cm,
-                    ymin = 0.00,
-                    ymax=1.00,
-                    ybar,
-                    axis y line = left,
-                    axis x line = bottom,
-                    xtick distance = 1,
-                    %title = {Tester 1 results},
-                    symbolic x coords = {Scapula, Clavicle, Humerus},
-                    legend pos = south east,
-                    nodes near coords,
-                    enlarge x limits = 0.2,
-                ]
-                \addplot+ coordinates {(Scapula, 0.745496) (Clavicle, 0.685963) (Humerus, 0.8301) }; % left
-                \addplot+ coordinates {(Scapula, 0.843293) (Clavicle, 0.832382) (Humerus, 0.90979) }; % right
-                \legend{left, right};
-            \end{axis}
-        \end{tikzpicture}
-        \caption{Results: Tester 1}\label{fig:tester1}
-    \end{center}
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					width = 0.8\textwidth,
+					xlabel = {Anatomy},
+					ylabel = {DSC},
+					bar width = 0.5cm,
+					ymin = 0.00,
+					ymax=1.00,
+					ybar,
+					axis y line = left,
+					axis x line = bottom,
+					xtick distance = 1,
+					symbolic x coords = {Scapula, Clavicle, Humerus},
+					legend pos = south east,
+					nodes near coords,
+					enlarge x limits = 0.2,
+				]
+				\addplot+ coordinates {(Scapula, 0.802739) (Clavicle, 0.818684) (Humerus, 0.74309) }; % left
+				\addplot+ coordinates {(Scapula, 0.626175) (Clavicle, 0.765966) (Humerus, 0.815566) }; % right
+				\legend{left, right};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Results: Tester 1}\label{fig:tester1}
+	\end{center}
 \end{figure}
 
+\begin{figure}[h!]
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					width = 0.8\textwidth,
+					xlabel = {Anatomy},
+					ylabel = {DSC},
+					bar width = 0.5cm,
+					ymin = 0.00,
+					ymax=1.00,
+					ybar,
+					axis y line = left,
+					axis x line = bottom,
+					xtick distance = 1,
+					symbolic x coords = {Scapula, Clavicle, Humerus},
+					legend pos = south east,
+					nodes near coords,
+					enlarge x limits = 0.2,
+				]
+				\addplot+ coordinates {(Scapula, 0.3043) (Clavicle, 0.442442) (Humerus, 0.154587) }; % left
+				\addplot+ coordinates {(Scapula, 0.751427) (Clavicle, 0.755405) (Humerus, 0.838217) }; % right
+				\legend{left, right};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Results: Tester 2}\label{fig:tester2}
+	\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					width = 0.8\textwidth,
+					xlabel = {Anatomy},
+					ylabel = {DSC},
+					bar width = 0.5cm,
+					ymin = 0.00,
+					ymax=1.00,
+					ybar,
+					axis y line = left,
+					axis x line = bottom,
+					xtick distance = 1,
+					symbolic x coords = {Scapula, Clavicle, Humerus},
+					legend pos = south east,
+					nodes near coords,
+					enlarge x limits = 0.2,
+				]
+				\addplot+ coordinates {(Scapula, 0.578573) (Clavicle, 0.6981) (Humerus, 0.885087) }; % left
+				\addplot+ coordinates {(Scapula, 0.689855) (Clavicle, 0.691658) (Humerus, 0.864106) }; % right
+				\legend{left, right};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Results: Tester 3}\label{fig:tester3}
+	\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					width = 0.8\textwidth,
+					xlabel = {Anatomy},
+					ylabel = {DSC},
+					bar width = 0.5cm,
+					ymin = 0.00,
+					ymax=1.00,
+					ybar,
+					axis y line = left,
+					axis x line = bottom,
+					xtick distance = 1,
+					symbolic x coords = {Scapula, Clavicle, Humerus},
+					legend pos = south east,
+					nodes near coords,
+					enlarge x limits = 0.2,
+				]
+				\addplot+ coordinates {(Scapula, 0.922192) (Clavicle, 0.939727) (Humerus, 0.933602) }; % left
+				\addplot+ coordinates {(Scapula, 0.936915) (Clavicle, 0.94835) (Humerus, 0.932487) }; % right
+				\legend{left, right};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Results: Tester 4}\label{fig:tester4}
+	\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					width = 0.8\textwidth,
+					xlabel = {Anatomy},
+					ylabel = {DSC},
+					bar width = 0.5cm,
+					ymin = 0.00,
+					ymax=1.00,
+					ybar,
+					axis y line = left,
+					axis x line = bottom,
+					xtick distance = 1,
+					symbolic x coords = {Scapula, Clavicle, Humerus},
+					legend pos = south east,
+					nodes near coords,
+					enlarge x limits = 0.2,
+				]
+				\addplot+ coordinates {(Scapula, 0.422959) (Clavicle, 0.0721612) (Humerus, 0.365373) }; % left
+				\addplot+ coordinates {(Scapula, 0.729698) (Clavicle, 0.815007) (Humerus, 0.890025) }; % right
+				\legend{left, right};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Results: Tester 5}\label{fig:tester5}
+	\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					width = 0.8\textwidth,
+					xlabel = {Anatomy},
+					ylabel = {DSC},
+					bar width = 0.5cm,
+					ymin = 0.00,
+					ymax=1.00,
+					ybar,
+					axis y line = left,
+					axis x line = bottom,
+					xtick distance = 1,
+					symbolic x coords = {Scapula, Clavicle, Humerus},
+					legend pos = south east,
+					nodes near coords,
+					enlarge x limits = 0.2,
+				]
+				\addplot+ coordinates {(Scapula, 0.745496) (Clavicle, 0.685963) (Humerus, 0.8301) }; % left
+				\addplot+ coordinates {(Scapula, 0.843293) (Clavicle, 0.832382) (Humerus, 0.90979) }; % right
+				\legend{left, right};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Results: Tester 6}\label{fig:tester6}
+	\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					width = 0.8\textwidth,
+					xlabel = {Anatomy},
+					ylabel = {DSC},
+					bar width = 0.5cm,
+					ymin = 0.00,
+					ymax=1.00,
+					ybar,
+					axis y line = left,
+					axis x line = bottom,
+					xtick distance = 1,
+					symbolic x coords = {Scapula, Clavicle, Humerus},
+					legend pos = south east,
+					nodes near coords,
+					enlarge x limits = 0.2,
+				]
+				\addplot+ coordinates {(Scapula, 0.634313) (Clavicle, 0.821007) (Humerus, 0.900482) }; % left
+				\addplot+ coordinates {(Scapula, 0.76807) (Clavicle, 0.911396) (Humerus, 0.925331) }; % right
+				\legend{left, right};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Results: Tester 7}\label{fig:tester7}
+	\end{center}
+\end{figure}
 
 % This chapter describes the performed analysis steps and discusses its results.
 % First, the final dataset is described in \cref{s:analysis-datasets}.

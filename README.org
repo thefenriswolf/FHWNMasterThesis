@@ -85,10 +85,13 @@ nix-shell ./shell.nix
 |                           |                                  |
 | =make clean=              | remove temporary build artifacts |
 | =make clean-all=          | remove all build artifacts       |
+| =make wordcount-thesis=   | count words in thesis            |
+
 *** without make
+Note: run biber to resolve references
 | Command                                             | Description            |
 |-----------------------------------------------------+------------------------|
-| =xelatex -synctex=1 -shell-escape proposal.tex=     | build proposal.tex     |
+| =xelatex -synctex=1 -shell-escape proposal.tex=                   | build proposal.tex     |
 | =xelatex -synctex=1 -shell-escape thesis.tex=       | build thesis.tex       |
 | =xelatex -synctex=1 -shell-escape presentation.tex= | build presentation.tex |
 

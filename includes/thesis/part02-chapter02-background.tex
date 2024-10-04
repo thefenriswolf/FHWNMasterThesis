@@ -5,6 +5,9 @@
 % https://sci-hub.ru/10.1109/TMI.2009.2013851
 % https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0068449
 
+
+% https://sci-hub.st/10.1007/s10462-020-09830-9
+
 \chapter{Background}\label{c:background}
 This section is dedicated to providing the theoretical background which was needed for the study.\\
 This section is structured as follows:
@@ -104,7 +107,7 @@ In case of the \gls{isratv}, which is used to improve reconstruction results for
 \acrfull{tv} enforces a sparse image gradient.
 Effectively, this modification of the \gls{isra} algorithm, enforces uniformity between edges \cite{vandeghinsteLowDoseMicroCTImaging2013}.
 \cref{fig:isra} shows \acrshort{tv} being used to enhance the \gls{isra} method by
-calculating the \acrshort{tv} on the previous back-projected image and modifying the error ratio for the next iteration cycle \cite{vandeghinsteLowDoseMicroCTImaging2013}.
+calculating the \glsxtrshort{tv} on the previous back-projected image and modifying the error ratio for the next iteration cycle \cite{vandeghinsteLowDoseMicroCTImaging2013}.
 \begin{figure}[h]
 	\centerline{
 		\includegraphics[scale=0.5]{images/isra.png}}
@@ -275,6 +278,270 @@ It can also be called contouring or annotation and is typically used to delineat
 malignancies and various other parts of images.
 As it is a requirement for visualization of target structures, like a tumor, or quantification tasks like volume and surface measurement,
 segmentation is a well established procedure in medical image computing \cite{pinterPolymorphSegmentationRepresentation2019,slicercommunity3DSlicerImage2022}.
+
+\subsection{AI based}\label{s:b-seg-ai}
+% images: https://sci-hub.ru/https://doi.org/10.1016/j.neucom.2019.11.118
+
+\subsubsection{Semantic segmentation}
+Semantic segmentation can be described as assigning a label to each pixel of an image.
+This is commonly performed via machine learning tools like a \acrfull{svm} or \acrfull{fcn}.
+For this to be possible, the list of possible labels must be defined before the segmentation task.
+Additionally, semantic segmentation aims to partition an image into mutually exclusive subsets,
+where each subset is a meaningful region of the original image \cite{haoBriefSurveySemantic2020,longFullyConvolutionalNetworks2015}.
+
+\subsubsection{Instance segmentation}
+Semantic segmentation, like mentioned above, focuses on assigning a label from a predefined list to each pixel in an image.
+Instance segmentation, on the other hand, alters this behavior by an important concept:
+Differentiating between instances of objects belonging to the same class.
+It can thus be defined as:
+\begin{displayquote}[\cite{chenMaskLabInstanceSegmentation2018}]
+	\ldots\space the task of finding simultaneous solution to object detection as well as semantic segmentation.
+\end{displayquote}
+However, in instance segmentations, not every pixel gets its own label, rather a bounding box is created to delineate an instance of a class.
+In comparison to semantic segmentations, instance segmentations are commonly performed by a \acrfull{dcnn} or a \acrfull{cnn} \cite{hafizSurveyInstanceSegmentation2020,chenMaskLabInstanceSegmentation2018}.
+
+\subsubsection{Panoptic segmentation}
+Panoptic segmentation combines the benefits of the two methods mentioned above
+\cite{kirillovPanopticSegmentation2019}.
+Every pixel gets assigned a semantic label and a unique instance identifier,
+thus Differentiating between instances of the same class and performing an exact image segmentation
+\cite{kirillovPanopticSegmentation2019}.
+% TODO: something is wrong with this citekey
+
+\subsection{Classical}\label{s:b-seg-techniques}
+% according to \cite{yuTechniquesChallengesImage2023}
+% better: https://www.v7labs.com/blog/image-segmentation-guide#h4
+% https://armanasq.github.io/computer-vision/image-segementation/#1-traditional-methods
+\begin{figure}[h]
+	\centerline{
+		\includegraphics[scale=0.5]{images/classicalSegTree.png}}
+	\caption{Classical segmentation options \cite{v7labsIntroductionImageSegmentation2021}}\label{fig:classicalSegTree}
+\end{figure}
+
+\noindent
+While \acrshort{ai} based image segmentation techniques revolve around pattern recognition
+via some form of machine learning,
+classical image segmentation techniques rely on analysis of the qualities of each pixel and its neighborhood.
+These qualities may include properties like color, brightness, contrast and intensity.
+There exist a number of classical segmentation tools,
+\cref{fig:classicalSegTree} gives an overview over the most commonly applied techniques
+\cite{yuTechniquesChallengesImage2023,baliReviewStrategiesTechniques2015}.
+
+\subsubsection{Edge Detection}
+Edge detection of grayscale images is defined as the task of finding sharp changes of pixel value intensity.
+These sharp changes of intensity indicate edges between objects in images.
+\begin{figure}[h]
+	\centerline{
+		\begin{tikzpicture}[outer sep=0pt,minimum size=1cm]
+			% labels
+			\node [fill={rgb:black,0;white,9}] at (-1,0)  {A};
+			\node [fill={rgb:black,0;white,9}] at (-1,-1) {B};
+			% A: boxes
+			\node [fill={rgb:black,8;white,1}] at (0,0)  {};
+			\node [fill={rgb:black,8;white,1}] at (1,0)  {};
+			\node [fill={rgb:black,1;white,6}] at (2,0)  {};
+			\node [fill={rgb:black,1;white,6}] at (3,0)  {};
+			% B: boxes
+			\node [fill={rgb:black,8;white,2}] at (0,-1) {};
+			\node [fill={rgb:black,8;white,4}] at (1,-1) {};
+			\node [fill={rgb:black,8;white,9}] at (2,-1) {};
+			\node [fill={rgb:black,7;white,9}] at (3,-1) {};
+		\end{tikzpicture}}
+	\caption{Edge detection}\label{fig:edgeDetection}
+\end{figure}
+
+\noindent
+This entails susceptibility to image noise.
+In other words, if the image is rich in background noise, quality of segmentation by edge detection will decline.
+Furthermore, if the pixel intensity gradient is less pronounced, edge detection quality is also impacted.
+Compare \cref{fig:edgeDetection} row A and B.
+Row A has a sharply defined edge and thus will pose no difficulty in edge detection tasks.
+Row B however, displays less of a steep gradient and will thus result in less accurate edge detection results.
+
+\subsubsection*{Image intensity function}
+\begin{figure}[h]
+	\centerline{\includegraphics[scale=0.5]{images/edgeModel.png}}
+	\caption{Image intensity functions: step and ramp \cite{gonzalezDigitalImageProcessing2007}}\label{fig:iif}
+\end{figure}
+\noindent
+Conceptually, the image intensity function describes changes in intensity.
+Wherever the image intensity transitions from one value to another,
+the image intensity function changes slope accordingly as can be seen in \cref{fig:iif}.
+Edges are thereby signified by certain shapes of the function, such as steps, ramps and roofs.
+Edge detection methods work by analyzing the derivative of the image intensity function and
+can be categorized into two types of techniques based on the order of derivation they require \cite{gonzalezDigitalImageProcessing2007}.
+\begin{figure}[h]
+	\centerline{\includegraphics[scale=0.5]{images/edgeModelOrders.png}}
+	\caption{Image intensity function derivatives: first, second and zero crossing \cite{gonzalezDigitalImageProcessing2007}}\label{fig:iifO}
+\end{figure}
+\noindent
+\subsubsection*{First order derivative}
+The first derivative of an image intensity function, or horizontal intensity profile,
+measures the rate of change of pixel intensity (see: \cref{fig:iifO}).
+First order derivative edge detection detect edges by analyzing the intensity profile and looking for rapid changes.
+The first derivative can be approximated by using gradient operators like the Sobel operator.
+This Sobel operator is composed of $3x3$ convolution kernels,
+which are specific to the image axis \cite{gonzalezDigitalImageProcessing2007}.
+In other words,  firstly there is a horizontal kernel $G_{x}$ which is intended to emphasize changes in
+intensity in horizontal direction:
+\begin{equation}
+	G_{x} =
+	\begin{bmatrix}
+		-1 & 0 & 1 \\
+		-2 & 0 & 2 \\
+		-1 & 0 & 1
+	\end{bmatrix}
+\end{equation}
+\noindent
+Secondly, the vertical kernel $G_{y}$ is used to highlight changes in intensity in vertical direction:
+\begin{equation}
+	G_{y} =
+	\begin{bmatrix}
+		-1 & -2 & -1 \\
+		0  & 0  & 0  \\
+		1  & 2  & 1
+	\end{bmatrix}
+\end{equation}
+To conclude, the edge detection workflow using the Sobel kernels is as follows:
+\begin{enumerate}
+	\item optionally reduce noise by applying Gaussian blur
+	\item apply Sobel kernels in $x$ and $y$ axis
+	\item calculate gradient magnitude % G = np.sqrt(Gx**2 + Gy**2)
+	\item normalization of the output image
+\end{enumerate}
+
+\subsubsection*{Second order derivative}
+The second derivative measures the rate of change of the first derivative.
+This technique analyzes the second order derivative of an image intensity function, or horizontal intensity profile,
+and look for so called ``zero crossings''.
+These zero crossings are defined as points where the second order derivative changes signs,
+in other words, goes from negative to positive or vice versa.
+Zero crossings therefore indicate the presence of edges in the rate of change of image intensity \cite{gonzalezDigitalImageProcessing2007}.
+The second derivative can be approximated using the Laplacian operator:
+\begin{equation}
+	Laplace =
+	\begin{bmatrix}
+		0 & 1  & 0 \\
+		1 & -4 & 1 \\
+		0 & 1  & 0
+	\end{bmatrix}
+\end{equation}
+To conclude, the edge detection workflow using the Laplacian kernel is as follows:
+\begin{enumerate}
+	\item optionally reduce noise by applying Gaussian blur
+	\item apply Laplacian kernel
+	\item normalization of the output image
+\end{enumerate}
+
+\subsubsection{Region Growing}
+\begin{figure}[h]
+	\centerline{\includegraphics[scale=0.5]{images/regionGrowing.png}}
+	\caption{Region growing seeds and result \cite{pandyaExploringImageSegmentation2024}}\label{fig:rgSR}
+\end{figure}
+\noindent
+Region growing breaks down images into separate areas by grouping areas by their similarity.
+This is done by creating a selection of $n$ seed pixels $S$, choosing some sort of principle of similarity
+and then grouping pixels adjacent to seeds according to their similarity score into regions $R$ \cite{jourlinVariousContrastConcepts2016,palReviewImageSegmentation1993}.
+See \cref{fig:rgSR} for reference: It shows two times the same single slice of an MRI of the human brain.
+On the left image some seeds were defined, indicated by the green crosses, on a lesion
+and on the right image a region growing algorithm has put all adjacent pixels with similar intensity into the same group.
+To elaborate, the basic steps for a region growing algorithm are:
+\begin{enumerate}
+	\item Selection of $n$ seeds $S$
+	\item Selection of similarity score algorithm
+	\item Grouping of adjacent pixels according to their similarity into $n$ regions $R$
+	\item Adjust similarity threshold or add seeds until result is satisfactory
+	\item Stop if similarity is lower than the defined threshold or all pixels belong to a group
+\end{enumerate}
+The similarity score criteria can be any property of a pixels or group of pixels.
+Common criteria include color, intensity or texture \cite{jourlinVariousContrastConcepts2016,palReviewImageSegmentation1993}.
+\begin{figure}[h!]
+	\begin{subfigure}{0.49\textwidth}
+		\centerline{
+			\begin{tikzpicture}[outer sep=0pt,minimum size=1cm]
+				\node [fill={rgb:black,2;white,8}] at (-1,-2) {}; % border top
+				\node [fill={rgb:black,2;white,8}] at (0,-2) {};
+				\node [fill={rgb:black,2;white,8}] at (1,-2) {};
+				\node [fill={rgb:black,2;white,8}] at (2,-2) {};
+				\node [fill={rgb:black,2;white,8}] at (3,-2) {};
+				\node [fill={rgb:black,2;white,8}] at (-1,-1) {};
+				\node [fill={rgb:black,2;white,8}] at (0,-1) {};
+				\node [fill={rgb:black,8;white,4}] at (1,-1) {};
+				\node [fill={rgb:black,2;white,8}] at (2,-1) {};
+				\node [fill={rgb:black,2;white,8}] at (3,-1) {};
+				\node [fill={rgb:black,2;white,8}] at (-1,0)  {};
+				\node [fill={rgb:black,8;white,4}] at (0,0)  {};
+				\node [fill={rgb:black,8;white,1}] at (1,0)  {}; % center
+				\node [fill={rgb:black,8;white,4}] at (2,0)  {};
+				\node [fill={rgb:black,2;white,8}] at (3,0)  {};
+				\node [fill={rgb:black,2;white,8}] at (-1,1)  {};
+				\node [fill={rgb:black,2;white,8}] at (0,1)  {};
+				\node [fill={rgb:black,8;white,4}] at (1,1)  {};
+				\node [fill={rgb:black,2;white,8}] at (2,1)  {};
+				\node [fill={rgb:black,2;white,8}] at (3,1)  {};
+				\node [fill={rgb:black,2;white,8}] at (-1,2)  {}; % border bottom
+				\node [fill={rgb:black,2;white,8}] at (0,2)  {};
+				\node [fill={rgb:black,2;white,8}] at (1,2)  {};
+				\node [fill={rgb:black,2;white,8}] at (2,2)  {};
+				\node [fill={rgb:black,2;white,8}] at (3,2)  {};
+			\end{tikzpicture}}
+		\caption{4-connected neighborhood}\label{fig:4n}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\centerline{
+			\begin{tikzpicture}[outer sep=0pt,minimum size=1cm]
+				\node [fill={rgb:black,2;white,8}] at (-1,-2) {}; % border top
+				\node [fill={rgb:black,2;white,8}] at (0,-2) {};
+				\node [fill={rgb:black,2;white,8}] at (1,-2) {};
+				\node [fill={rgb:black,2;white,8}] at (2,-2) {};
+				\node [fill={rgb:black,2;white,8}] at (3,-2) {};
+				\node [fill={rgb:black,2;white,8}] at (-1,-1) {};
+				\node [fill={rgb:black,8;white,4}] at (0,-1) {};
+				\node [fill={rgb:black,8;white,4}] at (1,-1) {};
+				\node [fill={rgb:black,8;white,4}] at (2,-1) {};
+				\node [fill={rgb:black,2;white,8}] at (3,-1) {};
+				\node [fill={rgb:black,2;white,8}] at (-1,0)  {};
+				\node [fill={rgb:black,8;white,4}] at (0,0)  {};
+				\node [fill={rgb:black,8;white,1}] at (1,0)  {}; % center
+				\node [fill={rgb:black,8;white,4}] at (2,0)  {};
+				\node [fill={rgb:black,2;white,8}] at (3,0)  {};
+				\node [fill={rgb:black,2;white,8}] at (-1,1)  {};
+				\node [fill={rgb:black,8;white,4}] at (0,1)  {};
+				\node [fill={rgb:black,8;white,4}] at (1,1)  {};
+				\node [fill={rgb:black,8;white,4}] at (2,1)  {};
+				\node [fill={rgb:black,2;white,8}] at (3,1)  {};
+				\node [fill={rgb:black,2;white,8}] at (-1,2)  {}; % border bottom
+				\node [fill={rgb:black,2;white,8}] at (0,2)  {};
+				\node [fill={rgb:black,2;white,8}] at (1,2)  {};
+				\node [fill={rgb:black,2;white,8}] at (2,2)  {};
+				\node [fill={rgb:black,2;white,8}] at (3,2)  {};
+			\end{tikzpicture}}
+		\caption{8-connected neighborhood}\label{fig:8n}
+	\end{subfigure}
+	\caption{4- and 8-connected neighborhoods}\label{fig:neighborhoods}
+\end{figure}
+\noindent
+Additionally, a region growing algorithms can be configured to consider a seeds 4-connected neighborhood
+(\cref{fig:4n}) or 8 connected neighborhood (\cref{fig:8n}) for similar pixels \cite{jourlinVariousContrastConcepts2016,palReviewImageSegmentation1993}.
+Where the black center pixel represents a seed and its grey neighborhood represent the considered pixels.
+\pagebreak
+
+\subsubsection{Threshold}
+Possibly the simplest classical segmentation method is the threshold.
+Whereby the user defines a wanted pixel intensity range and every pixel within that range is set to the binary value $1$ 
+and every other pixel is set to the binary value $0$ \cite{sankurSurveyImageThresholding2004}.
+
+\subsubsection{Clustering}
+% https://www.kdnuggets.com/2019/08/introduction-image-segmentation-k-means-clustering.html
+k-means clusters pixels with common attributes together,
+clusters all pixels into k-clusters, does not need seed pixels
+
+\subsubsection{Watershed}
+% https://medium.com/codex/watershed-segmentation-locate-individual-objects-when-heavily-clustered-b07bb1dbc0f6
+watershed algorithm treats pixel intensities as elevations and floods the image to segment objects based on intensity basins
+\cite{preimImageAnalysisMedical2014}
+
+\section{Segmentation representation}
 \begin{figure}[h]
 	\centerline{
 		\includegraphics[scale=0.5]{images/segRep.png}}
@@ -426,14 +693,14 @@ In 3D representations however, these polylines need to be stacked, gaps require 
 \noindent
 As can be seen in \cref{fig:planarContoursLines} planar contours or ribbons can be highly accurate in 2D.
 Experts can also draw polylines regardless of noise, low-resolution data, and overlapping pathologies.
-Furthermore, for radiation therapy, the \gls{dicom} standard requires segmentations to be stored as ``structured sets'', 
+Furthermore, for radiation therapy, the \gls{dicom} standard requires segmentations to be stored as ``structured sets'',
 essentially a series of planar contours.
 However, when it comes to 3D visualization, planar contours as well as ribbons offer comparatively poor quality visuals \cite{pinterPolymorphSegmentationRepresentation2019,weinsteinScanlineSurfacingBuilding2000}.
 
 
 \section{Mouse bone anatomy}\label{s:b-mouse-anatomy}
 This section is dedicated to bone anatomy of laboratory mice (Mus musculus) (see: \cref{fig:mouseFull}).
-Apart from the obvious size difference, mice are biologically very comparable to humans (Homo sapiens), 
+Apart from the obvious size difference, mice are biologically very comparable to humans (Homo sapiens),
 notable differences between human and mouse bone anatomy will be pointed out \cite{ruberteBridgingMouseHuman2023}.
 \begin{figure}[h]
 	\centerline{
@@ -446,6 +713,8 @@ notable differences between human and mouse bone anatomy will be pointed out \ci
 %spine paper \cite{harrisonVertebralLandmarksIdentification2013}
 %comparison \cite{ruberteBridgingMouseHuman2023}
 %comp2 \cite{jeromeSkeletalSystem2018}
+% humans \cite{platzerTaschenatlasAnatomieBd2013}
+
 
 \subsection{Skull}
 \label{s:b-mouse-skull}
@@ -456,19 +725,19 @@ notable differences between human and mouse bone anatomy will be pointed out \ci
 \end{figure}
 
 \noindent
-Most notably, the mouse skull reflects the importance of its sense of smell (olfaction), 
+Most notably, the mouse skull reflects the importance of its sense of smell (olfaction),
 by its elongated facial features and large tooth size (see: \cref{fig:mouseSkull}).
 For a visual representation see: \cref{fig:mouseSkull}.
 Meanwhile, the human head is shaped for a larger brain size.
 In mice the interparietal bone is well-developed when compared to humans.
-Furthermore, in mice the two mandibles are not fused together like in humans, 
-they are rather joined by cartilaginous tissue \cite{jeromeSkeletalSystem2018,halleOpenAnatomyBrowser2017}.
+Furthermore, in mice the two mandibles are not fused together like in humans,
+they are rather joined by cartilaginous tissue \cite{jeromeSkeletalSystem2018,halleOpenAnatomyBrowser2017,platzerTaschenatlasAnatomieBd2013}.
 
 \subsection{Spine}
 \label{s:b-mouse-spine}
-Mouse spines (see: \cref{fig:mouseSpine}) are made of 7 cervical vertebrae, 13 thoracic vertebrae, 6 lumbar vertebrae, 4 sacral vertebrae and 20-30 caudal vertebrae.
+Mouse spines (see: \cref{fig:mouseSpine}) are made of 7 cervical vertebrae, 13 thoracic vertebrae, 6 lumbar vertebrae, 4 sacral vertebrae and 20-30 caudal vertebrae \cite{platzerTaschenatlasAnatomieBd2013}.
 Mice can possess up to 60 vertebrae, whereas humans only possess 33\footnote{34 with anatomical normal variant L6}.
-The largest part of this difference is made up by the fact that mice possess a tail composed of 27-31 coccygeal vertebrae, 
+The largest part of this difference is made up by the fact that mice possess a tail composed of 27-31 coccygeal vertebrae,
 while humans only possess 4 non-articulated coccygeal vertebrae.
 The remainder is due to minor differences in thoracic, lumbar and sacral vertebrae counts \cite{ruberteMorphologicalMousePhenotyping2017,jeromeSkeletalSystem2018,harrisonVertebralLandmarksIdentification2013}.
 Rodent and human vertebrae additionally differ in vertebral body size.
@@ -479,8 +748,8 @@ Rodent and human vertebrae additionally differ in vertebral body size.
 \end{figure}
 
 \noindent
-Rodent vertebrae have relative a comparatively small body as due to their quadrupedal nature, 
-mice spines do not undergo as much axial stress as human spines \cite{ruberteMorphologicalMousePhenotyping2017,jeromeSkeletalSystem2018}.
+Rodent vertebrae have relative a comparatively small body as due to their quadrupedal nature,
+mice spines do not undergo as much axial stress as human spines \cite{ruberteMorphologicalMousePhenotyping2017,jeromeSkeletalSystem2018,platzerTaschenatlasAnatomieBd2013}.
 
 \subsection{Thorax and Pelvis}
 \label{s:b-mouse-th-pel}
@@ -492,12 +761,12 @@ mice spines do not undergo as much axial stress as human spines \cite{ruberteMor
 
 \noindent
 In many quadrupedal mammals the clavicle has dramatically reduced or even disappeared.
-Despite their quadrupedal nature mice have a well-developed clavicle, 
+Despite their quadrupedal nature mice have a well-developed clavicle,
 that joins the sternum and acromion of the scapula like in humans \cite{ruberteBridgingMouseHuman2023}.
-Mice possess 13 pairs of ribs (costae) as can be seen in \cref{fig:mouseThorax}, including 7 pairs that are articulated to the sternum, also called true ribs 
+Mice possess 13 pairs of ribs (costae) as can be seen in \cref{fig:mouseThorax}, including 7 pairs that are articulated to the sternum, also called true ribs
 and 3 pairs of asternal or false ribs.
 This is very similar to human anatomy, with the most notable difference being that humans only have 12 pairs of ribs.
-The mouse pelvis, like in humans is composed of the ilium, ischium and pubis \cite{ruberteMorphologicalMousePhenotyping2017,halleOpenAnatomyBrowser2017}.
+The mouse pelvis, like in humans is composed of the ilium, ischium and pubis \cite{platzerTaschenatlasAnatomieBd2013,ruberteMorphologicalMousePhenotyping2017,halleOpenAnatomyBrowser2017}.
 
 
 \subsection{Extremities}
@@ -516,26 +785,24 @@ The mouse pelvis, like in humans is composed of the ilium, ischium and pubis \ci
 
 \noindent
 As can be seen in \cref{fig:frontPaw} after the mouse radius and ulna, the wrist joint is made up of 9 bones:\\
-The carpal bones I-IV, the intermedioradial carpal bone, the ulnar carpal bone, the accessory carpal bone, 
+The carpal bones I-IV, the intermedioradial carpal bone, the ulnar carpal bone, the accessory carpal bone,
 the central carpal bone, and the proximal sesamoid bones.
-Which then are articulated with 5 metacarpal bones and phalanges like in humans. 
-Humans however posses 8 carpal bones, which include the scaphoid, lunate, triquetrum, pisiform, 
-trapezium, trapezoid, capitate and hamate.
-
-% todo add source for human anatomy
+Which then are articulated with 5 metacarpal bones and phalanges like in humans.
+Humans however posses 8 carpal bones, which include the scaphoid, lunate, triquetrum, pisiform,
+trapezium, trapezoid, capitate and hamate \cite{platzerTaschenatlasAnatomieBd2013}.
 
 \noindent
 As can be seen in \cref{fig:hindPaw}, the mouse ankle is made up of 8 bones:
 The talus, calcaneus, tibial tarsal bone, central tarsal bone and tarsal bones I-IV.
 Whereas the human ankle joint is made up of 7 bones:
-Calcaneus, cuboid, talus, navicular, lateral cuneiform, middle cuneiform, medial cuneiform.
+Calcaneus, cuboid, talus, navicular, lateral cuneiform, middle cuneiform, medial cuneiform \cite{platzerTaschenatlasAnatomieBd2013}.
 
 \noindent
-Supratrochlear foramen in humerus in mice but not in humans \cite{ruberteMorphologicalMousePhenotyping2017}
+Supratrochlear foramen in humerus in mice but not in humans \cite{ruberteMorphologicalMousePhenotyping2017,platzerTaschenatlasAnatomieBd2013}
 radius and ulna are independent and not fused as it occurs in other mammals
 
 \noindent
-The rodent fibula is half the length of those of humans and fuses with the tibia, 
-whereas the human fibula articulates with the ankle \cite{jeromeSkeletalSystem2018}.
+The rodent fibula is half the length of those of humans and fuses with the tibia,
+whereas the human fibula articulates with the ankle \cite{jeromeSkeletalSystem2018,platzerTaschenatlasAnatomieBd2013}.
 
 % https://sci-hub.ru/https://doi.org/10.1016/B978-0-12-802900-8.00005-1
