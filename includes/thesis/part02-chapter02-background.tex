@@ -4,22 +4,15 @@
 % https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8409170/
 % https://sci-hub.ru/10.1109/TMI.2009.2013851
 % https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0068449
-
-
 % https://sci-hub.st/10.1007/s10462-020-09830-9
 
 \chapter{Background}\label{c:background}
-This section is dedicated to providing the theoretical background which was needed for the study.\\
-This section is structured as follows:
-Fist, an introduction to the used similarity score will be given in %\cref{s:similarity-score}.
-\\
-Secondly,
-% \cref{s:guide-creation}
-will explain which criteria were considered on the creation of the segmentation guide.\\
-Thirdly, evaluation of the segmentation\\
-Finally,
-%\cref{s:segmentation-theory}
-will explain how parameters for correct segmentation were determined. %(TODO).
+This section is dedicated to providing the theoretical background which was needed for the study. 
+This section is structured as follows:\\
+Fist and foremost, an introduction of the operating principle of a \mct\space will be given in \cref{s:b-microct}.
+Secondly, \cref{s:guide-creation} will give an overview of how a guide is composed.
+Thirdly, evaluation of the segmentation techniques and algorithms is given in \cref{s:b-segmentation-basics}.
+Finally, \cref{s:b-mouse-anatomy} will give a short overview over relevant anatomical structures of mice.
 
 
 \section{\mct}\label{s:b-microct}
@@ -100,7 +93,7 @@ and ability to handle data truncation in the z-axis or longitudinal direction \c
 Building upon these simple algorithms, are iterative algorithm like the \gls{isra} and \gls{isratv},
 which were utilized to reconstruct the datasets used in this study (see: \cref{tab:scan-parameters}).
 As can be seen in \cref{fig:isra}, this algorithm starts of by performing a \acrshort{fbp} (bottom right \cref{fig:isra}) and storing the result.
-Next, the current image is forward and back-projected  to get an estimation image,
+Next, the current image is forward and back-projected to get an estimation image,
 which then serves to calculate the error ratio between the estimation and the measured data.
 The error is then considered in the next iteration of forward and back-projection to update the estimate image.
 In case of the \gls{isratv}, which is used to improve reconstruction results for datasets with a small number of projections,
@@ -161,10 +154,10 @@ While most soft tissues have a \acrshort{hu} value between $-100$ and $+100$ \ci
 
 
 \subsection{\good}\label{s:b-gooddocs}
-\begin{displayquote}
-	``The Good Docs Project educates and empowers people to create high-quality documentation by providing them with templates, resources, best practices, and tools to enhance their documentation in open source and beyond.'' \cite{shorterGoodDocsProject2024}
+\begin{displayquote}[\cite{shorterGoodDocsProject2024}]
+	``The Good Docs Project educates and empowers people to create high-quality documentation by providing them with templates, resources, best practices, and tools to enhance their documentation in open source and beyond.''
 \end{displayquote}
-It is used for documentation design by companies like GitLab (GitLab Inc., San Francisco, U.S.A) and JetBrains (JetBrains s.r.o, Prague, Czech Republic).
+It is used for documentation design by companies like GitLab (GitLab Inc., San Francisco, USA) and JetBrains (JetBrains s.r.o, Prague, Czech Republic).
 \good\space actively discourages producing any sort of documentation before its content and structure have been planned extensively \cite{shorterGoodDocsProject2024}.
 Instead, it instructs documentation authors to first and foremost, think about the topic at hand.
 Especially, authors should evaluate the complexity of the topic and try to predict what kind of questions readers might have while reading the documentation.
@@ -272,7 +265,7 @@ In health information documents, they have been proven to enhance readability, a
 
 
 \pagebreak
-\section{Segmentation of images and volumes}%\label{s:b-segmentation-basics}
+\section{Segmentation of images and volumes}\label{s:b-segmentation-basics}
 Segmentation of images is a process of delineating structures of interest.
 It can also be called contouring or annotation and is typically used to delineate anatomical structures, tumors,
 malignancies and various other parts of images.
@@ -295,7 +288,7 @@ Instance segmentation, on the other hand, alters this behavior by an important c
 Differentiating between instances of objects belonging to the same class.
 It can thus be defined as:
 \begin{displayquote}[\cite{chenMaskLabInstanceSegmentation2018}]
-	\ldots\space the task of finding simultaneous solution to object detection as well as semantic segmentation.
+	``\ldots\space the task of finding simultaneous solution to object detection as well as semantic segmentation.''
 \end{displayquote}
 However, in instance segmentations, not every pixel gets its own label, rather a bounding box is created to delineate an instance of a class.
 In comparison to semantic segmentations, instance segmentations are commonly performed by a \acrfull{dcnn} or a \acrfull{cnn} \cite{hafizSurveyInstanceSegmentation2020,chenMaskLabInstanceSegmentation2018}.
@@ -306,9 +299,12 @@ Panoptic segmentation combines the benefits of the two methods mentioned above
 Every pixel gets assigned a semantic label and a unique instance identifier,
 thus Differentiating between instances of the same class and performing an exact image segmentation
 \cite{kirillovPanopticSegmentation2019}.
-% TODO: something is wrong with this citekey
 
 \subsection{Classical}\label{s:b-seg-techniques}
+\begin{displayquote}[\cite{gradyEnergyMinimizationApproach2006}]
+	``Fully automatic, completely reliable segmentation in medical images is an unrealistic expectation [\ldots]''
+\end{displayquote}
+Thus, many clinical and preclinical segmentation workflows still rely on classical segmentation tools.
 % according to \cite{yuTechniquesChallengesImage2023}
 % better: https://www.v7labs.com/blog/image-segmentation-guide#h4
 % https://armanasq.github.io/computer-vision/image-segementation/#1-traditional-methods
@@ -317,7 +313,6 @@ thus Differentiating between instances of the same class and performing an exact
 		\includegraphics[scale=0.5]{images/classicalSegTree.png}}
 	\caption{Classical segmentation options \cite{v7labsIntroductionImageSegmentation2021}}\label{fig:classicalSegTree}
 \end{figure}
-
 \noindent
 While \acrshort{ai} based image segmentation techniques revolve around pattern recognition
 via some form of machine learning,
@@ -375,14 +370,15 @@ can be categorized into two types of techniques based on the order of derivation
 	\caption{Image intensity function derivatives: first, second and zero crossing \cite{gonzalezDigitalImageProcessing2007}}\label{fig:iifO}
 \end{figure}
 \noindent
+
 \subsubsection*{First order derivative}
 The first derivative of an image intensity function, or horizontal intensity profile,
 measures the rate of change of pixel intensity (see: \cref{fig:iifO}).
 First order derivative edge detection detect edges by analyzing the intensity profile and looking for rapid changes.
 The first derivative can be approximated by using gradient operators like the Sobel operator.
-This Sobel operator is composed of $3x3$ convolution kernels,
+This Sobel operator is composed of $3 \times 3$ convolution kernels,
 which are specific to the image axis \cite{gonzalezDigitalImageProcessing2007}.
-In other words,  firstly there is a horizontal kernel $G_{x}$ which is intended to emphasize changes in
+In other words, firstly there is a horizontal kernel $G_{x}$ which is intended to emphasize changes in
 intensity in horizontal direction:
 \begin{equation}
 	G_{x} =
@@ -394,6 +390,7 @@ intensity in horizontal direction:
 \end{equation}
 \noindent
 Secondly, the vertical kernel $G_{y}$ is used to highlight changes in intensity in vertical direction:
+
 \begin{equation}
 	G_{y} =
 	\begin{bmatrix}
@@ -402,6 +399,8 @@ Secondly, the vertical kernel $G_{y}$ is used to highlight changes in intensity 
 		1  & 2  & 1
 	\end{bmatrix}
 \end{equation}
+
+\noindent
 To conclude, the edge detection workflow using the Sobel kernels is as follows:
 \begin{enumerate}
 	\item optionally reduce noise by applying Gaussian blur
@@ -426,6 +425,8 @@ The second derivative can be approximated using the Laplacian operator:
 		0 & 1  & 0
 	\end{bmatrix}
 \end{equation}
+
+\noindent
 To conclude, the edge detection workflow using the Laplacian kernel is as follows:
 \begin{enumerate}
 	\item optionally reduce noise by applying Gaussian blur
@@ -453,6 +454,7 @@ To elaborate, the basic steps for a region growing algorithm are:
 	\item Adjust similarity threshold or add seeds until result is satisfactory
 	\item Stop if similarity is lower than the defined threshold or all pixels belong to a group
 \end{enumerate}
+\noindent
 The similarity score criteria can be any property of a pixels or group of pixels.
 Common criteria include color, intensity or texture \cite{jourlinVariousContrastConcepts2016,palReviewImageSegmentation1993}.
 \begin{figure}[h!]
@@ -469,17 +471,17 @@ Common criteria include color, intensity or texture \cite{jourlinVariousContrast
 				\node [fill={rgb:black,8;white,4}] at (1,-1) {};
 				\node [fill={rgb:black,2;white,8}] at (2,-1) {};
 				\node [fill={rgb:black,2;white,8}] at (3,-1) {};
-				\node [fill={rgb:black,2;white,8}] at (-1,0)  {};
+				\node [fill={rgb:black,2;white,8}] at (-1,0) {};
 				\node [fill={rgb:black,8;white,4}] at (0,0)  {};
 				\node [fill={rgb:black,8;white,1}] at (1,0)  {}; % center
 				\node [fill={rgb:black,8;white,4}] at (2,0)  {};
 				\node [fill={rgb:black,2;white,8}] at (3,0)  {};
-				\node [fill={rgb:black,2;white,8}] at (-1,1)  {};
+				\node [fill={rgb:black,2;white,8}] at (-1,1) {};
 				\node [fill={rgb:black,2;white,8}] at (0,1)  {};
 				\node [fill={rgb:black,8;white,4}] at (1,1)  {};
 				\node [fill={rgb:black,2;white,8}] at (2,1)  {};
 				\node [fill={rgb:black,2;white,8}] at (3,1)  {};
-				\node [fill={rgb:black,2;white,8}] at (-1,2)  {}; % border bottom
+				\node [fill={rgb:black,2;white,8}] at (-1,2) {}; % border bottom
 				\node [fill={rgb:black,2;white,8}] at (0,2)  {};
 				\node [fill={rgb:black,2;white,8}] at (1,2)  {};
 				\node [fill={rgb:black,2;white,8}] at (2,2)  {};
@@ -520,6 +522,7 @@ Common criteria include color, intensity or texture \cite{jourlinVariousContrast
 	\end{subfigure}
 	\caption{4- and 8-connected neighborhoods}\label{fig:neighborhoods}
 \end{figure}
+
 \noindent
 Additionally, a region growing algorithms can be configured to consider a seeds 4-connected neighborhood
 (\cref{fig:4n}) or 8 connected neighborhood (\cref{fig:8n}) for similar pixels \cite{jourlinVariousContrastConcepts2016,palReviewImageSegmentation1993}.
@@ -528,18 +531,73 @@ Where the black center pixel represents a seed and its grey neighborhood represe
 
 \subsubsection{Threshold}
 Possibly the simplest classical segmentation method is the threshold.
-Whereby the user defines a wanted pixel intensity range and every pixel within that range is set to the binary value $1$ 
+Whereby the user defines a wanted pixel intensity range and every pixel within that range is set to the binary value $1$
 and every other pixel is set to the binary value $0$ \cite{sankurSurveyImageThresholding2004}.
 
 \subsubsection{Clustering}
+Clustering, specifically, k-means clustering, refers to the division of a set of data into
+a specific number of groups.
+For this to be applicable, the items in a group need some kind of similarity.
+In image segmentation such a similarity may be pixel properties like color or intensity.
+The algorithm then assigns all data points in a group according to their proximity to a seed \cite{dhanachandraImageSegmentationUsing2015}.
+The basic steps for a k-means clustering algorithm are as follows:
+\begin{enumerate}
+	\item Initialize $n$ clusters $k$
+	\item Distribute $n$ seed points randomly across the image
+	\item Assign each data point to the closest seed point (see: \cref{fig:kmeans1})
+	\item Compute the center of each cluster and move the seed point there (see: \cref{fig:kmeans2})
+	\item Reassign each datapoint to the new closest seed point
+	\item Repeat steps $3 - 5$ until it satisfies a tolerance value
+\end{enumerate}
+\begin{figure}[h!]
+	\begin{subfigure}{0.49\textwidth}
+		\centerline{
+			\includegraphics[scale=0.5]{images/kmeansSeeds.png}}
+		\caption{k-means initial seed points \cite{shabalinKmeansClusteringKmeans2024}}\label{fig:kmeans1}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\centerline{
+			\includegraphics[scale=0.5]{images/kmeansClusters.png}}
+		\caption{k-means cluster centers \cite{shabalinKmeansClusteringKmeans2024}}\label{fig:kmeans2}
+	\end{subfigure}
+	\caption{k-means clustering}\label{fig:kmeans}
+\end{figure}
+\noindent
+A schematic overview over the k-means clustering algorithm can be seen in \cref{fig:kmeans}.
+\Cref{fig:kmeans1} displays a set of datapoints, represented as black dots and a small number of
+cluster seeds, represented as green circles.
+The algorithms first tries to group the datapoints according to their proximity to the seed points, represented as red lines.
+In \cref{fig:kmeans2} the seed points have been relocated to better fit the dataset and the clusters have changed accordingly.
+% https://pdf.sciencedirectassets.com/280203/1-s2.0-S1877050915X00123/1-s2.0-S1877050915014143/main.pdf?X-Amz-Security-Token=IQoJb3JpZ2luX2VjELj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCZp4PSrhRxPtnTYn34CUcNrzLCggJxux51v3rIfZG5cAIgJ8grMnffpcN%2B4hBZ%2BB%2FXW11jaXi0LzjnL3ziudVza0MqsgUIERAFGgwwNTkwMDM1NDY4NjUiDKgtqe05t8VZ17VaQiqPBRIrZOB1Kqo%2Fw0OZhaGsmd9iMC4g%2Fbi%2FayVKxTdeFD0hM4uKsAVsJrFPfPTVG6aWkA5qpnE2OR2QTzfzJ6Rp%2FQaIK5pmiWjq1LkOoHSERw7xofpNLYU3I6pUedtPcxTR4gtKTWvbSzJ3jHfQR72Gt%2BWDxdiTWLMa8wQlqCLsyB4CM0V3eofzi55PvX06Edc8Nz45p17c1Q5o5H2VM%2F4LovT1F7RqNA6q5OiAeI1qolsHxfyLkIuaZhOEHB4ye0%2Br9PFBiHHdqrkay6T8wuLt6ApGUxqfRSlnwrdDR2zjkaiutJlAeoixVJ3AZMsMeXMTT8d5KD8fqinUsY7nheDiD2mAe04nAZ2%2BUW5OSx9NsChZWLK5Blvx5me0OBuN%2B77oQQKAuNSXZXoiHHoJ6YJJGnjxS6T0OGnE0dPa45AMa8IZ1Ng4WdIa8PqFVnDupyuNWqjRWXe3GGpNfsJI1N%2Fucbx0HIwICzf1Q8nF6k1qFyvoichsduRgiETKRGtqBlG5Fb1QZDpJWvp4pvRA40heyM71WUcN46NlzGslFy6IPDN5oybVAhMXVzgCTqVwJ%2FiAUX8YTaqGvGyW3CVJ3wwNY9Evf8MXq4%2Fp1ONOiuuVmgeoDiJFusuqr5Q%2FNcgKUbkA1EEvKHuEhl92PmCIzf%2Bm7Y9jH3Z6oKUv9xIX9R2AjAEA0ehQQX9jzs2f59wbJoVttOYOrNLiwDwqWaIb40yobzIDUAQdyuuwWn3I5JlNPbm4dfZSXWgQuSfZz5Mrd6QNNZ55griE78kZIxxRZsngCabXiE%2FZZIGyhjK5bK358ZE8eqel91R%2FmmUJHgYVN%2BaDVx9Pf4DwzQN%2Bx0bV8c%2ByRC2hQ81th3tugGu0LhRMoTQwpPWIuAY6sQEeT%2Fz6yzL%2BWOGhM4Aewq8w%2Fy7B7cX4bAoffQLTJjAnuXMSQq%2BehSYxT47YL3%2FQ4ne5VH%2FVAeGrCvzZIkLjkn4VbYpGdEQOMscq6ZjxRnv%2BliSNb57yBFuIc0WCxZZdIYPTDv%2F%2BSTQfighgKyd20vQ9n6hu%2BBYI4yIaOVkATQcCILSydjvkV4kj4pP6DYfqkgyQcC5VBHJbx8OKqwsL58Lb1zIvfjuEEvD1vKOG2fp0JYg%3D&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20241006T082633Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAQ3PHCVTYZUW2AN72%2F20241006%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=8d4fcc169a59911c17b33d41de99111eacec7a0c5d7c687fc63b6849d16e1b53&hash=a8d5ddfcc08af5477e7f38b52d1fce0618e897ed9b746ca6f3677236ea96ee9d&host=68042c943591013ac2b2430a89b270f6af2c76d8dfd086a07176afe7c76c2c61&pii=S1877050915014143&tid=spdf-bddd0a9c-0fa1-44da-80dd-d9f07327e225&sid=cc00750590fd924ecb6be7a3418808ba2584gxrqb&type=client&tsoh=d3d3LnNjaWVuY2VkaXJlY3QuY29t&ua=1b125f020752545a565257&rr=8ce4446698c85a71&cc=at
+% https://towardsdatascience.com/image-color-segmentation-by-k-means-clustering-algorithm-5792e563f26e
 % https://www.kdnuggets.com/2019/08/introduction-image-segmentation-k-means-clustering.html
-k-means clusters pixels with common attributes together,
-clusters all pixels into k-clusters, does not need seed pixels
+
 
 \subsubsection{Watershed}
 % https://medium.com/codex/watershed-segmentation-locate-individual-objects-when-heavily-clustered-b07bb1dbc0f6
-watershed algorithm treats pixel intensities as elevations and floods the image to segment objects based on intensity basins
-\cite{preimImageAnalysisMedical2014}
+% https://sci-hub.ru/https://doi.org/10.1016/B978-0-12-415873-3.00004-3
+The watershed algorithm treats pixel intensities as elevations in a virtual landscape.
+In this landscape, local minimal are seen as the seed for ``catchment basins''.
+On the other hand, local maxima, or so-called ``watersheds'' separate the basins from each other (see: \cref{fig:water1}).
+By ``filling the basins with water'' each pixel in an image is either assigned to a region or a watershed.
+Finally, by modifying the water height, which in practice equates to a threshold value,
+the watershed algorithm can be adjusted to either create larger or smaller regions (see: \cref{fig:water2}).
+If the merging of two regions is to be avoided, an additional watershed, called ``dams'',
+can be placed between them \cite{preimImageAnalysisMedical2014,hahnIWTinteractiveWatershedTransform2003}.
+\begin{figure}[h!]
+	\begin{subfigure}{0.49\textwidth}
+		\centerline{
+			\includegraphics[scale=0.5]{images/watershed1.png}}
+		\caption{Watershed minima with basins \cite{hahnIWTinteractiveWatershedTransform2003}}\label{fig:water1}
+	\end{subfigure}
+	\begin{subfigure}{0.49\textwidth}
+		\centerline{
+			\includegraphics[scale=0.5]{images/watershed2.png}}
+		\caption{Watershed dams and flooding level \cite{hahnIWTinteractiveWatershedTransform2003}}\label{fig:water2}
+	\end{subfigure}
+	\caption{Watershed landscape}\label{fig:watershed}
+\end{figure}
+
 
 \section{Segmentation representation}
 \begin{figure}[h]
@@ -547,7 +605,6 @@ watershed algorithm treats pixel intensities as elevations and floods the image 
 		\includegraphics[scale=0.5]{images/segRep.png}}
 	\caption{Brain stem in different representations: A: Binary labelmap, B: Closed surface, C: Fractional labelmap, D: Planar contours, E: Ribbon mode \cite{pinterPolymorphSegmentationRepresentation2019}}\label{fig:segRep}
 \end{figure}
-
 \noindent
 However, segmentations can be represented in a number of data structures.
 \Cref{fig:segRep} gives an overview of the most common representations, of those shown, the binary labelmap is the most commonly used storage format.
@@ -716,8 +773,7 @@ notable differences between human and mouse bone anatomy will be pointed out \ci
 % humans \cite{platzerTaschenatlasAnatomieBd2013}
 
 
-\subsection{Skull}
-\label{s:b-mouse-skull}
+\subsection{Skull}\label{s:b-mouse-skull}
 \begin{figure}[h]
 	\centerline{
 		\includegraphics[scale=0.7]{images/mouseSkull.png}}
@@ -751,8 +807,7 @@ Rodent and human vertebrae additionally differ in vertebral body size.
 Rodent vertebrae have relative a comparatively small body as due to their quadrupedal nature,
 mice spines do not undergo as much axial stress as human spines \cite{ruberteMorphologicalMousePhenotyping2017,jeromeSkeletalSystem2018,platzerTaschenatlasAnatomieBd2013}.
 
-\subsection{Thorax and Pelvis}
-\label{s:b-mouse-th-pel}
+\subsection{Thorax and Pelvis}\label{s:b-mouse-th-pel}
 \begin{figure}[h]
 	\centerline{
 		\includegraphics[scale=0.6]{images/mouseThorax.png}}

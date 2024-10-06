@@ -45,7 +45,7 @@ It is two times the \acrfull{tp} intersection divided by two times the \acrlong{
 In the context of volume comparison this can be interpreted as two times the number of overlapping \glspl{vx} between two segmentations divided by the total number of \glspl{vx} in both segmentations \cite{schelbComparisonProstateMRI2021}.
 
 \section{Datasets}\label{s:datasets}
-All nine datasets used in this study, were acquired at the competence center for preclinical imaging and biomedical engineering at the university of applied sciences wiener neustadt.
+All nine datasets used in this study, were acquired at the competence center for preclinical imaging and biomedical engineering at the university of applied sciences Wiener Neustadt.
 The total body scans were performed on a Molecubes X-Cube \mct\space machine (Molecubes NV X-Cube, MOLECUBES NV, Gent, Belgium).
 The specimens were non contrast enhanced mice however, remnants of contrast agent could be seen in the vesica urinaria of all scanned animals.
 All scans were aquired with a tube voltage of 50\acrshort{kv} and a tube current exposure time product of 70\acrshort{mas}.
@@ -111,7 +111,7 @@ As can be seen in \cref{fig:dataset-preparation} several steps of preparation we
 All modifications were done using built in 3D Slicer tools.
 Firstly, a rough cropping of the dataset was performed.
 The goal was to reduce the size of the dataset to only include anatomical structures relevant for the segmentation assignment.
-This first rough cropping operation already reduced the dataset geometric size to approximately one fifth of it's original dimensions.
+This first rough cropping operation already reduced the dataset geometric size to approximately one fifth of its original dimensions.
 Next, a background masking operation has been applied with the goal of reducing file size.
 In order to achieve this, first a threshold operation was performed to segment background noise in the scan as well as anatomical structures composed of soft tissue.
 The resulting segment then, was the base for a masking operation where the segmented volume was uniformly overwritten with the HU value of -1000.
@@ -196,7 +196,7 @@ Considerably more useful however, is the option to display already segmented par
 Most segmentation tools in 3D Slicer are only usable in 2D views and were therefore marked in the guide as such with \cref{fig:2d_icon}.
 A smaller part of 3D Slicers segmentation tools can be used in 3D view and were therefore marked in the guide as such with \cref{fig:3d_icon}.
 The 3D symbol, which when compared to the 2D symbol is displayed with a \acrfull{dof} effect, giving it a 3-dimensional appearance.
-This is intended to draw the readers attention to 3D Slicers 3D rendering view.\\
+This is intended to draw the reader's attention to 3D Slicers 3D rendering view.\\
 In order to draw the readers' attention to a specific recommendation on how to use a tool \cref{fig:hint_icon} was utilized.
 The hint symbol can be described as a simple glowing lightbulb, intended to suggest to readers that it symbolizes an idea to consider.
 It was always inserted into the guide with a small section of text explaining to the user how to ideally utilize the current tool.\\
