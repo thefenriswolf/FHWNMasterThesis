@@ -10,7 +10,7 @@
 This chapter is intended to provide an introduction to the thesis.
 In \cref{s:introduction-motivation} the general motivation is discussed.
 The section is followed by outlining the research goals in \cref{s:introduction-researchgoals}.
-\Cref{s:introduction-researchmethodology} gives an insight into research methods used in order to answer the raised research questions.
+\Cref{s:introduction-researchmethodology} gives an insight into the research methods used in order to answer the raised research questions.
 Finally, \cref{s:introduction-structureofthisthesis} gives an outlook of the structure of the remaining thesis.
 
 \section{Motivation}\label{s:introduction-motivation}
@@ -19,9 +19,9 @@ For research, it enables the study of small animal morphology \cite{percianoInsi
 A common task when conducting short-term or long-term studies with mice, is the segmentation of the image datasets, as it plays an important role for quantitative image analysis \cite{sheppardTechniquesHelicalScanning2014}.
 Segmentation may be defined as the process of separating various image components.
 Furthermore, extracting parts relevant for subsequent analysis and comparison \cite{percianoInsight3DMicroCT2017}.
-A common task may be in-vivo bone analysis for the investigation and monitoring of progression of various bone pathologies.
+A common task may be in-vivo bone analysis for the investigation and monitoring of the progression of various bone pathologies.
 Analysis is performed by first segmenting the \acrshort{mct} volume.
-Secondly, morphological features relevant for the study can be extracted to be then finally analyzed.
+Secondly, morphological features relevant to the study can be extracted and then finally be analyzed.
 Streamlining the segmentation process is therefore crucial for the analysis step \cite{percianoInsight3DMicroCT2017,korfiatisIndependentActiveContours2017}.
 \newline
 For performing \mct\space dataset segmentation tasks, there exist a few capable free and open-source programs.
@@ -31,24 +31,24 @@ Two actively maintained and well-known \cite{virziComprehensiveReview3D2020,mand
 	\item \textsc{3D Slicer} \cite{kikinis3DSlicerPlatform2014} available under a \texttt{BSD style license} \cite{gaudeulPublicProvisionPrivate2005}
 \end{itemize}
 Both programs equip the user with a sizeable number of segmentation tools, which can be grouped into manual, semi-automatic and fully automatic \cite{percianoInsight3DMicroCT2017}.
-The accuracy and efficiency of the segmentation however strongly correlate with user experience and the segmentation algorithm chosen \cite{mandoliniComparisonThree3D2022,aydinRELIABILITYREPRODUCIBILITYTIMEEFFICIENCY2020,arguelloComparisonSegmentationTools2019}.
-3D Slicers documentation website \cite{pinterPolymorphSegmentationRepresentation2019} explains the software and many of the available tools in the standard distribution of 3D Slicer.
+The accuracy and efficiency of the segmentation, however, strongly correlate with user experience and the segmentation algorithm chosen \cite{mandoliniComparisonThree3D2022,aydinRELIABILITYREPRODUCIBILITYTIMEEFFICIENCY2020,arguelloComparisonSegmentationTools2019}.
+3D Slicer's documentation website \cite{pinterPolymorphSegmentationRepresentation2019} explains the software and many of the available tools in the standard distribution of 3D Slicer.
 But it does not feature a recommended segmentation workflow.
 Despite this fact, there is a lack of general recommendations, instructions or guides on how to efficiently segment \acrlong{mct} datasets.
 
 \section{Research Goals}\label{s:introduction-researchgoals}
-Furthermore, segmenting large datasets, such as produced by a high resolution \mct\space scan, results in large \acrfull{ram} demands by the segmentation software.
+Furthermore, segmenting large datasets, such as those produced by a high-resolution \mct\space scan, results in large \acrfull{ram} demands by the segmentation software.
 The 3D Slicer documentation states that the software will require approximately 10 times more memory than the loaded dataset.
 The user therefore has to optimize the segmentation workflow if the software is to be used on a computer with limited amounts of \acrshort{ram}.
 Therefore, the author hypothesizes that users of 3D Slicer will benefit from a streamlined segmentation guide, and it will improve segmentation quality as well as workflow efficiency.
-As mentioned above, \texttt{3D Slicer} and \texttt{ITK-SNAP} provide the user with a sizable amount of segmentation tools. The selection of the correct segmentation algorithm and workflow have a non-negligible influence on the segmentation quality as well as the time the user has to spend on it \cite{liuSAMMSegmentAny2023}.
-Furthermore, segmenting large datasets, such as produced by a high resolution \mct\space scan results in large \acrshort{ram} demands by the segmentation software\cite{smistadMedicalImageSegmentation2015}.
+As mentioned above, \texttt{3D Slicer} and \texttt{ITK-SNAP} provide the user with a sizeable amount of segmentation tools. The selection of the correct segmentation algorithm and workflow have a non-negligible influence on the segmentation quality as well as the time the user has to spend on it \cite{liuSAMMSegmentAny2023}.
+Furthermore, segmenting large datasets, such as those produced by a high-resolution \mct\space scan, results in large \acrshort{ram} demands by the segmentation software\cite{smistadMedicalImageSegmentation2015}.
 The 3D Slicer documentation states that the software will require approximately 10 times more memory than the loaded dataset \cite{slicercommunity3DSlicerImage2022,fedorov3DSlicerImage2012}.
 The user therefore has to optimize the segmentation workflow if the software is to be used on a computer with limited amounts of \acrshort{ram}.
 Therefore, the author hypothesizes that users of \texttt{3D Slicer} will benefit from a streamlined segmentation guide, and it will improve segmentation quality as well as workflow efficiency.
 
 \section{Research Methodology}\label{s:introduction-researchmethodology}
-The practical work for this project will be completed by the author on his private computer, for technical information see \cref{t:computer-specs}.
+The practical work for this project will be completed by the author on his private computer, for technical information, see \cref{t:computer-specs}.
 \begin{table}[ht]
 	\centering
 	\begin{tabular}{l l}
@@ -70,14 +70,14 @@ This guide has been handed out to test candidates in conjunction with the task o
 The candidates were asked to perform two segmentations and return their results to the author.
 The first segmentation they were asked to perform prior to reading the guide.
 The second segmentation they were asked to perform after reading the guide.
-After receiving the results, the author calculated their accuracy by comparing the result of each test candidate with his own segmentation.
+After receiving the results, the author calculated their accuracy by comparing the results of each test candidate with his own segmentation.
 The \acrfull{dc} \cite{diceMeasuresAmountEcologic1945} was chosen as a similarity score for comparison of segmentation quality between the guided segmentation versus the unguided one.
 This has been done using the \texttt{SlicerRT} \cite{pinterSlicerRTRadiationTherapy2012} extension for the 3D Slicer software package.
 
 
 \section{Structure of this Thesis}\label{s:introduction-structureofthisthesis}
 The next chapter is the background (\cref{c:background}), where the necessary theoretical background will be explained.\\
-In \cref{c:materialsNmethods}, the origin of the datasets, and the evaluation of the segmentation will be described.\\
+In \cref{c:materialsNmethods}, the origin of the datasets and the evaluation of the segmentation will be described.\\
 Afterwards, in \cref{c:resuls}, results of the segmentations will be listed.\\
 Finally, in \cref{c:conclusion} the results of this work will be concluded, 
 the limitations explained and further subjects of research explored.
