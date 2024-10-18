@@ -1,14 +1,19 @@
 %!TEX root = ../../thesis.tex
 
 \chapter{Results}\label{c:resuls}
-% https://www.baeldung.com/cs/latex-draw-charts
-\begin{figure}[h]
+Supervised segmentation evaluation was performed with the 3D Slicer extension \textit{SlicerRT}.
+Segmentation results of \noTesters, which did six segmentations each, has been analyzed.
+These 42 segmentations were compared to the reference segmentation via the \acrlong{dc} and \acrlong{hd}.
+
+
+\begin{figure}[h] %TODO: remove
 	\centerline{
-		\includegraphics[scale=0.3]{images/dragons.jpg}}
+		\includegraphics[scale=0.25]{images/dragons.jpg}}
 	\caption{Dragons}
 \end{figure}
 
-\begin{figure}[h!]
+\section{tester 1}
+\begin{figure}[h!] % https://www.baeldung.com/cs/latex-draw-charts
 	\begin{center}
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -23,19 +28,83 @@
 					axis x line = bottom,
 					xtick distance = 1,
 					symbolic x coords = {Scapula, Clavicle, Humerus},
-					legend pos = south east,
+					legend pos = south west,
 					nodes near coords,
 					enlarge x limits = 0.2,
+					every node near coord/.append style={anchor=west, rotate=90},
+					compat=newest,
 				]
 				\addplot+ coordinates {(Scapula, 0.802739) (Clavicle, 0.818684) (Humerus, 0.74309) }; % left
 				\addplot+ coordinates {(Scapula, 0.626175) (Clavicle, 0.765966) (Humerus, 0.815566) }; % right
 				\legend{left, right};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Results: Tester 1}\label{fig:tester1}
+		\caption{Results: Tester 1 (more is better)}\label{fig:tester1}
 	\end{center}
 \end{figure}
 
+\begin{figure}[h!]
+	\begin{subfigure}{0.49\linewidth}
+		\centerline{
+			\begin{tikzpicture}
+				\begin{axis}[
+						width = 0.9\linewidth,
+						xlabel = {Anatomy},
+						ylabel = {Hausdorff (mm)},
+						bar width = 0.5cm,
+						ymin = 0.00,
+						%ymax=1.00,
+						ybar,
+						axis y line = left,
+						axis x line = bottom,
+						xtick distance = 1,
+						symbolic x coords = {Scapula, Clavicle, Humerus},
+						legend pos = north west,
+						nodes near coords,
+						enlarge x limits = 0.2,
+						every node near coord/.append style={anchor=west, rotate=90},
+						compat=newest,
+					]
+					\addplot+ coordinates {(Scapula, 0.574456) (Clavicle, 0.830662) (Humerus, 3.94462) }; % left
+					\addplot+ coordinates {(Scapula, 0.830662) (Clavicle, 0.538517) (Humerus, 2.45357) }; % right
+					\legend{left, right};
+				\end{axis}
+			\end{tikzpicture}}
+		\caption{Hausdorff max tester 1}%\label{fig:4n}
+	\end{subfigure}
+	\begin{subfigure}{0.49\linewidth}
+		\centerline{
+			\begin{tikzpicture}
+				\begin{axis}[
+						width = 0.9\linewidth,
+						xlabel = {Anatomy},
+						ylabel = {Hausdorff (mm)},
+						bar width = 0.5cm,
+						ymin = 0.00,
+						%ymax=1.00,
+						ybar,
+						axis y line = left,
+						axis x line = bottom,
+						xtick distance = 1,
+						symbolic x coords = {Scapula, Clavicle, Humerus},
+						legend pos = north west,
+						nodes near coords,
+						enlarge x limits = 0.2,
+						every node near coord/.append style={anchor=west, rotate=90},
+						compat=newest,
+					]
+					\addplot+ coordinates {(Scapula, 0.0844668) (Clavicle, 0.0716756) (Humerus, 0.387502) }; % left
+					\addplot+ coordinates {(Scapula, 0.201003) (Clavicle, 0.0986822) (Humerus, 0.21904) }; % right
+					\legend{left, right};
+				\end{axis}
+			\end{tikzpicture}}
+		\caption{hausdorff avg tester 1}%\label{fig:8n}
+	\end{subfigure}
+	\caption{hausdorff tester 1 (less is better)}%\label{fig:neighborhoods}
+\end{figure}
+
+
+\section{tester 2}
 \begin{figure}[h!]
 	\begin{center}
 		\begin{tikzpicture}
@@ -51,19 +120,83 @@
 					axis x line = bottom,
 					xtick distance = 1,
 					symbolic x coords = {Scapula, Clavicle, Humerus},
-					legend pos = south east,
+					legend pos = south west,
 					nodes near coords,
 					enlarge x limits = 0.2,
+					every node near coord/.append style={anchor=west, rotate=90},
+					compat=newest,
 				]
 				\addplot+ coordinates {(Scapula, 0.3043) (Clavicle, 0.442442) (Humerus, 0.154587) }; % left
 				\addplot+ coordinates {(Scapula, 0.751427) (Clavicle, 0.755405) (Humerus, 0.838217) }; % right
 				\legend{left, right};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Results: Tester 2}\label{fig:tester2}
+		\caption{Results: Tester 2 (more is better)}\label{fig:tester2}
 	\end{center}
 \end{figure}
 
+\begin{figure}[h!]
+	\begin{subfigure}{0.49\linewidth}
+		\centerline{
+			\begin{tikzpicture}
+				\begin{axis}[
+						width = 0.9\linewidth,
+						xlabel = {Anatomy},
+						ylabel = {Hausdorff (mm)},
+						bar width = 0.5cm,
+						ymin = 0.00,
+						%ymax=1.00,
+						ybar,
+						axis y line = left,
+						axis x line = bottom,
+						xtick distance = 1,
+						symbolic x coords = {Scapula, Clavicle, Humerus},
+						legend pos = south east,
+						nodes near coords,
+						enlarge x limits = 0.2,
+						every node near coord/.append style={anchor=west, rotate=90},
+						compat=newest,
+					]
+					\addplot+ coordinates {(Scapula, 14.4948) (Clavicle, 11.5369) (Humerus, 20.004) }; % left
+					\addplot+ coordinates {(Scapula, 14.0901) (Clavicle, 11.6224) (Humerus, 19.6827) }; % right
+					\legend{left, right};
+				\end{axis}
+			\end{tikzpicture}}
+		\caption{hausdorff max tester 2}%\label{fig:4n}
+	\end{subfigure}
+	\begin{subfigure}{0.49\linewidth}
+		\centerline{
+			\begin{tikzpicture}
+				\begin{axis}[
+						width = 0.9\linewidth,
+						xlabel = {Anatomy},
+						ylabel = {Hausdorff (mm)},
+						bar width = 0.5cm,
+						ymin = 0.00,
+						%ymax=1.00,
+						ybar,
+						axis y line = left,
+						axis x line = bottom,
+						xtick distance = 1,
+						symbolic x coords = {Scapula, Clavicle, Humerus},
+						legend pos = south east,
+						nodes near coords,
+						enlarge x limits = 0.2,
+						every node near coord/.append style={anchor=west, rotate=90},
+						compat=newest,
+					]
+					\addplot+ coordinates {(Scapula, 9.2935) (Clavicle, 7.5785) (Humerus, 16.6058) }; % left
+					\addplot+ coordinates {(Scapula, 9.67503) (Clavicle, 7.87861) (Humerus, 16.6751) }; % right
+					\legend{left, right};
+				\end{axis}
+			\end{tikzpicture}}
+		\caption{hausdorff avg tester 2}%\label{fig:8n}
+	\end{subfigure}
+	\caption{hausdorff tester 2 (less is better)}%\label{fig:neighborhoods}
+\end{figure}
+
+
+\section{tester 3}
 \begin{figure}[h!]
 	\begin{center}
 		\begin{tikzpicture}
@@ -82,6 +215,8 @@
 					legend pos = south east,
 					nodes near coords,
 					enlarge x limits = 0.2,
+					every node near coord/.append style={anchor=west, rotate=90},
+					compat=newest,
 				]
 				\addplot+ coordinates {(Scapula, 0.578573) (Clavicle, 0.6981) (Humerus, 0.885087) }; % left
 				\addplot+ coordinates {(Scapula, 0.689855) (Clavicle, 0.691658) (Humerus, 0.864106) }; % right
@@ -93,6 +228,69 @@
 \end{figure}
 
 \begin{figure}[h!]
+	\begin{subfigure}{0.49\linewidth}
+		\centerline{
+			\begin{tikzpicture}
+				\begin{axis}[
+						width = 0.9\linewidth,
+						xlabel = {Anatomy},
+						ylabel = {Hausdorff (mm)},
+						bar width = 0.5cm,
+						ymin = 0.00,
+						%ymax=1.00,
+						ybar,
+						axis y line = left,
+						axis x line = bottom,
+						xtick distance = 1,
+						symbolic x coords = {Scapula, Clavicle, Humerus},
+						legend pos = south west,
+						nodes near coords,
+						enlarge x limits = 0.2,
+						every node near coord/.append style={anchor=west, rotate=90},
+						compat=newest,
+					]
+					\addplot+ coordinates {(Scapula, 1.55885) (Clavicle, 0.663325) (Humerus, 1.15758) }; % left
+					\addplot+ coordinates {(Scapula, 0.812404) (Clavicle, 1.51658) (Humerus, 0.640312) }; % right
+					\legend{left, right};
+				\end{axis}
+			\end{tikzpicture}}
+		\caption{hausdorff max tester 3}%\label{fig:4n}
+	\end{subfigure}
+	\begin{subfigure}{0.49\linewidth}
+		\centerline{
+			\begin{tikzpicture}
+				\begin{axis}[
+						width = 0.9\linewidth,
+						xlabel = {Anatomy},
+						ylabel = {Hausdorff (mm)},
+						bar width = 0.5cm,
+						ymin = 0.00,
+						%ymax=1.00,
+						ybar,
+						axis y line = left,
+						axis x line = bottom,
+						xtick distance = 1,
+						symbolic x coords = {Scapula, Clavicle, Humerus},
+						legend pos = south west,
+						nodes near coords,
+						enlarge x limits = 0.2,
+						every node near coord/.append style={anchor=west, rotate=90},
+						compat=newest,
+					]
+					\addplot+ coordinates {(Scapula, 0.248237) (Clavicle, 0.103545) (Humerus, 0.0864548) }; % left
+					\addplot+ coordinates {(Scapula, 0.149758) (Clavicle, 0.140087) (Humerus, 0.0934432) }; % right
+					\legend{left, right};
+				\end{axis}
+			\end{tikzpicture}}
+		\caption{hausdorff avg tester 3}%\label{fig:8n}
+	\end{subfigure}
+	\caption{hausdorff tester 3 (less is better)}%\label{fig:neighborhoods}
+\end{figure}
+
+
+
+\section{tester 4}
+\begin{figure}[h!]
 	\begin{center}
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -110,6 +308,8 @@
 					legend pos = south east,
 					nodes near coords,
 					enlarge x limits = 0.2,
+					every node near coord/.append style={anchor=west, rotate=90},
+					compat=newest,
 				]
 				\addplot+ coordinates {(Scapula, 0.922192) (Clavicle, 0.939727) (Humerus, 0.933602) }; % left
 				\addplot+ coordinates {(Scapula, 0.936915) (Clavicle, 0.94835) (Humerus, 0.932487) }; % right
@@ -121,6 +321,68 @@
 \end{figure}
 
 \begin{figure}[h!]
+	\begin{subfigure}{0.49\linewidth}
+		\centerline{
+			\begin{tikzpicture}
+				\begin{axis}[
+						width = 0.9\linewidth,
+						xlabel = {Anatomy},
+						ylabel = {Hausdorff (mm)},
+						bar width = 0.5cm,
+						ymin = 0.00,
+						%ymax=1.00,
+						ybar,
+						axis y line = left,
+						axis x line = bottom,
+						xtick distance = 1,
+						symbolic x coords = {Scapula, Clavicle, Humerus},
+						legend pos = south east,
+						nodes near coords,
+						enlarge x limits = 0.2,
+						every node near coord/.append style={anchor=west, rotate=90},
+						compat=newest,
+					]
+					\addplot+ coordinates {(Scapula, 4.4643) (Clavicle, 0.787401) (Humerus, 10.5669) }; % left
+					\addplot+ coordinates {(Scapula, 0.360555) (Clavicle, 0.2) (Humerus, 0.8544) }; % right
+					\legend{left, right};
+				\end{axis}
+			\end{tikzpicture}}
+		\caption{hausdorff max tester 4}%\label{fig:4n}
+	\end{subfigure}
+	\begin{subfigure}{0.49\linewidth}
+		\centerline{
+			\begin{tikzpicture}
+				\begin{axis}[
+						width = 0.9\linewidth,
+						xlabel = {Anatomy},
+						ylabel = {Hausdorff (mm)},
+						bar width = 0.5cm,
+						ymin = 0.00,
+						%ymax=1.00,
+						ybar,
+						axis y line = left,
+						axis x line = bottom,
+						xtick distance = 1,
+						symbolic x coords = {Scapula, Clavicle, Humerus},
+						legend pos = south east,
+						nodes near coords,
+						enlarge x limits = 0.2,
+						every node near coord/.append style={anchor=west, rotate=90},
+						compat=newest,
+					]
+					\addplot+ coordinates {(Scapula, 0.0383409) (Clavicle, 0.0246443) (Humerus, 0.0735903) }; % left
+					\addplot+ coordinates {(Scapula, 0.0298934) (Clavicle, 0.0204125) (Humerus, 0.0567954) }; % right
+					\legend{left, right};
+				\end{axis}
+			\end{tikzpicture}}
+		\caption{hausdorff avg tester 4}%\label{fig:8n}
+	\end{subfigure}
+	\caption{hausdorff tester 4 (less is better)}%\label{fig:neighborhoods}
+\end{figure}
+
+
+\section{tester 5}
+\begin{figure}[h!]
 	\begin{center}
 		\begin{tikzpicture}
 			\begin{axis}[
@@ -138,6 +400,8 @@
 					legend pos = south east,
 					nodes near coords,
 					enlarge x limits = 0.2,
+					every node near coord/.append style={anchor=west, rotate=90},
+					compat=newest,
 				]
 				\addplot+ coordinates {(Scapula, 0.422959) (Clavicle, 0.0721612) (Humerus, 0.365373) }; % left
 				\addplot+ coordinates {(Scapula, 0.729698) (Clavicle, 0.815007) (Humerus, 0.890025) }; % right
@@ -149,33 +413,67 @@
 \end{figure}
 
 \begin{figure}[h!]
-	\begin{center}
-		\begin{tikzpicture}
-			\begin{axis}[
-					width = 0.8\textwidth,
-					xlabel = {Anatomy},
-					ylabel = {DSC},
-					bar width = 0.5cm,
-					ymin = 0.00,
-					ymax=1.00,
-					ybar,
-					axis y line = left,
-					axis x line = bottom,
-					xtick distance = 1,
-					symbolic x coords = {Scapula, Clavicle, Humerus},
-					legend pos = south east,
-					nodes near coords,
-					enlarge x limits = 0.2,
-				]
-				\addplot+ coordinates {(Scapula, 0.745496) (Clavicle, 0.685963) (Humerus, 0.8301) }; % left
-				\addplot+ coordinates {(Scapula, 0.843293) (Clavicle, 0.832382) (Humerus, 0.90979) }; % right
-				\legend{left, right};
-			\end{axis}
-		\end{tikzpicture}
-		\caption{Results: Tester 6}\label{fig:tester6}
-	\end{center}
+	\begin{subfigure}{0.49\linewidth}
+		\centerline{
+			\begin{tikzpicture}
+				\begin{axis}[
+						width = 0.9\linewidth,
+						xlabel = {Anatomy},
+						ylabel = {Hausdorff (mm)},
+						bar width = 0.5cm,
+						ymin = 0.00,
+						%ymax=1.00,
+						ybar,
+						axis y line = left,
+						axis x line = bottom,
+						xtick distance = 1,
+						symbolic x coords = {Scapula, Clavicle, Humerus},
+						legend pos = south east,
+						nodes near coords,
+						enlarge x limits = 0.2,
+						every node near coord/.append style={anchor=west, rotate=90},
+						compat=newest,
+					]
+					\addplot+ coordinates {(Scapula, 14.4066) (Clavicle, 11.2987) (Humerus, 19.9) }; % left
+					\addplot+ coordinates {(Scapula, 0.748331) (Clavicle, 1.23288) (Humerus, 0.655744) }; % right
+					\legend{left, right};
+				\end{axis}
+			\end{tikzpicture}}
+		\caption{hausdorff max tester 5}%\label{fig:4n}
+	\end{subfigure}
+	\begin{subfigure}{0.49\linewidth}
+		\centerline{
+			\begin{tikzpicture}
+				\begin{axis}[
+						width = 0.9\linewidth,
+						xlabel = {Anatomy},
+						ylabel = {Hausdorff (mm)},
+						bar width = 0.5cm,
+						ymin = 0.00,
+						%ymax=1.00,
+						ybar,
+						axis y line = left,
+						axis x line = bottom,
+						xtick distance = 1,
+						symbolic x coords = {Scapula, Clavicle, Humerus},
+						legend pos = south east,
+						nodes near coords,
+						enlarge x limits = 0.2,
+						every node near coord/.append style={anchor=west, rotate=90},
+						compat=newest,
+					]
+					\addplot+ coordinates {(Scapula, 9.49633) (Clavicle, 7.54572) (Humerus, 16.5861) }; % left
+					\addplot+ coordinates {(Scapula, 0.130622) (Clavicle, 0.0749329) (Humerus, 0.0901881) }; % right
+					\legend{left, right};
+				\end{axis}
+			\end{tikzpicture}}
+		\caption{hausdorff avg tester 5}%\label{fig:8n}
+	\end{subfigure}
+	\caption{hausdorff tester 5 (less is better)}%\label{fig:neighborhoods}
 \end{figure}
 
+
+\section{tester 6}
 \begin{figure}[h!]
 	\begin{center}
 		\begin{tikzpicture}
@@ -194,6 +492,100 @@
 					legend pos = south east,
 					nodes near coords,
 					enlarge x limits = 0.2,
+					every node near coord/.append style={anchor=west, rotate=90},
+					compat=newest,
+				]
+				\addplot+ coordinates {(Scapula, 0.745496) (Clavicle, 0.685963) (Humerus, 0.8301) }; % left
+				\addplot+ coordinates {(Scapula, 0.843293) (Clavicle, 0.832382) (Humerus, 0.90979) }; % right
+				\legend{left, right};
+			\end{axis}
+		\end{tikzpicture}
+		\caption{Results: Tester 6}\label{fig:tester6}
+	\end{center}
+\end{figure}
+
+\begin{figure}[h!]
+	\begin{subfigure}{0.49\linewidth}
+		\centerline{
+			\begin{tikzpicture}
+				\begin{axis}[
+						width = 0.9\linewidth,
+						xlabel = {Anatomy},
+						ylabel = {Hausdorff (mm)},
+						bar width = 0.5cm,
+						ymin = 0.00,
+						%ymax=1.00,
+						ybar,
+						axis y line = left,
+						axis x line = bottom,
+						xtick distance = 1,
+						symbolic x coords = {Scapula, Clavicle, Humerus},
+						legend pos = south east,
+						nodes near coords,
+						enlarge x limits = 0.2,
+						every node near coord/.append style={anchor=west, rotate=90},
+						compat=newest,
+					]
+					\addplot+ coordinates {(Scapula, 5.61961) (Clavicle, 0.424264) (Humerus, 1.74929) }; % left
+					\addplot+ coordinates {(Scapula, 3.83275) (Clavicle, 0.583095) (Humerus, 0.824621) }; % right
+					\legend{left, right};
+				\end{axis}
+			\end{tikzpicture}}
+		\caption{hausdorff max tester 6}%\label{fig:4n}
+	\end{subfigure}
+	\begin{subfigure}{0.49\linewidth}
+		\centerline{
+			\begin{tikzpicture}
+				\begin{axis}[
+						width = 0.9\linewidth,
+						xlabel = {Anatomy},
+						ylabel = {Hausdorff (mm)},
+						bar width = 0.5cm,
+						ymin = 0.00,
+						%ymax=1.00,
+						ybar,
+						axis y line = left,
+						axis x line = bottom,
+						xtick distance = 1,
+						symbolic x coords = {Scapula, Clavicle, Humerus},
+						legend pos = south east,
+						nodes near coords,
+						enlarge x limits = 0.2,
+						every node near coord/.append style={anchor=west, rotate=90},
+						compat=newest,
+					]
+					\addplot+ coordinates {(Scapula, 0.12307) (Clavicle, 0.119685) (Humerus, 0.133942) }; % left
+					\addplot+ coordinates {(Scapula, 0.0835118) (Clavicle, 0.0584966) (Humerus, 0.077168) }; % right
+					\legend{left, right};
+				\end{axis}
+			\end{tikzpicture}}
+		\caption{hausdorff avg tester 6}%\label{fig:8n}
+	\end{subfigure}
+	\caption{hausdorff tester 6 (less is better)}%\label{fig:neighborhoods}
+\end{figure}
+
+
+\section{tester 7}
+\begin{figure}[h!]
+	\begin{center}
+		\begin{tikzpicture}
+			\begin{axis}[
+					width = 0.8\textwidth,
+					xlabel = {Anatomy},
+					ylabel = {DSC},
+					bar width = 0.5cm,
+					ymin = 0.00,
+					ymax=1.00,
+					ybar,
+					axis y line = left,
+					axis x line = bottom,
+					xtick distance = 1,
+					symbolic x coords = {Scapula, Clavicle, Humerus},
+					legend pos = south east,
+					nodes near coords,
+					enlarge x limits = 0.2,
+					every node near coord/.append style={anchor=west, rotate=90},
+					compat=newest,
 				]
 				\addplot+ coordinates {(Scapula, 0.634313) (Clavicle, 0.821007) (Humerus, 0.900482) }; % left
 				\addplot+ coordinates {(Scapula, 0.76807) (Clavicle, 0.911396) (Humerus, 0.925331) }; % right
@@ -203,6 +595,67 @@
 		\caption{Results: Tester 7}\label{fig:tester7}
 	\end{center}
 \end{figure}
+
+\begin{figure}[h!]
+	\begin{subfigure}{0.49\linewidth}
+		\centerline{
+			\begin{tikzpicture}
+				\begin{axis}[
+						width = 0.9\linewidth,
+						xlabel = {Anatomy},
+						ylabel = {Hausdorff (mm)},
+						bar width = 0.5cm,
+						ymin = 0.00,
+						%ymax=1.00,
+						ybar,
+						axis y line = left,
+						axis x line = bottom,
+						xtick distance = 1,
+						symbolic x coords = {Scapula, Clavicle, Humerus},
+						legend pos = south east,
+						nodes near coords,
+						enlarge x limits = 0.2,
+						every node near coord/.append style={anchor=west, rotate=90},
+						compat=newest,
+					]
+					\addplot+ coordinates {(Scapula, 3.86523) (Clavicle, 0.412311) (Humerus, 0.469042) }; % left
+					\addplot+ coordinates {(Scapula, 1.04881) (Clavicle, 0.2) (Humerus, 0.447214) }; % right
+					\legend{left, right};
+				\end{axis}
+			\end{tikzpicture}}
+		\caption{hausdorff max tester 7}%\label{fig:4n}
+	\end{subfigure}
+	\begin{subfigure}{0.49\linewidth}
+		\centerline{
+			\begin{tikzpicture}
+				\begin{axis}[
+						width = 0.9\linewidth,
+						xlabel = {Anatomy},
+						ylabel = {Hausdorff (mm)},
+						bar width = 0.5cm,
+						ymin = 0.00,
+						%ymax=1.00,
+						ybar,
+						axis y line = left,
+						axis x line = bottom,
+						xtick distance = 1,
+						symbolic x coords = {Scapula, Clavicle, Humerus},
+						legend pos = south east,
+						nodes near coords,
+						enlarge x limits = 0.2,
+						every node near coord/.append style={anchor=west, rotate=90},
+						compat=newest,
+					]
+					\addplot+ coordinates {(Scapula, 0.24856) (Clavicle, 0.0674237) (Humerus, 0.0763588) }; % left
+					\addplot+ coordinates {(Scapula, 0.100908) (Clavicle, 0.0356212) (Humerus, 0.0608241) }; % right
+					\legend{left, right};
+				\end{axis}
+			\end{tikzpicture}}
+		\caption{hausdorff avg tester 7}%\label{fig:8n}
+	\end{subfigure}
+	\caption{hausdorff tester 7 (less is better)}%\label{fig:neighborhoods}
+\end{figure}
+
 
 % This chapter describes the performed analysis steps and discusses its results.
 % First, the final dataset is described in \cref{s:analysis-datasets}.

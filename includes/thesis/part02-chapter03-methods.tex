@@ -92,6 +92,8 @@ The goal was to get rid of small artifacts created by the first cropping operati
 Finally, to aid the testers in determining if they are currently working on the left or right side anatomy of the dataset, side indicators were added to the volume.
 This was done, using 3D Slicers Engrave tool available via the ``SlicerSegmentEditorExtraEffects'' \cite{lassoSlicerSegmentEditorExtraEffects2024} plugin.
 Effectively adding an artificial segment displaying left (L) and right (R) when viewed in 3D view.
+The final dataset was reduced to the anatomical bone structures of both shoulder joints.
+Effectively containing sinistral and dextral clavicle, humerus and scapula.
 
 \section{Segmentation Software}\label{s:segSoftware}
 3D Slicer is a free and open-source software for visualization, processing, segmentation, registration and analysis of medical, or other 3D image datasets.
@@ -108,20 +110,26 @@ To conclude, it was used for segmentation comparison of the ground truth segment
 \begin{figure}[h!]
 	\includesvg[
 		inkscapelatex=false,
-		width =\linewidth
-		%height=0.6\pdfpageheight
+		width = 0.8\paperwidth,
+		height = 0.6\paperheight
 	]{images/evaluation.svg}
-	\caption{Evaluation Method \cite{wangImageSegmentationEvaluation2020}}\label{fig:eval}
+	\caption{Evaluation Method decision tree \cite{wangImageSegmentationEvaluation2020}}\label{fig:eval}
 \end{figure}
-
-
-For comparison of the segmentations done by testers with the ground truth segmentation, a well established metric was selected.
+\noindent
+For comparison of the segmentations done by testers with the ground truth segmentation, two well established metric were selected.
 The \acrfull{dc} is a similarity score applicable to a multitude of datasets and has been used as such by numerous studies \cite{setiawanImageSegmentationMetrics2020,atasPerformanceEvaluationJaccardDice2023}.
-Coincidentally, it is readily available in 3D Slicer by a 3rd party extension called SlicerRT \cite{pinterSlicerRTRadiationTherapy2012}.
+However, the \acrshort{dc} is based on segmentation overlap and therefore has no concept of shape.
+\Citeauthor{rayedDeepLearningMedical2024} and \citeauthor{wangImageSegmentationEvaluation2020} recommend the employment and comparison of a second similarity metric, which calculates the surface distance of two segmentations \cite{aspertMESHMeasuringErrors2002,simBrainVentricleDetection2016}.
+As a result, the \acrfull{hd} was chosen by the author as a second metric.
+Coincidentally, both are readily available in 3D Slicer by a 3rd party extension called SlicerRT \cite{pinterSlicerRTRadiationTherapy2012}.
+Both, the \acrlong{dc} and the \acrlong{hd} are examples of supervised, epirical, indirect and objective evaluation methods (see: \cref{fig:eval}).
+Where the quality of a segmentation is determined by comparing it to a known high quality reference segmentation.
+The comparison is performed by calculating a similarity score and is thus objective but indirect.
+In contrast, a subjective evaluation would be the act of visually inspecting and subjectively assessing segmentation quality.
+Direct analytical evaluation would be the analysis of the segmentation algorithm itself.
+Unsupervised evaluation refers to the evaluation of a segmentation without comparing it to a reference.
+Instead, it is evaluated by calculating criteria that define a good segmentation \cite{wangImageSegmentationEvaluation2020}.
 
-hausdorff \cite{aspertMESHMeasuringErrors2002}
-justification \cite{wangImageSegmentationEvaluation2020}\\
-\textit{TODO}
 
 \section{Segmentation}\label{s:segmentation}
 A nearly full skeleton segmentation of the mouse specimens in the dataset was performed by the author.
@@ -153,15 +161,69 @@ The goal was to crop the volume down to the minimal required size, without affec
 Secondly, to further reduce the dataset size, a background masking operation was performed.
 The goal was to replace background noise outside relevant structures with a uniform \acrshort{hu} value of -1000 HU.
 It was experimentally determined that this greatly improves dataset compression ratios.
-% bone mask (550-), closing operation
+Next, structure masking was performed, whereby first a bone mask was created via the threshold tool.
+The threshold range was adjusted to encompass all bone structures, a lower threshold value around 550 \acrshort{hu} was found to be optimal for most specimens.
+To compensate for small inconsistencies in the threshold operation, a closing operation was performed immediately after.
+3D Slicer does not include a closing operation tool, thus the task was
+accomplished by using 3D Slicers ``Margin grow'' and ``Margin shrink'' tools in sequence.
+The same steps were performed to a background mask.
+For the actual segmentation step, the mouse anatomy was divided into the general body parts head, trunk, and extremities.
+Which in turn were divided into the individual bones that compose them.
+Separation of the individual bones was done manually via paint operations in 2D and 3D.
+Whereas segmentation of larger bone volume was performed using semi-automatic tools like 3D Slicers ``Islands'' tool.
+A brief summary of segmented bones can be seen in \cref{tab:bones}.
+\begin{table}
+	\begin{center}
+		\begin{tabular}{l l}
+			\hline
+			Head              & Os Hyoideum             \\
+			                  & Mandible                \\
+			                  & Skull                   \\
+			                  & superior Incisors       \\
+			                  & inferior Incisors       \\
+			\hline
+			Trunk             & Sternum                 \\
+			                  & Costae 1-13             \\
+			                  & dextral Clavicle        \\
+			                  & sinistral Clavicle      \\
+			                  & dextral Scapula         \\
+			                  & sinistral Scapula       \\
+			                  & cervical Vertebrae 1-7  \\
+			                  & thoracic Vertebrae 1-13 \\
+			                  & lumbar Vertebrae 1-6    \\
+			                  & sacral Vertebrae 1-4    \\
+			                  & Pelvis                  \\
+			                  & caudal Vertebrae 1-27   \\
+			\hline
+			upper Extremities & sinistral Humerus       \\
+			                  & dextral Humerus         \\
+			                  & sinistral Radius        \\
+			                  & dextral Radius          \\
+			                  & sinistral Ulna          \\
+			                  & dextral Ulna            \\
+			                  & dextral front Paw       \\
+			                  & sinistral front Paw     \\
+			\hline
+			lower Extremities & sinistral Femur         \\
+			                  & dextral Femur           \\
+			                  & dextral Sesamoid        \\
+			                  & sinistral Sesamoid      \\
+			                  & sinistral Tibia         \\
+			                  & dextral Tibia           \\
+			                  & sinistral Fibula        \\
+			                  & dextral Fibula          \\
+			                  & sinistral Patella       \\
+			                  & dextral Patella         \\
+			                  & sinistral hind Paw      \\
+			                  & dextral hind Paw        \\
+			\hline
+		\end{tabular}
+		\caption{Segmented bones}\label{tab:bones}
+	\end{center}
+\end{table}
 
-
-\textit{TODO}
 
 \section{Guide composition}\label{s:guide_comp}
-% TODO: write something
-
-
 \textit{TODO}
 
 \subsection{Pictograms}\label{s:mm-pictograms}
@@ -253,5 +315,19 @@ Some segmentation tools used in the guide are only available to users after inst
 The plugin symbol displays a puzzle piece and is meant to convey the idea that some functionality must be intentionally added to 3D Slicer.
 
 \section{Research Design}\label{s:researchDesign}
-% TODO: segmentation evaluation
-\textit{TODO}
+For this study datasets of nine mice, scanned via \mct\space were taken (see: \cref{s:datasets}).
+The author performed bone anatomy segmentation on these datasets via manual and semi-automatic tools usable in the software called 3D Slicer (see: \cref{s:segmentation}).
+Then a guide was created by the author (see: \cref{s:guide_comp}).
+This guide would be sent out to testers in conjunction with a reduced dataset containing only six bone structures making up both shoulder joints (see: \cref{s:mm-dataset-preparation}).
+The testers were instructed to segment the anatomy of the left shoulder joint before reading the guide.
+This was done to get a baseline value of their segmentation skills.
+After completing segmentation of the left shoulder joint, the testers were instructed to read through the guide and finally,
+with the help of the guide, segment the right shoulder joint.
+The testers then saved their work in a \acrfull{mrb} file and sent it back to the author.
+Segmentation analysis was performed by loading the segmented dataset of a tester and the reference segmentation dataset into 3D Slicer.
+And computing both \acrlong{dc} and \acrlong{hd} via the 3D Slicer extension \textit{SlicerRT}.
+All this was performed an custom built computer from 2019,
+which was running Linux, for more information see: \cref{t:computer-specs}.
+Analysis results were stored in \acrfull{csv} files for further processing.
+
+

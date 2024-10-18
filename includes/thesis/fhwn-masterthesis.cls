@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{fhwn-masterthesis}[2019/04/08 Masterthesis Template for FHWN]
 
-%#+TODO: change to twoside for printing
+%TODO: change to twoside for printing
 \LoadClass[oneside,12pt,bibliography=totoc]{scrbook}
 
 \RequirePackage{gitinfo2}
@@ -26,7 +26,14 @@
 \RequirePackage{csquotes}
 \RequirePackage{graphicx}   %loads the graphics package, necessary for pictures
 \RequirePackage{url}
-\RequirePackage[breaklinks]{hyperref}   %Automatically turn all your internal references into hyperlinks. 
+\RequirePackage{hyperref}   %Automatically turn all your internal references into hyperlinks.
+\hypersetup{
+	hidelinks, % don't color links
+	breaklinks=true, % allow multi line links
+	pdfauthor={Stefan Rohrbacher},
+	pdftitle={Development and evaluation of a bone anatomy segmentation guide for micro-CT in mice},
+	pdfstartpage=1,
+}
 % \RequirePackage{breakurl}
 %\RequirePackage{wallpaper}
 
@@ -41,7 +48,7 @@
 \RequirePackage[
 	nomain,
 	nonumberlist, % don't display page numbers
-	acronym,
+	acronym, % include acronyms
 	nopostdot, % don't display dot after text
 	toc, % display in table of contents
 	shortcuts
@@ -52,8 +59,8 @@
 \RequirePackage{minted} % source code syntax highlighting
 % requires pygments to be installed
 % wrap code in \begin{minted}{LANGUAGE} \end{minted}
-\RequirePackage{fancyvrb} % verbatim that respects indendation: use with \begin{Verbatim} \end{Verbatim}
 
+\RequirePackage{fancyvrb} % verbatim that respects indendation: use with \begin{Verbatim} \end{Verbatim}
 
 \RequirePackage{array}
 \RequirePackage{longtable}

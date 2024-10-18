@@ -7,22 +7,22 @@
 % https://sci-hub.st/10.1007/s10462-020-09830-9
 
 \chapter{Background}\label{c:background}
-This section is dedicated to providing the theoretical background that was needed for the study.
+This section is devoted to providing the theoretical background that was necessary for the study.
 This section is structured as follows:\\
-First and foremost, an introduction of the operating principle of a \mct\space will be given in \cref{s:b-microct}.
-Secondly, \cref{s:guide-creation} will give an overview of how a guide is composed.
+First and foremost, an introduction to the operating principle of a \mct\space will be provided in \cref{s:b-microct}.
+Secondly, \cref{s:guide-creation} will give an overview of the composition of a guide.
 Thirdly, an evaluation of the segmentation techniques and algorithms is given in \cref{s:b-segmentation-basics}.
-Finally, \cref{s:b-mouse-anatomy} will give a short overview of the relevant anatomical structures of mice.
+Finally, \cref{s:b-mouse-anatomy} will provide a brief overview of the relevant anatomical structures of mice.
 
 
 \section{\mct}\label{s:b-microct}
-Microscopic computed tomography (\mct) as a technology has been around since the 1980s and has since then emerged as the preclinical analogue of clinical CT \cite{clarkAdvancesMicroCTImaging2021,ritmanCurrentStatusDevelopments2011}.
-In comparison with clinical CT, the \mct\space features high spatial resolution, which makes it irreplaceable for non-destructive small animal studies \cite{clarkAdvancesMicroCTImaging2021,ritmanCurrentStatusDevelopments2011,keklikoglouMicroCTBiologicalBiomedical2021}.
+Microscopic computed tomography (\mct) as a technology has been around since the 1980s and has since emerged as the preclinical analogue of clinical CT \cite{clarkAdvancesMicroCTImaging2021,ritmanCurrentStatusDevelopments2011}.
+In comparison with clinical CT, \mct\space features high spatial resolution, which makes it irreplaceable for non-destructive small animal studies \cite{clarkAdvancesMicroCTImaging2021,ritmanCurrentStatusDevelopments2011,keklikoglouMicroCTBiologicalBiomedical2021}.
 
 
 \subsection{Operating principle}\label{s:b-mct-operation}
-\mct\space technology is based upon the third-generation, or so-called ``rotate-rotate'' geometry of CT scanners \cite{flohrCTSystems2013}.
-The basic principle in clinical CT is that both the X-ray source and the detector rotate around the patient table as part of a gantry assembly at the same time \cite{flohrCTSystems2013}.
+\mct\space technology is based on the third-generation, or so-called ``rotate-rotate'' geometry of CT scanners \cite{flohrCTSystems2013}.
+The fundamental principle underlying clinical CT is that both the X-ray source and the detector rotate around the patient table as part of a gantry assembly simultaneously \cite{flohrCTSystems2013}.
 A visual representation of this concept can be seen in \cref{fig:3ct}.
 \begin{figure}[h]
 	\centerline{
@@ -31,9 +31,9 @@ A visual representation of this concept can be seen in \cref{fig:3ct}.
 \end{figure}
 
 \noindent
-As can be seen in \cref{fig:3ct}, the animal or inanimate object is placed on a table between the X-ray source and the detector.
+As illustrated in \cref{fig:3ct}, the animal or inanimate object is positioned on a table between the X-ray source and the detector.
 In clinical CT, the X-ray tube is designed to produce a fan-shaped beam, which passes through the patient onto a concave detector array.
-Whereas, in most \mct\space the X-ray source produces a cone- or pyramid shaped-beam, which passes through the patient onto a two-dimensional or flat detector \cite{babaComparisonFlatpanelDetector2002,clarkAdvancesMicroCTImaging2021}.
+In contrast, in most \mct\space the X-ray source produces a cone- or pyramid-shaped-beam, which passes through the patient onto a two-dimensional or flat detector \cite{babaComparisonFlatpanelDetector2002,clarkAdvancesMicroCTImaging2021}.
 For reference, see \cref{fig:mct}.
 \begin{figure}[h]
 	\centerline{
@@ -42,22 +42,23 @@ For reference, see \cref{fig:mct}.
 \end{figure}
 
 \noindent
-\mct\space X-ray sources usually use a fixed tungsten anode and therefore have to operate at lower voltage and current when compared to the rotating anode of clinical CT.
-They can only achieve between 20 and 100\acrshort{kv} of tube voltage and between 0.05 and 1mA.
+\mct\space X-ray sources typically utilize a fixed tungsten anode
+ and therefore are required to operate at lower voltage and current in comparison to the rotating anode employed in clinical CT.
+The achievable tube voltage is limited to a range between 20 and 100\acrshort{kv} and a current range spanning from 0.05 to 1mA.
 \begin{equation}\label{eqn:intensity-proportionality}
 	I \propto (kV)^{2}*(mA)
 \end{equation}
 
 \noindent
 The number of X-ray photons depends on the tube current, and the energy of the photons depends on the tube voltage squared.
-Furthermore, the intensity of the beam can be described as being proportional to the product of those two factors, see: \cref{eqn:intensity-proportionality}.
-The flat panel detector usually contains a scintillator screen, which, when excited by X-rays, gives off visible light \cite{babaComparisonFlatpanelDetector2002,ritmanCurrentStatusDevelopments2011,clarkMicroCTRodentsStateart2014}.
-This light is then detected with an image sensor, which can be either a \acrfull{ccd} or a \acrfull{cmos} image sensor \cite{babaComparisonFlatpanelDetector2002}.
-\mct\space utilizes high-resolution flat panel detectors with pixel sizes less than 100 $\mu m^{2}$ \cite{clarkAdvancesMicroCTImaging2021,clarkMicroCTRodentsStateart2014}.
-They can, however, achieve \gls{iso} \gls{vx} sizes between 400 nm and 70 $\mu m$ \cite{orhanMicrocomputedTomographyMicroCT2020}.
+Moreover, the intensity of the beam can be expressed as a function of the product of these two factors, see: \cref{eqn:intensity-proportionality}.
+A flat panel detector typically contains a scintillator screen, which, when excited by X-rays, emits visible light \cite{babaComparisonFlatpanelDetector2002,ritmanCurrentStatusDevelopments2011,clarkMicroCTRodentsStateart2014}.
+The light is then detected with an image sensor, which can be either a \acrfull{ccd} or a \acrfull{cmos} image sensor \cite{babaComparisonFlatpanelDetector2002}.
+\mct\space employs high-resolution flat panel detectors with pixel sizes of less than 100 $\mu m^{2}$ \cite{clarkAdvancesMicroCTImaging2021,clarkMicroCTRodentsStateart2014}.
+They can, however, achieve \gls{iso} \gls{vx} sizes in an range between 400 nm and 70 $\mu m$ \cite{orhanMicrocomputedTomographyMicroCT2020}.
 To produce a scan, the \mct\space captures several hundred, two-dimensional cone beam projections of different angles around the animal or object \cite{clarkMicroCTRodentsStateart2014,ritmanCurrentStatusDevelopments2011,clarkAdvancesMicroCTImaging2021}.
 The rotation angles can be in 180$^{\circ}$ or 360$^{\circ}$ \cite{orhanMicrocomputedTomographyMicroCT2020}.
-Image information can be described as the amount of attenuation of the X-ray beam at a specific path through the volume \cite{,orhanMicrocomputedTomographyMicroCT2020}.
+Image information can be described as the amount of attenuation of the X-ray beam at a specific path through the volume \cite{orhanMicrocomputedTomographyMicroCT2020}.
 This attenuation is described by the following \cref{eqn:attenuation}:
 \begin{equation}\label{eqn:attenuation}
 	I_{x} = I_{0}e^{- \mu x}
