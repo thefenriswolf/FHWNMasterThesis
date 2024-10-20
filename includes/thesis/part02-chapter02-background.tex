@@ -42,7 +42,7 @@ For reference, see \cref{fig:mct}.
 \end{figure}
 
 \noindent
-\mct\space X-ray sources typically utilize a fixed tungsten anode
+Micro-CT X-ray sources typically utilize a fixed tungsten anode
  and therefore are required to operate at lower voltage and current in comparison to the rotating anode employed in clinical CT.
 The achievable tube voltage is limited to a range between 20 and 100\acrshort{kv} and a current range spanning from 0.05 to 1mA.
 \begin{equation}\label{eqn:intensity-proportionality}
@@ -54,8 +54,8 @@ The number of X-ray photons depends on the tube current, and the energy of the p
 Moreover, the intensity of the beam can be expressed as a function of the product of these two factors, see: \cref{eqn:intensity-proportionality}.
 A flat panel detector typically contains a scintillator screen, which, when excited by X-rays, emits visible light \cite{babaComparisonFlatpanelDetector2002,ritmanCurrentStatusDevelopments2011,clarkMicroCTRodentsStateart2014}.
 The light is then detected with an image sensor, which can be either a \acrfull{ccd} or a \acrfull{cmos} image sensor \cite{babaComparisonFlatpanelDetector2002}.
-\mct\space employs high-resolution flat panel detectors with pixel sizes of less than 100 $\mu m^{2}$ \cite{clarkAdvancesMicroCTImaging2021,clarkMicroCTRodentsStateart2014}.
-They can, however, achieve \gls{iso} \gls{vx} sizes in an range between 400 nm and 70 $\mu m$ \cite{orhanMicrocomputedTomographyMicroCT2020}.
+Micro-CT employs high-resolution flat panel detectors with pixel sizes of less than 100 $\mu m^{2}$ \cite{clarkAdvancesMicroCTImaging2021,clarkMicroCTRodentsStateart2014}.
+They can, however, achieve \gls{iso} \gls{vx} sizes in a range between 400 nm and 70 $\mu m$ \cite{orhanMicrocomputedTomographyMicroCT2020}.
 To produce a scan, the \mct\space captures several hundred, two-dimensional cone beam projections of different angles around the animal or object \cite{clarkMicroCTRodentsStateart2014,ritmanCurrentStatusDevelopments2011,clarkAdvancesMicroCTImaging2021}.
 The rotation angles can be in 180$^{\circ}$ or 360$^{\circ}$ \cite{orhanMicrocomputedTomographyMicroCT2020}.
 Image information can be described as the amount of attenuation of the X-ray beam at a specific path through the volume \cite{orhanMicrocomputedTomographyMicroCT2020}.
@@ -167,8 +167,8 @@ Furthermore, documentation authors are supposed to consider the ability of their
 readers.
 Next, \good\space instructs documentation authors to create three fictional readers: a beginner, an intermediate and an expert.
 The beginner might represent an ordinary customer or user of some software or technology product.
-The intermediate might represent a system administrator of said product
-and the expert might represent a support person.
+The intermediate might be a system administrator of said product
+and the expert could be a support person.
 The documentation author should now, come up with several problems each fictional reader would try to solve with the help of documentation \cite{shorterGoodDocsProject2024}.
 \begin{figure}[h]
 	\centerline{
@@ -247,20 +247,28 @@ Documentation authors should therefore trace the x-axis of \cref{fig:diataxis-fo
 Additionally, \citeauthor{procidaDiataxisDocumentationFramework2023} mentions that these types do not pose hard limits on what documentation can contain. They are rather meant to remind the author about the needs of users.
 According to these criteria the guides practical section is based on \citeauthor{procidaDiataxisDocumentationFramework2023}s structure for How-to guides, and its theoretical section is based on his structure for Explanation style documentation.
 
-\subsubsection*{How-to guide}
+\subsubsection*{How-to guide} %TODO: fix size and numbering
 \citeauthor{procidaDiataxisDocumentationFramework2023} implores that How-to guides need to have practical utility and a clear objective.
 They can only serve an already competent user.
-Thus, the guide on page \pageref{a:guide} has explanations about the basic usage of 3D Slicer and its tools before instructing the user to follow a segmentation method themselves.
+Thus, on page \pageref{a:guide} the guide has explanations about the basic usage of 3D Slicer and its tools before instructing the user to follow a segmentation method themselves.
 \citeauthor{procidaDiataxisDocumentationFramework2023} requires How-to guides to feature imperative language that does not allow for digression or explanation \cite{procidaPythonDocsCommunity2022,procidaDiataxisDocumentationFramework2023}.
 
 \subsubsection*{Explanation}
-Explanation documentation, according to \citeauthor{procidaDiataxisDocumentationFramework2023} on the other hand is defined as offering context to users.
-It is supposed to establish connections between concepts and deepen the user's theoretical understanding of the skill
+Explanation documentation, according to \citeauthor{procidaDiataxisDocumentationFramework2023}, on the other hand, is defined as offering context to users.
+It is supposed to establish connections between concepts and deepen the user's theoretical understanding of the skill.
 While also offering the user choices and reasons to do something a particular way, or even explain why something is not recommended \cite{procidaPythonDocsCommunity2022,procidaDiataxisDocumentationFramework2023}.
+
+\subsubsection*{Reference}
+Reference documentation material, according to \citeauthor{procidaDiataxisDocumentationFramework2023}, contains theoretical knowledge that a user looks to in their work.
+In the case of software like 3D Slicer, reference guide describes the software itself.
+This may include tools, buttons, default settings, recommended setting or APIs.
+\citeauthor{procidaDiataxisDocumentationFramework2023} describes reference material as being like a map.
+Users get to look up information about a territory without having to explore it themselves.
+Although, reference material should not imply how to perform tasks, it should however show how to use something correctly \cite{procidaPythonDocsCommunity2022,procidaDiataxisDocumentationFramework2023}.
 
 
 \subsection{Pictograms}\label{s:b-pictograms}
-The guide, which can be seen on page: \pageref{a:guide}, makes extensive use of pictograms to inform the reader about common errors,
+The guide, which can be seen on page \pageref{a:guide}, makes extensive use of pictograms to inform the reader about common errors,
 pitfalls to avoid, warning about resource-intensive operations, and whether a tool is only available via an add-on.
 Inspiration for this kind of visual communication was taken from books published by O'Reilly (O'Reilly Media, Inc., Sebastopol, California, U.S.A.), specifically ``Linux observability with \acrshort{bpf}: advanced programming for performance analysis and networking'' by David Calavera and Lorenzo Fontana \cite{calaveraLinuxObservabilityBPF2019}.
 Pictograms are stylized drawings that are supposed to represent familiar objects, ideas or abstract concepts to the reader \cite{dowsePharmacistsAreWords2021}.
@@ -273,7 +281,7 @@ Segmentation of images is a process of delineating structures of interest.
 It can also be called contouring or annotation and is typically used to delineate anatomical structures, tumors,
 malignancies and various other parts of images.
 As it is a requirement for visualization of target structures, like a tumor, or quantification tasks like volume and surface measurement,
-segmentation is a well established procedure in medical image computing \cite{pinterPolymorphSegmentationRepresentation2019,slicercommunity3DSlicerImage2022}.
+segmentation is a well-established procedure in medical image computing \cite{pinterPolymorphSegmentationRepresentation2019,slicercommunity3DSlicerImage2022}.
 
 \subsection{AI based}\label{s:b-seg-ai}
 % images: https://sci-hub.ru/https://doi.org/10.1016/j.neucom.2019.11.118
@@ -352,9 +360,9 @@ These sharp changes in intensity indicate edges between objects in images.
 This entails susceptibility to image noise.
 In other words, if the image is rich in background noise, the quality of segmentation by edge detection will decline.
 Furthermore, if the pixel intensity gradient is less pronounced, edge detection quality is also impacted.
-Compare \cref{fig:edgeDetection} rows A and B.
+Compare \cref{fig:edgeDetection}, rows A and B.
 Row A has a sharply defined edge and thus will pose no difficulty in edge detection tasks.
-Row B however, displays less of a steep gradient and will thus result in less accurate edge detection results.
+Row B, however, displays less of a steep gradient and will thus result in less accurate edge detection results.
 
 \subsubsection*{Image intensity function}
 \begin{figure}[h]
@@ -377,7 +385,7 @@ can be categorized into two types of techniques based on the order of derivation
 \subsubsection*{First order derivative}
 The first derivative of an image intensity function, or horizontal intensity profile,
 measures the rate of change of pixel intensity (see: \cref{fig:iifO}).
-First order derivative edge detection detect edges by analyzing the intensity profile and looking for rapid changes.
+First order derivative detects edges by analyzing the intensity profile and looking for rapid changes.
 The first derivative can be approximated by using gradient operators like the Sobel operator.
 This Sobel operator is composed of $3 \times 3$ convolution kernels,
 which are specific to the image axis \cite{gonzalezDigitalImageProcessing2007}.
@@ -447,8 +455,8 @@ Region growing breaks down images into separate areas by grouping areas by their
 This is done by creating a selection of $n$ seed pixels $S$, choosing some sort of principle of similarity
 and then grouping pixels adjacent to seeds according to their similarity score into regions $R$ \cite{jourlinVariousContrastConcepts2016,palReviewImageSegmentation1993}.
 See \cref{fig:rgSR} for reference: It shows two times the same single slice of an MRI of the human brain.
-On the left image some seeds were defined, indicated by the green crosses, on a lesion
-and on the right image, a region growing algorithm has put all adjacent pixels with similar intensity into the same group.
+On the left image some seeds were defined, indicated by the green crosses on a lesion.
+On the right image, a region growing algorithm has put all adjacent pixels with similar intensity into the same group.
 To elaborate, the basic steps for a region growing algorithm are:
 \begin{enumerate}
 	\item Selection of $n$ seeds $S$
@@ -458,7 +466,7 @@ To elaborate, the basic steps for a region growing algorithm are:
 	\item Stop if similarity is lower than the defined threshold or all pixels belong to a group
 \end{enumerate}
 \noindent
-The similarity score criteria can be any property of a pixels or group of pixels.
+The similarity score criteria can be any property of a pixel or group of pixels.
 Common criteria include color, intensity or texture \cite{jourlinVariousContrastConcepts2016,palReviewImageSegmentation1993}.
 \begin{figure}[h!]
 	\begin{subfigure}{0.49\textwidth}
@@ -531,7 +539,7 @@ Common criteria include color, intensity or texture \cite{jourlinVariousContrast
 \noindent
 Additionally, a region growing algorithms can be configured to consider a seeds 4-connected neighborhood
 (\cref{fig:4n}) or 8 connected neighborhood (\cref{fig:8n}) for similar pixels \cite{jourlinVariousContrastConcepts2016,palReviewImageSegmentation1993}.
-Where the black center pixel represents a seed and its grey neighborhood represents the considered pixels.
+Where the black center pixel represents a seed, and its grey neighborhood represents the considered pixels.
 
 
 \subsubsection{Threshold}
@@ -540,7 +548,7 @@ Whereby the user defines a wanted pixel intensity range, and every pixel within 
 and every other pixel is set to the binary value $0$ \cite{sankurSurveyImageThresholding2004}.
 
 \subsubsection{Clustering}
-Clustering, specifically k-means clustering, refers to the division of a set of data into
+Clustering, specifically the k-means variant, refers to the division of a set of data into
 a specific number of groups.
 For this to be applicable, the items in a group need some kind of similarity.
 In image segmentation, such a similarity may be pixel properties like color or intensity.
@@ -582,7 +590,7 @@ In \cref{fig:kmeans2} the seed points have been relocated to better fit the data
 % https://medium.com/codex/watershed-segmentation-locate-individual-objects-when-heavily-clustered-b07bb1dbc0f6
 % https://sci-hub.ru/https://doi.org/10.1016/B978-0-12-415873-3.00004-3
 The watershed algorithm treats pixel intensities as elevations in a virtual landscape.
-In this landscape, local minima are seen as the seed for ``catchment basins''.
+In the latter, local minima are seen as the seed for ``catchment basins''.
 On the other hand, local maxima, or so-called ``watersheds'' separate the basins from each other (see: \cref{fig:water1}).
 By ``filling the basins with water'' each pixel in an image is either assigned to a region or a watershed.
 Finally, by modifying the water height, which in practice equates to a threshold value,
@@ -612,9 +620,10 @@ can be placed between them \cite{preimImageAnalysisMedical2014,hahnIWTinteractiv
 \end{figure}
 \noindent
 However, segmentations can be represented in a number of data structures.
-\Cref{fig:segRep} gives an overview of the most common representations, of those shown, the binary labelmap is the most commonly used storage format.
+\Cref{fig:segRep} gives an overview of the most common representations.
+Of those shown, the binary labelmap is the most commonly used storage format.
 For most workflows, a single representation of data is not sufficient.
-An example of the requirement of several data structures within a single workflow is the calculation of \acrfull{dvh}s in radiation therapy.
+An example of the requirement of several data structures within a single workflow is the calculation of a \acrfull{dvh} in radiation therapy.
 The \acrfull{ptv} and \acrfull{oar} are typically segmented by defining their cross-section per
 image slice on a planning CT or MRI for the extent of the whole structure \cite{burnetDefiningTumourTarget2004}.
 This results in a list of planar contours similar to \cref{fig:segRep}/D.
@@ -634,9 +643,9 @@ Binary labelmaps (see: \cref{fig:segRep}/A) are the most common representation, 
 They are comparatively simple to edit, as changes to the labelmap translate to the addition or subtraction of voxels to the segment label.
 Storage is simplified as well, because each voxel can only belong to a single segment.
 This enables the storage of the whole dataset in a single 3D array.
-If label overlap is desired, the base 3D volume needs to be duplicated,
+If label overlap is desired, the base 3D volume needs to be duplicated
 in order to store the overlapping segment in a separate 3D array.
-This in turn inflates storage requirements for the segmentation,
+As a result storage requirements for the segmentation are inflated,
 thus binary labelmaps tend to be memory inefficient for overlapping structures \cite{slicercommunity3DSlicerImage2022}.
 \begin{figure}[h]
 	\begin{minted}{text}
@@ -655,14 +664,14 @@ label, X, Y, Z
 \noindent
 \Cref{fig:binary-array} displays a sample of such a 3D array.
 The first column refers to segment labels as decimal numbers,
-which in turn means that the alphanumeric label must be stored in a separate \acrfull{lut}.
+which in turn, means that the alphanumeric label must be stored in a separate \acrfull{lut}.
 The remaining three columns are used to store the voxel location in 3D space.
 Meaning, each entry in the binary labelmap 3D array corresponds to a specific voxel in the source dataset.
 As a result, binary labelmap segmentation resolution is tied to the source dataset resolution \cite{pinterPolymorphSegmentationRepresentation2019,sunderlandFractionalLabelmapsComputing2017,weber3DSlicerPlatform2022}.
 
 
 \subsection{Fractional labelmap}\label{s:b-fractional-labelmap}
-Fractional labelmaps (see: \cref{fig:segRep}/C) are a segmentation representation with the goal of improving on the concept of binary labelmaps mentioned above.
+Fractional labelmaps (see: \cref{fig:segRep}/C) are a segmentation representation, which improve on the concept of binary labelmaps mentioned above.
 Instead of a single voxel value representing a discrete label, in fractional labelmaps,
 each voxel value represents the probability that a structure is contained inside or outside that voxel.
 As a result, fractional labelmaps can store higher segmentation resolutions than the source dataset
@@ -728,9 +737,9 @@ This in turn results in a representation like in \cref{fig:spineMesh}.
 \end{figure}
 
 \noindent
-The closed surface representation is ideal for 3D visualization of segmentations, but has some downsides as well.
+The closed surface representation is ideal for 3D visualization of segmentations but has some downsides as well.
 First and foremost, they can be self-intersecting and thus invalid representations of reality.
-Furthermore, to edit a closed surface, the point coordinates of individual vertices must be modified
+Furthermore, to edit a closed surface, the point coordinates of individual vertices must be modified,
 and the unit normal vector recalculated \cite{pinterPolymorphSegmentationRepresentation2019}.
 
 
@@ -739,7 +748,8 @@ Planar contours (see: \cref{fig:segRep}/D) as well as ribbon models (see: \cref{
 by encompassing it in rings or ribbons for each slice separately.
 They are created by tracing contours around a \acrfull{roi} in parallel planar slices \cite{pinterPolymorphSegmentationRepresentation2019,weinsteinScanlineSurfacingBuilding2000}.
 In 2D, planar contours are represented by polylines.
-In 3D representations, however, these polylines need to be stacked, gaps require interpolation and the final volume is then smoothed.
+In 3D representations, however, these polylines need to be stacked, gaps require interpolation.
+The final volume is then smoothed.
 
 \begin{figure}[h]
 	\begin{subfigure}{0.49\textwidth}
@@ -762,7 +772,7 @@ However, when it comes to 3D visualization, planar contours as well as ribbons o
 
 
 \section{Segmentation evaluation}\label{s:b-seg-eval}
-This section is intended to give a overview of the two supervised segmentation assessment algorithms used in this study.
+This section is intended to give an overview of the two supervised segmentation assessment algorithms used in this study.
 
 \subsection{Dice coefficient}
 The S\o{}rensen–Dice coefficient, also known as \acrfull{dc}, is described by the equation \cite{diceMeasuresAmountEcologic1945}:\\
@@ -772,7 +782,7 @@ The S\o{}rensen–Dice coefficient, also known as \acrfull{dc}, is described by 
 \noindent
 It can be used to describe the similarities of two segmented images or volumes.
 It is two times the intersecting \glspl{vx} of segmentation x and y divided by the sum of \glspl{vx} of x and y.\\
-When dealing with boolean data, the formula can be transformed to the following equation:\\
+When dealing with Boolean data, the formula can be transformed to the following equation:\\
 \begin{equation}\label{eqn:binary-dice-coefficient}
 	DSC=\frac{2*TP}{2*TP+FP+FN}
 \end{equation}
@@ -780,7 +790,7 @@ When dealing with boolean data, the formula can be transformed to the following 
 It is two times the \acrfull{tp} intersection divided by two times the \acrlong{tp} plus the \acrfull{fp} plus the \acrfull{fn}.
 In the context of volume comparison, this can be interpreted as two times the number of overlapping \glspl{vx} between two segmentations divided by the total number of \glspl{vx} in both segmentations \cite{schelbComparisonProstateMRI2021}.\\
 
-\subsection{Hausdorff Distance}
+\subsection{Pompeiu-Hausdorff Distance}
 The ``Pompeiu–Hausdorff distance'' or simply ``Hausdorff distance'' is named after its creators Felix Hausdorff and Dimitrie Pompeiu \cite{birsanOneHundredYears2006}.
 \begin{displayquote}[\cite{simBrainVentricleDetection2016}]
 	``[\ldots] it is able to measure the degree of mismatch between two sets from the distance of the point of A that is farthest from any point of B, and vice versa.''
@@ -792,7 +802,7 @@ Where the Hausdorff distance $H$ from a set of points $A={a_{1}\ldots,a_{p}}$ to
 	H(A,B)=max(h(AB),h(BA))
 \end{equation}
 The functions $h(A,B)$ and $h(B,A)$ (see: \cref{eqn:directed-hausdorff-distance1} and \cref{eqn:directed-hausdorff-distance2}) are called directed Hausdorff distances from $A$ to $B$ and vice versa.
-Where $d(a,b)$ is the euclidean distance from $a$ to $b$.
+Where $d(a,b)$ is the Euclidean distance from $a$ to $b$.
 It identifies the nearest point in the set $B$ for every point in the set $A$ and isolates the largest distance between these points.
 As a result, the Hausdorff distance can be effectively put to use for measuring the mismatch between to sets of points \cite{hausdorffGrundzuegeMengenlehre1978,simBrainVentricleDetection2016,gegoireHausdorffDistanceConvex1998}.
 \begin{equation}\label{eqn:directed-hausdorff-distance1}
@@ -803,9 +813,9 @@ As a result, the Hausdorff distance can be effectively put to use for measuring 
 \end{equation}
 To conclude, the algorithm works by iterating over the following steps \cite{hausdorffGrundzuegeMengenlehre1978,simBrainVentricleDetection2016,gegoireHausdorffDistanceConvex1998}:
 \begin{enumerate}
-	\item Find the euclidean distance between all points of two sets $A$ and $B$
+	\item Find the Euclidean distance between all points of two sets $A$ and $B$
 	\item Get the minimum of the computed distances
-	\item Find the euclidean distance between all points of two sets $B$ and $A$
+	\item Find the Euclidean distance between all points of two sets $B$ and $A$
 	\item Get the minimum of the computed distances
 	\item Get the largest of the computed minimum distances
 \end{enumerate}
@@ -841,7 +851,7 @@ Most notably, the mouse skull reflects the importance of its sense of smell (olf
 by its elongated facial features and large tooth size (see: \cref{fig:mouseSkull}).
 For a visual representation, see: \cref{fig:mouseSkull}.
 Meanwhile, the human head is shaped for a larger brain.
-In mice, the interparietal bone is well-developed when compared to humans.
+In mice, the interparietal bone is well-developed compared to humans.
 Furthermore, in mice, the two mandibles are not fused together like in humans,
 they are rather joined by cartilaginous tissue \cite{jeromeSkeletalSystem2018,halleOpenAnatomyBrowser2017,platzerTaschenatlasAnatomieBd2013}.
 
@@ -898,7 +908,7 @@ The mouse pelvis, like in humans, is composed of the ilium, ischium and pubis \c
 As can be seen in \cref{fig:frontPaw} after the mouse radius and ulna, the wrist joint is made up of 9 bones:\\
 The carpal bones I-IV, the intermedioradial carpal bone, the ulnar carpal bone, the accessory carpal bone,
 the central carpal bone, and the proximal sesamoid bones.
-Which are articulated with 5 metacarpal bones and phalanges like in humans.
+Which are articulated with 5 metacarpal bones and phalanges.
 Humans however, possess 8 carpal bones, which include the scaphoid, lunate, triquetrum, pisiform,
 trapezium, trapezoid, capitate and hamate \cite{platzerTaschenatlasAnatomieBd2013}.
 

@@ -1,6 +1,6 @@
 
 CC=latexmk
-CFLAGS=-xelatex -bibtex -time -rc-report- -synctex=1 -interaction=nonstopmode -shell-escape -quiet
+CFLAGS=-M -xelatex -bibtex -time -rc-report- -synctex=1 -interaction=nonstopmode -shell-escape -quiet
 PRESENTATION_OPTIONS_FILE:=includes/presentation/00-options.tex
 PRESENTATION_NORMAL_OPTIONS:="\def\presentationoptions{12pt}"
 PRESENTATION_HANDOUT_OPTIONS:="\def\presentationoptions{12pt,handout}"
@@ -47,6 +47,7 @@ wordcount-thesis:
 
 clean:
 	$(CC) -c -rc-report-
+
 clean-all:
 	$(CC) -C -rc-report-
 	rm -v $(TMPFILES)
