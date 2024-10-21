@@ -1,14 +1,20 @@
 %!TEX root = ../../thesis.tex
-
+%TODO replace quotes with italics
 \chapter{Results}\label{c:resuls}
 Supervised segmentation evaluation was performed with the 3D Slicer extension \textit{SlicerRT}.
-Segmentation results of \noTesters, which did six segmentations each, has been analyzed.\\
-\textit{TODO: no statistical relevance}
+Segmentation results of \noTesters, which did six segmentations each, have been analyzed.\\
+\textit{TODO: no statistical relevance}\\
 These 42 segmentations were compared to the reference segmentation via the \acrlong{dc} and \acrlong{hd}.
+Note that the \acrlong{dc} is a dimensionless score between 0 and 1.
+The testers had to perform the initial segmentation without the help of the guide on page \pageref{a:guide}.
+And were told to perform this segmentation on the left side anatomy,
+which from here on will always be colored \textit{blue} in plots.
+Another segmentation was performed by the testers after reading through the guide on the right side anatomy,
+which from here on will always be colored \textit{red} in plots.
+To adequately display potential outliers \acrfull{hd} results will always be given with the average and maximum distance from the ground truth in millimeters (mm).
 
-\textit{TODO}
 
-\section{tester 1}
+\section{Test person 1}
 \begin{figure}[h!] % https://www.baeldung.com/cs/latex-draw-charts
 	\begin{center}
 		\begin{tikzpicture}
@@ -28,17 +34,15 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 					nodes near coords,
 					enlarge x limits = 0.2,
 					every node near coord/.append style={anchor=west, rotate=90},
-					compat=newest,
-				]
+					compat=newest,]
 				\addplot+ coordinates {(Scapula, 0.802739) (Clavicle, 0.818684) (Humerus, 0.74309) }; % left
 				\addplot+ coordinates {(Scapula, 0.626175) (Clavicle, 0.765966) (Humerus, 0.815566) }; % right
 				\legend{left, right};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Results: Tester 1 (more is better)}\label{fig:tester1}
+		\caption{\acrshort{dc} results: Test person 1 (more is better)}\label{fig:dcs-tester1}
 	\end{center}
 \end{figure}
-
 \begin{figure}[h!]
 	\begin{subfigure}{0.49\linewidth}
 		\centerline{
@@ -48,8 +52,7 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						xlabel = {Anatomy},
 						ylabel = {Hausdorff (mm)},
 						bar width = 0.5cm,
-						ymin = 0.00,
-						%ymax=1.00,
+						ymin = 0.00, %ymax=1.00,
 						ybar,
 						axis y line = left,
 						axis x line = bottom,
@@ -59,14 +62,13 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						nodes near coords,
 						enlarge x limits = 0.2,
 						every node near coord/.append style={anchor=west, rotate=90},
-						compat=newest,
-					]
+						compat=newest,]
 					\addplot+ coordinates {(Scapula, 0.574456) (Clavicle, 0.830662) (Humerus, 3.94462) }; % left
 					\addplot+ coordinates {(Scapula, 0.830662) (Clavicle, 0.538517) (Humerus, 2.45357) }; % right
 					\legend{left, right};
 				\end{axis}
 			\end{tikzpicture}}
-		\caption{Hausdorff max tester 1}%\label{fig:4n}
+		\caption{\acrshort{hd} maximum results: Test person 1}\label{fig:t1-hd-max}
 	\end{subfigure}
 	\begin{subfigure}{0.49\linewidth}
 		\centerline{
@@ -87,20 +89,26 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						nodes near coords,
 						enlarge x limits = 0.2,
 						every node near coord/.append style={anchor=west, rotate=90},
-						compat=newest,
-					]
+						compat=newest,]
 					\addplot+ coordinates {(Scapula, 0.0844668) (Clavicle, 0.0716756) (Humerus, 0.387502) }; % left
 					\addplot+ coordinates {(Scapula, 0.201003) (Clavicle, 0.0986822) (Humerus, 0.21904) }; % right
 					\legend{left, right};
 				\end{axis}
 			\end{tikzpicture}}
-		\caption{hausdorff avg tester 1}%\label{fig:8n}
+		\caption{\acrshort{hd} average: Test person 1}\label{fig:t1-hd-avg}
 	\end{subfigure}
-	\caption{hausdorff tester 1 (less is better)}%\label{fig:neighborhoods}
+	\caption{\acrfull{hd} results: Test person 1 (less is better)}\label{fig:hd-tester1}
 \end{figure}
+\noindent
+\Cref{fig:dcs-tester1} depicts the segmentation comparison results via the \acrfull{dc} for test person 1.
+The segmentation overlap according to the \acrshort{dc} shows a decrease in segmentation accuracy for scapula ($-0.17$), clavicle ($-0.05$) and an increase for the humerus ($+0.08$).
+\Cref{fig:hd-tester1} depicts the segmentation comparison results via the \acrfull{hd} for test person 1.
+Whereby \cref{fig:t1-hd-max} displays the maximum distance in millimeters (mm) and \cref{fig:t1-hd-avg} displays the average distance in millimeters.
+As can be seen, in \cref{fig:t1-hd-avg}, the segmentation of test person 1 on average was further from the ground truth in case of the scapula ($+0.1155 mm$) and clavicle ($+0.027 mm$).
+For the humerus, the segmentation was closer to the ground truth ($-0.17 mm$).
 
 
-\section{tester 2}
+\section{Test person 2}
 \begin{figure}[h!]
 	\begin{center}
 		\begin{tikzpicture}
@@ -120,17 +128,15 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 					nodes near coords,
 					enlarge x limits = 0.2,
 					every node near coord/.append style={anchor=west, rotate=90},
-					compat=newest,
-				]
+					compat=newest,]
 				\addplot+ coordinates {(Scapula, 0.3043) (Clavicle, 0.442442) (Humerus, 0.154587) }; % left
 				\addplot+ coordinates {(Scapula, 0.751427) (Clavicle, 0.755405) (Humerus, 0.838217) }; % right
 				\legend{left, right};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Results: Tester 2 (more is better)}\label{fig:tester2}
+		\caption{\acrshort{dc} results: Test person 2 (more is better)}\label{fig:dcs-tester2}
 	\end{center}
 \end{figure}
-
 \begin{figure}[h!]
 	\begin{subfigure}{0.49\linewidth}
 		\centerline{
@@ -140,8 +146,7 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						xlabel = {Anatomy},
 						ylabel = {Hausdorff (mm)},
 						bar width = 0.5cm,
-						ymin = 0.00,
-						%ymax=1.00,
+						ymin = 0.00, %ymax=1.00,
 						ybar,
 						axis y line = left,
 						axis x line = bottom,
@@ -151,14 +156,13 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						nodes near coords,
 						enlarge x limits = 0.2,
 						every node near coord/.append style={anchor=west, rotate=90},
-						compat=newest,
-					]
+						compat=newest,]
 					\addplot+ coordinates {(Scapula, 14.4948) (Clavicle, 11.5369) (Humerus, 20.004) }; % left
 					\addplot+ coordinates {(Scapula, 14.0901) (Clavicle, 11.6224) (Humerus, 19.6827) }; % right
 					\legend{left, right};
 				\end{axis}
 			\end{tikzpicture}}
-		\caption{hausdorff max tester 2}%\label{fig:4n}
+		\caption{\acrshort{hd} maximum results: Test person 2}\label{fig:t2-hd-max}
 	\end{subfigure}
 	\begin{subfigure}{0.49\linewidth}
 		\centerline{
@@ -186,13 +190,19 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 					\legend{left, right};
 				\end{axis}
 			\end{tikzpicture}}
-		\caption{hausdorff avg tester 2}%\label{fig:8n}
+		\caption{\acrshort{hd} average: Test person 2}\label{fig:t2-hd-avg}
 	\end{subfigure}
-	\caption{hausdorff tester 2 (less is better)}%\label{fig:neighborhoods}
+	\caption{\acrfull{hd} results: Test person 2 (less is better)}\label{fig:hd-tester2}
 \end{figure}
+\noindent
+\Cref{fig:dcs-tester2} depicts the segmentation comparison results via the \acrfull{dc} for test person 2.
+The segmentation overlap according to the \acrshort{dc} shows an increase in segmentation accuracy all segmented anatomical structures: scapula ($+0.45$), clavicle ($+0.32$) and humerus ($+0.69$).
+\Cref{fig:hd-tester2} depicts the segmentation comparison results via the \acrfull{hd} for test person 2.
+Whereby \cref{fig:t2-hd-max} displays the maximum distance in millimeters (mm) and \cref{fig:t2-hd-avg} displays the average distance in millimeters.
+As can be seen, in \cref{fig:t2-hd-avg}, the segmentation of test person 2 on average was actually further from the ground truth for all segmented anatomical structures: scapula ($+0.39 mm$), clavicle ($+0.3 mm$) and humerus ($+0.07 mm$).
 
 
-\section{tester 3}
+\section{Test person 3}
 \begin{figure}[h!]
 	\begin{center}
 		\begin{tikzpicture}
@@ -212,17 +222,15 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 					nodes near coords,
 					enlarge x limits = 0.2,
 					every node near coord/.append style={anchor=west, rotate=90},
-					compat=newest,
-				]
+					compat=newest,]
 				\addplot+ coordinates {(Scapula, 0.578573) (Clavicle, 0.6981) (Humerus, 0.885087) }; % left
 				\addplot+ coordinates {(Scapula, 0.689855) (Clavicle, 0.691658) (Humerus, 0.864106) }; % right
 				\legend{left, right};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Results: Tester 3}\label{fig:tester3}
+		\caption{\acrshort{dc} results: Test person 3 (more is better)}\label{fig:dcs-tester3}
 	\end{center}
 \end{figure}
-
 \begin{figure}[h!]
 	\begin{subfigure}{0.49\linewidth}
 		\centerline{
@@ -232,8 +240,7 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						xlabel = {Anatomy},
 						ylabel = {Hausdorff (mm)},
 						bar width = 0.5cm,
-						ymin = 0.00,
-						%ymax=1.00,
+						ymin = 0.00, %ymax=1.00,
 						ybar,
 						axis y line = left,
 						axis x line = bottom,
@@ -243,14 +250,13 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						nodes near coords,
 						enlarge x limits = 0.2,
 						every node near coord/.append style={anchor=west, rotate=90},
-						compat=newest,
-					]
+						compat=newest,]
 					\addplot+ coordinates {(Scapula, 1.55885) (Clavicle, 0.663325) (Humerus, 1.15758) }; % left
 					\addplot+ coordinates {(Scapula, 0.812404) (Clavicle, 1.51658) (Humerus, 0.640312) }; % right
 					\legend{left, right};
 				\end{axis}
 			\end{tikzpicture}}
-		\caption{hausdorff max tester 3}%\label{fig:4n}
+		\caption{\acrshort{hd} maximum results: Test person 3}\label{fig:t3-hd-max}
 	\end{subfigure}
 	\begin{subfigure}{0.49\linewidth}
 		\centerline{
@@ -271,21 +277,25 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						nodes near coords,
 						enlarge x limits = 0.2,
 						every node near coord/.append style={anchor=west, rotate=90},
-						compat=newest,
-					]
+						compat=newest,]
 					\addplot+ coordinates {(Scapula, 0.248237) (Clavicle, 0.103545) (Humerus, 0.0864548) }; % left
 					\addplot+ coordinates {(Scapula, 0.149758) (Clavicle, 0.140087) (Humerus, 0.0934432) }; % right
 					\legend{left, right};
 				\end{axis}
 			\end{tikzpicture}}
-		\caption{hausdorff avg tester 3}%\label{fig:8n}
+		\caption{\acrshort{hd} average: Test person 3}\label{fig:t3-hd-avg}
 	\end{subfigure}
-	\caption{hausdorff tester 3 (less is better)}%\label{fig:neighborhoods}
+	\caption{\acrfull{hd} results: Test person 3 (less is better)}\label{fig:hd-tester3}
 \end{figure}
+\noindent
+\Cref{fig:dcs-tester3} depicts the segmentation comparison results via the \acrfull{dc} for test person 3.
+The segmentation overlap according to the \acrshort{dc} shows an increase in segmentation accuracy for the scapula ($+0.11$) and a decrease for  clavicle ($-0.01$) and humerus ($-0.03$).
+\Cref{fig:hd-tester3} depicts the segmentation comparison results via the \acrfull{hd} for test person 3.
+Whereby \cref{fig:t3-hd-max} displays the maximum distance in millimeters (mm) and \cref{fig:t3-hd-avg} displays the average distance in millimeters.
+As can be seen, in \cref{fig:t3-hd-avg}, the segmentation of test person 3 on average was actually closer to the ground truth for the scapula ($-0.1 mm$) and further from it for clavicle ($+0.04 mm$) and humerus ($+0.0069 mm$).
 
 
-
-\section{tester 4}
+\section{Test person 4}
 \begin{figure}[h!]
 	\begin{center}
 		\begin{tikzpicture}
@@ -305,17 +315,15 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 					nodes near coords,
 					enlarge x limits = 0.2,
 					every node near coord/.append style={anchor=west, rotate=90},
-					compat=newest,
-				]
+					compat=newest,]
 				\addplot+ coordinates {(Scapula, 0.922192) (Clavicle, 0.939727) (Humerus, 0.933602) }; % left
 				\addplot+ coordinates {(Scapula, 0.936915) (Clavicle, 0.94835) (Humerus, 0.932487) }; % right
 				\legend{left, right};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Results: Tester 4}\label{fig:tester4}
+		\caption{\acrshort{dc} results: Test person 4 (more is better)}\label{fig:dcs-tester4}
 	\end{center}
 \end{figure}
-
 \begin{figure}[h!]
 	\begin{subfigure}{0.49\linewidth}
 		\centerline{
@@ -325,8 +333,7 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						xlabel = {Anatomy},
 						ylabel = {Hausdorff (mm)},
 						bar width = 0.5cm,
-						ymin = 0.00,
-						%ymax=1.00,
+						ymin = 0.00, %ymax=1.00,
 						ybar,
 						axis y line = left,
 						axis x line = bottom,
@@ -336,14 +343,13 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						nodes near coords,
 						enlarge x limits = 0.2,
 						every node near coord/.append style={anchor=west, rotate=90},
-						compat=newest,
-					]
+						compat=newest,]
 					\addplot+ coordinates {(Scapula, 4.4643) (Clavicle, 0.787401) (Humerus, 10.5669) }; % left
 					\addplot+ coordinates {(Scapula, 0.360555) (Clavicle, 0.2) (Humerus, 0.8544) }; % right
 					\legend{left, right};
 				\end{axis}
 			\end{tikzpicture}}
-		\caption{hausdorff max tester 4}%\label{fig:4n}
+		\caption{\acrshort{hd} maximum results: Test person 4}\label{fig:t4-hd-max}
 	\end{subfigure}
 	\begin{subfigure}{0.49\linewidth}
 		\centerline{
@@ -364,20 +370,25 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						nodes near coords,
 						enlarge x limits = 0.2,
 						every node near coord/.append style={anchor=west, rotate=90},
-						compat=newest,
-					]
+						compat=newest,]
 					\addplot+ coordinates {(Scapula, 0.0383409) (Clavicle, 0.0246443) (Humerus, 0.0735903) }; % left
 					\addplot+ coordinates {(Scapula, 0.0298934) (Clavicle, 0.0204125) (Humerus, 0.0567954) }; % right
 					\legend{left, right};
 				\end{axis}
 			\end{tikzpicture}}
-		\caption{hausdorff avg tester 4}%\label{fig:8n}
+		\caption{\acrshort{hd} average: Test person 4}\label{fig:t4-hd-avg}
 	\end{subfigure}
-	\caption{hausdorff tester 4 (less is better)}%\label{fig:neighborhoods}
+	\caption{\acrfull{hd} results: Test person 4 (less is better)}\label{fig:hd-tester4}
 \end{figure}
+\noindent
+\Cref{fig:dcs-tester4} depicts the segmentation comparison results via the \acrfull{dc} for test person 4.
+The segmentation overlap according to the \acrshort{dc} shows an increase in segmentation accuracy for 2 out of 3 segmentations: scapula ($+0.02$), clavicle ($+0.01$) and no change for the humerus.
+\Cref{fig:hd-tester4} depicts the segmentation comparison results via the \acrfull{hd} for test person 4.
+Whereby \cref{fig:t4-hd-max} displays the maximum distance in millimeters (mm) and \cref{fig:t4-hd-avg} displays the average distance in millimeters.
+As can be seen, in \cref{fig:t4-hd-avg}, the segmentation of test person 2 on average was actually closer to the ground truth in all cases: scapula ($-0.0084 mm$), clavicle ($-0.0042 mm$) and humerus ($-0.0168 mm$).
 
 
-\section{tester 5}
+\section{Test person 5}
 \begin{figure}[h!]
 	\begin{center}
 		\begin{tikzpicture}
@@ -397,17 +408,15 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 					nodes near coords,
 					enlarge x limits = 0.2,
 					every node near coord/.append style={anchor=west, rotate=90},
-					compat=newest,
-				]
+					compat=newest,]
 				\addplot+ coordinates {(Scapula, 0.422959) (Clavicle, 0.0721612) (Humerus, 0.365373) }; % left
 				\addplot+ coordinates {(Scapula, 0.729698) (Clavicle, 0.815007) (Humerus, 0.890025) }; % right
 				\legend{left, right};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Results: Tester 5}\label{fig:tester5}
+		\caption{\acrshort{dc} results: Test person 5 (more is better)}\label{fig:dcs-tester5}
 	\end{center}
 \end{figure}
-
 \begin{figure}[h!]
 	\begin{subfigure}{0.49\linewidth}
 		\centerline{
@@ -417,25 +426,23 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						xlabel = {Anatomy},
 						ylabel = {Hausdorff (mm)},
 						bar width = 0.5cm,
-						ymin = 0.00,
-						%ymax=1.00,
+						ymin = 0.00, %ymax=1.00,
 						ybar,
 						axis y line = left,
 						axis x line = bottom,
 						xtick distance = 1,
 						symbolic x coords = {Scapula, Clavicle, Humerus},
-						legend pos = north center,
+						legend pos = north east,
 						nodes near coords,
 						enlarge x limits = 0.2,
 						every node near coord/.append style={anchor=west, rotate=90},
-						compat=newest,
-					]
+						compat=newest,]
 					\addplot+ coordinates {(Scapula, 14.4066) (Clavicle, 11.2987) (Humerus, 19.9) }; % left
 					\addplot+ coordinates {(Scapula, 0.748331) (Clavicle, 1.23288) (Humerus, 0.655744) }; % right
 					\legend{left, right};
 				\end{axis}
 			\end{tikzpicture}}
-		\caption{hausdorff max tester 5}%\label{fig:4n}
+		\caption{\acrshort{hd} maximum results: Test person 5}\label{fig:t5-hd-max}
 	\end{subfigure}
 	\begin{subfigure}{0.49\linewidth}
 		\centerline{
@@ -445,31 +452,35 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						xlabel = {Anatomy},
 						ylabel = {Hausdorff (mm)},
 						bar width = 0.5cm,
-						ymin = 0.00,
-						%ymax=1.00,
+						ymin = 0.00,%ymax=1.00,
 						ybar,
 						axis y line = left,
 						axis x line = bottom,
 						xtick distance = 1,
 						symbolic x coords = {Scapula, Clavicle, Humerus},
-						legend pos = north center,
+						legend pos = north east,
 						nodes near coords,
 						enlarge x limits = 0.2,
 						every node near coord/.append style={anchor=west, rotate=90},
-						compat=newest,
-					]
+						compat=newest,]
 					\addplot+ coordinates {(Scapula, 9.49633) (Clavicle, 7.54572) (Humerus, 16.5861) }; % left
 					\addplot+ coordinates {(Scapula, 0.130622) (Clavicle, 0.0749329) (Humerus, 0.0901881) }; % right
 					\legend{left, right};
 				\end{axis}
 			\end{tikzpicture}}
-		\caption{hausdorff avg tester 5}%\label{fig:8n}
+		\caption{\acrshort{hd} average: Test person 5}\label{fig:t5-hd-avg}
 	\end{subfigure}
-	\caption{hausdorff tester 5 (less is better)}%\label{fig:neighborhoods}
+	\caption{\acrfull{hd} results: Test person 5 (less is better)}\label{fig:hd-tester5}
 \end{figure}
+\noindent
+\Cref{fig:dcs-tester5} depicts the segmentation comparison results via the \acrfull{dc} for test person 5.
+The segmentation overlap according to the \acrshort{dc} shows an increase in segmentation accuracy in all segmented anatomical structures: scapula ($+0.31$), clavicle ($+0.7478$) and humerus ($+0.52$).
+\Cref{fig:hd-tester5} depicts the segmentation comparison results via the \acrfull{hd} for test person 5.
+Whereby \cref{fig:t5-hd-max} displays the maximum distance in millimeters (mm) and \cref{fig:t5-hd-avg} displays the average distance in millimeters.
+As can be seen, in \cref{fig:t5-hd-avg}, the segmentation of test person 5 on average was closer to the ground truth in all cases: scapula ($-9.37 mm$), clavicle ($-7.4751 mm$) and humerus ($-16.4959 mm$).
 
 
-\section{tester 6}
+\section{Test person 6}
 \begin{figure}[h!]
 	\begin{center}
 		\begin{tikzpicture}
@@ -489,17 +500,15 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 					nodes near coords,
 					enlarge x limits = 0.2,
 					every node near coord/.append style={anchor=west, rotate=90},
-					compat=newest,
-				]
+					compat=newest,]
 				\addplot+ coordinates {(Scapula, 0.745496) (Clavicle, 0.685963) (Humerus, 0.8301) }; % left
 				\addplot+ coordinates {(Scapula, 0.843293) (Clavicle, 0.832382) (Humerus, 0.90979) }; % right
 				\legend{left, right};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Results: Tester 6}\label{fig:tester6}
+		\caption{\acrshort{dc} results: Test person 6 (more is better)}\label{fig:dcs-tester6}
 	\end{center}
 \end{figure}
-
 \begin{figure}[h!]
 	\begin{subfigure}{0.49\linewidth}
 		\centerline{
@@ -509,8 +518,7 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						xlabel = {Anatomy},
 						ylabel = {Hausdorff (mm)},
 						bar width = 0.5cm,
-						ymin = 0.00,
-						%ymax=1.00,
+						ymin = 0.00,%ymax=1.00,
 						ybar,
 						axis y line = left,
 						axis x line = bottom,
@@ -520,14 +528,13 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						nodes near coords,
 						enlarge x limits = 0.2,
 						every node near coord/.append style={anchor=west, rotate=90},
-						compat=newest,
-					]
+						compat=newest,]
 					\addplot+ coordinates {(Scapula, 5.61961) (Clavicle, 0.424264) (Humerus, 1.74929) }; % left
 					\addplot+ coordinates {(Scapula, 3.83275) (Clavicle, 0.583095) (Humerus, 0.824621) }; % right
 					\legend{left, right};
 				\end{axis}
 			\end{tikzpicture}}
-		\caption{hausdorff max tester 6}%\label{fig:4n}
+		\caption{\acrshort{hd} maximum results: Test person 6}\label{fig:t6-hd-max}
 	\end{subfigure}
 	\begin{subfigure}{0.49\linewidth}
 		\centerline{
@@ -548,20 +555,25 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						nodes near coords,
 						enlarge x limits = 0.2,
 						every node near coord/.append style={anchor=west, rotate=90},
-						compat=newest,
-					]
+						compat=newest,]
 					\addplot+ coordinates {(Scapula, 0.12307) (Clavicle, 0.119685) (Humerus, 0.133942) }; % left
 					\addplot+ coordinates {(Scapula, 0.0835118) (Clavicle, 0.0584966) (Humerus, 0.077168) }; % right
 					\legend{left, right};
 				\end{axis}
 			\end{tikzpicture}}
-		\caption{hausdorff avg tester 6}%\label{fig:8n}
+		\caption{\acrshort{hd} average: Test person 6}\label{fig:t6-hd-avg}
 	\end{subfigure}
-	\caption{hausdorff tester 6 (less is better)}%\label{fig:neighborhoods}
+	\caption{\acrfull{hd} results: Test person 6 (less is better)}\label{fig:hd-tester6}
 \end{figure}
+\noindent
+\Cref{fig:dcs-tester6} depicts the segmentation comparison results via the \acrfull{dc} for test person 6.
+The segmentation overlap according to the \acrshort{dc} shows an increase in segmentation accuracy in all segmented anatomical structures: scapula ($+0.09$), clavicle ($+0.14$) and humerus ($+0.08$).
+\Cref{fig:hd-tester6} depicts the segmentation comparison results via the \acrfull{hd} for test person 6.
+Whereby \cref{fig:t6-hd-max} displays the maximum distance in millimeters (mm) and \cref{fig:t6-hd-avg} displays the average distance in millimeters.
+As can be seen, in \cref{fig:t6-hd-avg}, the segmentation of test person 6 on average was closer to the ground truth in all cases: scapula ($-0.0365 mm$), clavicle ($-0.0615 mm$) and humerus ($-0.0528 mm$).
 
 
-\section{tester 7}
+\section{Test person 7}
 \begin{figure}[h!]
 	\begin{center}
 		\begin{tikzpicture}
@@ -581,17 +593,15 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 					nodes near coords,
 					enlarge x limits = 0.2,
 					every node near coord/.append style={anchor=west, rotate=90},
-					compat=newest,
-				]
+					compat=newest,]
 				\addplot+ coordinates {(Scapula, 0.634313) (Clavicle, 0.821007) (Humerus, 0.900482) }; % left
 				\addplot+ coordinates {(Scapula, 0.76807) (Clavicle, 0.911396) (Humerus, 0.925331) }; % right
 				\legend{left, right};
 			\end{axis}
 		\end{tikzpicture}
-		\caption{Results: Tester 7}\label{fig:tester7}
+		\caption{\acrshort{dc} results: Test person 7 (more is better)}\label{fig:dcs-tester7}
 	\end{center}
 \end{figure}
-
 \begin{figure}[h!]
 	\begin{subfigure}{0.49\linewidth}
 		\centerline{
@@ -601,25 +611,23 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						xlabel = {Anatomy},
 						ylabel = {Hausdorff (mm)},
 						bar width = 0.5cm,
-						ymin = 0.00,
-						%ymax=1.00,
+						ymin = 0.00,%ymax=1.00,
 						ybar,
 						axis y line = left,
 						axis x line = bottom,
 						xtick distance = 1,
 						symbolic x coords = {Scapula, Clavicle, Humerus},
-						legend pos = north east,
+						legend pos = north west,
 						nodes near coords,
 						enlarge x limits = 0.2,
 						every node near coord/.append style={anchor=west, rotate=90},
-						compat=newest,
-					]
+						compat=newest,]
 					\addplot+ coordinates {(Scapula, 3.86523) (Clavicle, 0.412311) (Humerus, 0.469042) }; % left
 					\addplot+ coordinates {(Scapula, 1.04881) (Clavicle, 0.2) (Humerus, 0.447214) }; % right
 					\legend{left, right};
 				\end{axis}
 			\end{tikzpicture}}
-		\caption{hausdorff max tester 7}%\label{fig:4n}
+		\caption{\acrshort{hd} maximum results: Test person 7}\label{fig:t7-hd-max}
 	\end{subfigure}
 	\begin{subfigure}{0.49\linewidth}
 		\centerline{
@@ -629,30 +637,38 @@ These 42 segmentations were compared to the reference segmentation via the \acrl
 						xlabel = {Anatomy},
 						ylabel = {Hausdorff (mm)},
 						bar width = 0.5cm,
-						ymin = 0.00,
-						%ymax=1.00,
+						ymin = 0.00,%ymax=1.00,
 						ybar,
 						axis y line = left,
 						axis x line = bottom,
 						xtick distance = 1,
 						symbolic x coords = {Scapula, Clavicle, Humerus},
-						legend pos = north east,
+						legend pos = north west,
 						nodes near coords,
 						enlarge x limits = 0.2,
 						every node near coord/.append style={anchor=west, rotate=90},
-						compat=newest,
-					]
+						compat=newest,]
 					\addplot+ coordinates {(Scapula, 0.24856) (Clavicle, 0.0674237) (Humerus, 0.0763588) }; % left
 					\addplot+ coordinates {(Scapula, 0.100908) (Clavicle, 0.0356212) (Humerus, 0.0608241) }; % right
 					\legend{left, right};
 				\end{axis}
 			\end{tikzpicture}}
-		\caption{hausdorff avg tester 7}%\label{fig:8n}
+		\caption{\acrshort{hd} average: Test person 7}\label{fig:t7-hd-avg}
 	\end{subfigure}
-	\caption{hausdorff tester 7 (less is better)}%\label{fig:neighborhoods}
+	\caption{\acrfull{hd} results: Test person 7 (less is better)}\label{fig:hd-tester7}
 \end{figure}
+\noindent
+\Cref{fig:dcs-tester7} depicts the segmentation comparison results via the \acrfull{dc} for test person 7.
+The segmentation overlap according to the \acrshort{dc} shows an increase in segmentation accuracy in all segmented anatomical structures: scapula ($+0.14$), clavicle ($+0.09$) and humerus ($+0.03$).
+\Cref{fig:hd-tester7} depicts the segmentation comparison results via the \acrfull{hd} for test person 7.
+Whereby \cref{fig:t7-hd-max} displays the maximum distance in millimeters (mm) and \cref{fig:t7-hd-avg} displays the average distance in millimeters.
+As can be seen, in \cref{fig:t7-hd-avg}, the segmentation of test person 7 on average was closer to the ground truth in all cases: scapula ($-0.15 mm$), clavicle ($-0.0318 mm$) and humerus ($-0.0156 mm$).
 
 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % This chapter describes the performed analysis steps and discusses its results.
 % First, the final dataset is described in \cref{s:analysis-datasets}.
 % Secondly, the best hyper-parameters for each classifier are depicted in \cref{s:analysis-pipelines}.

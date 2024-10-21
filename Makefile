@@ -5,11 +5,14 @@ PRESENTATION_OPTIONS_FILE:=includes/presentation/00-options.tex
 PRESENTATION_NORMAL_OPTIONS:="\def\presentationoptions{12pt}"
 PRESENTATION_HANDOUT_OPTIONS:="\def\presentationoptions{12pt,handout}"
 PRESENTATION_HANDOUT_WITH_NOTES_OPTIONS:="\def\presentationoptions{12pt,handout,notes}"
-TMPFILES=*.snm *.nav *.synctex.gz *.xdv *.auxlock *.fdb_latexmk *.run.xml *.bbl *.aux *.dvi *.log *.fls *.toc *.lof *.bcf *.lot *.bbl-SAVE-ERROR
+TMPFILES=*.snm *.nav *_Stefan.pdf *.synctex.gz *.xdv *.auxlock *.fdb_latexmk *.run.xml *.bbl *.aux *.dvi *.log *.fls *.toc *.lof *.bcf *.lot *.bbl-SAVE-ERROR
 
 default: thesis
 
 all: proposal thesis presentation
+
+publish: thesis #TODO: add proposal, guide and presentation
+	mv thesis.pdf Masterthesis_Rohrbacher_Stefan.pdf
 
 watch-proposal:
 	$(CC) $(CFLAGS) -pvc proposal.tex
