@@ -37,15 +37,18 @@ But it does not feature a recommended segmentation workflow.
 Despite this fact, there is a lack of general recommendations, instructions or guides on how to efficiently segment \acrlong{mct} datasets.
 
 \section{Research Goals}\label{s:introduction-researchgoals}
-Furthermore, segmenting large datasets, such as those produced by a high-resolution \mct\space scan, results in large \acrfull{ram} demands by the segmentation software.
+Segmenting large datasets, such as those produced by a high-resolution \mct\space scan, results in large \acrfull{ram} demands by the segmentation software.
 The 3D Slicer documentation states that the software will require approximately 10 times more memory than the loaded dataset.
-The user therefore has to optimize the segmentation workflow if the software is to be used on a computer with limited amounts of \acrshort{ram}.
+The user therefore has to optimize the segmentation workflow if the software is to be used on a computer with limited amounts of \acrshort{ram} \cite{slicercommunity3DSlicerImage2022,fedorov3DSlicerImage2012}.
 Therefore, the author hypothesizes that users of 3D Slicer will benefit from a streamlined segmentation guide, and it will improve segmentation quality as well as workflow efficiency.
-As mentioned above, \texttt{3D Slicer} and \texttt{ITK-SNAP} provide the user with a sizeable amount of segmentation tools. The selection of the correct segmentation algorithm and workflow have a non-negligible influence on the segmentation quality as well as the time the user has to spend on it \cite{liuSAMMSegmentAny2023}.
-Furthermore, segmenting large datasets, such as those produced by a high-resolution \mct\space scan, results in large \acrshort{ram} demands by the segmentation software\cite{smistadMedicalImageSegmentation2015}.
-The 3D Slicer documentation states that the software will require approximately 10 times more memory than the loaded dataset \cite{slicercommunity3DSlicerImage2022,fedorov3DSlicerImage2012}.
-The user therefore has to optimize the segmentation workflow if the software is to be used on a computer with limited amounts of \acrshort{ram}.
-Therefore, the author hypothesizes that users of \texttt{3D Slicer} will benefit from a streamlined segmentation guide, and it will improve segmentation quality as well as workflow efficiency.
+As mentioned above, \texttt{3D Slicer} and \texttt{ITK-SNAP} provide the user with a sizeable amount of segmentation tools.
+The selection of the correct segmentation algorithm and workflow have a non-negligible influence on the segmentation quality as well as the time the user has to spend on it \cite{liuSAMMSegmentAny2023}.\\
+This thesis will explore potential segmentation workflows, as well as the creation of a guide for performing the mentioned segmentations.
+Additionally, the following research question will be answered:
+\begin{displayquote}
+	``Does the usage of a segmentation guide improve segmentation quality when used by inexperienced people?''
+\end{displayquote}
+
 
 \section{Research Methodology}\label{s:introduction-researchmethodology}
 The practical work for this project will be completed by the author on his private computer, for technical information, see \cref{t:computer-specs}.
@@ -78,6 +81,6 @@ This has been done using the \texttt{SlicerRT} \cite{pinterSlicerRTRadiationTher
 \section{Structure of this Thesis}\label{s:introduction-structureofthisthesis}
 The next chapter is the frame (\cref{c:background}), where the necessary theoretical information will be explained.\\
 In \cref{c:materialsNmethods}, the origin of the datasets and the evaluation of the segmentation will be described.\\
-Afterwards, in \cref{c:resuls}, results of the segmentations will be listed.\\
-Finally, in \cref{c:conclusion} the results of this work will be concluded,
+Afterwards, in \cref{c:results}, results of the segmentations will be listed.\\
+Finally, in \cref{c:discussion} the results of this work will be concluded,
 the limitations explained and further subjects of research explored.

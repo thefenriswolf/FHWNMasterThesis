@@ -6,8 +6,8 @@ In this section, the various materials and methods used in this thesis will be d
 Furthermore, the rationale of using the specific tools for a task will be explained.
 
 \section{Literature}\label{s:literature}
-To obtain a systematic overview of the topics \mct\space segmentation and guide authoring, a literature search was performed with the help of online search engines and databases like ``Google Scholar'', ``PubMed'', ``ScienceDirect'', ``IEEE Xplore'' and ``ResearchGate''.
-However, to get a comprehensive understanding of the used software ``3D Slicer'' and ``SlicerRT'' also less scientific resources had to be consulted.
+To obtain a systematic overview of the topics \mct\space segmentation and guide authoring, a literature search was performed with the help of online search engines and databases like \textit{Google Scholar}, \textit{PubMed}, \textit{ScienceDirect}, \textit{IEEE Xplore} and \textit{ResearchGate}.
+However, to get a comprehensive understanding of the used software \textit{3D Slicer} and \textit{SlicerRT} also less scientific resources had to be consulted.
 Namely, their respective documentation websites and also explanations in video form, mostly hosted on YouTube (Google LLC, San Bruno, California, USA).
 Keywords for resource search included terms like ``3DSlicer'', ``\mct'', ``segmentation'', ``segmentation evaluation'', ``software documentation''.
 To make sure the resources were up-to-date with current developments in image segmentation, literature older than 10 years was excluded.
@@ -25,7 +25,6 @@ A summary of all scan parameters can be seen in \cref{tab:scan-parameters}.
 	\begin{center}
 		\begin{tabular}{l l}
 			%\hline
-			%\textbf{Element} & \textbf{Description} \\ \hline
 			Manufacturer                  & Molecubes      \\
 			Model                         & X-Cube         \\
 			Tube voltage (\acrshort{kv})  & 50             \\
@@ -47,10 +46,10 @@ The author has not performed the scans themselves, but rather repurposed a datas
 Therefore, any information about scan parameters and reconstruction settings had to be taken from the \gls{dicom} metadata.
 
 
-\subsection{Dataset preparation}\label{s:mm-dataset-preparation}
+\subsection*{Dataset preparation}\label{s:mm-dataset-preparation}
 \begin{figure}[h!]
 	\begin{center}
-		\begin{tikzpicture}[node distance=3cm]
+		\begin{tikzpicture}[node distance=3cm,scale=0.8, every node/.style={scale=0.8}]
 			\node[draw=black, % nodes
 				text centered,
 				rounded corners,
@@ -78,6 +77,7 @@ Therefore, any information about scan parameters and reconstruction settings had
 	\end{center}
 	\caption{Dataset preparation}\label{fig:dataset-preparation}
 \end{figure}
+
 \noindent
 As can be seen in \cref{fig:dataset-preparation} several steps of preparation were performed before the dataset was handed out to testers in conjunction with the guide.
 All modifications were done using built in 3D Slicer tools.
@@ -90,7 +90,7 @@ The resulting segment was the base for a masking operation where the segmented v
 Thirdly, the remaining volume was cropped again, making only minor adjustments to the ROI.
 The goal was to get rid of small artifacts created by the first cropping operation.
 Finally, to aid the testers in determining if they are currently working on the left or right side anatomy of the dataset, side indicators were added to the volume.
-This was done, using 3D Slicers Engrave tool available via the ``SlicerSegmentEditorExtraEffects'' \cite{lassoSlicerSegmentEditorExtraEffects2024} plugin.
+This was done, using 3D Slicers Engrave tool available via the \textit{SlicerSegmentEditorExtraEffects} \cite{lassoSlicerSegmentEditorExtraEffects2024} plugin.
 Effectively adding an artificial segment displaying left (L) and right (R) when viewed in 3D view.
 The final dataset was reduced to the anatomical bone structures of both shoulder joints.
 Effectively containing sinistral and dextral clavicle, humerus and scapula.
@@ -110,7 +110,7 @@ To conclude, it was used for segmentation comparison of the ground truth segment
 \begin{figure}[h!]
 	\includesvg[
 		inkscapelatex=false,
-		width = 0.8\paperwidth,
+		width = 0.72\paperwidth,
 		height = 0.6\paperheight
 	]{images/evaluation.svg}
 	\caption{Evaluation Method decision tree \cite{wangImageSegmentationEvaluation2020}}\label{fig:eval}
@@ -165,61 +165,36 @@ Next, structure masking was performed, whereby first a bone mask was created via
 The threshold range was adjusted to encompass all bone structures, a lower threshold value around 550 \acrshort{hu} was found to be optimal for most specimens.
 To compensate for small inconsistencies in the threshold operation, a closing operation was performed immediately after.
 3D Slicer does not include a closing operation tool, thus the task was
-accomplished by using 3D Slicers ``Margin grow'' and ``Margin shrink'' tools in sequence.
+accomplished by using 3D Slicers \textit{Margin grow} and \textit{Margin shrink} tools in sequence.
 The same steps were performed to a background mask.
 For the actual segmentation step, the mouse anatomy was divided into the general body parts head, trunk, and extremities.
 Which in turn were divided into the individual bones that compose them.
 Separation of the individual bones was done manually via paint operations in 2D and 3D.
-Whereas segmentation of larger bone volume was performed using semi-automatic tools like 3D Slicers ``Islands'' tool.
+Whereas segmentation of larger bone volume was performed using semi-automatic tools like 3D Slicers \textit{Islands} tool.
 A brief summary of segmented bones can be seen in \cref{tab:bones}.
 \begin{table}
-	\begin{center}
-		\begin{tabular}{l l}
-			\hline
-			Head              & Os Hyoideum             \\
-			                  & Mandible                \\
-			                  & Skull                   \\
-			                  & superior Incisors       \\
-			                  & inferior Incisors       \\
-			\hline
-			Trunk             & Sternum                 \\
-			                  & Costae 1-13             \\
-			                  & dextral Clavicle        \\
-			                  & sinistral Clavicle      \\
-			                  & dextral Scapula         \\
-			                  & sinistral Scapula       \\
-			                  & cervical Vertebrae 1-7  \\
-			                  & thoracic Vertebrae 1-13 \\
-			                  & lumbar Vertebrae 1-6    \\
-			                  & sacral Vertebrae 1-4    \\
-			                  & Pelvis                  \\
-			                  & caudal Vertebrae 1-27   \\
-			\hline
-			upper Extremities & sinistral Humerus       \\
-			                  & dextral Humerus         \\
-			                  & sinistral Radius        \\
-			                  & dextral Radius          \\
-			                  & sinistral Ulna          \\
-			                  & dextral Ulna            \\
-			                  & dextral front Paw       \\
-			                  & sinistral front Paw     \\
-			\hline
-			lower Extremities & sinistral Femur         \\
-			                  & dextral Femur           \\
-			                  & dextral Sesamoid        \\
-			                  & sinistral Sesamoid      \\
-			                  & sinistral Tibia         \\
-			                  & dextral Tibia           \\
-			                  & sinistral Fibula        \\
-			                  & dextral Fibula          \\
-			                  & sinistral Patella       \\
-			                  & dextral Patella         \\
-			                  & sinistral hind Paw      \\
-			                  & dextral hind Paw        \\
-			\hline
-		\end{tabular}
-		\caption{Segmented bones}\label{tab:bones}
-	\end{center}
+	\centering
+	\begin{tabular}{l l l l}
+		\hline
+		\textbf{Head}              & Os Hyoideum               & \textbf{Trunk}             & Sternum                   \\
+		                           & Mandible                  &                            & Costae 1-13               \\
+		                           & Skull                     &                            & Clavicle  (sin. \& dext.) \\
+		                           & Incisors (sup. \& inf.)   &                            & Scapula  (sin. \& dext.)  \\
+		                           &                           &                            & cervical Vertebrae 1-7    \\
+		                           &                           &                            & thoracic Vertebrae 1-13   \\
+		                           &                           &                            & lumbar Vertebrae 1-6      \\
+		                           &                           &                            & sacral Vertebrae 1-4      \\
+		                           &                           &                            & Pelvis                    \\
+		                           &                           &                            & caudal Vertebrae 1-27     \\
+		\hline
+		\textbf{upper Extremities} & Humerus (sin. \& dext.)   & \textbf{lower Extremities} & Femur (sin. \& dext.)     \\
+		                           & Radius (sin. \& dext.)    &                            & Sesamoid (sin. \& dext.)  \\
+		                           & Ulna (sin. \& dext.)      &                            & Tibia (sin. \& dext.)     \\
+		                           & front Paw (sin. \& dext.) &                            & Fibula (sin. \& dext.)    \\
+		                           &                           &                            & Patella (sin. \& dext.)   \\
+		                           &                           &                            & hind Paw (sin. \& dext.)  \\
+		\hline
+	\end{tabular}\caption{Segmented bones}\label{tab:bones}
 \end{table}
 
 
@@ -227,18 +202,18 @@ A brief summary of segmented bones can be seen in \cref{tab:bones}.
 A guide was created to be sent out to testers in conjunction with a small dataset.
 The \diatx\space framework, described in \cref{s:diataxis}, was chosen as a basis.
 Whereby, the guide was determined to be required to be a composite of the \diatx\space concepts of a
-``Reference manual'' and a ``How-to-guide''.
+\textit{Reference manual} and a \textit{How-to-guide}.
 This is due to the following situation.
-According to \citeauthor{procidaDiataxisDocumentationFramework2023} ``How-to-guides'' can only ever be useful to already competent users and may not allow explanations.
+According to \citeauthor{procidaDiataxisDocumentationFramework2023} \textit{How-to-guides} can only ever be useful to already competent users and may not allow explanations.
 However, it was assumed that the potential testers have little to no experience with segmentation of \mct\space datasets.
 Additionally, it was assumed that potential testers have little to no experience in segmentation with 3D Slicer.
-Therefore, the ``How-to-guide'' portion of the guide had to be paired with introductory information about \mct\space dataset segmentation using 3D Slicer.
-For this part \citeauthor{procidaDiataxisDocumentationFramework2023}s \diatx\space concept of a ``Reference manual'' has been chosen.
+Therefore, the \textit{How-to-guide} portion of the guide had to be paired with introductory information about \mct\space dataset segmentation using 3D Slicer.
+For this part \citeauthor{procidaDiataxisDocumentationFramework2023}s \diatx\space concept of a \textit{Reference manual} has been chosen.
 Additionally, this has been paired with extensive use of the pictograms displayed in \cref{s:mm-pictograms}.
 The guide can be seen in \cref{a:guide}.
 
 
-\subsection{Pictograms}\label{s:mm-pictograms}
+\subsection*{Pictograms}\label{s:mm-pictograms}
 The following black and white pictograms were drawn by the author himself and were explained to readers of the guide in its introductory section:
 \newline
 \begin{figure}[h!]

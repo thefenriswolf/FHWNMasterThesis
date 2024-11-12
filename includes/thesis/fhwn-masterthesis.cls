@@ -26,7 +26,7 @@
 \RequirePackage{csquotes}
 \RequirePackage{graphicx}   %loads the graphics package, necessary for pictures
 \RequirePackage{url}
-\RequirePackage{hyperref}   %Automatically turn all your internal references into hyperlinks.
+\RequirePackage[breaklinks]{hyperref}   %Automatically turn all your internal references into hyperlinks.
 \hypersetup{
 	hidelinks, % don't color links
 	breaklinks=true, % allow multi line links
@@ -201,7 +201,16 @@
 \newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
 	#1\ignorespaces
 }
-\RequirePackage[backend=biber,style=ieee,sorting=none,natbib=true]{biblatex}
+\RequirePackage[
+backend=biber,
+style=ieee,
+sorting=none,
+natbib=true,
+block=ragged
+]{biblatex}
+
+\RequirePackage{adjustbox}
+
 \clubpenalty = 10000
 \widowpenalty = 10000
 \displaywidowpenalty = 10000
