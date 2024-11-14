@@ -320,7 +320,7 @@ thus Differentiating between instances of the same class and performing an exact
 	``Fully automatic, completely reliable segmentation in medical images is an unrealistic expectation [\ldots]''
 \end{displayquote}
 Thus, many clinical and preclinical segmentation workflows still rely on classical segmentation tools \cite{yuTechniquesChallengesImage2023}.
-% better: https://www.v7labs.com/blog/image-segmentation-guide#h4
+% https://www.v7labs.com/blog/image-segmentation-guide#h4
 % https://armanasq.github.io/computer-vision/image-segementation/#1-traditional-methods
 \begin{figure}[h]
 	\centerline{
@@ -542,7 +542,7 @@ Common criteria include color, intensity or texture \cite{jourlinVariousContrast
 \end{figure}
 
 \noindent
-Additionally, a region growing algorithms can be configured to consider a seeds 4-connected neighborhood
+Additionally, a region growing algorithms can be configured to consider a seeds' 4-connected neighborhood
 (\cref{fig:4n}) or 8 connected neighborhood (\cref{fig:8n}) for similar pixels \cite{jourlinVariousContrastConcepts2016,palReviewImageSegmentation1993}.
 Where the black center pixel represents a seed, and its grey neighborhood represents the considered pixels.
 
@@ -564,7 +564,7 @@ The basic steps for a k-means clustering algorithm are as follows:
 	\item Distribute $n$ seed points randomly across the image
 	\item Assign each data point to the closest seed point (see: \cref{fig:kmeans1})
 	\item Compute the center of each cluster and move the seed point there (see: \cref{fig:kmeans2})
-	\item Reassign each datapoint to the new closest seed point
+	\item Reassign each data-point to the new closest seed point
 	\item Repeat steps $3 - 5$ until it satisfies a tolerance value
 \end{enumerate}
 \begin{figure}[h!]
@@ -582,9 +582,9 @@ The basic steps for a k-means clustering algorithm are as follows:
 \end{figure}
 \noindent
 A schematic overview of the k-means clustering algorithm can be seen in \cref{fig:kmeans}.
-\Cref{fig:kmeans1} displays a set of datapoints, represented as black dots, and a small number of
+\Cref{fig:kmeans1} displays a set of data-points, represented as black dots, and a small number of
 cluster seeds, represented as green circles.
-The algorithm first tries to group the datapoints according to their proximity to the seed points, represented as red lines.
+The algorithm first tries to group the data-points according to their proximity to the seed points, represented as red lines.
 In \cref{fig:kmeans2} the seed points have been relocated to better fit the dataset, and the clusters have changed accordingly.
 % https://pdf.sciencedirectassets.com/280203/1-s2.0-S1877050915X00123/1-s2.0-S1877050915014143/main.pdf
 % https://towardsdatascience.com/image-color-segmentation-by-k-means-clustering-algorithm-5792e563f26e

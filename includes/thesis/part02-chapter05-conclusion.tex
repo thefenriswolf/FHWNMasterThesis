@@ -3,31 +3,32 @@
 \chapter{Discussion}\label{c:discussion}
 This chapter provides an overview of the relevance and interpretation of the results in \cref{c:results}.
 However, due to the fact that this study has a small number of participants (n=\numberofTesters),
-it has to be noted that a statistical significance of the results has not achieved.\\
-\Cref{c:limitations} shows limitations and shortcomings of this study.
+it has to be noted that a statistical significance of the results has not achieved.
+Similar to \citeauthor{andersenAccuracyPrecisionManual2018}, segmentation accuracy will be interpreted via overlap using the \acrfull{dc}, where $90\%$ overlap will be considered as \textit{excellent overlap}.
+As well as, border distance using the \acrfull{hd}, where $0.4mm$\footnote{$4$ times the voxel size of $0.1mm$} will be considered as \textit{acceptable agreement}.\\
 Furthermore, \cref{c:conclusion} provides a final conclusion of the topics covered by this thesis.\\
 Finally, \cref{c:future} discusses possible future research.\\
 
 \noindent
-% \section{Evaluation: \acrlong{dc}}
-The \acrfull{dc} which effectively describes the relative overlap of 2 segments showed an improvement for 15 out of 21 (3 segments * 7 testers) (71.43\%) segmentations.\\ %\section{Evaluation: \acrlong{hd}}
-The \acrfull{hd}, which effectively describes the absolute distance between two segments showed the following improvements:\\
-Maximum distance:\\
-17 out of 21 (80.95\%)\\
-Average distance:\\
-14 out of 21 (66.66\%)
+The following sections (\cref{s:seg-eval-scapula} - \cref{s:seg-eval-humerus}) feature tables (\cref{tab:scapula-overlap} - \cref{tab:humerus-distance}), which provide an overview of segmentation improvements for each test person, separated by segmented anatomy and comparison metric.
+Where the values shown in the tables reflect the difference of their segmentation accuracy between pre- and post-guide performance.
 
-\section{Segmentation evaluation: Scapula}
-Scapula segmentation after reading the guide improved for testers:
-2, 3, 4, 5, 6, 7
-Got worse for testers:
-1
-Six out of seven testers seem to have benefited from reading the guide when tasked with segmenting a mouse scapula.
-Improvements according to the \glsxtrlong{dc} were as follows:\\
--0.17, 0.45, 0.11, 0.02, 0.31, 0.09, 0.14 -> mean: 0.1357 -> +13.57\% (more overlap)\\
+% \section{Evaluation: \acrlong{dc}}
+% The \acrfull{dc} which effectively describes the relative overlap of 2 segments showed an improvement for 15 out of 21 (3 segments * 7 testers) (71.43\%) segmentations.\\ %\section{Evaluation: \acrlong{hd}}
+% The \acrfull{hd}, which effectively describes the absolute distance between two segments showed the following improvements:\\
+% Maximum distance:\\
+% 17 out of 21 (80.95\%)\\
+% Average distance:\\
+% 14 out of 21 (66.66\%)
+
+\section{Segmentation evaluation: Scapula}\label{s:seg-eval-scapula}
+As can be seen in \cref{tab:scapula-overlap} segmentation of the scapula with the guide improved in six out of seven testers.
+On average the segmentation overlap between the ground truth and test person's segmentation increased by $13.57\%$.
+Therefore, six out of seven testers seem to have benefited from reading the guide when tasked with segmenting a mouse scapula when comparing their performance using the \glsxtrlong{dc}.
+%-0.17, 0.45, 0.11, 0.02, 0.31, 0.09, 0.14 -> mean: 0.1357 -> +13.57\% (more overlap)\\
 \begin{table}[ht]
 	\begin{center}
-		\begin{tabular}{l l}
+		\begin{tabular}{r r}
 			\textbf{Test person} & \textbf{overlap (\%)} \\
 			\hline
 			1                    & $-17$                 \\
@@ -45,11 +46,13 @@ Improvements according to the \glsxtrlong{dc} were as follows:\\
 \end{table}
 
 \noindent
-Average improvements according to the \glsxtrlong{hd} were as follows:\\
-0.1155, 0.39, -0.1, -0.0084, -9.37, -0.0365, -0.15 -> mean: -1.3085mm (less distance)
+As can be seen in \cref{tab:scapula-distance} segmentation of the scapula with the guide improved in five out of seven testers.
+On average the distance between segmentation borders between the ground truth and the test person segmentation decreased by $1.3085mm$.
+Therefore, five out of seven testers seem to have benefited from reading the guide when tasked with segmenting a mouse scapula when comparing their performance using the \glsxtrlong{hd}.
+%0.1155, 0.39, -0.1, -0.0084, -9.37, -0.0365, -0.15 -> mean: -1.3085mm (less distance)
 \begin{table}[ht]
 	\begin{center}
-		\begin{tabular}{l l}
+		\begin{tabular}{r r}
 			\textbf{Test person} & \textbf{distance ($mm$)} \\
 			\hline
 			1                    & $0.1155$                 \\
@@ -67,16 +70,14 @@ Average improvements according to the \glsxtrlong{hd} were as follows:\\
 \end{table}
 
 
-\section{Segmentation evaluation: Clavicle}
-Clavicle segmentation after reading the guide improved for testers:
-2, 4, 5, 6, 7
-Got worse for testers:
-1, 3
-Improvements according to the \glsxtrlong{dc} were as follows:\\
--0.05, 0.32, -0.01, 0.01, 0.7478, 0.14, 0.09 -> mean: 0.1782 -> 17.82\%\\
+\section{Segmentation evaluation: Clavicle}\label{s:seg-eval-clavicle}
+As can be seen in \cref{tab:clavicle-overlap} segmentation of the clavicle with the guide improved in five out of seven testers.
+On average the segmentation overlap between the ground truth and test person's segmentation increased by $17.82\%$.
+Therefore, five out of seven testers seem to have benefited from reading the guide when tasked with segmenting a mouse clavicle when comparing their performance using the \glsxtrlong{dc}.
+%-0.05, 0.32, -0.01, 0.01, 0.7478, 0.14, 0.09 -> mean: 0.1782 -> 17.82\%\\
 \begin{table}[ht]
 	\begin{center}
-		\begin{tabular}{l l}
+		\begin{tabular}{r r}
 			\textbf{Test person} & \textbf{overlap (\%)} \\
 			\hline
 			1                    & $-5$                  \\
@@ -94,11 +95,13 @@ Improvements according to the \glsxtrlong{dc} were as follows:\\
 \end{table}
 
 \noindent
-Average improvements according to the \glsxtrlong{hd} were as follows:\\
-0.027, 0.3, 0.04, -0.0042, -7.4751, -0.0615, -0.0318 -> mean: -1.02937mm
+As can be seen in \cref{tab:clavicle-distance} segmentation of the scapula with the guide improved in four out of seven testers.
+On average the distance between segmentation borders between the ground truth and the test person segmentation decreased by $1.029mm$.
+Therefore, four out of seven testers seem to have benefited from reading the guide when tasked with segmenting a mouse scapula when comparing their performance using the \glsxtrlong{hd}.
+%0.027, 0.3, 0.04, -0.0042, -7.4751, -0.0615, -0.0318 -> mean: -1.02937mm
 \begin{table}[ht]
 	\begin{center}
-		\begin{tabular}{l l}
+		\begin{tabular}{r r}
 			\textbf{Test person} & \textbf{distance ($mm$)} \\
 			\hline
 			1                    & $0.027$                  \\
@@ -117,16 +120,14 @@ Average improvements according to the \glsxtrlong{hd} were as follows:\\
 
 
 
-\section{Segmentation evaluation: Humerus}
-Clavicle segmentation after reading the guide improved for testers:
-1, 2, 4, 5, 6, 7
-Got worse for testers:
-3
-Improvements according to the \glsxtrlong{dc} were as follows:\\
--0.05, 0.69, -0.03, 0, 0.52, 0.08, 0.03 -> mean: 0.1771 -> 17.71\%\\
+\section{Segmentation evaluation: Humerus}\label{s:seg-eval-humerus}
+As can be seen in \cref{tab:humerus-overlap} segmentation of the clavicle with the guide improved in six out of seven testers.
+On average the segmentation overlap between the ground truth and test person's segmentation increased by $17.71\%$.
+Therefore, six out of seven testers seem to have benefited from reading the guide when tasked with segmenting a mouse clavicle when comparing their performance using the \glsxtrlong{dc}.
+%-0.05, 0.69, -0.03, 0, 0.52, 0.08, 0.03 -> mean: 0.1771 -> 17.71\%\\
 \begin{table}[ht]
 	\begin{center}
-		\begin{tabular}{l l}
+		\begin{tabular}{r r}
 			\textbf{Test person} & \textbf{overlap (\%)} \\
 			\hline
 			1                    & $-5$                  \\
@@ -144,11 +145,13 @@ Improvements according to the \glsxtrlong{dc} were as follows:\\
 \end{table}
 
 \noindent
-Average improvements according to the \glsxtrlong{hd} were as follows:\\
--0.17, 0.07, 0.0069, -0.0168, -16.4959, -0.0528, -0.0156 -> mean: -2.382mm
+As can be seen in \cref{tab:humerus-distance} segmentation of the scapula with the guide improved in five out of seven testers.
+On average the distance between segmentation borders between the ground truth and the test person segmentation decreased by $2.382mm$.
+Therefore, five out of seven testers seem to have benefited from reading the guide when tasked with segmenting a mouse scapula when comparing their performance using the \glsxtrlong{hd}.
+%-0.17, 0.07, 0.0069, -0.0168, -16.4959, -0.0528, -0.0156 -> mean: -2.382mm
 \begin{table}[ht]
 	\begin{center}
-		\begin{tabular}{l l}
+		\begin{tabular}{r r}
 			\textbf{Test person} & \textbf{distance ($mm$)} \\
 			\hline
 			1                    & $-0.17$                  \\
@@ -165,11 +168,75 @@ Average improvements according to the \glsxtrlong{hd} were as follows:\\
 	\end{center}
 \end{table}
 
+\section{Interpretation and comparison with Literature}
+\Citeauthor{andersenAccuracyPrecisionManual2018} compared manual segmentation between MRI and CT scans of the same patients by different operators and defined the results via the \acrlong{dc} and \acrlong{hd}.
+They defined a \acrshort{dc} value of $0.9$ or $90\%$ as \textit{excellent agreement}.
+Furthermore, they defined a border distance (\acrshort{hd}) equal to 4 times the acquired voxel size as \textit{acceptable agreement} \cite{andersenAccuracyPrecisionManual2018}.
+In this study the author introduces the term of \textit{acceptable agreement} for the \acrshort{dc} for an overlap of $80\%$.
+
+\noindent
+Referring back to \cref{c:results}, \textit{excellent agreement} after reading the guide,
+according to the \acrlong{dc} was achieved by test person 4 for all tree anatomical structures,
+test person 6 for humerus segmentation
+and test person 7 for clavicle and humerus segmentation.
+Therefore, the highest agreement after reading the guide was achieved for humerus segmentation by $42.86\%$ of testers (see: \cref{tab:dc-excellent}).
+\begin{table}[ht]
+	\begin{center}
+		\begin{tabular}{l l l}
+			\textbf{Anatomical structure} & testers in agreement (total) & testers in  agreement (\%) \\
+			\hline
+			scapula                       & 0/7                          & 0                          \\
+			clavicle                      & 1/7                          & 14.29                      \\
+			humerus                       & 3/7                          & 42.86                      \\
+		\end{tabular}
+		\caption{\textit{Excellent agreement: \acrshort{dc}}}\label{tab:dc-excellent}
+	\end{center}
+\end{table}
+
+% humerus 1, 2, 3, 4, 5, 6, 7
+% clavicle 4, 5, 6, 7
+% scapula 4, 6
+\noindent
+\textit{Acceptable agreement} after reading the guide, according to the \acrshort{dc} was achieved by all testers for the humerus,
+testers 4, 5, 6, and 7 for the clavicle
+and testers 4 and 6 for the scapula.
+Therefore, the highest agreement after reading the guide was achieved for humerus segmentation by $100\%$ of testers (see: \cref{tab:dc-acceptable}).
+Second-highest agreement was achieved for clavicle segmentation by $57.15\%$ of testers.
+\begin{table}[ht]
+	\begin{center}
+		\begin{tabular}{l l l}
+			\textbf{Anatomical structure} & agreement (total) & agreement (\%) \\
+			\hline
+			scapula                       & 2/7               & 28.57          \\
+			clavicle                      & 4/7               & 57.15          \\
+			humerus                       & 7/7               & 100            \\
+		\end{tabular}
+		\caption{\textit{Acceptable agreement: \acrshort{dc}}}\label{tab:dc-acceptable}
+	\end{center}
+\end{table}
+
+\noindent
+% scapula 1, 3, 4, 5, 6, 7
+% clavicle 1, 3, 4, 5, 6, 7
+% humerus 1, 3, 4, 5, 6, 7
+\textit{Acceptable agreement} after reading the guide, according to the \acrshort{hd} was achieved for all anatomical structures by six out of seven testers (see: \cref{tab:hd-acceptable}).
+The outlier being test person 2.
+Therefore, most testers achieved a high degree of agreement after reading the guide for all segmented structures.
+\begin{table}[ht]
+	\begin{center}
+		\begin{tabular}{l l l}
+			\textbf{Anatomical structure} & agreement (total) & agreement (\%) \\
+			\hline
+			scapula                       & 6/7               & 85.71          \\
+			clavicle                      & 6/7               & 85.71          \\
+			humerus                       & 6/7               & 85.71          \\
+		\end{tabular}
+		\caption{\textit{Acceptable agreement: \acrshort{hd}}}\label{tab:hd-acceptable}
+	\end{center}
+\end{table}
 
 
-\section{Limitations}\label{c:limitations}
-
-\chapter{Conclusion}\label{c:conclusion}
+\chapter{Conclusion and Limitations}\label{c:conclusion}
 The main goal of this thesis was to determine, whether inexperienced people facing a \mct\space segmentation task benefit from reading a guide beforehand.
 This is relevant because segmentation is an important step in quantitative image analysis studies.
 Giving researchers a head start in segmentation tasks would likely improve segmentation speed and accuracy.
@@ -185,7 +252,7 @@ Future research could however, reliably answer the research question of whether 
 
 \section*{Future Research}\label{c:future}
 This thesis provides a basis for future research in medical imaging segmentation documentation and guidance.
-Further points of research can be inferred from the limitations described in \cref{c:limitations}.\\
+Further points of research can be inferred from the limitations described in \cref{c:conclusion}.\\
 First and foremost, as this paper only managed to gather results from a limited number\footnote{n=\numberofTesters} of testers, the issue with tester participation needs to be addressed in follow-up research.
 This could be solved via the following steps.
 Firstly, allocating more time for testers to perform the task.
