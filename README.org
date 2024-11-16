@@ -27,8 +27,8 @@ Please see the corresponding files.
 | Step              | planned Date | actual Date |
 |-------------------+--------------+-------------|
 | Research Proposal |   18.02.2024 |  12.02.2024 |
-| Experiments       |              |             |
-| Thesis            |              |             |
+| Experiments       |   01.05.2024 |  01.08.2024 |
+| Thesis            |              |  08.12.2024 |
 | Presentation      |              |             |
 
 * How to build
