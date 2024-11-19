@@ -9,6 +9,5 @@ pkgs.mkShell {
     pkgs.python312
     pkgs.inkscape
     pkgs.poppler_utils
-    # pkgs.pdfmm # compress pdf
   ];
 }
