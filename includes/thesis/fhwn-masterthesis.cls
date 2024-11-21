@@ -206,7 +206,7 @@ backend=biber,
 style=ieee,
 sorting=none,
 natbib=true,
-block=ragged
+block=space
 ]{biblatex}
 
 \RequirePackage{adjustbox}

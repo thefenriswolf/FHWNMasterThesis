@@ -3,28 +3,20 @@
 \chapter{Discussion}\label{c:discussion}
 This chapter provides an overview of the relevance and interpretation of the results in \cref{c:results}.
 However, due to the fact that this study has a small number of participants (n=\numberofTesters),
-it has to be noted that a statistical significance of the results has not achieved.
-Similar to \citeauthor{andersenAccuracyPrecisionManual2018}, segmentation accuracy will be interpreted via overlap using the \acrfull{dc}, where $90\%$ overlap will be considered as \textit{excellent overlap}.
+it has to be noted that a statistical significance of the results has not been achieved.
+Similar to \citeauthor{andersenAccuracyPrecisionManual2018}, segmentation accuracy will be interpreted via overlap using the \acrfull{dc}, where $90\%$ overlap will be considered as \textit{excellent overlap} \cite{andersenAccuracyPrecisionManual2018}.
 As well as, border distance using the \acrfull{hd}, where $0.4mm$\footnote{$4$ times the voxel size of $0.1mm$} will be considered as \textit{acceptable agreement}.\\
-Furthermore, \cref{c:conclusion} provides a final conclusion of the topics covered by this thesis.\\
-Finally, \cref{c:future} discusses possible future research.\\
+Furthermore, \cref{c:conclusion} provides a final conclusion of the topics covered by this thesis and discusses possible future research.\\
 
 \noindent
 The following sections (\cref{s:seg-eval-scapula} - \cref{s:seg-eval-humerus}) feature tables (\cref{tab:scapula-overlap} - \cref{tab:humerus-distance}), which provide an overview of segmentation improvements for each test person, separated by segmented anatomy and comparison metric.
 Where the values shown in the tables reflect the difference of their segmentation accuracy between pre- and post-guide performance.
 
-% \section{Evaluation: \acrlong{dc}}
-% The \acrfull{dc} which effectively describes the relative overlap of 2 segments showed an improvement for 15 out of 21 (3 segments * 7 testers) (71.43\%) segmentations.\\ %\section{Evaluation: \acrlong{hd}}
-% The \acrfull{hd}, which effectively describes the absolute distance between two segments showed the following improvements:\\
-% Maximum distance:\\
-% 17 out of 21 (80.95\%)\\
-% Average distance:\\
-% 14 out of 21 (66.66\%)
 
 \section{Segmentation evaluation: Scapula}\label{s:seg-eval-scapula}
-As can be seen in \cref{tab:scapula-overlap} segmentation of the scapula with the guide improved in six out of seven testers.
+As can be seen in \cref{tab:scapula-overlap}, segmentation of the scapula with the guide improved in six out of seven testers.
 The mean values of the segmentation overlap between the ground truth and the test person's segmentation increased by $13.57\%$.
-Thus, six out of seven testers appeared to derive benefit from reading the guide when tasked with segmenting a 
+Thus, six out of seven testers appear to derive benefit from reading the guide when tasked with segmenting a
 mouse scapula when comparing their performance using the \glsxtrlong{dc}.
 %-0.17, 0.45, 0.11, 0.02, 0.31, 0.09, 0.14 -> mean: 0.1357 -> +13.57\% (more overlap)\\
 \begin{table}[ht]
@@ -42,15 +34,14 @@ mouse scapula when comparing their performance using the \glsxtrlong{dc}.
 			\hline
 			Average              & $13.57$               \\
 		\end{tabular}
-		\caption{Evaluation: \acrshort{dc} scaplula}\label{tab:scapula-overlap}
+		\caption{Evaluation: \acrshort{dc} scapula}\label{tab:scapula-overlap}
 	\end{center}
 \end{table}
 
 \noindent
-As can be seen in \cref{tab:scapula-distance} segmentation of the scapula with the guide demonstrated enhanced outcomes in five out of seven testers.
-The mean distance between of the segmentation borders between the ground truth and the test person segmentation decreased by $1.3085mm$.
-Therefore, five out of seven testers seem to have benefited from reading the guide when tasked with segmenting a mouse scapula when 
-comparing their performance using the \glsxtrlong{hd}.
+Five out of seven testers showed improved results when the scapula was segmented using the guide, as shown \cref{tab:scapula-distance}.
+Between the test persons segmentation and the ground truth, the average distance between the segmentation borders dropped by $1.3085mm$.
+Consequently, it appears that reading the guide helped five out of seven participants with the mouse scapula segmentation task.
 %0.1155, 0.39, -0.1, -0.0084, -9.37, -0.0365, -0.15 -> mean: -1.3085mm (less distance)
 \begin{table}[ht]
 	\begin{center}
@@ -67,15 +58,15 @@ comparing their performance using the \glsxtrlong{hd}.
 			\hline
 			Average              & $-1.3085$                \\
 		\end{tabular}
-		\caption{Evaluation: \acrshort{hd} scaplula}\label{tab:scapula-distance}
+		\caption{Evaluation: \acrshort{hd} scapula}\label{tab:scapula-distance}
 	\end{center}
 \end{table}
 
 
 \section{Segmentation evaluation: Clavicle}\label{s:seg-eval-clavicle}
-As can be seen in \cref{tab:clavicle-overlap} segmentation of the clavicle with the guide improved in five out of seven testers.
-On average the segmentation overlap between the ground truth and test person's segmentation increased by $17.82\%$.
-Therefore, five out of seven testers seem to have benefited from reading the guide when tasked with segmenting a mouse 
+Depicted in \cref{tab:clavicle-overlap} is the clavicle segmentation improvement in five out of seven participants.
+On average, the segmentation overlap between the ground truth and test person's segmentation increased by $17.82\%$.
+To conclude, five out of seven testers seem to have benefited from reading the guide when tasked with segmenting a mouse
 clavicle, as compared to their performance using the \glsxtrlong{dc}.
 %-0.05, 0.32, -0.01, 0.01, 0.7478, 0.14, 0.09 -> mean: 0.1782 -> 17.82\%\\
 \begin{table}[ht]
@@ -98,10 +89,9 @@ clavicle, as compared to their performance using the \glsxtrlong{dc}.
 \end{table}
 
 \noindent
-As can be seen in \cref{tab:clavicle-distance} segmentation of the scapula with the guide improved in four out of seven testers.
-On average the distance between segmentation borders between the ground truth and the test person segmentation decreased by $1.029mm$.
-Therefore, four out of seven testers seem to have benefited from reading the guide when tasked with segmenting a mouse scapula 
-when comparing their results using the \glsxtrlong{hd}.
+\Cref{tab:clavicle-distance} shows that segmentation of the clavicle with the guide improved in four out of seven testers.
+The average distance between segmentation borders between the ground truth and the test person segmentation decreased by $1.029mm$.
+This entails that four out of seven testers benefited from reading the guide when tasked with segmenting a mouse clavicle, as shown by their results using the \acrlong{hd} as a metric.
 %0.027, 0.3, 0.04, -0.0042, -7.4751, -0.0615, -0.0318 -> mean: -1.02937mm
 \begin{table}[ht]
 	\begin{center}
@@ -125,10 +115,10 @@ when comparing their results using the \glsxtrlong{hd}.
 
 
 \section{Segmentation evaluation: Humerus}\label{s:seg-eval-humerus}
-As can be seen in \cref{tab:humerus-overlap} segmentation of the clavicle with the guide improved in four out of seven testers.
+As can be seen in \cref{tab:humerus-overlap} segmentation of the humerus with the guide improved in four out of seven testers.
 The mean value of the segmentation overlap between the ground truth and the test person's segmentation increased by $17.71\%$.
-Thus, six out of seven testers appeared to have benefited from reading the guide when tasked with segmenting a mouse 
-clavicle when comparing their performance using the \glsxtrlong{dc}.
+Thus, four out of seven testers appeared to have benefited from reading the guide when tasked with segmenting a mouse
+humerus when comparing their performance using the \glsxtrlong{dc}.
 %-0.05, 0.69, -0.03, 0, 0.52, 0.08, 0.03 -> mean: 0.1771 -> 17.71\%\\
 \begin{table}[ht]
 	\begin{center}
@@ -150,10 +140,9 @@ clavicle when comparing their performance using the \glsxtrlong{dc}.
 \end{table}
 
 \noindent
-As can be seen in \cref{tab:humerus-distance} segmentation of the scapula with the guide improved in five out of seven testers.
+As can be seen in \cref{tab:humerus-distance} segmentation of the humerus with the guide improved in five out of seven testers.
 On average the distance between segmentation borders between the ground truth and the test person segmentation decreased by $2.382mm$.
-Therefore, five out of seven testers seem to have benefited from reading the guide when tasked with segmenting a mouse scapula 
-when comparing their performance using the \glsxtrlong{hd}.
+Therefore, five out of seven testers seem to have benefited from reading the guide when tasked with segmenting a mouse humerus when comparing their performance using the \glsxtrlong{hd}.
 %-0.17, 0.07, 0.0069, -0.0168, -16.4959, -0.0528, -0.0156 -> mean: -2.382mm
 \begin{table}[ht]
 	\begin{center}
@@ -175,20 +164,20 @@ when comparing their performance using the \glsxtrlong{hd}.
 \end{table}
 
 \section{Interpretation and comparison with Literature}
-In their study, \citeauthor{andersenAccuracyPrecisionManual2018} compared manual segmentation between MRI and CT scans of the same patients performed by 
-different operators and defined the results via the \acrfull{dc} and \acrfull{hd}.
+In their study, \citeauthor{andersenAccuracyPrecisionManual2018} compared manual segmentation between MRI and CT scans of the same patients performed by
+different operators and defined the results via the \acrfull{dc} and \acrfull{hd} \cite{andersenAccuracyPrecisionManual2018}.
 A \acrshort{dc} value of $0.9$ or $90\%$, was defined as \textit{excellent agreement} by the researchers.
-Moreover, they defined a border distance (\acrshort{hd}) equal to four times the acquired voxel size 
+Moreover, they defined a border distance (\acrshort{hd}) equal to four times the acquired voxel size
 as \textit{acceptable agreement} \cite{andersenAccuracyPrecisionManual2018}.
 In this study the author introduces the term of \textit{acceptable agreement} for the \acrshort{dc} for an overlap of $80\%$.
 
 \noindent
 As indicated in \cref{c:results}, \textit{excellent agreement} after reading the guide,
 according to the \acrlong{dc} was achieved by several testers.
-Test person 4 for all tree anatomical structures,
+Test person 4 for all three anatomical structures,
 test person 6 for humerus segmentation
 and test person 7 for clavicle and humerus segmentation.
-Accordingly, the highest level of agreement after reading the guide was attained for humerus segmentation 
+Accordingly, the highest level of agreement after reading the guide was attained for humerus segmentation
 by $42.86\%$ of testers (see: \cref{tab:dc-excellent}).
 \begin{table}[ht]
 	\begin{center}
@@ -210,7 +199,7 @@ by $42.86\%$ of testers (see: \cref{tab:dc-excellent}).
 \textit{Acceptable agreement} after reading the guide, according to the \acrshort{dc} was achieved by all testers for the humerus,
 testers 4, 5, 6, and 7 for the clavicle
 and testers 4 and 6 for the scapula.
-Consequently, the highest level of consensus after reading the guide was achieved for humerus segmentation with $100\%$ 
+Consequently, the highest level of consensus after reading the guide was achieved for humerus segmentation with $100\%$
 of testers achieving full agreement (see: \cref{tab:dc-acceptable}).
 The second-highest level of agreement was achieved for clavicle segmentation by $57.15\%$ of testers.
 \begin{table}[ht]
@@ -230,7 +219,7 @@ The second-highest level of agreement was achieved for clavicle segmentation by 
 % scapula 1, 3, 4, 5, 6, 7
 % clavicle 1, 3, 4, 5, 6, 7
 % humerus 1, 3, 4, 5, 6, 7
-\textit{Acceptable agreement} after reading the guide, according to the \acrshort{hd} was achieved for all anatomical 
+\textit{Acceptable agreement} after reading the guide, according to the \acrshort{hd} was achieved for all anatomical
 structures by six out of seven testers (see: \cref{tab:hd-acceptable}).
 Test person 2 exhibited a discrepancy from the rest of the group.
 Consequently, the majority of testers demonstrated a high degree of agreement following the reading of the guide for all segmented structures.
@@ -249,7 +238,7 @@ Consequently, the majority of testers demonstrated a high degree of agreement fo
 
 
 \chapter{Conclusion and Limitations}\label{c:conclusion}
-The primary objective of this thesis was to investigate whether individuals with limited experience in micro-CT segmentation tasks may derive benefit from 
+The primary objective of this thesis was to investigate whether individuals with limited experience in micro-CT segmentation tasks may derive benefit from
 the use of a guide or reference material prior to undertaking the task.
 This is a relevant topic of investigation because the process of segmentation represents a crucial step in the context of quantitative image analysis studies.
 Providing researchers with a head start in segmentation tasks is likely to result in improved segmentation speed and accuracy.
@@ -257,25 +246,26 @@ In this study, a guide was created which describes the process of segmenting mou
 The guide was distributed to the testers with the task of performing segmentation without any help from the guide on 3 bones.
 Subsequently, the task was repeated on the contralateral side with the aid of the guide.
 The resulting segmentations were then compared to a gold standard segmentation and analyzed.
-The limited sample size did not allow for a statistically significant demonstration of improvement in the segmentations. 
+The limited sample size did not allow for a statistically significant demonstration of improvement in the segmentations.
 However, the results suggest that a larger number of testers would likely show more notable enhancements in segmentation accuracy.
-In conclusion, the present study was unable to demonstrate statistically significant improvements due to the limited sample size. 
-Nevertheless, future research could provide a more definitive answer to the research question of whether the use of a 
+In conclusion, the present study was unable to demonstrate statistically significant improvements due to the limited sample size.
+Nevertheless, future research could provide a more definitive answer to the research question of whether the use of a
 segmentation guide improves segmentation quality when employed by individuals with limited experience.
 
 
 \section*{Future Research}\label{c:future}
 This thesis provides a basis for future research in the area of medical imaging segmentation documentation and guidance.
 Further points of research can be inferred from the limitations described in \cref{c:conclusion}.\\
-First and foremost, as this paper only managed to gather results from a limited number\footnote{n=\numberofTesters} of testers, 
-the challenge with tester participation needs to be addressed in follow-up research.
+First and foremost, as this paper only managed to gather results from a limited number\footnote{n=\numberofTesters} of testers,
+the challenge with participant numbers needs to be addressed in follow-up research.
 This could be solved via the following steps.
 Firstly, it would be beneficial to allocate more time for testers to complete the task.
 Secondly, it would be beneficial to engage a greater number of testers from the outset.
-Secondly, the segmentation performance of different guide structures may be evaluated by strategic \textit{A/B testing} as 
-described by \citeauthor{brataUserExperienceImprovement2020}.
+Secondly, the segmentation performance of different guide structures may be evaluated by strategic \textit{A/B testing} as
+described by \citeauthor{brataUserExperienceImprovement2020} \cite{brataUserExperienceImprovement2020}.
 Whereby, testers are divided into two groups without their knowledge.
 Version A of a guide is handed out to group A and version B of a guide is handed out to group B.
-By comparing the performance of the two groups, the performance of different guide formats can be indirectly evaluated \cite{brataUserExperienceImprovement2020}.\\
+By comparing the performance of the two groups, the success rate of different guide formats can be indirectly evaluated \cite{brataUserExperienceImprovement2020}.\\
 Furthermore, to ensure a consistent bone mask across all testing participants a fixed HU threshold range should be defined \cite{chavezGuidelinesMicroComputed2021}.\\
 Therefore, additional research is required to answer the research question of whether inexperienced users benefit from a segmentation guide.
+

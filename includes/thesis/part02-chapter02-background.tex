@@ -8,8 +8,8 @@
 
 \chapter{Background}\label{c:background}
 This section is devoted to providing the theoretical background that was necessary for the study.
-This section is structured as follows:\\
-First and foremost, an introduction to the operating principle of a \mct\space will be provided in \cref{s:b-microct}.
+\Cref{c:background} is structured as follows:\\
+First and foremost, an introduction to the operating principle of a \mct\space will be provided in \cref{s:b-microct}.\\
 Secondly, \cref{s:guide-creation} will give an overview of the composition of a guide.\\
 Thirdly, an evaluation of the segmentation techniques and algorithms is given in \cref{s:b-segmentation-basics}.\\
 Fourth, an overview of possible digital representation methods of segmentations is given in \cref{s:b-seg-rep}.\\
@@ -58,7 +58,7 @@ The light is then detected with an image sensor, which can be either a \acrfull{
 Micro-CT employs high-resolution flat panel detectors with pixel sizes of less than 100 $\mu m^{2}$ \cite{clarkAdvancesMicroCTImaging2021,clarkMicroCTRodentsStateart2014}.
 They can, however, achieve \gls{iso} \gls{vx} sizes in a range between 400 nm and 70 $\mu m$ \cite{orhanMicrocomputedTomographyMicroCT2020}.
 To produce a scan, the \mct\space captures several hundred, two-dimensional cone beam projections of different angles around the animal or object \cite{clarkMicroCTRodentsStateart2014,ritmanCurrentStatusDevelopments2011,clarkAdvancesMicroCTImaging2021}.
-The rotation angles can be in 180$^{\circ}$ or 360$^{\circ}$ \cite{orhanMicrocomputedTomographyMicroCT2020}.
+The rotation angles can be in the range of 0 to 180$^{\circ}$ or 0 to 360$^{\circ}$ \cite{orhanMicrocomputedTomographyMicroCT2020}.
 Image information can be described as the amount of attenuation of the X-ray beam at a specific path through the volume \cite{orhanMicrocomputedTomographyMicroCT2020}.
 This attenuation is described by the following \cref{eqn:attenuation}:
 \begin{equation}\label{eqn:attenuation}
@@ -80,9 +80,10 @@ Generally speaking, increasing the amount of projections leads to a more accurat
 
 
 \subsection{Data processing}\label{s:b-mct-processing}
-Once all needed projections, as shown in \cref{fig:ct-projections}, are performed and stored on a computer, they can be reconstructed into the final image, or in the case of a volume dataset, multiple images \cite{liMicrocomputedTomographySmall2008,orhanMicrocomputedTomographyMicroCT2020}.
+Once all needed projections, as shown in \cref{fig:ct-projections}, are performed and stored on a computer, they can be reconstructed into the final image.
+Or in the case of a volume dataset, multiple images \cite{liMicrocomputedTomographySmall2008,orhanMicrocomputedTomographyMicroCT2020}.
 A single projection can be described as a radiograph, which represents the intensity of the object at a particular angle \cite{liMicrocomputedTomographySmall2008,orhanMicrocomputedTomographyMicroCT2020}.
-The radiographs differentiate either 65,536 (16-\gls{bit}) grey values or 256 (8-\gls{bit}) grey values, which are directly related to the X-ray absorption \cite{liMicrocomputedTomographySmall2008,orhanMicrocomputedTomographyMicroCT2020}.
+The radiographs differentiate either 65,536 (16-\gls{bit}) gray values or 256 (8-\gls{bit}) gray values, which are directly related to the X-ray absorption \cite{liMicrocomputedTomographySmall2008,orhanMicrocomputedTomographyMicroCT2020}.
 To convert these two-dimensional radiographs into a three-dimensional dataset, the application of a reconstruction algorithm is required.
 Before any reconstruction algorithm can be utilized, however, the data needs to be preprocessed.
 This step compensates for factors such as detector response heterogeneity, defective pixels, X-ray intensity drift and electronic noise \cite{liMicrocomputedTomographySmall2008}.
@@ -171,7 +172,7 @@ and the expert could be a support person.
 The documentation author should now, come up with several problems each fictional reader would try to solve with the help of documentation \cite{shorterGoodDocsProject2024}.
 Furthermore, the author is supposed to compose a table and score the likeliness each reader is
 going to use the documentation to complete the task.
-The score ranges from 1, which is the lowest likelihood, to 3 which is the highest likelihood.
+The score ranges from 1, which is the lowest likelihood, to 3, which is the highest likelihood.
 Next, the author needs to sum up each row.
 The resulting \textit{Critical Path Score} is then intended to give the author insight about the importance of different documentation
 content \cite{shorterGoodDocsProject2024}.
@@ -205,7 +206,6 @@ The \textit{\diatx\space documentation framework} by Daniele Procida \cite{proci
 is extensively used for technical documentation by software projects like NumPy \cite{harrisArrayProgrammingNumPy2020}, Django \cite{Django2013} and large companies like Canonical (Canonical Limited, Douglas, Isle of Man) and Cloudflare (Cloudflare, Inc., San Francisco, California, U.S.A.).
 \diatx\space bases itself on four basic concepts to divide documentation into four different types with different structures according to their goals.\\
 
-
 \begin{figure}
 	\begin{center}
 		\begin{tikzpicture}
@@ -225,13 +225,13 @@ is extensively used for technical documentation by software projects like NumPy 
 	\end{center}
 	\caption{\diatx\space Foundations \cite{procidaDiataxisDocumentationFramework2023}}\label{fig:diataxis-foundation}
 \end{figure}
-
+\pagebreak
 
 \noindent
 As can be seen in \cref{fig:diataxis-foundation}, the documentation author first ought to decide which scale their documentation applies to.
-The target audience may be interested in practical or theoretical knowledge, the documentation author traces the y-axis of \cref{fig:diataxis-foundation} in a positive or negative direction.
+The target audience may be interested in practical or theoretical knowledge, the author traces the y-axis of \cref{fig:diataxis-foundation} in a positive or negative direction.
 \citeauthor{procidaDiataxisDocumentationFramework2023} then instructs documentation authors to decide if their target audience is interested in documentation that either serves further study or leads to directly applicable practical knowledge.
-Documentation authors should therefore trace the x-axis of \cref{fig:diataxis-foundation} in a positive or negative direction, finally arriving at the type of documentation they should compose for the task at hand \cite{procidaPythonDocsCommunity2022}.
+Documentation writers should therefore trace the x-axis of \cref{fig:diataxis-foundation} in a positive or negative direction, finally arriving at the type of documentation they should compose for the task at hand \cite{procidaPythonDocsCommunity2022}.
 \citeauthor{procidaDiataxisDocumentationFramework2023} explains the purpose of his four types of documentation as follows:
 \begin{description}
 	\item[Tutorial] Teaches the user in basic competence in a skill by having them follow practical steps.
@@ -239,15 +239,16 @@ Documentation authors should therefore trace the x-axis of \cref{fig:diataxis-fo
 	\item[Explanation] Helps users understand theoretical concepts about their skill.
 	\item[Reference] Gives the user information about a skill without outlining the steps they need to take.
 \end{description}
-Additionally, \citeauthor{procidaDiataxisDocumentationFramework2023} mentions that these types do not pose hard limits on what documentation can contain. They are rather meant to remind the author about the needs of users.
-According to these criteria the guides practical section is based on \citeauthor{procidaDiataxisDocumentationFramework2023}s structure for How-to guides, and its theoretical section is based on his structure for Explanation style documentation.
+\noindent
+Additionally, \citeauthor{procidaDiataxisDocumentationFramework2023} mentions that these types do not pose hard limits on what documentation can contain. They are rather meant to remind the author about the needs of users \cite{procidaDiataxisDocumentationFramework2023}.
+According to these criteria the guides practical section is based on \citeauthor{procidaDiataxisDocumentationFramework2023}s structure for How-to guides, and its theoretical section is based on his structure for Explanation style documentation \cite{procidaDiataxisDocumentationFramework2023}.
 
 \subsubsection*{Tutorial}
-A tutorial should be interpreted as a practical activity according to \citeauthor{procidaDiataxisDocumentationFramework2023}.
+A tutorial should be interpreted as a practical activity according to \citeauthor{procidaDiataxisDocumentationFramework2023} \cite{procidaDiataxisDocumentationFramework2023}.
 It aids the user in acquiring skills and knowledge by performing a meaningful and achievable task.
 Tutorials should therefore be seen as lessons.
-Whereby, what a student does will not directly relate to what they will learn.
-Instead they are meant to learn theoretical knowledge i.e. how things relate and interact and by extension also how to interact with them \cite{procidaPythonDocsCommunity2022,procidaDiataxisDocumentationFramework2023}.
+Furthermore, what a student does will not directly relate to what they will learn.
+Instead, they are meant to learn theoretical knowledge, for instance: how things relate and interact and by extension also how to interact with them \cite{procidaPythonDocsCommunity2022,procidaDiataxisDocumentationFramework2023}.
 
 \subsubsection*{How-to guide}
 \citeauthor{procidaDiataxisDocumentationFramework2023} implores that How-to guides need to have practical utility and a clear objective.
@@ -256,13 +257,13 @@ Thus, on page \pageref{a:guide} the guide has explanations about the basic usage
 \citeauthor{procidaDiataxisDocumentationFramework2023} requires How-to guides to feature imperative language that does not allow for digression or explanation \cite{procidaPythonDocsCommunity2022,procidaDiataxisDocumentationFramework2023}.
 
 \subsubsection*{Explanation}
-Explanation documentation, according to \citeauthor{procidaDiataxisDocumentationFramework2023}, on the other hand, is defined as offering context to users.
+Explanation documentation, as stated by \citeauthor{procidaDiataxisDocumentationFramework2023}, on the other hand, is defined as offering context to users.
 It is supposed to establish connections between concepts and deepen the user's theoretical understanding of the skill.
 While also offering the user choices and reasons to do something a particular way, or even explain why something is not recommended \cite{procidaPythonDocsCommunity2022,procidaDiataxisDocumentationFramework2023}.
 
 \subsubsection*{Reference}
-Reference documentation material, according to \citeauthor{procidaDiataxisDocumentationFramework2023}, contains theoretical knowledge that a user looks to in their work.
-In the case of software like 3D Slicer, reference guide describes the software itself.
+Reference documentation material, as defined by \citeauthor{procidaDiataxisDocumentationFramework2023}, contains theoretical knowledge that a user looks to in their work.
+In the case of software, like 3D Slicer, reference guide describes the software itself.
 This may include tools, buttons, default settings, recommended setting or APIs.
 \citeauthor{procidaDiataxisDocumentationFramework2023} describes reference material as being like a map.
 Users get to look up information about a territory without having to explore it themselves.
@@ -271,7 +272,7 @@ Although, reference material should not imply how to perform tasks, it should ho
 
 \subsection{Pictograms}\label{s:b-pictograms}
 The guide, which can be seen on page \pageref{a:guide}, makes extensive use of pictograms to inform the reader about common errors,
-pitfalls to avoid, warning about resource-intensive operations, and whether a tool is only available via an add-on.
+pitfalls to avoid, warning about resource-intensive operations, and, whether a tool is only available via an add-on.
 Inspiration for this kind of visual communication was taken from books published by O'Reilly (O'Reilly Media, Inc., Sebastopol, California, U.S.A.), specifically \textit{Linux observability with \acrshort{bpf}: advanced programming for performance analysis and networking} by David Calavera and Lorenzo Fontana \cite{calaveraLinuxObservabilityBPF2019}.
 Pictograms are stylized drawings that are supposed to represent familiar objects, ideas or abstract concepts to the reader \cite{dowsePharmacistsAreWords2021}.
 In health information documents, they have been proven to enhance the readability, attractiveness and visual attention of the target audience \cite{houtsRolePicturesImproving2006,mansoorEffectPictogramsReadability2003}.\\
@@ -282,18 +283,18 @@ In health information documents, they have been proven to enhance the readabilit
 Segmentation of images is a process of delineating structures of interest.
 It can also be called contouring or annotation and is typically used to delineate anatomical structures, tumors,
 malignancies and various other parts of images.
-As it is a requirement for visualization of target structures, like a tumor, or quantification tasks like volume and surface measurement,
+As it is a requirement for visualization of target structures, like a tumor, or quantification tasks, like volume and surface measurement,
 segmentation is a well-established procedure in medical image computing \cite{pinterPolymorphSegmentationRepresentation2019,slicercommunity3DSlicerImage2022}.
 
-\subsection{AI based}\label{s:b-seg-ai}
+\subsection{AI based Segmentation}\label{s:b-seg-ai}
 AI based image segmentation methods play an essential part in medical imaging analysis and improves the diagnostic process \cite{qureshiMedicalImageSegmentation2023}.
-Generally AI based image segmentation methods can be categorized into three groups.
+Generally these methods can be categorized into three groups.
 % images: https://sci-hub.ru/https://doi.org/10.1016/j.neucom.2019.11.118
 
 \subsubsection{Semantic segmentation}
 Semantic segmentation can be described as assigning a label to each pixel of an image.
 This is commonly performed via machine learning tools like a \acrfull{svm} or \acrfull{fcn}.
-For this to be possible, the list of possible labels must be defined before the segmentation task.
+For this to be attainable, the list of possible labels must be defined before the segmentation task.
 Additionally, semantic segmentation aims to partition an image into mutually exclusive subsets,
 where each subset is a meaningful region of the original image \cite{haoBriefSurveySemantic2020,longFullyConvolutionalNetworks2015}.
 
@@ -301,21 +302,21 @@ where each subset is a meaningful region of the original image \cite{haoBriefSur
 Semantic segmentation, like mentioned above, focuses on assigning a label from a predefined list to each pixel in an image.
 Instance segmentation, on the other hand, alters this behavior through an important concept:
 Differentiating between instances of objects belonging to the same class.
-It can thus be defined as:
+Thus, it can be defined as:
 \begin{displayquote}[\cite{chenMaskLabInstanceSegmentation2018}]
 	``\ldots\space the task of finding a simultaneous solution to object detection as well as semantic segmentation.''
 \end{displayquote}
 However, in instance segmentations, not every pixel gets its own label, rather a bounding box is created to delineate an instance of a class.
-In comparison to semantic segmentations, instance segmentations are commonly performed by a \acrfull{dcnn} or a \acrfull{cnn} \cite{hafizSurveyInstanceSegmentation2020,chenMaskLabInstanceSegmentation2018}.
+In comparison to semantic segmentations, the instance variant is commonly performed by a \acrfull{dcnn} or a \acrfull{cnn} \cite{hafizSurveyInstanceSegmentation2020,chenMaskLabInstanceSegmentation2018}.
 
 \subsubsection{Panoptic segmentation}
 Panoptic segmentation combines the benefits of the two methods mentioned above
 \cite{kirillovPanopticSegmentation2019}.
 Every pixel gets assigned a semantic label and a unique instance identifier,
-thus Differentiating between instances of the same class and performing an exact image segmentation
+thus differentiating between instances of the same class and performing an exact image segmentation
 \cite{kirillovPanopticSegmentation2019}.
 
-\subsection{Classical}\label{s:b-seg-techniques}
+\subsection{Classical Segmentation}\label{s:b-seg-techniques}
 \begin{displayquote}[\cite{gradyEnergyMinimizationApproach2006}]
 	``Fully automatic, completely reliable segmentation in medical images is an unrealistic expectation [\ldots]''
 \end{displayquote}
@@ -332,8 +333,8 @@ While \acrshort{ai} based image segmentation techniques revolve around pattern r
 via some form of machine learning,
 classical image segmentation techniques rely on analysis of the qualities of each pixel and its neighborhood.
 These qualities may include properties like color, brightness, contrast and intensity.
-There exist a number of classical segmentation tools,
-\cref{fig:classicalSegTree} gives an overview of the most commonly applied techniques
+There exist a number of classical segmentation tools.
+\Cref{fig:classicalSegTree} gives an overview of the most commonly applied techniques
 \cite{yuTechniquesChallengesImage2023,baliReviewStrategiesTechniques2015}.
 
 \subsubsection{Edge Detection}
@@ -364,8 +365,8 @@ This entails susceptibility to image noise.
 In other words, if the image is rich in background noise, the quality of segmentation by edge detection will decline.
 Furthermore, if the pixel intensity gradient is less pronounced, edge detection quality is also impacted.
 Compare \cref{fig:edgeDetection}, rows A and B.
-Row A has a sharply defined edge and thus will pose no difficulty in edge detection tasks.
-Row B, however, displays less of a steep gradient and will thus result in less accurate edge detection results.
+Row A has a sharply defined edge and thus, will pose no difficulty in edge detection tasks.
+Row B, however, displays less of a steep gradient and will thus, result in less accurate edge detection results.
 
 \subsubsection*{Image intensity function}
 \begin{figure}[h]
@@ -384,6 +385,7 @@ can be categorized into two types of techniques based on the order of derivation
 	\centerline{\includegraphics[scale=0.5]{images/edgeModelOrders.png}}
 	\caption{Image intensity function derivatives: first, second and zero crossing \cite{gonzalezDigitalImageProcessing2007}}\label{fig:iifO}
 \end{figure}
+\pagebreak
 
 \noindent
 \subsubsection*{First order derivative}
@@ -391,9 +393,9 @@ The first derivative of an image intensity function, or horizontal intensity pro
 measures the rate of change of pixel intensity (see: \cref{fig:iifO}).
 First order derivative detects edges by analyzing the intensity profile and looking for rapid changes.
 The first derivative can be approximated by using gradient operators like the Sobel operator.
-This Sobel operator is composed of $3 \times 3$ convolution kernels,
+The latter is composed of $3 \times 3$ convolution kernels,
 which are specific to the image axis \cite{gonzalezDigitalImageProcessing2007}.
-In other words, firstly there is a horizontal kernel $G_{x}$ which is intended to emphasize changes in
+In other words, firstly, there is a horizontal kernel $G_{x}$ which is intended to emphasize changes in
 intensity in horizontal direction:
 \begin{equation}
 	G_{x} =
@@ -428,8 +430,8 @@ To conclude, the edge detection workflow using the Sobel kernels is as follows:
 The second derivative measures the rate of change of the first derivative.
 This technique analyzes the second order derivative of an image intensity function, or horizontal intensity profile,
 and look for so-called \textit{zero crossings}.
-These zero crossings are defined as points where the second order derivative changes signs,
-in other words, it goes from negative to positive, or vice versa.
+These zero crossings are defined as points where the second order derivative changes signs.
+In other words, it goes from negative to positive, or vice versa.
 Zero crossings therefore indicate the presence of edges in the rate of change of image intensity \cite{gonzalezDigitalImageProcessing2007}.
 The second derivative can be approximated using the Laplacian operator:
 \begin{equation}
@@ -544,11 +546,11 @@ Common criteria include color, intensity or texture \cite{jourlinVariousContrast
 \noindent
 Additionally, a region growing algorithms can be configured to consider a seeds' 4-connected neighborhood
 (\cref{fig:4n}) or 8 connected neighborhood (\cref{fig:8n}) for similar pixels \cite{jourlinVariousContrastConcepts2016,palReviewImageSegmentation1993}.
-Where the black center pixel represents a seed, and its grey neighborhood represents the considered pixels.
+Where the black center pixel represents a seed, and its gray neighborhood represents the considered pixels.
 
 
 \subsubsection{Threshold}
-Possibly the simplest classical segmentation method is the threshold.
+A simple classical segmentation method is the threshold.
 Whereby the user defines a wanted pixel intensity range, and every pixel within that range is set to the binary value $1$
 and every other pixel is set to the binary value $0$ \cite{sankurSurveyImageThresholding2004}.
 
@@ -600,7 +602,7 @@ On the other hand, local maxima, or so-called \textit{watersheds} separate the b
 By \textit{filling the basins with water} each pixel in an image is either assigned to a region or a watershed.
 Finally, by modifying the water height, which in practice equates to a threshold value,
 the watershed algorithm can be adjusted to either create larger or smaller regions (see: \cref{fig:water2}).
-If the merging of two regions is to be avoided, an additional watershed, called \textit{dams},
+If the merging of two regions is to be avoided, an additional watershed, called \textit{dam},
 can be placed between them \cite{preimImageAnalysisMedical2014,hahnIWTinteractiveWatershedTransform2003}.
 \begin{figure}[h!]
 	\begin{subfigure}{0.49\textwidth}
@@ -634,16 +636,16 @@ image slice on a planning CT or MRI for the extent of the whole structure \cite{
 This results in a list of planar contours similar to \cref{fig:segRep}/D.
 These planar contours must then be voxelized into binary labelmaps, like in \cref{fig:segRep}/A.
 As for the next step, these binary labelmaps are used to compute dose distribution volumes and \acrlong{dvh}.
-If a workflow requires 3D visualization, closed surfaces must be constructed, this can be done by converting,
-using either planar contours or binary labelmaps as the source dataset \cite{pinterPolymorphSegmentationRepresentation2019}.\\
+If a workflow requires 3D visualization, closed surfaces must be constructed.
+This can be done by converting, using either planar contours or binary labelmaps as the source dataset \cite{pinterPolymorphSegmentationRepresentation2019}.\\
 The following sections should give a short overview of the mentioned data structures and their use cases.
 % https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0068449&type=printable
 % https://sci-hub.st/10.1007/978-3-030-16641-0
 
 \subsection{Binary labelmap}\label{s:b-binary-labelmap}
 Binary labelmaps (see: \cref{fig:segRep}/A) are the most common representation, as they have several benefits for segmentation software developers.
-They are comparatively simple to edit, as changes to the labelmap translate to the addition or subtraction of voxels to the segment label.
-Storage is simplified as well, because each voxel can only belong to a single segment.
+The process of editing these labels is relatively straightforward, as any modifications to the label map entail the addition or subtraction of voxels to the segment label.
+Storage is simplified as well, as each voxel can only belong to a single segment.
 This enables the storage of the whole dataset in a single 3D array.
 If label overlap is desired, the base 3D volume needs to be duplicated
 in order to store the overlapping segment in a separate 3D array.
@@ -658,7 +660,7 @@ label, X, Y, Z
 5, 0.1896551724137931, 0.40804597701149425, 0.16666666666666666
 [...]
 \end{minted}
-	\caption{sample binary labelmap 3D array}\label{fig:binary-array}
+	\caption{Sample binary labelmap 3D array}\label{fig:binary-array}
 \end{figure}
 
 \noindent
@@ -679,22 +681,20 @@ As a result, fractional labelmaps can store higher segmentation resolutions than
 
 
 \subsection{Closed surface}\label{s:b-closed-surface}
-Closed surface representations, like in \cref{fig:segRep}/B are composed of a triangulated mesh,
-which in turn, is composed of a series of vertices or triangles.
+Closed surface representations, like in \cref{fig:segRep}/B, are composed of a triangulated mesh,
+which in turn, is built of a series of vertices or triangles.
 In terms of segmentation, the mesh surface boundary defines the segmentation volume,
-so that every voxel encompassed by the mesh belongs to the segment \cite{delameMedialSurfaceMesh2012,weber3DSlicerPlatform2022,pinterPolymorphSegmentationRepresentation2019}.
+so that every voxel enc	ompassed by the mesh belongs to the segment \cite{delameMedialSurfaceMesh2012,weber3DSlicerPlatform2022,pinterPolymorphSegmentationRepresentation2019}.
 In order to store a vertex representation, each triangle (vertex) needs to be stored separately.
 A schema of the representation can be seen in \cref{fig:surfacemesh-schema}.
 The representation of a single voxel starts with the definition of its facet normal or unit normal vector in 3D cartesian space.
 This vector points outward from the vertex, effectively defining the basic orientation of the vertex.
 Then, the triangle corners are defined in 3D cartesian space ($x,y,z$).
 \Cref{fig:surfacemesh} gives an overview of a possible triangle orientation.
-Here it can be seen that the first corner intersects with the third corner in the position
-$x=-1$ and $z=1$.
-The second corner intersects with the first one only on position $z=1$ but with the third corner on positions
-$y=1$ and $z=1$.
-Finally, the third corner intersects with the first corner on position $x=-1$ and
-with the second corner on positions $y=1$ and $z=1$.
+As illustrated, the first corner intersects with the third corner at the point where $x = −1$ and $z = 1$.
+The second corner intersects with the first only at position $z = 1$,
+whereas it intersects with the third at both $y = 1$ and $z = 1$.
+Ultimately, the third corner intersects with the first at the point $x = −1$ and with the second at the points $y = 1$ and $z = 1$.
 
 \begin{figure}[h] % taken from cube stl file
 	\begin{subfigure}{0.49\textwidth}
@@ -719,7 +719,7 @@ with the second corner on positions $y=1$ and $z=1$.
 		\end{verbatim}
 		\caption{Closed surface mesh sample}\label{fig:surfacemesh}
 	\end{subfigure}
-	\caption{surface mesh representation}\label{fig:mesh-repesentation}
+	\caption{Surface mesh representation}\label{fig:mesh-repesentation}
 \end{figure}
 
 \noindent
@@ -744,12 +744,11 @@ and the unit normal vector recalculated \cite{pinterPolymorphSegmentationReprese
 
 
 \subsection{Planar contours and ribbons}\label{s:b-planar-contours}
-Planar contours (see: \cref{fig:segRep}/D) as well as ribbon models (see: \cref{fig:segRep}/E) define a segmentation,
-by encompassing it in rings or ribbons for each slice separately.
+Planar contours (see: \cref{fig:segRep}/D) as well as ribbon models (see: \cref{fig:segRep}/E) define a segmentation by encompassing it in rings or ribbons for each slice separately.
 They are created by tracing contours around a \acrfull{roi} in parallel planar slices \cite{pinterPolymorphSegmentationRepresentation2019,weinsteinScanlineSurfacingBuilding2000}.
 In 2D, planar contours are represented by polylines.
-In 3D representations, however, these polylines need to be stacked, gaps require interpolation.
-The final volume is then smoothed.
+In 3D representations, however, these polylines need to be stacked and gaps require interpolation.
+Then, the final volume is smoothed.
 
 \begin{figure}[h]
 	\begin{subfigure}{0.49\textwidth}
@@ -795,7 +794,7 @@ The \textit{Pompeiu–Hausdorff distance} or simply \textit{Hausdorff distance} 
 \begin{displayquote}[\cite{simBrainVentricleDetection2016}]
 	``[\ldots] it is able to measure the degree of mismatch between two sets from the distance of the point of A that is farthest from any point of B, and vice versa.''
 \end{displayquote}
-In computer graphics the Hausdorff distance can be used to compute the difference between two representations of the same 3D object.
+In computer graphics, the Hausdorff distance can be used to compute the difference between two representations of the same 3D object.
 The Hausdorff distance is described by its general definition in \cref{eqn:general-hausdorff-distance}.
 Where the Hausdorff distance $H$ from a set of points $A={a_{1}\ldots,a_{p}}$ to another set of points $B={b_{1}\ldots,b_{q}}$ is a maximum distance function $max(h(AB),h(BA))$ \cite{hausdorffGrundzuegeMengenlehre1978,simBrainVentricleDetection2016,gegoireHausdorffDistanceConvex1998}.
 \begin{equation}\label{eqn:general-hausdorff-distance}
@@ -836,7 +835,7 @@ notable differences between human and mouse bone anatomy will be pointed out \ci
 %spine paper \cite{harrisonVertebralLandmarksIdentification2013}
 %comparison \cite{ruberteBridgingMouseHuman2023}
 %comp2 \cite{jeromeSkeletalSystem2018}
-% humans \cite{platzerTaschenatlasAnatomieBd2013}
+%humans \cite{platzerTaschenatlasAnatomieBd2013}
 
 
 \subsection{Skull}\label{s:b-mouse-skull}
@@ -849,7 +848,7 @@ notable differences between human and mouse bone anatomy will be pointed out \ci
 \noindent
 Most notably, the mouse skull reflects the importance of its sense of smell (olfaction),
 by its elongated facial features and large tooth size (see: \cref{fig:mouseSkull}).
-For a visual representation, see: \cref{fig:mouseSkull}.
+For a visual representation see: \cref{fig:mouseSkull}.
 Meanwhile, the human head is shaped for a larger brain.
 In mice, the interparietal bone is well-developed compared to humans.
 Furthermore, in mice, the two mandibles are not fused together like in humans,
@@ -916,7 +915,7 @@ trapezium, trapezoid, capitate and hamate \cite{platzerTaschenatlasAnatomieBd201
 As can be seen in \cref{fig:hindPaw}, the mouse ankle is made up of 8 bones:
 The talus, calcaneus, tibial tarsal bone, central tarsal bone and tarsal bones I-IV.
 Whereas the human ankle joint is made up of 7 bones:
-Calcaneus, cuboid, talus, navicular, lateral cuneiform, middle cuneiform, medial cuneiform \cite{platzerTaschenatlasAnatomieBd2013}.
+Calcaneus, cuboid, talus, navicular, lateral cuneiform, middle cuneiform and medial cuneiform \cite{platzerTaschenatlasAnatomieBd2013}.
 
 \noindent
 Supratrochlear foramen in humerus in mice but not in humans \cite{ruberteMorphologicalMousePhenotyping2017,platzerTaschenatlasAnatomieBd2013}

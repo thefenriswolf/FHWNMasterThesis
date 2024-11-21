@@ -6,11 +6,11 @@ Segmentation results of \noTesters, which did six segmentations each, have been 
 These 42 segmentations were compared to the reference segmentation via the \acrlong{dc} and \acrlong{hd}.
 Note that the \acrlong{dc} is a dimensionless score between 0 and 1.
 The testers had to perform the initial segmentation without the help of the guide on page \pageref{a:guide}.
-And were told to perform this segmentation on the left side anatomy,
+They were told to perform this segmentation on the left side anatomy,
 which from here on will always be colored \textit{blue} in plots.
 Another segmentation was performed by the testers after reading through the guide on the right side anatomy,
 which from here on will always be colored \textit{red} in plots.
-To adequately display potential outliers \acrfull{hd} results will always be given with the average and maximum distance from the ground truth in millimeters (mm).
+To adequately display potential outliers \acrfull{hd} results will always be given with the average and maximum distance from the ground truth in millimeters ($mm$).
 
 
 \section{Test person 1}\label{s:result-1}
@@ -99,12 +99,12 @@ To adequately display potential outliers \acrfull{hd} results will always be giv
 	\caption{\acrfull{hd} results: Test person 1 (less is better)}\label{fig:hd-tester1}
 \end{figure}
 \noindent
-\Cref{fig:dcs-tester1} depicts the segmentation comparison results via the \acrfull{dc} for test person 1.
-The segmentation overlap according to the \acrshort{dc} shows a decrease in segmentation accuracy for scapula ($-0.17$), clavicle ($-0.05$) and an increase for the humerus ($+0.08$).
-\Cref{fig:hd-tester1} depicts the segmentation comparison results via the \acrfull{hd} for test person 1.
-Whereby \cref{fig:t1-hd-max} displays the maximum distance in millimeters (mm) and \cref{fig:t1-hd-avg} displays the average distance in millimeters.
+\Cref{fig:dcs-tester1} illustrates the segmentation comparison results via the \acrfull{dc} for test participant 1.
+The \acrshort{dc}-based segmentation overlap demonstrates a decline in accuracy for the scapula ($−0.17$) and clavicle ($−0.05$), while exhibiting an uptick for the humerus ($+0.08$).
+\Cref{fig:hd-tester1} illustrates the segmentation comparison results via the \acrfull{hd} for test person 1.
+Whereby \cref{fig:t1-hd-max} displays the maximum distance in millimeters (mm) while, \cref{fig:t1-hd-avg} displays the average distance in millimeters.
 As can be seen, in \cref{fig:t1-hd-avg}, the segmentation of test person 1 on average was further from the ground truth in case of the scapula ($+0.1155 mm$) and clavicle ($+0.027 mm$).
-For the humerus, the segmentation was closer to the ground truth ($-0.17 mm$).
+With regard to the humerus, the segmentation was found to be in closer alignment with the ground truth, exhibiting a distance of ($−0.17mm$).
 
 
 \section{Test person 2}\label{s:result-2}
@@ -287,9 +287,9 @@ As can be seen, in \cref{fig:t2-hd-avg}, the segmentation of test person 2 on av
 	\caption{\acrfull{hd} results: Test person 3 (less is better)}\label{fig:hd-tester3}
 \end{figure}
 \noindent
-\Cref{fig:dcs-tester3} depicts the segmentation comparison results via the \acrfull{dc} for test person 3.
-The segmentation overlap according to the \acrshort{dc} shows an increase in segmentation accuracy for the scapula ($+0.11$) and a decrease for  clavicle ($-0.01$) and humerus ($-0.03$).
-\Cref{fig:hd-tester3} depicts the segmentation comparison results via the \acrfull{hd} for test person 3.
+\Cref{fig:dcs-tester3} serves as a depiction of the segmentation results compared with the \acrfull{dc} for test participant 3.
+The segmentation overlap shows an uptick in segmentation accuracy for the scapula ($+0.11$) and a decrease for the clavicle ($-0.01$) as well as the humerus ($-0.03$).
+\Cref{fig:hd-tester3} illustrates the segmentation results for test participant 3 compared via the \acrfull{hd}.
 Whereby \cref{fig:t3-hd-max} displays the maximum distance in millimeters (mm) and \cref{fig:t3-hd-avg} displays the average distance in millimeters.
 As can be seen, in \cref{fig:t3-hd-avg}, the segmentation of test person 3 on average was actually closer to the ground truth for the scapula ($-0.1 mm$) and further from it for clavicle ($+0.04 mm$) and humerus ($+0.0069 mm$).
 
@@ -380,11 +380,12 @@ As can be seen, in \cref{fig:t3-hd-avg}, the segmentation of test person 3 on av
 	\caption{\acrfull{hd} results: Test person 4 (less is better)}\label{fig:hd-tester4}
 \end{figure}
 \noindent
-\Cref{fig:dcs-tester4} depicts the segmentation comparison results via the \acrfull{dc} for test person 4.
-The segmentation overlap according to the \acrshort{dc} shows an increase in segmentation accuracy for 2 out of 3 segmentations: scapula ($+0.02$), clavicle ($+0.01$) and no change for the humerus.
-\Cref{fig:hd-tester4} depicts the segmentation comparison results via the \acrfull{hd} for test person 4.
-Whereby \cref{fig:t4-hd-max} displays the maximum distance in millimeters (mm) and \cref{fig:t4-hd-avg} displays the average distance in millimeters.
-As can be seen, in \cref{fig:t4-hd-avg}, the segmentation of test person 2 on average was actually closer to the ground truth in all cases: scapula ($-0.0084 mm$), clavicle ($-0.0042 mm$) and humerus ($-0.0168 mm$).
+The segmentation comparison results using the \acrfull{dc} for test person 4 are shown in \cref{fig:dcs-tester4}.
+Two of the three segmentations, scapula ($+0.02$) and clavicle ($+0.01$), show an improvement in segmentation accuracy.
+Whereas, the humerus exhibits no change in segmentation overlap as determined by the \acrshort{dc}.
+The segmentation comparison results using the Hausdorff distance (HD) for test person 4 are shown in \cref{fig:hd-tester4}.
+Whereas \cref{fig:t4-hd-max} shows the average distance in millimeters, Figure 39a shows the greatest distance in millimeters (mm).
+As shown in \cref{fig:t4-hd-avg}, test person 2's segmentation was, on average, closer to the ground truth in all cases: scapula ($-0.0084 mm$), clavicle ($-0.0042 mm$) and humerus ($-0.0168 mm$).
 
 
 \section{Test person 5}\label{s:result-5}
@@ -472,11 +473,11 @@ As can be seen, in \cref{fig:t4-hd-avg}, the segmentation of test person 2 on av
 	\caption{\acrfull{hd} results: Test person 5 (less is better)}\label{fig:hd-tester5}
 \end{figure}
 \noindent
-\Cref{fig:dcs-tester5} depicts the segmentation comparison results via the \acrfull{dc} for test person 5.
-The segmentation overlap according to the \acrshort{dc} shows an increase in segmentation accuracy in all segmented anatomical structures: scapula ($+0.31$), clavicle ($+0.7478$) and humerus ($+0.52$).
-\Cref{fig:hd-tester5} depicts the segmentation comparison results via the \acrfull{hd} for test person 5.
-Whereby \cref{fig:t5-hd-max} displays the maximum distance in millimeters (mm) and \cref{fig:t5-hd-avg} displays the average distance in millimeters.
-As can be seen, in \cref{fig:t5-hd-avg}, the segmentation of test person 5 on average was closer to the ground truth in all cases: scapula ($-9.37 mm$), clavicle ($-7.4751 mm$) and humerus ($-16.4959 mm$).
+\Cref{fig:dcs-tester5} illustrates the segmentation comparison results using the \acrfull{dc} for test person 5.
+The \acrshort{dc}'s segmentation overlap indicates that all segmented anatomical structures—the scapula ($+0.31$), clavicle ($+0.7478$), and humerus ($+0.52$)—have improved segmentation accuracy.
+The segmentation comparison results for test participant 5 using the \acrfull{hd} are shown in \cref{fig:hd-tester5}.
+Whereas \cref{fig:t5-hd-max} displays the maximum distance in millimeters (mm) and \cref{fig:t5-hd-avg} displays the average distance in millimeters.
+\Cref{fig:t5-hd-avg} shows that, on average, test person 5's segmentation of the scapula ($−9.37mm$), clavicle ($−7.4751mm$), and humerus ($−16.4959mm$) was closer to the ground truth in every instance.
 
 
 \section{Test person 6}\label{s:result-6}
@@ -565,11 +566,12 @@ As can be seen, in \cref{fig:t5-hd-avg}, the segmentation of test person 5 on av
 	\caption{\acrfull{hd} results: Test person 6 (less is better)}\label{fig:hd-tester6}
 \end{figure}
 \noindent
-\Cref{fig:dcs-tester6} depicts the segmentation comparison results via the \acrfull{dc} for test person 6.
-The segmentation overlap according to the \acrshort{dc} shows an increase in segmentation accuracy in all segmented anatomical structures: scapula ($+0.09$), clavicle ($+0.14$) and humerus ($+0.08$).
-\Cref{fig:hd-tester6} depicts the segmentation comparison results via the \acrfull{hd} for test person 6.
-Whereby \cref{fig:t6-hd-max} displays the maximum distance in millimeters (mm) and \cref{fig:t6-hd-avg} displays the average distance in millimeters.
-As can be seen, in \cref{fig:t6-hd-avg}, the segmentation of test person 6 on average was closer to the ground truth in all cases: scapula ($-0.0365 mm$), clavicle ($-0.0615 mm$) and humerus ($-0.0528 mm$).
+The segmentation comparison results using the \acrfull{dc} for test person 6 are shown in \cref{fig:dcs-tester6}.
+The clavicle ($+0.14$), humerus ($+0.08$), and scapula ($+0.09$) all exhibit improved segmentation accuracy, according to the \acrshort{dc}'s segmentation overlap.
+The segmentation comparison results using the \acrfull{hd} for test person 6 are shown in \cref{fig:hd-tester6}.
+Whereas \cref{fig:t6-hd-avg} shows the average distance in millimeters, \cref{fig:t6-hd-max} shows the greatest distance in millimeters (mm).
+Test person 6's segmentation, as shown in \cref{fig:t6-hd-avg}, was generally closer to the ground truth in all cases: scapula ($−0.0365mm$), clavicle ($−0.0615mm$), and humerus ($−0.0528mm$).
+
 
 
 \section{Test person 7}\label{s:result-7}
@@ -662,14 +664,4 @@ The segmentation overlap according to the \acrshort{dc} shows an increase in seg
 \Cref{fig:hd-tester7} depicts the segmentation comparison results via the \acrfull{hd} for test person 7.
 Whereby \cref{fig:t7-hd-max} displays the maximum distance in millimeters (mm) and \cref{fig:t7-hd-avg} displays the average distance in millimeters.
 As can be seen, in \cref{fig:t7-hd-avg}, the segmentation of test person 7 on average was closer to the ground truth in all cases: scapula ($-0.15 mm$), clavicle ($-0.0318 mm$) and humerus ($-0.0156 mm$).
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% This chapter describes the performed analysis steps and discusses its results.
-% First, the final dataset is described in \cref{s:analysis-datasets}.
-% Secondly, the best hyper-parameters for each classifier are depicted in \cref{s:analysis-pipelines}.
-% Thirdly, the sentiments time series per company are discussed in \cref{s:analysis-sentiments}.
-% Fourthly, the various time series are compared to the corresponding share price time series in \cref{s:analysis-granger}.
-% Last but not least, the sentiment classifier performance are compared in \cref{s:analysis-classifercomparison}.
 
