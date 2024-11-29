@@ -50,7 +50,7 @@
 	nonumberlist, % don't display page numbers
 	acronym, % include acronyms
 	nopostdot, % don't display dot after text
-	toc, % display in table of contents
+	toc=false, % do not display in table of contents
 	shortcuts
 ]{glossaries-extra}
 

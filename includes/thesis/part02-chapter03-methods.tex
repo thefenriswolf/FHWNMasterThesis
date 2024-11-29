@@ -122,9 +122,9 @@ However, the \acrshort{dc} is based on segmentation overlap and therefore has no
 \Citeauthor{rayedDeepLearningMedical2024} as well as
 \citeauthor{wangImageSegmentationEvaluation2020} recommend the employment and comparison of a second similarity metric, which calculates the surface distance of two segmentations \cite{aspertMESHMeasuringErrors2002,simBrainVentricleDetection2016}.
 As a result, the \acrfull{hd} was chosen by the author as a second metric.
-Coincidentally, both are readily available in 3D Slicer by a 3rd party extension called SlicerRT \cite{pinterSlicerRTRadiationTherapy2012}.
-Both, the \acrlong{dc} and the \acrlong{hd} are examples of supervised, empirical, indirect and objective evaluation methods (see: \cref{fig:eval}).
-Where the quality of a segmentation is determined by comparing it to a known high quality reference segmentation.
+Coincidentally, both are readily available in 3D Slicer by the 3rd party extension called SlicerRT \cite{pinterSlicerRTRadiationTherapy2012}.
+Both, the \acrlong{dc} and the \acrlong{hd} are examples of supervised, empirical, indirect and objective evaluation methods (see \cref{fig:eval}),
+where the quality of a segmentation is determined by comparing it to a known high quality reference segmentation.
 The comparison is performed by calculating a similarity score and is thus objective but indirect.
 In contrast, a subjective evaluation would be the act of visually inspecting and subjectively assessing segmentation quality.
 Direct analytical evaluation would be the analysis of the segmentation algorithm itself.
@@ -211,8 +211,7 @@ However, it was assumed that the potential testers have little to no experience 
 Additionally, it was assumed that potential testers have little to no experience in segmentation with 3D Slicer.
 Therefore, the \textit{How-to-guide} portion of the guide had to be paired with introductory information about \mct\space dataset segmentation using 3D Slicer.
 For this part \citeauthor{procidaDiataxisDocumentationFramework2023}s \diatx\space concept of a \textit{Reference manual} has been chosen.
-Additionally, this has been paired with extensive use of the pictograms displayed in \cref{s:mm-pictograms}.
-The guide can be seen in \cref{a:guide}.
+Additionally, this has been paired with extensive use of the pictograms displayed in this section.
 
 
 \subsection*{Pictograms}\label{s:mm-pictograms}
@@ -305,10 +304,10 @@ Some segmentation tools referenced in the guide are only available to users afte
 The plugin symbol displays a puzzle piece and is meant to convey the idea that some functionality must be intentionally added to 3D Slicer.
 
 \section{Research Design}\label{s:researchDesign}
-For this study datasets of nine mice, scanned via \mct\space were taken (see: \cref{s:datasets}).
-The author performed bone anatomy segmentation on these datasets via manual and semi-automatic tools usable in the software called 3D Slicer (see: \cref{s:segmentation}).
-Then a guide was created by the author of this thesis (see: \cref{s:guide_comp}).
-This guide would be sent out to testers in conjunction with a reduced dataset containing only six bone structures making up both shoulder joints (see: \cref{s:mm-dataset-preparation}).
+For this study datasets of nine mice, scanned via \mct\space were taken (see \cref{s:datasets}).
+The author performed bone anatomy segmentation on these datasets via manual and semi-automatic tools usable in the software called 3D Slicer (see \cref{s:segmentation}).
+Then a guide was created by the author of this thesis (see \cref{s:guide_comp}).
+This guide would be sent out to testers in conjunction with a reduced dataset containing only six bone structures making up both shoulder joints (see \cref{s:mm-dataset-preparation}).
 The participants were instructed to segment the anatomy of the left shoulder joint before reading the guide.
 This was done to get a baseline value of their segmentation skills.
 After completing segmentation of the left shoulder joint, the testers were instructed to read through the guide and finally,

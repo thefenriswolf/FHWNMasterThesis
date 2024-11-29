@@ -93,10 +93,10 @@ the most widely used algorithm in \mct\space is the \acrfull{fbp}.
 Specifically, the \acrfull{fdk}, which is well suited for \mct\space because of its simplicity
 and ability to handle data truncation in the z-axis or longitudinal direction \cite{liMicrocomputedTomographySmall2008,orhanMicrocomputedTomographyMicroCT2020}.
 Building upon the forward- and back-projection of these simple algorithms are iterative algorithms like the \gls{isra} and \gls{isratv},
-which were utilized to reconstruct the datasets used in this study (see: \cref{tab:scan-parameters}).
-As can be seen in \cref{fig:isra}, this algorithm starts off by performing a forward-projection (bottom right \cref{fig:isra}) and storing the result.
-Next, the current image is forward and back-projected to get an estimation image,
-which then serves to calculate the error ratio between the estimation and the measured data.
+which were utilized to reconstruct the datasets used in this study (see: \cref{tab:scan-parameters} on page \pageref{tab:scan-parameters}).
+As can be seen in \cref{fig:isra}, this algorithm starts off by performing the scan and measuring the absorption profile images to obtain the measured data.
+Next, the current reconstruction image is forward and back-projected.
+The resulting estimation image then serves to calculate the error ratio between the estimation and the measured data.
 The error is then considered in the next iteration of forward and back-projection to update the estimated image.
 In the case of the \gls{isratv}, which is used to improve reconstruction results for datasets with a small number of projections,
 \acrfull{tv} enforces a sparse image gradient.
@@ -131,7 +131,7 @@ and can also be called the CT number.
 \end{equation}\label{eqn:hu}
 
 \noindent
-\cref{eqn:hu} shows how \acrshort{hu} are computed.
+Equation 3 shows how \acrshort{hu} are computed.
 Where $\mu$ is the \acrlong{ac} of a specific tissue or material and $\mu_{water}$
 is the \acrlong{ac} of water.
 It is calculated as the difference of the \acrlong{ac} of a tissue and water,
@@ -159,8 +159,8 @@ This section is intended to give a rudimentary overview of two commonly used fra
 \begin{displayquote}[\cite{shorterGoodDocsProject2024}]
 	``The Good Docs Project educates and empowers people to create high-quality documentation by providing them with templates, resources, best practices, and tools to enhance their documentation in open source and beyond.''
 \end{displayquote}
-It is used for documentation design by companies like GitLab (GitLab Inc., San Francisco, USA) and JetBrains (JetBrains s.r.o, Prague, Czech Republic).
-\good\space actively discourages producing any sort of documentation before its content and structure have been extensively planned \cite{shorterGoodDocsProject2024}.
+\good\space is used for documentation design by companies like GitLab (GitLab Inc., San Francisco, USA) and JetBrains (JetBrains s.r.o, Prague, Czech Republic).
+It actively discourages producing any sort of documentation before its content and structure have been extensively planned \cite{shorterGoodDocsProject2024}.
 Instead, it instructs documentation authors to, first and foremost, think about the topic at hand.
 Especially, authors should evaluate the complexity of the topic and try to predict what kind of questions readers might have while reading the documentation.
 Furthermore, documentation authors are supposed to consider the ability of their target audience and what reasonable assumptions one can make about the prior knowledge of
@@ -241,7 +241,7 @@ Documentation writers should therefore trace the x-axis of \cref{fig:diataxis-fo
 \end{description}
 \noindent
 Additionally, \citeauthor{procidaDiataxisDocumentationFramework2023} mentions that these types do not pose hard limits on what documentation can contain. They are rather meant to remind the author about the needs of users \cite{procidaDiataxisDocumentationFramework2023}.
-According to these criteria the guides practical section is based on \citeauthor{procidaDiataxisDocumentationFramework2023}s structure for How-to guides, and its theoretical section is based on his structure for Explanation style documentation \cite{procidaDiataxisDocumentationFramework2023}.
+According to these criteria the guides practical section is based on \citeauthor{procidaDiataxisDocumentationFramework2023}'s structure for How-to guides, and its theoretical section is based on his structure for Explanation style documentation \cite{procidaDiataxisDocumentationFramework2023}.
 
 \subsubsection*{Tutorial}
 A tutorial should be interpreted as a practical activity according to \citeauthor{procidaDiataxisDocumentationFramework2023} \cite{procidaDiataxisDocumentationFramework2023}.
@@ -287,13 +287,13 @@ As it is a requirement for visualization of target structures, like a tumor, or 
 segmentation is a well-established procedure in medical image computing \cite{pinterPolymorphSegmentationRepresentation2019,slicercommunity3DSlicerImage2022}.
 
 \subsection{AI based Segmentation}\label{s:b-seg-ai}
-AI based image segmentation methods play an essential part in medical imaging analysis and improves the diagnostic process \cite{qureshiMedicalImageSegmentation2023}.
-Generally these methods can be categorized into three groups.
+AI based image segmentation methods play an essential part in medical imaging analysis and improve the diagnostic process \cite{qureshiMedicalImageSegmentation2023}.
+In general, these methods can be categorized into three groups.
 % images: https://sci-hub.ru/https://doi.org/10.1016/j.neucom.2019.11.118
 
 \subsubsection{Semantic segmentation}
 Semantic segmentation can be described as assigning a label to each pixel of an image.
-This is commonly performed via machine learning tools like a \acrfull{svm} or \acrfull{fcn}.
+This is commonly performed via machine learning tools like a \acrfull{svm} or a \acrfull{fcn}.
 For this to be attainable, the list of possible labels must be defined before the segmentation task.
 Additionally, semantic segmentation aims to partition an image into mutually exclusive subsets,
 where each subset is a meaningful region of the original image \cite{haoBriefSurveySemantic2020,longFullyConvolutionalNetworks2015}.
@@ -395,9 +395,9 @@ First order derivative detects edges by analyzing the intensity profile and look
 The first derivative can be approximated by using gradient operators like the Sobel operator.
 The latter is composed of $3 \times 3$ convolution kernels,
 which are specific to the image axis \cite{gonzalezDigitalImageProcessing2007}.
-In other words, firstly, there is a horizontal kernel $G_{x}$ which is intended to emphasize changes in
+In other words, firstly, there is a horizontal kernel $G_{x}$ (see Equation \ref{eqn:gx}) which is intended to emphasize changes in
 intensity in horizontal direction:
-\begin{equation}
+\begin{equation}\label{eqn:gx}
 	G_{x} =
 	\begin{bmatrix}
 		-1 & 0 & 1 \\
@@ -406,9 +406,9 @@ intensity in horizontal direction:
 	\end{bmatrix}
 \end{equation}
 \noindent
-Secondly, the vertical kernel $G_{y}$ is used to highlight changes in intensity in vertical direction:
+Secondly, the vertical kernel $G_{y}$ (see Equation \ref{eqn:gy}) is used to highlight changes in intensity in vertical direction:
 
-\begin{equation}
+\begin{equation}\label{eqn:gy}
 	G_{y} =
 	\begin{bmatrix}
 		-1 & -2 & -1 \\
@@ -421,7 +421,7 @@ Secondly, the vertical kernel $G_{y}$ is used to highlight changes in intensity 
 To conclude, the edge detection workflow using the Sobel kernels is as follows:
 \begin{enumerate}
 	\item optionally reduce noise by applying Gaussian blur
-	\item apply Sobel kernels in $x$ and $y$ axis
+	\item convolute the image with the Sobel filter kernels to obtain edges in the respective $x$-  and $y$-direction
 	\item calculate gradient magnitude % G = np.sqrt(Gx**2 + Gy**2)
 	\item normalization of the output image
 \end{enumerate}
@@ -433,8 +433,8 @@ and look for so-called \textit{zero crossings}.
 These zero crossings are defined as points where the second order derivative changes signs.
 In other words, it goes from negative to positive, or vice versa.
 Zero crossings therefore indicate the presence of edges in the rate of change of image intensity \cite{gonzalezDigitalImageProcessing2007}.
-The second derivative can be approximated using the Laplacian operator:
-\begin{equation}
+The second derivative can be approximated using the Laplacian operator (see Equation \ref{eqn:laplace}):
+\begin{equation}\label{eqn:laplace}
 	Laplace =
 	\begin{bmatrix}
 		0 & 1  & 0 \\
@@ -460,7 +460,8 @@ To conclude, the edge detection workflow using the Laplacian kernel is as follow
 \noindent
 Region growing breaks down images into separate areas by grouping areas by their similarity.
 This is done by creating a selection of $n$ seed pixels $S$, choosing some sort of principle of similarity
-and then grouping pixels adjacent to seeds according to their similarity score into regions $R$ \cite{jourlinVariousContrastConcepts2016,palReviewImageSegmentation1993}.
+and then recursively grouping pixels adjacent to seeds according to their similarity score into regions $R$.
+Once a region stops growing, a new seed $S$, that does not belong to any region, is chosen and the process repeats \cite{jourlinVariousContrastConcepts2016,palReviewImageSegmentation1993}.
 See \cref{fig:rgSR} for reference: It shows two times the same single slice of an MRI of the human brain.
 On the left image some seeds were defined, indicated by the green crosses on a lesion.
 On the right image, a region growing algorithm has put all adjacent pixels with similar intensity into the same group.
@@ -563,21 +564,25 @@ The algorithm then assigns all data points in a group according to their proximi
 The basic steps for a k-means clustering algorithm are as follows:
 \begin{enumerate}
 	\item Initialize $n$ clusters $k$
-	\item Distribute $n$ seed points randomly across the image
+	\item Distribute $n$ initial seed points randomly across the image
 	\item Assign each data point to the closest seed point (see: \cref{fig:kmeans1})
 	\item Compute the center of each cluster and move the seed point there (see: \cref{fig:kmeans2})
 	\item Reassign each data-point to the new closest seed point
 	\item Repeat steps $3 - 5$ until it satisfies a tolerance value
 \end{enumerate}
 \begin{figure}[h!]
-	\begin{subfigure}{0.49\textwidth}
-		\centerline{
-			\includegraphics[scale=0.5]{images/kmeansSeeds.png}}
+  \centering
+	\begin{subfigure}{0.45\textwidth}
+		%\centerline{
+		  \includegraphics[scale=0.4]{images/kmeansSeeds.png}
+		%}
 		\caption{k-means initial seed points \cite{shabalinKmeansClusteringKmeans2024}}\label{fig:kmeans1}
-	\end{subfigure}
-	\begin{subfigure}{0.49\textwidth}
-		\centerline{
-			\includegraphics[scale=0.5]{images/kmeansClusters.png}}
+	  \end{subfigure}
+	  \centering
+	\begin{subfigure}{0.45\textwidth}
+		%\centerline{
+		  \includegraphics[scale=0.4]{images/kmeansClusters.png}
+		%}
 		\caption{k-means cluster centers \cite{shabalinKmeansClusteringKmeans2024}}\label{fig:kmeans2}
 	\end{subfigure}
 	\caption{k-means clustering}\label{fig:kmeans}
@@ -599,11 +604,10 @@ In \cref{fig:kmeans2} the seed points have been relocated to better fit the data
 The watershed algorithm treats pixel intensities as elevations in a virtual landscape.
 In the latter, local minima are seen as the seed for \textit{catchment basins}.
 On the other hand, local maxima, or so-called \textit{watersheds} separate the basins from each other (see: \cref{fig:water1}).
-By \textit{filling the basins with water} each pixel in an image is either assigned to a region or a watershed.
-Finally, by modifying the water height, which in practice equates to a threshold value,
-the watershed algorithm can be adjusted to either create larger or smaller regions (see: \cref{fig:water2}).
-If the merging of two regions is to be avoided, an additional watershed, called \textit{dam},
-can be placed between them \cite{preimImageAnalysisMedical2014,hahnIWTinteractiveWatershedTransform2003}.
+By \textit{filling the basins with water} each pixel in an image is assigned to a label.
+This label depends on which basins water reaches it first.
+In order to avoid relabeling pixels, \textit{dams} are created when the floodwater of two basins meet.
+Finally, by modifying the water height, the watershed algorithm can be adjusted to either create larger or smaller regions (see: \cref{fig:water2}) \cite{preimImageAnalysisMedical2014,hahnIWTinteractiveWatershedTransform2003}.
 \begin{figure}[h!]
 	\begin{subfigure}{0.49\textwidth}
 		\centerline{
@@ -626,7 +630,7 @@ can be placed between them \cite{preimImageAnalysisMedical2014,hahnIWTinteractiv
 	\caption{Brain stem in different representations: A: Binary labelmap, B: Closed surface, C: Fractional labelmap, D: Planar contours, E: Ribbon mode \cite{pinterPolymorphSegmentationRepresentation2019}}\label{fig:segRep}
 \end{figure}
 \noindent
-However, segmentations can be represented in a number of data structures.
+Segmentations can be represented in a number of data structures.
 \Cref{fig:segRep} gives an overview of the most common representations.
 Of those shown, the binary labelmap is the most commonly used storage format.
 For most workflows, a single representation of data is not sufficient.
@@ -650,26 +654,7 @@ This enables the storage of the whole dataset in a single 3D array.
 If label overlap is desired, the base 3D volume needs to be duplicated
 in order to store the overlapping segment in a separate 3D array.
 As a result storage requirements for the segmentation are inflated,
-thus binary labelmaps tend to be memory inefficient for overlapping structures \cite{slicercommunity3DSlicerImage2022}.
-\begin{figure}[h]
-	\begin{minted}{text}
-label, X, Y, Z
-[...]
-0, 0.09051724137931035, 0.28304597701149425, 0.1810344827586207
-1, 0.23563218390804597, 0.13218390804597702, 0.27586206896551724
-5, 0.1896551724137931, 0.40804597701149425, 0.16666666666666666
-[...]
-\end{minted}
-	\caption{Sample binary labelmap 3D array}\label{fig:binary-array}
-\end{figure}
-
-\noindent
-\Cref{fig:binary-array} displays a sample of such a 3D array.
-The first column refers to segment labels as decimal numbers,
-which in turn, means that the alphanumeric label must be stored in a separate \acrfull{lut}.
-The remaining three columns are used to store the voxel location in 3D space.
-Meaning, each entry in the binary labelmap 3D array corresponds to a specific voxel in the source dataset.
-As a result, binary labelmap segmentation resolution is tied to the source dataset resolution \cite{pinterPolymorphSegmentationRepresentation2019,sunderlandFractionalLabelmapsComputing2017,weber3DSlicerPlatform2022}.
+thus binary labelmaps tend to be memory inefficient for overlapping structures and large numbers of labels \cite{slicercommunity3DSlicerImage2022}.
 
 
 \subsection{Fractional labelmap}\label{s:b-fractional-labelmap}
@@ -684,17 +669,17 @@ As a result, fractional labelmaps can store higher segmentation resolutions than
 Closed surface representations, like in \cref{fig:segRep}/B, are composed of a triangulated mesh,
 which in turn, is built of a series of vertices or triangles.
 In terms of segmentation, the mesh surface boundary defines the segmentation volume,
-so that every voxel enc	ompassed by the mesh belongs to the segment \cite{delameMedialSurfaceMesh2012,weber3DSlicerPlatform2022,pinterPolymorphSegmentationRepresentation2019}.
+so that every voxel encompassed by the mesh belongs to the segment \cite{delameMedialSurfaceMesh2012,weber3DSlicerPlatform2022,pinterPolymorphSegmentationRepresentation2019}.
 In order to store a vertex representation, each triangle (vertex) needs to be stored separately.
 A schema of the representation can be seen in \cref{fig:surfacemesh-schema}.
 The representation of a single voxel starts with the definition of its facet normal or unit normal vector in 3D cartesian space.
 This vector points outward from the vertex, effectively defining the basic orientation of the vertex.
 Then, the triangle corners are defined in 3D cartesian space ($x,y,z$).
 \Cref{fig:surfacemesh} gives an overview of a possible triangle orientation.
-As illustrated, the first corner intersects with the third corner at the point where $x = −1$ and $z = 1$.
-The second corner intersects with the first only at position $z = 1$,
-whereas it intersects with the third at both $y = 1$ and $z = 1$.
-Ultimately, the third corner intersects with the first at the point $x = −1$ and with the second at the points $y = 1$ and $z = 1$.
+As illustrated, the first corner overlaps with the third corner at the point where $x = −1$ and $z = 1$.
+The second corner overlaps with the first only at position $z = 1$,
+whereas it overlaps with the third at both $y = 1$ and $z = 1$.
+Ultimately, the third corner overlaps with the first at the point $x = −1$ and with the second at the points $y = 1$ and $z = 1$.
 
 \begin{figure}[h] % taken from cube stl file
 	\begin{subfigure}{0.49\textwidth}
@@ -780,7 +765,7 @@ The S\o{}rensen–Dice coefficient, also known as \acrfull{dc}, is described by 
 \end{equation}
 \noindent
 It can be used to describe the similarities of two segmented images or volumes.
-It is two times the intersecting \glspl{vx} of segmentation x and y divided by the sum of \glspl{vx} of x and y.\\
+It is two times the intersecting \glspl{vx} of segmentation x and y divided by the sum of the number of \glspl{vx} of x and y.\\
 When dealing with Boolean data, the formula can be transformed to the following equation:\\
 \begin{equation}\label{eqn:binary-dice-coefficient}
 	DSC=\frac{2*TP}{2*TP+FP+FN}
@@ -812,11 +797,10 @@ As a result, the Hausdorff distance can be effectively put to use for measuring 
 \end{equation}
 To conclude, the algorithm works by iterating over the following steps \cite{hausdorffGrundzuegeMengenlehre1978,simBrainVentricleDetection2016,gegoireHausdorffDistanceConvex1998}:
 \begin{enumerate}
-	\item Find the Euclidean distance between all points of two sets $A$ and $B$
-	\item Get the minimum of the computed distances
-	\item Find the Euclidean distance between all points of two sets $B$ and $A$
-	\item Get the minimum of the computed distances
-	\item Get the largest of the computed minimum distances
+	\item For all points in set $A$: find the minimum euclidean distance to points in set $B$
+	\item Compute the maximum of those minimal distances
+	\item Repeat steps 1 and 2 with reversed roles for points of sets $A$ and $B$
+	\item Compute the maximum of the two maxima determined by the previous steps
 \end{enumerate}
 
 
@@ -847,8 +831,7 @@ notable differences between human and mouse bone anatomy will be pointed out \ci
 
 \noindent
 Most notably, the mouse skull reflects the importance of its sense of smell (olfaction),
-by its elongated facial features and large tooth size (see: \cref{fig:mouseSkull}).
-For a visual representation see: \cref{fig:mouseSkull}.
+by its elongated facial features and large tooth size (see \cref{fig:mouseSkull}).
 Meanwhile, the human head is shaped for a larger brain.
 In mice, the interparietal bone is well-developed compared to humans.
 Furthermore, in mice, the two mandibles are not fused together like in humans,
@@ -856,7 +839,7 @@ they are rather joined by cartilaginous tissue \cite{jeromeSkeletalSystem2018,ha
 
 \subsection{Spine}
 \label{s:b-mouse-spine}
-Mouse spines (see: \cref{fig:mouseSpine}) are made of 7 cervical vertebrae, 13 thoracic vertebrae, 6 lumbar vertebrae, 4 sacral vertebrae and 20-30 caudal vertebrae \cite{platzerTaschenatlasAnatomieBd2013}.
+Mouse spines (see \cref{fig:mouseSpine}) are made of 7 cervical vertebrae, 13 thoracic vertebrae, 6 lumbar vertebrae, 4 sacral vertebrae and 20-30 caudal vertebrae \cite{platzerTaschenatlasAnatomieBd2013}.
 Mice can possess up to 60 vertebrae, whereas humans only possess 33\footnote{34 with anatomical normal variant L6}.
 The largest part of this difference is made up by the fact that mice possess a tail composed of 27-31 coccygeal vertebrae,
 while humans only possess 4 non-articulated coccygeal vertebrae.
@@ -919,7 +902,7 @@ Calcaneus, cuboid, talus, navicular, lateral cuneiform, middle cuneiform and med
 
 \noindent
 Supratrochlear foramen in humerus in mice but not in humans \cite{ruberteMorphologicalMousePhenotyping2017,platzerTaschenatlasAnatomieBd2013}
-radius and ulna are independent and not fused as it occurs in other mammals
+radius and ulna are independent and not fused as it occurs in other mammals.
 
 \noindent
 The rodent fibula is half the length of those of humans and fuses with the tibia,
