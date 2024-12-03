@@ -52,7 +52,8 @@ The achievable tube voltage is limited to a range between 20 and 100\acrshort{kv
 
 \noindent
 The number of X-ray photons depends on the tube current, and the energy of the photons depends on the tube voltage squared.
-Moreover, the intensity of the beam can be expressed as a function of the product of these two factors, see: \cref{eqn:intensity-proportionality}.
+Moreover, the intensity of the beam can be expressed as a function of the product of these two factors,
+see: Equation \textbf{(\ref{eqn:intensity-proportionality})}.
 A flat panel detector typically contains a scintillator screen, which, when excited by X-rays, emits visible light \cite{babaComparisonFlatpanelDetector2002,ritmanCurrentStatusDevelopments2011,clarkMicroCTRodentsStateart2014}.
 The light is then detected with an image sensor, which can be either a \acrfull{ccd} or a \acrfull{cmos} image sensor \cite{babaComparisonFlatpanelDetector2002}.
 Micro-CT employs high-resolution flat panel detectors with pixel sizes of less than 100 $\mu m^{2}$ \cite{clarkAdvancesMicroCTImaging2021,clarkMicroCTRodentsStateart2014}.
@@ -60,7 +61,7 @@ They can, however, achieve \gls{iso} \gls{vx} sizes in a range between 400 nm an
 To produce a scan, the \mct\space captures several hundred, two-dimensional cone beam projections of different angles around the animal or object \cite{clarkMicroCTRodentsStateart2014,ritmanCurrentStatusDevelopments2011,clarkAdvancesMicroCTImaging2021}.
 The rotation angles can be in the range of 0 to 180$^{\circ}$ or 0 to 360$^{\circ}$ \cite{orhanMicrocomputedTomographyMicroCT2020}.
 Image information can be described as the amount of attenuation of the X-ray beam at a specific path through the volume \cite{orhanMicrocomputedTomographyMicroCT2020}.
-This attenuation is described by the following \cref{eqn:attenuation}:
+This attenuation is described by the following Equation \textbf{(\ref{eqn:attenuation})}:
 \begin{equation}\label{eqn:attenuation}
 	I_{x} = I_{0}e^{- \mu x}
 \end{equation}
@@ -68,7 +69,7 @@ This attenuation is described by the following \cref{eqn:attenuation}:
 \noindent
 Where $I_{0}$ is the initial intensity of the beam, $x$ is the distance the beam traveled, and $\mu$ is the linear \acrlong{ac}.
 The linear \acrfull{ac} is different for every tissue and material and describes its X-ray density.
-The result of \cref{eqn:attenuation} is $I_{x}$, the intensity of the beam at a distance $x$ from the source \cite{liMicrocomputedTomographySmall2008,orhanMicrocomputedTomographyMicroCT2020}.
+The result of Equation \textbf{(\ref{eqn:attenuation})} is $I_{x}$, the intensity of the beam at a distance $x$ from the source \cite{liMicrocomputedTomographySmall2008,orhanMicrocomputedTomographyMicroCT2020}.
 This is performed simultaneously for all detector pixels in a single projection.
 If the process is repeated for multiple angles in small steps (see: \cref{fig:ct-projections}) the attenuation value for every \gls{vx} in the scan volume can be found.
 Generally speaking, increasing the amount of projections leads to a more accurate result \cite{liMicrocomputedTomographySmall2008,orhanMicrocomputedTomographyMicroCT2020}.
@@ -126,19 +127,18 @@ Finally, \gls{isratv} is able to correct for streak artifacts and image noise \c
 \subsection{\acrfull{hu}}\label{s:b-hu}
 \acrfull{hu} are directly related to the \acrfull{ac} $\mu$
 and can also be called the CT number.
-\begin{equation}
+\begin{equation}\label{eqn:hu}
 	\acrshort{hu} = \frac{\mu - \mu_{water}}{\mu_{water}}*1000
-\end{equation}\label{eqn:hu}
-
+\end{equation}
 \noindent
-Equation 3 shows how \acrshort{hu} are computed.
+Equation \textbf{(\ref{eqn:hu})} shows how \acrshort{hu} are computed.
 Where $\mu$ is the \acrlong{ac} of a specific tissue or material and $\mu_{water}$
 is the \acrlong{ac} of water.
 It is calculated as the difference of the \acrlong{ac} of a tissue and water,
 divided by the \acrshort{ac} of water and finally multiplied by the factor $1000$ \cite{liMicrocomputedTomographySmall2008}.
 Effectively, all \acrshort{hu} values are calculated as a comparison to the \acrlong{ac} of water.
 This results in some notable \acrshort{hu} values on the Houndsfield scale.
-The most notable one being water, which is zero by definition of \cref{eqn:hu}.
+The most notable one being water, which is zero by definition of Equation \textbf{(\ref{eqn:hu})}.
 Air, which has an \acrlong{ac} close to zero, has a \acrshort{hu} value of $-1000$.
 Bone tissue, which has about twice the \acrlong{ac} of water, has a CT number of $+1000$.
 While most soft tissues have a \acrshort{hu} value between $-100$ and $+100$ \cite{liMicrocomputedTomographySmall2008}.
@@ -395,7 +395,7 @@ First order derivative detects edges by analyzing the intensity profile and look
 The first derivative can be approximated by using gradient operators like the Sobel operator.
 The latter is composed of $3 \times 3$ convolution kernels,
 which are specific to the image axis \cite{gonzalezDigitalImageProcessing2007}.
-In other words, firstly, there is a horizontal kernel $G_{x}$ (see Equation \ref{eqn:gx}) which is intended to emphasize changes in
+In other words, firstly, there is a horizontal kernel $G_{x}$, see Equation \textbf{(\ref{eqn:gx})}, which is intended to emphasize changes in
 intensity in horizontal direction:
 \begin{equation}\label{eqn:gx}
 	G_{x} =
@@ -406,7 +406,7 @@ intensity in horizontal direction:
 	\end{bmatrix}
 \end{equation}
 \noindent
-Secondly, the vertical kernel $G_{y}$ (see Equation \ref{eqn:gy}) is used to highlight changes in intensity in vertical direction:
+Secondly, the vertical kernel $G_{y}$, see Equation \textbf{(\ref{eqn:gy})}, is used to highlight changes in intensity in vertical direction:
 
 \begin{equation}\label{eqn:gy}
 	G_{y} =
@@ -421,7 +421,7 @@ Secondly, the vertical kernel $G_{y}$ (see Equation \ref{eqn:gy}) is used to hig
 To conclude, the edge detection workflow using the Sobel kernels is as follows:
 \begin{enumerate}
 	\item optionally reduce noise by applying Gaussian blur
-	\item convolute the image with the Sobel filter kernels to obtain edges in the respective $x$-  and $y$-direction
+	\item convolute the image with the Sobel filter kernels to obtain edges in the respective $x$- and $y$-direction
 	\item calculate gradient magnitude % G = np.sqrt(Gx**2 + Gy**2)
 	\item normalization of the output image
 \end{enumerate}
@@ -433,7 +433,7 @@ and look for so-called \textit{zero crossings}.
 These zero crossings are defined as points where the second order derivative changes signs.
 In other words, it goes from negative to positive, or vice versa.
 Zero crossings therefore indicate the presence of edges in the rate of change of image intensity \cite{gonzalezDigitalImageProcessing2007}.
-The second derivative can be approximated using the Laplacian operator (see Equation \ref{eqn:laplace}):
+The second derivative can be approximated using the Laplacian operator, see Equation \textbf{(\ref{eqn:laplace})}:
 \begin{equation}\label{eqn:laplace}
 	Laplace =
 	\begin{bmatrix}
@@ -571,17 +571,17 @@ The basic steps for a k-means clustering algorithm are as follows:
 	\item Repeat steps $3 - 5$ until it satisfies a tolerance value
 \end{enumerate}
 \begin{figure}[h!]
-  \centering
+	\centering
 	\begin{subfigure}{0.45\textwidth}
 		%\centerline{
-		  \includegraphics[scale=0.4]{images/kmeansSeeds.png}
+		\includegraphics[scale=0.4]{images/kmeansSeeds.png}
 		%}
 		\caption{k-means initial seed points \cite{shabalinKmeansClusteringKmeans2024}}\label{fig:kmeans1}
-	  \end{subfigure}
-	  \centering
+	\end{subfigure}
+	\centering
 	\begin{subfigure}{0.45\textwidth}
 		%\centerline{
-		  \includegraphics[scale=0.4]{images/kmeansClusters.png}
+		\includegraphics[scale=0.4]{images/kmeansClusters.png}
 		%}
 		\caption{k-means cluster centers \cite{shabalinKmeansClusteringKmeans2024}}\label{fig:kmeans2}
 	\end{subfigure}
@@ -759,14 +759,14 @@ However, when it comes to 3D visualization, planar contours as well as ribbons o
 This section is intended to give an overview of the two supervised segmentation assessment algorithms used in this study.
 
 \subsection{Dice coefficient}
-The S\o{}rensen–Dice coefficient, also known as \acrfull{dc}, is described by the equation \cite{diceMeasuresAmountEcologic1945}:\\
+The S\o{}rensen–Dice coefficient, also known as \acrfull{dc}, is described by the Equation \textbf{(\ref{eqn:dice-coefficient})} \cite{diceMeasuresAmountEcologic1945}:\\
 \begin{equation}\label{eqn:dice-coefficient}
 	DSC=\frac{2|X\cap Y|}{|X|+|Y|}
 \end{equation}
 \noindent
 It can be used to describe the similarities of two segmented images or volumes.
 It is two times the intersecting \glspl{vx} of segmentation x and y divided by the sum of the number of \glspl{vx} of x and y.\\
-When dealing with Boolean data, the formula can be transformed to the following equation:\\
+When dealing with Boolean data, the formula can be transformed to the following Equation \textbf{(\ref{eqn:binary-dice-coefficient})}:\\
 \begin{equation}\label{eqn:binary-dice-coefficient}
 	DSC=\frac{2*TP}{2*TP+FP+FN}
 \end{equation}
@@ -780,12 +780,12 @@ The \textit{Pompeiu–Hausdorff distance} or simply \textit{Hausdorff distance} 
 	``[\ldots] it is able to measure the degree of mismatch between two sets from the distance of the point of A that is farthest from any point of B, and vice versa.''
 \end{displayquote}
 In computer graphics, the Hausdorff distance can be used to compute the difference between two representations of the same 3D object.
-The Hausdorff distance is described by its general definition in \cref{eqn:general-hausdorff-distance}.
+The Hausdorff distance is described by its general definition in Equation \textbf{(\ref{eqn:general-hausdorff-distance})}.
 Where the Hausdorff distance $H$ from a set of points $A={a_{1}\ldots,a_{p}}$ to another set of points $B={b_{1}\ldots,b_{q}}$ is a maximum distance function $max(h(AB),h(BA))$ \cite{hausdorffGrundzuegeMengenlehre1978,simBrainVentricleDetection2016,gegoireHausdorffDistanceConvex1998}.
 \begin{equation}\label{eqn:general-hausdorff-distance}
 	H(A,B)=max(h(AB),h(BA))
 \end{equation}
-The functions $h(A,B)$ and $h(B,A)$ (see: \cref{eqn:directed-hausdorff-distance1} and \cref{eqn:directed-hausdorff-distance2}) are called directed Hausdorff distances from $A$ to $B$ and vice versa.
+The functions $h(A,B)$ and $h(B,A)$ (see: \textbf{(\ref{eqn:directed-hausdorff-distance1})} and \textbf{(\ref{eqn:directed-hausdorff-distance2})}) are called directed Hausdorff distances from $A$ to $B$ and vice versa.
 Where $d(a,b)$ is the Euclidean distance from $a$ to $b$.
 It identifies the nearest point in the set $B$ for every point in the set $A$ and isolates the largest distance between these points.
 As a result, the Hausdorff distance can be effectively put to use for measuring the mismatch between to sets of points \cite{hausdorffGrundzuegeMengenlehre1978,simBrainVentricleDetection2016,gegoireHausdorffDistanceConvex1998}.

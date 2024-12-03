@@ -11,13 +11,6 @@
 
 \RequirePackage{wrapfig} % enable text and figures side by side
 
-%'oneside' specifies that the pages will be printed on one sides of a every page. If you want to print on both sides of your pages use the parameter 'twoside'. Remember to order the printing job on one side of every page!!!
-
-
-%%%%------------------PREAMBLE----------------%%%%
-%%----------------------------------------------%%
-
-%%%%%-------------------PACKAGES-----------------%%%%%
 
 %\RequirePackage[utf8]{inputenc}
 \RequirePackage[a4paper,top=25mm,bottom=30mm,left=30mm,right=25mm]{geometry}   %allows to change margins and distances within the page's frame. Be careful with this tool. Remember to delete the frame!!!!
@@ -34,16 +27,12 @@
 	pdftitle={Development and evaluation of a bone anatomy segmentation guide for micro-CT in mice},
 	pdfstartpage=1,
 }
-% \RequirePackage{breakurl}
-%\RequirePackage{wallpaper}
 
 \def\UrlBreaks{\do\/\do-}
 
 \RequirePackage[toc,page]{appendix}
 \RequirePackage[final]{pdfpages}
 \RequirePackage{soul}       %provides hyphenatable letterspacing, underlining and some derivatives such as everstriking and highlighting.
-%\RequirePackage[intoc]{nomencl}   %helps to format a nomenclature.
-%\makenomenclature
 
 \RequirePackage[
 	nomain,
@@ -76,7 +65,6 @@
 \RequirePackage{tikz}
 
 \RequirePackage{caption}
-%\RequirePackage{abstract}   %This package allows to modify the Abstract style, position and font. Defines the abstract automatically.
 \RequirePackage{supertabular}
 \RequirePackage{tabto}
 
@@ -84,7 +72,6 @@
 \setmainfont{Times New Roman}
 
 %\newenvironment{body}{\fontfamily{Times New Roman}\selectfont}{\par}
-
 % \setsansfont[
 % Path=./includes/fonts/,
 % Extension=.ttf,
@@ -150,16 +137,6 @@
 \titlespacing*{\paragraph}{0pt}{6pt}{12pt}
 
 
-%\RequirePackage{fancyhdr}
-% \fancypagestyle{mystyle}{
-% 	  \renewcommand{\headrulewidth}{0pt} %0pt for no rule, 2pt thicker etc...
-%     \renewcommand{\footrulewidth}{0pt}
-%	  \fancyfoot[L]{BOTTOM LEFT}
-%     \fancyfoot[R]{BOTTOM RIGHT}
-%     \fancyhead[L]{\leftmark}
-%     \fancyhead[R]{\rightmark}
-% }
-
 %\RequirePackage{footnote}      %Just in case you want to include footnotes
 \RequirePackage[onehalfspacing]{setspace}      %Change spacing easily with simple commands
 
@@ -169,7 +146,11 @@
 \RequirePackage{mathtools}     %The mathtools package fixes some amsmath quirks and adds some useful settings, symbols, and environments to amsmath.
 
 \RequirePackage{listings}
-\RequirePackage[capitalise,nameinlink,noabbrev]{cleveref}
+\RequirePackage[
+	capitalise,
+	nameinlink,
+	noabbrev
+]{cleveref}
 
 \RequirePackage{epigraph}
 \RequirePackage{pgffor}
@@ -201,13 +182,16 @@
 \newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
 	#1\ignorespaces
 }
+
 \RequirePackage[
-backend=biber,
-style=ieee,
-sorting=none,
-natbib=true,
-block=space
+	backend=biber,
+	style=ieee,
+	sorting=none,
+	natbib=true,
+	block=space,
+	maxbibnames=99
 ]{biblatex}
+
 
 \RequirePackage{adjustbox}
 
