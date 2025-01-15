@@ -2,7 +2,12 @@
 \ProvidesClass{fhwn-masterthesis}[2019/04/08 Masterthesis Template for FHWN]
 
 %TODO: change to twoside for printing
-\LoadClass[oneside,12pt,bibliography=totoc]{scrbook}
+\LoadClass[
+	%oneside,
+	twoside,
+	12pt,
+	bibliography=totoc
+]{scrbook}
 
 \RequirePackage{gitinfo2}
 \RequirePackage{svg} % include svg pictures
